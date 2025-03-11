@@ -55,3 +55,21 @@ function showContactPopup(propertyName) {
         popup.style.display = "block";
     }
 }
+function showContactPopup(propertyName) {
+    const popup = document.getElementById("contactPopup");
+    const popupText = document.getElementById("popupText");
+
+    if (popupText) {
+        popupText.innerHTML = `Interessiert an <strong>${propertyName}</strong>? Hinterlassen Sie Ihre Kontaktdaten!`;
+    }
+
+    if (popup) {
+        popup.style.display = "block";
+    }
+}
+
+// Close Popup
+document.getElementById("closePopup").addEventListener("click", function () {
+    document.getElementById("contactPopup").style.display = "none";
+});
+

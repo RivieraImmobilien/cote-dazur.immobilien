@@ -20,6 +20,37 @@
 
     <section id="property-list">
         <h1>Immobilien zum Kauf</h1>
+<section id="properties">
+    <h2>Verfügbare Immobilien</h2>
+    <div class="property-list">
+        <div class="property">
+            <img src="images/house1.jpg" alt="Luxusvilla am Meer">
+            <h3>Luxusvilla am Meer</h3>
+            <p>5 Schlafzimmer | 3 Bäder | 350 m²</p>
+            <button onclick="showContactPopup('Luxusvilla am Meer')">Mehr erfahren</button>
+        </div>
+
+        <div class="property">
+            <img src="images/house2.jpg" alt="Moderne Stadtwohnung">
+            <h3>Moderne Stadtwohnung</h3>
+            <p>2 Schlafzimmer | 1 Bad | 120 m²</p>
+            <button onclick="showContactPopup('Moderne Stadtwohnung')">Mehr erfahren</button>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Popup -->
+<div id="contactPopup" class="popup">
+    <div class="popup-content">
+        <span id="closePopup">&times;</span>
+        <p id="popupText"></p>
+        <input type="text" placeholder="Ihr Name">
+        <input type="email" placeholder="Ihre E-Mail">
+        <input type="tel" placeholder="Ihre Telefonnummer">
+        <button id="submitPopup">Senden</button>
+    </div>
+</div>
+
         <div class="property" onclick="showContactPopup('Villa am Meer')">
             <img src="images/properties/property1.jpg" alt="Villa am Meer">
             <h2>Villa am Meer</h2>
