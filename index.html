@@ -1,90 +1,85 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Côte d'Azur Immobilien</title>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <!-- Swiper CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-  <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Côte d'Azur Immobilien</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <!-- Header with Navigation -->
-  <header>
-    <nav>
-      <ul>
-        <li><a href="index.html" class="active">Startseite</a></li>
-        <li><a href="buy.html">Kaufen</a></li>
-        <li><a href="sell.html">Verkaufen</a></li>
-        <li><a href="services.html">Dienstleistungen</a></li>
-      </ul>
-    </nav>
-  </header>
+    <!-- Header with Navigation -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Startseite</a></li>
+                <li><a href="buy.html">Kaufen</a></li>
+                <li><a href="sell.html">Verkaufen</a></li>
+                <li><a href="services.html">Dienstleistungen</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <!-- Main Hero Section with Swiper Slider -->
-  <main>
-    <section id="hero">
-      <!-- Swiper Container -->
-      <div class="swiper-container">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <img src="images/slider/image1.jpg" alt="Immobilien Côte d'Azur">
-          </div>
-          <div class="swiper-slide">
-            <img src="images/slider/image2.jpg" alt="Luxusvilla kaufen">
-          </div>
-          <div class="swiper-slide">
-            <img src="images/slider/image3.jpg" alt="Haus mit Meerblick">
-          </div>
+    <!-- Main Hero Section with Swiper Slider -->
+    <main>
+        <section id="hero">
+            <!-- Swiper Container -->
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <!-- Slide 1 -->
+                    <div class="swiper-slide">
+                        <img src="images/slider/image1.jpg" alt="Immobilien Côte d'Azur">
+                        <div class="slide-caption">Kaufen – Exklusive Immobilien</div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="swiper-slide">
+                        <img src="images/slider/image2.jpg" alt="Luxusvilla kaufen">
+                        <div class="slide-caption">Verkaufen – Jetzt Angebot sichern</div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="swiper-slide">
+                        <img src="images/slider/image3.jpg" alt="Haus mit Meerblick">
+                        <div class="slide-caption">Exklusive Angebote</div>
+                    </div>
+                </div>
+                <!-- Pagination and Navigation -->
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+            <!-- CTA Overlay -->
+            <div class="cta-overlay">
+                <button id="ctaButton">Mehr erfahren</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Contact Popup -->
+    <div id="contactPopup" class="popup">
+        <div class="popup-content">
+            <span id="closePopup" class="close">&times;</span>
+            <p id="popupText">Hinterlassen Sie Ihre Kontaktdaten, um mehr zu erfahren.</p>
+            <input type="text" placeholder="Ihr Name">
+            <input type="email" placeholder="Ihre E-Mail">
+            <input type="tel" placeholder="Ihre Telefonnummer">
+            <button id="submitPopup">Senden</button>
         </div>
-        <!-- Pagination and Navigation -->
-        <div class="swiper-pagination"></div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-      </div>
-      <!-- CTA Overlay -->
-      <div class="cta-overlay">
-        <button id="ctaButton" onclick="showContactPopup('Allgemein')">Mehr erfahren</button>
-      </div>
-    </section>
-  </main>
-
-  <!-- Contact Popup -->
-  <div id="contactPopup" class="popup">
-    <div class="popup-content">
-      <span id="closePopup" class="close">&times;</span>
-      <p id="popupText">Hinterlassen Sie Ihre Kontaktdaten, um mehr zu erfahren.</p>
-      <input type="text" placeholder="Ihr Name">
-      <input type="email" placeholder="Ihre E-Mail">
-      <input type="tel" placeholder="Ihre Telefonnummer">
-      <button id="submitPopup">Senden</button>
     </div>
-  </div>
 
-  <!-- Swiper JS -->
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-  <!-- Main Script -->
-  <script src="js/script.js"></script>
-  <script>
-    // Initialize SwiperJS
-    var swiper = new Swiper('.swiper-container', {
-      loop: true,
-      autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-    });
-  </script>
+    <!-- WhatsApp Floating Button -->
+    <div id="whatsappButton">
+        <a href="https://wa.me/YOUR_PHONE_NUMBER" target="_blank">
+            <img src="images/whatsapp-icon.png" alt="WhatsApp Kontakt">
+        </a>
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- Main Script -->
+    <script src="js/script.js"></script>
 </body>
 </html>

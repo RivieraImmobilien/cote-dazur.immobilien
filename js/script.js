@@ -1,49 +1,41 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Existing Popup Handling for generic CTA button
-  const ctaButton = document.getElementById("ctaButton");
-  const popup = document.getElementById("contactPopup");
-  const closePopup = document.getElementById("closePopup");
-  const submitPopup = document.getElementById("submitPopup");
-
-  if (ctaButton) {
-    ctaButton.addEventListener("click", function () {
-      // Default message for general inquiries
-      showContactPopup('Allgemein');
+    // Initialize Swiper
+    var swiper = new Swiper('.swiper-container', {
+        loop: true,
+        autoplay: {
+            delay: 5000, 
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
     });
-  }
 
-  if (closePopup) {
-    closePopup.addEventListener("click", function () {
-      popup.style.display = "none";
+    // Pause autoplay on hover
+    var swiperContainer = document.querySelector('.swiper-container');
+    swiperContainer.addEventListener('mouseenter', function () {
+        swiper.autoplay.stop();
     });
-  }
+    swiperContainer.addEventListener('mouseleave', function () {
+        swiper.autoplay.start();
+    });
 
-  if (submitPopup) {
-    submitPopup.addEventListener("click", function () {
-      alert("Details submitted! We will contact you soon.");
-      popup.style.display = "none";
+    // CTA Popup Handling
+    document.getElementById("ctaButton").addEventListener("click", function () {
+        document.getElementById("contactPopup").style.display = "block";
     });
-  }
 
-  // WhatsApp Integration (if you decide to add a WhatsApp button later)
-  const whatsappButton = document.getElementById("whatsappButton");
-  if (whatsappButton) {
-    whatsappButton.addEventListener("click", function () {
-      const phoneNumber = "YOUR_PHONE_NUMBER"; // Replace with your WhatsApp number
-      window.open(`https://wa.me/${phoneNumber}?text=I'm%20interested%20in%20your%20properties!`, "_blank");
+    document.getElementById("closePopup").addEventListener("click", function () {
+        document.getElementById("contactPopup").style.display = "none";
     });
-  }
+
+    document.getElementById("submitPopup").addEventListener("click", function () {
+        alert("Details submitted! We will contact you soon.");
+        document.getElementById("contactPopup").style.display = "none";
+    });
 });
-
-// NEW FUNCTION: Show Contact Popup with a Dynamic Message
-function showContactPopup(propertyName) {
-  const popup = document.getElementById("contactPopup");
-  const popupText = document.getElementById("popupText");
-
-  if (popupText) {
-    popupText.innerHTML = `Interessiert an <strong>${propertyName}</strong>? Hinterlassen Sie Ihre Kontaktdaten!`;
-  }
-  if (popup) {
-    popup.style.display = "flex"; // Using flex to center the popup
-  }
-}
