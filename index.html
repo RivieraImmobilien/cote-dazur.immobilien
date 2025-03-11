@@ -5,25 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Côte d'Azur Immobilien</title>
     <link rel="stylesheet" href="css/style.css">
-    <script defer src="js/script.js"></script>
 </head>
 <body>
+    <!-- Navigation Menu -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="buy.html">🏡 Kaufen</a></li>
+                <li><a href="sell.html">🏠 Verkaufen</a></li>
+                <li><a href="services.html">🔧 Dienstleistungen</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <!-- Slider Section -->
-    <div class="slider">
-        <div class="slide active" style="background-image: url('images/slider/slide1.jpg');"></div>
-        <div class="slide" style="background-image: url('images/slider/slide2.jpg');"></div>
-        <div class="slide" style="background-image: url('images/slider/slide3.jpg');"></div>
-        <button class="prev">&#10094;</button>
-        <button class="next">&#10095;</button>
+    <!-- Hero Section with Image Slider -->
+    <section id="hero">
+        <div class="slider">
+            <img src="images/slider/image1.jpg" alt="Immobilien Côte d'Azur">
+            <img src="images/slider/image2.jpg" alt="Luxusvilla kaufen">
+            <img src="images/slider/image3.jpg" alt="Haus mit Meerblick">
+        </div>
+        <div class="cta">
+            <button onclick="showContactPopup()">Mehr erfahren</button>
+        </div>
+    </section>
+
+    <!-- Contact Popup -->
+    <div id="contactPopup" class="popup">
+        <p>Hinterlassen Sie Ihre E-Mail und Telefonnummer, um mehr Immobilienangebote zu erhalten.</p>
+        <input type="email" placeholder="Ihre E-Mail">
+        <input type="tel" placeholder="Ihre Telefonnummer">
+        <button>Absenden</button>
     </div>
 
-    <!-- Navigation Buttons -->
-    <div class="buttons">
-        <a href="buy.html" class="btn">Kaufen</a>
-        <a href="sell.html" class="btn">Verkaufen</a>
-        <a href="services.html" class="btn">Dienstleistungen</a>
-    </div>
-
+    <script src="js/script.js"></script>
 </body>
 </html>
