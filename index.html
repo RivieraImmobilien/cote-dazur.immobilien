@@ -4,147 +4,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Côte d'Azur Immobilien</title>
-    <!-- Favicon -->
-    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="styles.css">
-    <!-- Inline CSS for demonstration purposes -->
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: #333;
-        }
-        header {
-            background-color: #007FFF;
-            color: white;
-            padding: 10px 0;
-            text-align: center;
-        }
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        nav ul li {
-            display: inline;
-            margin: 0 15px;
-        }
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-        }
-        .hero {
-            background-image: url('images/hero.jpg');
-            background-size: cover;
-            background-position: center;
-            height: 400px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-        }
-        .hero h1 {
-            font-size: 3em;
-        }
-        .content {
-            padding: 20px;
-        }
-        .content h2 {
-            color: #007FFF;
-        }
-        .properties {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-        }
-        .property {
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            overflow: hidden;
-            width: 300px;
-        }
-        .property img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-        .property-details {
-            padding: 15px;
-        }
-        .property-details h3 {
-            margin: 0 0 10px;
-        }
-        .property-details p {
-            margin: 0 0 15px;
-        }
-        .property-details a {
-            background-color: #007FFF;
-            color: white;
-            padding: 10px 15px;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        footer {
-            background-color: #f4f4f4;
-            text-align: center;
-            padding: 10px 0;
-            margin-top: 20px;
-        }
-    </style>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- Header with Navigation -->
     <header>
-        <h1>Côte d'Azur Immobilien</h1>
         <nav>
             <ul>
-                <li><a href="#">Startseite</a></li>
-                <li><a href="#">Kaufen</a></li>
-                <li><a href="#">Verkaufen</a></li>
-                <li><a href="#">Dienstleistungen</a></li>
-                <li><a href="#">Kontakt</a></li>
+                <li><a href="index.html" class="active">Startseite</a></li>
+                <li><a href="buy.html">Kaufen</a></li>
+                <li><a href="sell.html">Verkaufen</a></li>
+                <li><a href="services.html">Dienstleistungen</a></li>
             </ul>
         </nav>
     </header>
-    <section class="hero">
-        <h1>Finden Sie Ihr Traumhaus an der Côte d'Azur</h1>
-    </section>
-    <section class="content">
-        <h2>Exklusive Angebote</h2>
-        <div class="properties">
-            <!-- Property 1 -->
-            <div class="property">
-                <img src="images/property1.jpg" alt="Luxusvilla mit Meerblick">
-                <div class="property-details">
-                    <h3>Luxusvilla mit Meerblick</h3>
-                    <p>€2.500.000 - 5 Schlafzimmer, 4 Badezimmer</p>
-                    <a href="#">Mehr erfahren</a>
+
+    <!-- Main Hero Section with Swiper Slider -->
+    <main>
+        <section id="hero">
+            <!-- Swiper Container -->
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <!-- Slide 1 -->
+                    <div class="swiper-slide">
+                        <img src="images/slider/image1.jpg" alt="Immobilien Côte d'Azur">
+                        <div class="slide-caption">Kaufen – Exklusive Immobilien</div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="swiper-slide">
+                        <img src="images/slider/image2.jpg" alt="Luxusvilla kaufen">
+                        <div class="slide-caption">Verkaufen – Jetzt Angebot sichern</div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="swiper-slide">
+                        <img src="images/slider/image3.jpg" alt="Haus mit Meerblick">
+                        <div class="slide-caption">Exklusive Angebote</div>
+                    </div>
                 </div>
+                <!-- Pagination and Navigation -->
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
             </div>
-            <!-- Property 2 -->
-            <div class="property">
-                <img src="images/property2.jpg" alt="Modernes Apartment im Stadtzentrum">
-                <div class="property-details">
-                    <h3>Modernes Apartment im Stadtzentrum</h3>
-                    <p>€850.000 - 3 Schlafzimmer, 2 Badezimmer</p>
-                    <a href="#">Mehr erfahren</a>
-                </div>
+            <!-- CTA Overlay -->
+            <div class="cta-overlay">
+                <button id="ctaButton">Mehr erfahren</button>
             </div>
-            <!-- Property 3 -->
-            <div class="property">
-                <img src="images/property3.jpg" alt="Charmantes Landhaus">
-                <div class="property-details">
-                    <h3>Charmantes Landhaus</h3>
-                    <p>€1.200.000 - 4 Schlafzimmer, 3 Badezimmer</p>
-                    <a href="#">Mehr erfahren</a>
-                </div>
-            </div>
+        </section>
+    </main>
+
+    <!-- Contact Popup -->
+    <div id="contactPopup" class="popup">
+        <div class="popup-content">
+            <span id="closePopup" class="close">&times;</span>
+            <p id="popupText">Hinterlassen Sie Ihre Kontaktdaten, um mehr zu erfahren.</p>
+            <input type="text" placeholder="Ihr Name">
+            <input type="email" placeholder="Ihre E-Mail">
+            <input type="tel" placeholder="Ihre Telefonnummer">
+            <button id="submitPopup">Senden</button>
         </div>
-    </section>
-    <footer>
-        <p>&copy; 2025 Côte d'Azur Immobilien. Alle Rechte vorbehalten.</p>
-    </footer>
+    </div>
+
+    <!-- WhatsApp Floating Button -->
+    <div id="whatsappButton">
+        <a href="https://wa.me/YOUR_PHONE_NUMBER" target="_blank">
+            <img src="images/whatsapp-icon.png" alt="WhatsApp Kontakt">
+        </a>
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- Main Script -->
+    <script src="js/script.js"></script>
 </body>
 </html>
