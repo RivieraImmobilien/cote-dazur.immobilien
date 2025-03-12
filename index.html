@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Côte d'Azur Immobilien</title>
+    <!-- Favicon -->
     <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="styles.css">
+    <!-- Inline CSS for demonstration purposes -->
     <style>
-        /* Basic CSS for layout and styling */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -23,34 +25,34 @@
         nav ul {
             list-style-type: none;
             padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            background-color: #005BBB;
         }
         nav ul li {
+            display: inline;
             margin: 0 15px;
         }
         nav ul li a {
             color: white;
             text-decoration: none;
-            font-weight: bold;
         }
         .hero {
-            background: url('images/hero-image.jpg') no-repeat center center;
+            background-image: url('images/hero.jpg');
             background-size: cover;
+            background-position: center;
             height: 400px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
         .hero h1 {
             font-size: 3em;
         }
-        .container {
+        .content {
             padding: 20px;
+        }
+        .content h2 {
+            color: #007FFF;
         }
         .properties {
             display: flex;
@@ -60,89 +62,87 @@
         }
         .property {
             border: 1px solid #ddd;
-            border-radius: 8px;
+            border-radius: 5px;
             overflow: hidden;
             width: 300px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
         .property img {
             width: 100%;
-            height: auto;
+            height: 200px;
+            object-fit: cover;
         }
         .property-details {
             padding: 15px;
         }
         .property-details h3 {
-            margin-top: 0;
+            margin: 0 0 10px;
+        }
+        .property-details p {
+            margin: 0 0 15px;
+        }
+        .property-details a {
+            background-color: #007FFF;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
         }
         footer {
-            background-color: #005BBB;
-            color: white;
+            background-color: #f4f4f4;
             text-align: center;
             padding: 10px 0;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-        @media (max-width: 600px) {
-            .hero h1 {
-                font-size: 2em;
-            }
-            .properties {
-                flex-direction: column;
-                align-items: center;
-            }
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
     <header>
         <h1>Côte d'Azur Immobilien</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Startseite</a></li>
+                <li><a href="#">Kaufen</a></li>
+                <li><a href="#">Verkaufen</a></li>
+                <li><a href="#">Dienstleistungen</a></li>
+                <li><a href="#">Kontakt</a></li>
+            </ul>
+        </nav>
     </header>
-    <nav>
-        <ul>
-            <li><a href="#">Startseite</a></li>
-            <li><a href="#">Kaufen</a></li>
-            <li><a href="#">Verkaufen</a></li>
-            <li><a href="#">Dienstleistungen</a></li>
-            <li><a href="#">Kontakt</a></li>
-        </ul>
-    </nav>
-    <div class="hero">
+    <section class="hero">
         <h1>Finden Sie Ihr Traumhaus an der Côte d'Azur</h1>
-    </div>
-    <div class="container">
+    </section>
+    <section class="content">
         <h2>Exklusive Angebote</h2>
         <div class="properties">
-            <!-- Example Property 1 -->
+            <!-- Property 1 -->
             <div class="property">
-                <img src="images/property1.jpg" alt="Luxusvilla in Saint Tropez">
+                <img src="images/property1.jpg" alt="Luxusvilla mit Meerblick">
                 <div class="property-details">
-                    <h3>Luxusvilla in Saint Tropez</h3>
-                    <p>Preis: €2.500.000</p>
-                    <p>Diese exquisite Villa bietet einen atemberaubenden Meerblick und modernen Komfort.</p>
+                    <h3>Luxusvilla mit Meerblick</h3>
+                    <p>€2.500.000 - 5 Schlafzimmer, 4 Badezimmer</p>
+                    <a href="#">Mehr erfahren</a>
                 </div>
             </div>
-            <!-- Example Property 2 -->
+            <!-- Property 2 -->
             <div class="property">
-                <img src="images/property2.jpg" alt="Charmantes Haus in Nizza">
+                <img src="images/property2.jpg" alt="Modernes Apartment im Stadtzentrum">
                 <div class="property-details">
-                    <h3>Charmantes Haus in Nizza</h3>
-                    <p>Preis: €1.200.000</p>
-                    <p>Ein wunderschön renoviertes Haus im Herzen von Nizza mit historischem Flair.</p>
+                    <h3>Modernes Apartment im Stadtzentrum</h3>
+                    <p>€850.000 - 3 Schlafzimmer, 2 Badezimmer</p>
+                    <a href="#">Mehr erfahren</a>
                 </div>
             </div>
-            <!-- Example Property 3 -->
+            <!-- Property 3 -->
             <div class="property">
-                <img src="images/property3.jpg" alt="Moderne Wohnung in Cannes">
+                <img src="images/property3.jpg" alt="Charmantes Landhaus">
                 <div class="property-details">
-                    <h3>Moderne Wohnung in Cannes</h3>
-                    <p>Preis: €850.000</p>
-                    <p>Stilvolle Wohnung mit Meerblick, ideal gelegen nahe dem Zentrum von Cannes.</p>
+                    <h3>Charmantes Landhaus</h3>
+                    <p>€1.200.000 - 4 Schlafzimmer, 3 Badezimmer</p>
+                    <a href="#">Mehr erfahren</a>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
     <footer>
         <p>&copy; 2025 Côte d'Azur Immobilien. Alle Rechte vorbehalten.</p>
     </footer>
