@@ -14,65 +14,100 @@
 <body>
     <!-- Header with Navigation -->
     <header>
-        <nav>
+        <nav aria-label="Hauptnavigation">
             <ul>
                 <li><a href="index.html" class="active">Startseite</a></li>
                 <li><a href="buy.html">Kaufen</a></li>
                 <li><a href="sell.html">Verkaufen</a></li>
                 <li><a href="services.html">Dienstleistungen</a></li>
+                <li><a href="contact.html">Kontakt</a></li>
             </ul>
         </nav>
     </header>
 
     <!-- Main Hero Section with Swiper Slider -->
     <main>
-        <section id="hero">
+        <section id="hero" aria-label="Hauptbereich">
             <!-- Swiper Container -->
             <div class="swiper-container">
                 <div class="swiper-wrapper">
                     <!-- Slide 1 -->
                     <div class="swiper-slide">
-                        <img src="images/slider/image1.jpg" alt="Immobilien Côte d'Azur">
-                        <div class="slide-caption">Kaufen – Exklusive Immobilien</div>
+                        <img src="images/slider/image1.jpg" alt="Luxusvilla in Saint Tropez">
+                        <div class="slide-caption">Luxusvilla in Saint Tropez</div>
                     </div>
                     <!-- Slide 2 -->
                     <div class="swiper-slide">
-                        <img src="images/slider/image2.jpg" alt="Luxusvilla kaufen">
-                        <div class="slide-caption">Verkaufen – Jetzt Angebot sichern</div>
+                        <img src="images/slider/image2.jpg" alt="Charmantes Haus in Nizza">
+                        <div class="slide-caption">Charmantes Haus in Nizza</div>
                     </div>
                     <!-- Slide 3 -->
                     <div class="swiper-slide">
-                        <img src="images/slider/image3.jpg" alt="Haus mit Meerblick">
-                        <div class="slide-caption">Exklusive Angebote</div>
+                        <img src="images/slider/image3.jpg" alt="Moderne Wohnung in Cannes">
+                        <div class="slide-caption">Moderne Wohnung in Cannes</div>
                     </div>
                 </div>
                 <!-- Pagination and Navigation -->
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination" aria-label="Slider-Pagination"></div>
+                <button class="swiper-button-next" aria-label="Nächster Slide"></button>
+                <button class="swiper-button-prev" aria-label="Vorheriger Slide"></button>
             </div>
             <!-- CTA Overlay -->
             <div class="cta-overlay">
-                <button id="ctaButton">Mehr erfahren</button>
+                <button id="ctaButton" aria-haspopup="dialog">Mehr erfahren</button>
+            </div>
+        </section>
+
+        <!-- Property Listings -->
+        <section id="properties" aria-labelledby="properties-heading">
+            <h2 id="properties-heading">Exklusive Angebote</h2>
+            <div class="property-list">
+                <!-- Property 1 -->
+                <article class="property-item">
+                    <img src="images/properties/property1.jpg" alt="Luxusvilla in Saint Tropez">
+                    <h3>Luxusvilla in Saint Tropez</h3>
+                    <p>Preis: €2.500.000</p>
+                    <p>Diese exquisite Villa bietet einen atemberaubenden Meerblick und modernen Komfort.</p>
+                </article>
+                <!-- Property 2 -->
+                <article class="property-item">
+                    <img src="images/properties/property2.jpg" alt="Charmantes Haus in Nizza">
+                    <h3>Charmantes Haus in Nizza</h3>
+                    <p>Preis: €1.200.000</p>
+                    <p>Ein wunderschön renoviertes Haus im Herzen von Nizza mit historischem Flair.</p>
+                </article>
+                <!-- Property 3 -->
+                <article class="property-item">
+                    <img src="images/properties/property3.jpg" alt="Moderne Wohnung in Cannes">
+                    <h3>Moderne Wohnung in Cannes</h3>
+                    <p>Preis: €850.000</p>
+                    <p>Stilvolle Wohnung mit Meerblick, ideal gelegen nahe dem Zentrum von Cannes.</p>
+                </article>
             </div>
         </section>
     </main>
 
     <!-- Contact Popup -->
-    <div id="contactPopup" class="popup">
+    <div id="contactPopup" class="popup" role="dialog" aria-modal="true" aria-labelledby="popupTitle" aria-describedby="popupDescription">
         <div class="popup-content">
-            <span id="closePopup" class="close">&times;</span>
-            <p id="popupText">Hinterlassen Sie Ihre Kontaktdaten, um mehr zu erfahren.</p>
-            <input type="text" placeholder="Ihr Name">
-            <input type="email" placeholder="Ihre E-Mail">
-            <input type="tel" placeholder="Ihre Telefonnummer">
-            <button id="submitPopup">Senden</button>
+            <button id="closePopup" class="close" aria-label="Popup schließen">&times;</button>
+            <h2 id="popupTitle">Kontaktieren Sie uns</h2>
+            <p id="popupDescription">Hinterlassen Sie Ihre Kontaktdaten, um mehr zu erfahren.</p>
+            <form id="contactForm">
+                <label for="name">Ihr Name</label>
+                <input type="text" id="name" name="name" placeholder="Ihr Name" required>
+                <label for="email">Ihre E-Mail</label>
+                <input type="email" id="email" name="email" placeholder="Ihre E-Mail" required>
+                <label for="phone">Ihre Telefonnummer</label>
+                <input type="tel" id="phone" name="phone" placeholder="Ihre Telefonnummer" required>
+                <button type="submit" id="submitPopup">Senden</button>
+            </form>
         </div>
     </div>
 
     <!-- WhatsApp Floating Button -->
     <div id="whatsappButton">
-        <a href="https://wa.me/YOUR_PHONE_NUMBER" target="_blank">
+        <a href="https://wa.me/YOUR_PHONE_NUMBER" target="_blank" aria-label="Kontaktieren Sie uns über WhatsApp">
             <img src="images/whatsapp-icon.png" alt="WhatsApp Kontakt">
         </a>
     </div>
