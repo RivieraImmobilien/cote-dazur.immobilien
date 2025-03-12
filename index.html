@@ -36,11 +36,11 @@
             <div class="property-list">
                 <!-- Property 1 -->
                 <div class="property">
-                    <img src="images/house1.jpg" alt="Luxusvilla in Saint Tropez">
-                    <h3>Luxusvilla in Saint Tropez</h3>
+                    <img src="images/house1.jpg" alt="Luxusvilla in Saint-Tropez">
+                    <h3>Luxusvilla in Saint-Tropez</h3>
                     <p>Preis: €2.500.000</p>
                     <p>Diese exquisite Villa bietet einen atemberaubenden Meerblick und modernen Komfort.</p>
-                    <button onclick="showContactPopup('Luxusvilla in Saint Tropez')">Mehr erfahren</button>
+                    <button onclick="showContactPopup('Luxusvilla in Saint-Tropez')">Mehr erfahren</button>
                 </div>
                 <!-- Property 2 -->
                 <div class="property">
@@ -62,13 +62,12 @@
         </div>
     </section>
 
-
     <!-- Contact Popup -->
     <div id="contactPopup" class="popup">
         <div class="popup-content">
             <span id="closePopup">&times;</span>
             <p id="popupText"></p>
-            <form id="contactForm">
+            <form id="contactForm" method="post" action="contact.php">
                 <input type="text" id="name" name="name" placeholder="Ihr Name" required>
                 <input type="email" id="email" name="email" placeholder="Ihre E-Mail" required>
                 <input type="tel" id="phone" name="phone" placeholder="Ihre Telefonnummer" required>
