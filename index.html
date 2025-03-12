@@ -1,116 +1,150 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Côte d'Azur Immobilien</title>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <!-- Swiper CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-  <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Côte d'Azur Immobilien</title>
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Basic CSS for layout and styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background-color: #007FFF;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            background-color: #005BBB;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .hero {
+            background: url('images/hero-image.jpg') no-repeat center center;
+            background-size: cover;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .hero h1 {
+            font-size: 3em;
+        }
+        .container {
+            padding: 20px;
+        }
+        .properties {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .property {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            width: 300px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .property img {
+            width: 100%;
+            height: auto;
+        }
+        .property-details {
+            padding: 15px;
+        }
+        .property-details h3 {
+            margin-top: 0;
+        }
+        footer {
+            background-color: #005BBB;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+            .properties {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
 </head>
 <body>
-  <!-- Header with Navigation -->
-  <header>
+    <header>
+        <h1>Côte d'Azur Immobilien</h1>
+    </header>
     <nav>
-      <ul>
-        <li><a href="index.html" class="active">Startseite</a></li>
-        <li><a href="buy.html">Kaufen</a></li>
-        <li><a href="sell.html">Verkaufen</a></li>
-        <li><a href="services.html">Dienstleistungen</a></li>
-      </ul>
+        <ul>
+            <li><a href="#">Startseite</a></li>
+            <li><a href="#">Kaufen</a></li>
+            <li><a href="#">Verkaufen</a></li>
+            <li><a href="#">Dienstleistungen</a></li>
+            <li><a href="#">Kontakt</a></li>
+        </ul>
     </nav>
-  </header>
-
-  <!-- Main Hero Section with Swiper Slider -->
-  <main>
-    <section id="hero">
-      <!-- Swiper Container -->
-      <div class="swiper-container">
-        <div class="swiper-wrapper">
-          <!-- Slide 1 -->
-          <div class="swiper-slide">
-            <img src="images/slider/image1.jpg" alt="Immobilien Côte d'Azur">
-            <div class="slide-caption">Kaufen – Exklusive Immobilien</div>
-          </div>
-          <!-- Slide 2 -->
-          <div class="swiper-slide">
-            <img src="images/slider/image2.jpg" alt="Luxusvilla verkaufen">
-            <div class="slide-caption">Verkaufen – Jetzt Angebot sichern</div>
-          </div>
-          <!-- Slide 3 -->
-          <div class="swiper-slide">
-            <img src="images/slider/image3.jpg" alt="Haus mit Meerblick">
-            <div class="slide-caption">Exklusive Angebote</div>
-          </div>
-        </div>
-        <!-- Pagination and Navigation -->
-        <div class="swiper-pagination"></div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-      </div>
-      <!-- CTA Overlay -->
-      <div class="cta-overlay">
-        <button id="ctaButton">Mehr erfahren</button>
-      </div>
-    </section>
-  </main>
-
-  <!-- Contact Popup -->
-  <div id="contactPopup" class="popup">
-    <div class="popup-content">
-      <span id="closePopup" class="close">&times;</span>
-      <p id="popupText">Hinterlassen Sie Ihre Kontaktdaten, um mehr zu erfahren.</p>
-      <input type="text" id="contactName" placeholder="Ihr Name">
-      <input type="email" id="contactEmail" placeholder="Ihre E-Mail">
-      <input type="tel" id="contactPhone" placeholder="Ihre Telefonnummer">
-      <button id="submitPopup">Senden</button>
+    <div class="hero">
+        <h1>Finden Sie Ihr Traumhaus an der Côte d'Azur</h1>
     </div>
-  </div>
-
-  <!-- WhatsApp Floating Button -->
-  <div id="whatsappButton">
-    <a href="https://wa.me/YOUR_PHONE_NUMBER" target="_blank">
-      <img src="images/whatsapp-icon.png" alt="WhatsApp Kontakt">
-    </a>
-  </div>
-
-  <!-- Swiper JS -->
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-  <!-- Main Script -->
-  <script src="js/script.js"></script>
-  <script>
-    // Initialize Swiper with fade effect and improved settings
-    var swiper = new Swiper('.swiper-container', {
-      loop: true,
-      effect: 'fade',
-      fadeEffect: {
-        crossFade: true,
-      },
-      autoplay: {
-        delay: 5000,
-        disableOnInteraction: false,
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-    });
-
-    // Pause autoplay on hover
-    var swiperContainer = document.querySelector('.swiper-container');
-    swiperContainer.addEventListener('mouseenter', function () {
-      swiper.autoplay.stop();
-    });
-    swiperContainer.addEventListener('mouseleave', function () {
-      swiper.autoplay.start();
-    });
-  </script>
+    <div class="container">
+        <h2>Exklusive Angebote</h2>
+        <div class="properties">
+            <!-- Example Property 1 -->
+            <div class="property">
+                <img src="images/property1.jpg" alt="Luxusvilla in Saint Tropez">
+                <div class="property-details">
+                    <h3>Luxusvilla in Saint Tropez</h3>
+                    <p>Preis: €2.500.000</p>
+                    <p>Diese exquisite Villa bietet einen atemberaubenden Meerblick und modernen Komfort.</p>
+                </div>
+            </div>
+            <!-- Example Property 2 -->
+            <div class="property">
+                <img src="images/property2.jpg" alt="Charmantes Haus in Nizza">
+                <div class="property-details">
+                    <h3>Charmantes Haus in Nizza</h3>
+                    <p>Preis: €1.200.000</p>
+                    <p>Ein wunderschön renoviertes Haus im Herzen von Nizza mit historischem Flair.</p>
+                </div>
+            </div>
+            <!-- Example Property 3 -->
+            <div class="property">
+                <img src="images/property3.jpg" alt="Moderne Wohnung in Cannes">
+                <div class="property-details">
+                    <h3>Moderne Wohnung in Cannes</h3>
+                    <p>Preis: €850.000</p>
+                    <p>Stilvolle Wohnung mit Meerblick, ideal gelegen nahe dem Zentrum von Cannes.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 Côte d'Azur Immobilien. Alle Rechte vorbehalten.</p>
+    </footer>
 </body>
 </html>

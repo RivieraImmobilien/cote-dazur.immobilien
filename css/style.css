@@ -7,29 +7,64 @@ body {
     color: #333;
 }
 
-/* Navigation */
+/* Container */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/* Header */
 header {
     background: #2c3e50;
     padding: 15px 0;
-    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
-nav ul {
+.logo a {
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Navigation */
+.nav-links {
     list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
     padding: 0;
 }
-nav ul li {
-    display: inline;
-    margin: 0 15px;
-}
-nav ul li a {
+.nav-links li a {
     text-decoration: none;
     color: white;
-    font-weight: bold;
     font-size: 18px;
+    padding: 10px;
+    transition: color 0.3s;
 }
-nav ul li a.active,
-nav ul li a:hover {
+.nav-links li a:hover,
+.nav-links li a.active {
     color: #f1c40f;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+.hamburger .bar {
+    height: 3px;
+    width: 25px;
+    background-color: #fff;
+    margin: 4px 0;
+    transition: all 0.3s ease;
 }
 
 /* Swiper Slider */
@@ -50,7 +85,7 @@ nav ul li a:hover {
     bottom: 20px;
     left: 20px;
     padding: 10px 15px;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.6);
     color: #fff;
     font-size: 20px;
     border-radius: 5px;
@@ -131,8 +166,26 @@ nav ul li a:hover {
     height: 50px;
 }
 
-/* Responsive Adjustments */
+/* Responsive Styles */
 @media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        display: none; /* Hidden by default; shown when toggled */
+        text-align: center;
+    }
+    .nav-links.nav-active {
+        display: flex;
+    }
+    .hamburger {
+        display: flex;
+    }
+    /* Adjust slider height on mobile */
     .swiper-container {
         height: 40vh;
     }
@@ -143,9 +196,5 @@ nav ul li a:hover {
         font-size: 16px;
         bottom: 10px;
         left: 10px;
-    }
-    nav ul li {
-        display: block;
-        margin: 10px 0;
     }
 }

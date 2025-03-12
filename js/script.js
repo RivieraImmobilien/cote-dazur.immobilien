@@ -1,5 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Swiper initialization is handled in the inline script of index.html
+    // Hamburger menu toggle for mobile navigation
+    const hamburger = document.querySelector(".hamburger");
+    const navLinks = document.querySelector(".nav-links");
+
+    hamburger.addEventListener("click", function () {
+        navLinks.classList.toggle("nav-active");
+        // Optionally, animate hamburger icon (toggle a class)
+        hamburger.classList.toggle("toggle");
+    });
 
     // CTA Popup Handling
     document.getElementById("ctaButton").addEventListener("click", function () {
@@ -20,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
             alert("Bitte füllen Sie alle Felder aus.");
             return;
         }
-        // Basic email format check (can be expanded)
+        // Basic email format check
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailPattern.test(email)) {
             alert("Bitte geben Sie eine gültige E-Mail-Adresse ein.");
@@ -29,6 +37,4 @@ document.addEventListener("DOMContentLoaded", function () {
         alert("Details submitted! We will contact you soon.");
         document.getElementById("contactPopup").style.display = "none";
     });
-
-    // WhatsApp Integration (if desired, add additional functionality here)
 });
