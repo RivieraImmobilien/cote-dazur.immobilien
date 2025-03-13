@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 document.addEventListener("DOMContentLoaded", function () {
     // Hamburger menu toggle for mobile navigation
     const hamburger = document.querySelector(".hamburger");
@@ -8,16 +9,38 @@ document.addEventListener("DOMContentLoaded", function () {
         // Optionally, animate hamburger icon (toggle a class)
         hamburger.classList.toggle("toggle");
     });
+=======
+let slideIndex = 0;
+>>>>>>> Stashed changes
 
-    // CTA Popup Handling
-    document.getElementById("ctaButton").addEventListener("click", function () {
-        document.getElementById("contactPopup").style.display = "block";
-    });
+function showSlides() {
+    let slides = document.querySelectorAll(".slide");
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {
+        slideIndex = 1;
+    }
+    slides[slideIndex - 1].style.display = "block";
+    setTimeout(showSlides, 3000); // Change slide every 3 seconds
+}
 
-    document.getElementById("closePopup").addEventListener("click", function () {
-        document.getElementById("contactPopup").style.display = "none";
-    });
+function moveSlide(step) {
+    let slides = document.querySelectorAll(".slide");
+    slideIndex += step;
+    if (slideIndex < 1) {
+        slideIndex = slides.length;
+    } else if (slideIndex > slides.length) {
+        slideIndex = 1;
+    }
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    slides[slideIndex - 1].style.display = "block";
+}
 
+<<<<<<< Updated upstream
     document.getElementById("submitPopup").addEventListener("click", function () {
         // Simple form validation
         const name = document.getElementById("contactName").value.trim();
@@ -38,3 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("contactPopup").style.display = "none";
     });
 });
+=======
+// Start the slider when the page loads
+document.addEventListener("DOMContentLoaded", showSlides);
+>>>>>>> Stashed changes
