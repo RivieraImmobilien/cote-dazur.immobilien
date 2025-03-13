@@ -1,4 +1,4 @@
-/* Reset and Global Styles */
+/* Global Reset & Styles */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -7,18 +7,23 @@
 
 body {
   font-family: Arial, sans-serif;
-  color: #333;
   background: #f9f9f9;
+  color: #333;
   line-height: 1.6;
 }
 
 .container {
   width: 80%;
   margin: auto;
-  overflow: hidden;
 }
 
-/* Header */
+/* Header & Navigation */
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 header {
   background: #0044cc;
   color: #fff;
@@ -26,27 +31,23 @@ header {
 }
 
 header h1 {
-  float: left;
+  font-size: 1.8rem;
   margin-left: 20px;
-}
-
-nav {
-  float: right;
-  margin-right: 20px;
 }
 
 nav ul {
   list-style: none;
+  display: flex;
 }
 
 nav ul li {
-  display: inline;
   margin-left: 20px;
 }
 
 nav ul li a {
   color: #fff;
   text-decoration: none;
+  font-weight: bold;
 }
 
 nav ul li a.active,
@@ -54,38 +55,70 @@ nav ul li a:hover {
   text-decoration: underline;
 }
 
-/* Slider */
+/* Hamburger Menu (visible on mobile) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  background: none;
+  border: none;
+  margin-right: 20px;
+}
+
+.hamburger .bar {
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  margin: 4px 0;
+}
+
+/* Slider Section */
 .slider {
   position: relative;
   max-width: 1000px;
   margin: 20px auto;
   overflow: hidden;
   border-radius: 10px;
+  background: #ddd;
+  padding: 20px 0; /* extra padding for visual space */
 }
 
 .slides {
   display: flex;
   transition: transform 0.5s ease-in-out;
+  justify-content: center; /* center slides horizontally */
+  align-items: center;
 }
 
+/* Slide classes for different widths */
 .slide {
-  min-width: 100%;
-  position: relative;
-}
-
-.slide img {
-  width: 100%;
-  display: block;
-}
-
-.caption {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  background: rgba(0,0,0,0.5);
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px;
+  border-radius: 10px;
+  background: #0044cc;
   color: #fff;
-  padding: 10px;
-  border-radius: 5px;
+  text-align: center;
+  padding: 20px;
+}
+
+.slide-long {
+  width: 40%;  /* Wider for Haus verkaufen and Haus kaufen */
+}
+
+.slide-short {
+  width: 30%;  /* Narrower for Dienstleistungen */
+}
+
+.slide-content h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.slide-content p {
+  font-size: 1rem;
 }
 
 /* Slider Navigation Buttons */
@@ -112,102 +145,41 @@ nav ul li a:hover {
   right: 10px;
 }
 
-/* Featured Properties */
-#featured-properties {
-  padding: 40px 0;
+/* Slider Dots */
+.slider-dots {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-.property-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.property {
-  width: 32%;
-  background: #fff;
-  margin-bottom: 20px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  overflow: hidden;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.property img {
-  width: 100%;
-  display: block;
-}
-
-.property h3,
-.property p {
-  padding: 10px;
-}
-
-.property button {
-  margin: 10px;
-  padding: 10px;
-  background: #0044cc;
-  color: #fff;
-  border: none;
+.slider-dots .dot {
+  height: 12px;
+  width: 12px;
+  margin: 0 5px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
   cursor: pointer;
-  border-radius: 5px;
 }
 
-.property button:hover {
-  background: #003399;
+.slider-dots .dot.active {
+  background-color: #717171;
 }
 
-/* Contact Popup */
-.popup {
-  display: none; /* Hidden by default */
+/* Fixed WhatsApp Button */
+.whatsapp-btn {
   position: fixed;
-  top: 0;
-  left: 0;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  z-index: 100;
+}
+
+.whatsapp-btn img {
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.7);
-  justify-content: center;
-  align-items: center;
-  z-index: 20;
-}
-
-.popup-content {
-  background: #fff;
-  padding: 20px;
-  width: 90%;
-  max-width: 400px;
-  border-radius: 10px;
-  text-align: center;
-  position: relative;
-}
-
-.popup-content input {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
-
-.popup-content button {
-  padding: 10px 20px;
-  background: #0044cc;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.popup-content button:hover {
-  background: #003399;
-}
-
-#closePopup {
-  position: absolute;
-  top: 10px;
-  right: 20px;
-  font-size: 28px;
-  cursor: pointer;
 }
 
 /* Footer */
@@ -225,13 +197,29 @@ footer {
     width: 95%;
   }
   
-  .property {
+  nav ul {
+    flex-direction: column;
+    display: none;
     width: 100%;
-    margin-bottom: 20px;
+    text-align: center;
   }
   
   nav ul li {
-    display: block;
     margin: 10px 0;
+  }
+  
+  .hamburger {
+    display: flex;
+  }
+  
+  /* Make slider slides full width on mobile */
+  .slide-long,
+  .slide-short {
+    width: 80%;
+    margin: 10px auto;
+  }
+  
+  .slides {
+    flex-direction: column;
   }
 }

@@ -1,14 +1,16 @@
 document.addEventListener("DOMContentLoaded", function () {
-  /* SLIDER FUNCTIONALITY */
-  const slides = document.querySelectorAll(".slide");
   const slidesContainer = document.querySelector(".slides");
+  const slides = document.querySelectorAll(".slide");
   const prevButton = document.querySelector(".prev");
   const nextButton = document.querySelector(".next");
+  const dots = document.querySelectorAll(".dot");
   let currentIndex = 0;
   const totalSlides = slides.length;
   let slideInterval;
 
-  // Display a specific slide
+  // Custom durations (milliseconds)
+  const slideDurations = [2500, 2500, 1000]; // 2.5s, 2.5s, 1s
+
   function showSlide(index) {
     if (index < 0) {
       currentIndex = totalSlides - 1;
@@ -17,70 +19,60 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       currentIndex = index;
     }
+    
     slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+    updateDots();
   }
 
-  // Next and previous slide functions
+  function updateDots() {
+    dots.forEach(dot => dot.classList.remove("active"));
+    if (dots[currentIndex]) {
+      dots[currentIndex].classList.add("active");
+    }
+  }
+
   function nextSlide() {
     showSlide(currentIndex + 1);
+    restartSlideShow();
   }
+
   function prevSlide() {
     showSlide(currentIndex - 1);
+    restartSlideShow();
   }
 
-  // Automatic slideshow with pause on hover
-  function startSlideShow() {
-    slideInterval = setInterval(nextSlide, 4000);
-  }
-  function stopSlideShow() {
+  function restartSlideShow() {
     clearInterval(slideInterval);
+    startSlideShow();
   }
 
-  // Event listeners for slider navigation
-  if (nextButton) {
-    nextButton.addEventListener("click", function () {
-      stopSlideShow();
+  function startSlideShow() {
+    clearInterval(slideInterval);
+    slideInterval = setTimeout(() => {
       nextSlide();
       startSlideShow();
+    }, slideDurations[currentIndex]); // Uses custom timing per slide
+  }
+
+  if (nextButton) {
+    nextButton.addEventListener("click", function () {
+      nextSlide();
     });
   }
+
   if (prevButton) {
     prevButton.addEventListener("click", function () {
-      stopSlideShow();
       prevSlide();
-      startSlideShow();
     });
   }
 
-  // Pause slider on hover
-  const slider = document.querySelector(".slider");
-  if (slider) {
-    slider.addEventListener("mouseenter", stopSlideShow);
-    slider.addEventListener("mouseleave", startSlideShow);
-  }
+  dots.forEach(dot => {
+    dot.addEventListener("click", function () {
+      let index = parseInt(this.getAttribute("data-index"));
+      showSlide(index);
+      restartSlideShow();
+    });
+  });
+
   startSlideShow();
-
-  /* CONTACT POPUP FUNCTIONALITY */
-  window.showContactPopup = function (propertyName) {
-    const popup = document.getElementById("contactPopup");
-    const popupText = document.getElementById("popupText");
-    popupText.innerHTML = `Interessiert an <strong>${propertyName}</strong>? Bitte hinterlassen Sie Ihre Kontaktdaten!`;
-    popup.style.display = "flex";
-  };
-
-  const closePopup = document.getElementById("closePopup");
-  if (closePopup) {
-    closePopup.addEventListener("click", function () {
-      document.getElementById("contactPopup").style.display = "none";
-    });
-  }
-
-  const contactForm = document.getElementById("contactForm");
-  if (contactForm) {
-    contactForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-      alert("Vielen Dank! Wir werden uns in Kürze bei Ihnen melden.");
-      document.getElementById("contactPopup").style.display = "none";
-    });
-  }
 });
