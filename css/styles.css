@@ -12,11 +12,9 @@ body {
   line-height: 1.6;
 }
 
-.container,
-.header-container,
-.content-container,
-.footer-container {
-  width: 80%;
+/* Containers */
+.header-container, .content-container, .footer-container {
+  width: 90%;
   margin: auto;
 }
 
@@ -37,15 +35,10 @@ header {
   font-size: 1.8rem;
 }
 
-nav {
-  display: flex;
-}
-
 nav ul {
   list-style: none;
   display: flex;
-  margin: 0;
-  padding: 0;
+  margin-right: 20px;
 }
 
 nav ul li {
@@ -63,7 +56,7 @@ nav ul li a:hover {
   text-decoration: underline;
 }
 
-/* Hamburger Menu for Mobile */
+/* Hamburger Menu */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -79,12 +72,12 @@ nav ul li a:hover {
   margin: 4px 0;
 }
 
-/* Slider Section (Full-Width) */
+/* Slider Section */
 .slider {
   position: relative;
   width: 100vw;
+  height: 60vh; /* Adjust slider height as needed */
   overflow: hidden;
-  border-radius: 0; /* Remove border-radius for full screen effect */
   background: #eee;
 }
 
@@ -94,31 +87,33 @@ nav ul li a:hover {
 }
 
 .slide {
-  flex-shrink: 0;
   width: 100vw; /* Each slide spans full viewport width */
+  height: 60vh;
   position: relative;
 }
 
 .slide img {
   width: 100%;
-  vertical-align: middle;
+  height: 100%;
+  object-fit: cover;
 }
 
-.overlay {
+.slide-description {
   position: absolute;
   bottom: 20px;
   left: 20px;
   background: rgba(0,0,0,0.6);
+  color: #fff;
   padding: 10px;
   border-radius: 5px;
 }
 
-.overlay h2 {
+.slide-description h2 {
   font-size: 2rem;
   margin-bottom: 5px;
 }
 
-.overlay p {
+.slide-description p {
   font-size: 1.2rem;
 }
 
@@ -134,7 +129,6 @@ nav ul li a:hover {
   font-size: 2rem;
   padding: 10px;
   cursor: pointer;
-  border-radius: 3px;
   z-index: 10;
 }
 
@@ -156,16 +150,16 @@ nav ul li a:hover {
 
 .slider-dots .dot {
   display: inline-block;
-  height: 12px;
   width: 12px;
+  height: 12px;
   margin: 0 5px;
-  background-color: #bbb;
+  background: #bbb;
   border-radius: 50%;
   cursor: pointer;
 }
 
 .slider-dots .dot.active {
-  background-color: #717171;
+  background: #717171;
 }
 
 /* Current Category Label */
@@ -279,8 +273,17 @@ footer {
   }
   
   /* Adjust slider for mobile */
-  .slide img {
-    height: auto;
+  .slide {
+    width: 100vw;
+    height: 40vh; /* Reduce height on mobile if desired */
+  }
+  
+  .slide-description h2 {
+    font-size: 1.5rem;
+  }
+  
+  .slide-description p {
+    font-size: 1rem;
   }
   
   .property {

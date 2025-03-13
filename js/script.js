@@ -10,7 +10,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const totalSlides = slides.length;
   let slideTimeout;
 
-  // Custom durations (in ms): 2500ms for "Haus verkaufen" & "Haus kaufen", 1000ms for "Dienstleistungen"
+  // Custom durations (in milliseconds)
+  // 2500ms for "Haus verkaufen" & "Haus kaufen", 1000ms for "Dienstleistungen"
   const slideDurations = [2500, 2500, 1000];
 
   function showSlide(index) {
@@ -21,22 +22,21 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       currentIndex = index;
     }
+    // Use 100vw so that the slide spans full screen
     slidesContainer.style.transform = `translateX(-${currentIndex * 100}vw)`;
     updateDots();
     updateCategoryLabel();
-    restartSlideShow();
+    restartSlideTimeout();
   }
 
   function updateDots() {
-    dots.forEach(dot => dot.classList.remove("active"));
-    if (dots[currentIndex]) {
-      dots[currentIndex].classList.add("active");
-    }
+    dots.forEach((dot, i) => {
+      dot.classList.toggle("active", i === currentIndex);
+    });
   }
 
   function updateCategoryLabel() {
-    const currentSlide = slides[currentIndex];
-    const category = currentSlide.getAttribute("data-category") || "";
+    const category = slides[currentIndex].getAttribute("data-category") || "";
     if (currentCategoryLabel) {
       currentCategoryLabel.textContent = category;
     }
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
     showSlide(currentIndex - 1);
   }
 
-  function restartSlideShow() {
+  function restartSlideTimeout() {
     clearTimeout(slideTimeout);
     slideTimeout = setTimeout(() => {
       nextSlide();
@@ -59,23 +59,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Event Listeners for slider navigation
   if (nextButton) {
-    nextButton.addEventListener("click", nextSlide);
+    nextButton.addEventListener("click", () => {
+      clearTimeout(slideTimeout);
+      nextSlide();
+    });
   }
   if (prevButton) {
-    prevButton.addEventListener("click", prevSlide);
+    prevButton.addEventListener("click", () => {
+      clearTimeout(slideTimeout);
+      prevSlide();
+    });
   }
   dots.forEach(dot => {
     dot.addEventListener("click", function () {
       const index = parseInt(this.getAttribute("data-index"));
+      clearTimeout(slideTimeout);
       showSlide(index);
     });
   });
 
-  // Pause slider on hover and resume on mouse leave
+  // Pause slider on mouse enter, resume on mouse leave
   const slider = document.querySelector(".slider");
   if (slider) {
     slider.addEventListener("mouseenter", () => clearTimeout(slideTimeout));
-    slider.addEventListener("mouseleave", restartSlideShow);
+    slider.addEventListener("mouseleave", restartSlideTimeout);
   }
 
   // Initialize slider
