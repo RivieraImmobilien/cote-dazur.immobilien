@@ -3,50 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Immobilien zum Kauf</title>
+    <title>Kaufen - Côte d'Azur Immobilien</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <header>
-        <h1>Immobilien zum Kauf</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Startseite</a></li>
-                <li><a href="buy.html" class="active">Kaufen</a></li>
-                <li><a href="sell.html">Verkaufen</a></li>
-                <li><a href="services.html">Dienstleistungen</a></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <h1>Kaufen</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Startseite</a></li>
+                    <li><a href="buy.html" class="active">Kaufen</a></li>
+                    <li><a href="sell.html">Verkaufen</a></li>
+                    <li><a href="services.html">Dienstleistungen</a></li>
+                    <li><a href="contact.html">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <section id="property-list">
-        <div class="property" onclick="showContactPopup('Villa am Meer')">
-            <img src="images/properties/villa_am_meer.jpg" alt="Villa am Meer">
-            <h2>Villa am Meer</h2>
-            <p>Luxusvilla mit atemberaubendem Meerblick.</p>
+    <section id="properties">
+        <div class="container">
+            <h2>Verfügbare Immobilien</h2>
+            <div class="property-list">
+                <!-- Property 1 -->
+                <div class="property">
+                    <img src="images/house1.jpg" alt="Luxusvilla am Meer">
+                    <h3>Luxusvilla am Meer</h3>
+                    <p>5 Schlafzimmer | 3 Bäder | 350 m²</p>
+                    <button onclick="showContactPopup('Luxusvilla am Meer')">Mehr erfahren</button>
+                </div>
+                <!-- Property 2 -->
+                <div class="property">
+                    <img src="images/house2.jpg" alt="Moderne Stadtwohnung">
+                    <h3>Moderne Stadtwohnung</h3>
+                    <p>2 Schlafzimmer | 1 Bad | 120 m²</p>
+                    <button onclick="showContactPopup('Moderne Stadtwohnung')">Mehr erfahren</button>
+                </div>
+                <!-- Property 3 -->
+                <div class="property">
+                    <img src="images/house3.jpg" alt="Charmantes Landhaus">
+                    <h3>Charmantes Landhaus</h3>
+                    <p>4 Schlafzimmer | 2 Bäder | 200 m²</p>
+                    <button onclick="showContactPopup('Charmantes Landhaus')">Mehr erfahren</button>
+                </div>
+            </div>
         </div>
-        <div class="property" onclick="showContactPopup('Penthouse in Nizza')">
-            <img src="images/properties/penthouse_nizza.jpg" alt="Penthouse in Nizza">
-            <h2>Penthouse in Nizza</h2>
-            <p>Exklusives Penthouse mit Dachterrasse.</p>
-        </div>
-        <!-- Weitere Immobilien nach Bedarf -->
     </section>
 
-    <!-- Kontakt-Popup -->
+    <!-- Contact Popup -->
     <div id="contactPopup" class="popup">
-        <p id="popupText">Hinterlassen Sie Ihre E-Mail und Telefonnummer für weitere Informationen.</p>
-        <input type="email" placeholder="Ihre E-Mail">
-        <input type="tel" placeholder="Ihre Telefonnummer">
-        <button>Absenden</button>
-        <button id="closePopup">Schließen</button>
-    </div>
+        <div class="popup-content">
+            <span id="closePopup">&times;</span>
+            <p id="popupText"></p>
+            <form id="contactForm">
+                <input type="text" id="name" name="name" placeholder="Ihr Name" required>
 
-    <footer>
-        <p>© 2025 Côte d'Azur Immobilien – Alle Rechte vorbehalten.</p>
-        <button id="whatsappButton">Kontaktieren Sie uns via WhatsApp</button>
-    </footer>
-
-    <script src="js/script.js"></script>
-</body>
-</html>
+::contentReference[oaicite:1]{index=1}
+ 

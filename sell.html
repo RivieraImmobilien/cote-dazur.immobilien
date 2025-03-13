@@ -1,43 +1,51 @@
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Immobilien verkaufen</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Kaufen | Côte d'Azur Immobilien</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
-        <h1>Immobilien verkaufen</h1>
         <nav>
             <ul>
-                <li><a href="index.html">Startseite</a></li>
-                <li><a href="buy.html">Kaufen</a></li>
-                <li><a href="sell.html" class="active">Verkaufen</a></li>
-                <li><a href="services.html">Dienstleistungen</a></li>
+                <nav>
+    <ul>
+        <li><a href="index.html">Startseite</a></li>
+        <li><a href="buy.html">Kaufen</a></li>
+        <li><a href="sell.html">Verkaufen</a></li>
+        <li><a href="services.html">Dienstleistungen</a></li> <!-- NEW LINK -->
+    </ul>
+</nav>
+
             </ul>
         </nav>
     </header>
 
-    <section id="sell-info">
-        <h2>Warum mit uns verkaufen?</h2>
-        <p>Wir bieten umfassende Dienstleistungen, um Ihre Immobilie schnell und zum besten Preis zu verkaufen.</p>
-        <button id="ctaButton">Kostenlose Beratung anfordern</button>
+    <section id="property-list">
+        <h1>Immobilie Verkaufen</h1>
+        <div class="property" onclick="showContactPopup('Villa am Meer')">
+            <img src="images/properties/property1.jpg" alt="Villa am Meer">
+            <h2>Villa am Meer</h2>
+            <p>Luxusvilla mit atemberaubendem Meerblick.</p>
+        </div>
+        <div class="property" onclick="showContactPopup('Penthouse in Nizza')">
+            <img src="images/properties/property2.jpg" alt="Penthouse in Nizza">
+            <h2>Penthouse in Nizza</h2>
+            <p>Exklusives Penthouse mit Dachterrasse.</p>
+        </div>
     </section>
 
-    <!-- Kontakt-Popup -->
-    <div id="popup" class="popup">
-        <p>Hinterlassen Sie Ihre E-Mail und Telefonnummer, und wir werden uns mit Ihnen in Verbindung setzen.</p>
+    <!-- Contact Popup -->
+    <div id="contactPopup" class="popup">
+        <p id="popupText">Hinterlassen Sie Ihre E-Mail und Telefonnummer für weitere Informationen.</p>
         <input type="email" placeholder="Ihre E-Mail">
         <input type="tel" placeholder="Ihre Telefonnummer">
-        <button id="submitPopup">Absenden</button>
+        <button>Absenden</button>
         <button id="closePopup">Schließen</button>
     </div>
-
-    <footer>
-        <p>© 2025 Côte d'Azur Immobilien – Alle Rechte vorbehalten.</p>
-        <button id="whatsappButton">Kontaktieren Sie uns via WhatsApp</button>
-    </footer>
 
     <script src="js/script.js"></script>
 </body>
