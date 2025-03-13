@@ -3,48 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kaufen - Côte d'Azur Immobilien</title>
+    <title>Kaufen – Côte d'Azur Immobilien</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <header>
-        <div class="container">
-            <h1>Kaufen</h1>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Startseite</a></li>
-                    <li><a href="buy.html" class="active">Kaufen</a></li>
-                    <li><a href="sell.html">Verkaufen</a></li>
-                    <li><a href="services.html">Dienstleistungen</a></li>
-                    <li><a href="contact.html">Kontakt</a></li>
-                </ul>
-            </nav>
-        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Startseite</a></li>
+                <li><a href="buy.html">Kaufen</a></li>
+                <li><a href="sell.html">Verkaufen</a></li>
+                <li><a href="services.html">Dienstleistungen</a></li>
+                <li><a href="contact.html">Kontakt</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <section id="properties">
-        <div class="container">
-            <h2>Verfügbare Immobilien</h2>
+    <main>
+        <section id="properties">
+            <h1>Kaufen</h1>
             <div class="property-list">
                 <!-- Property 1 -->
                 <div class="property">
-                    <img src="images/house1.jpg" alt="Luxusvilla am Meer">
-                    <h3>Luxusvilla am Meer</h3>
+                    <img src="images/saint_tropez_villa.jpg" alt="Luxusvilla in Saint Tropez">
+                    <h3>Luxusvilla in Saint Tropez</h3>
                     <p>5 Schlafzimmer | 3 Bäder | 350 m²</p>
-                    <button onclick="showContactPopup('Luxusvilla am Meer')">Mehr erfahren</button>
+                    <p>Preis: €2.500.000</p>
+                    <button onclick="showContactPopup('Luxusvilla in Saint Tropez')">Mehr erfahren</button>
                 </div>
                 <!-- Property 2 -->
                 <div class="property">
-                    <img src="images/house2.jpg" alt="Moderne Stadtwohnung">
-                    <h3>Moderne Stadtwohnung</h3>
-                    <p>2 Schlafzimmer | 1 Bad | 120 m²</p>
-                    <button onclick="showContactPopup('Moderne Stadtwohnung')">Mehr erfahren</button>
+                    <img src="images/nizza_haus.jpg" alt="Charmantes Haus in Nizza">
+                    <h3>Charmantes Haus in Nizza</h3>
+                    <p>4 Schlafzimmer | 2 Bäder | 280 m²</p>
+                    <p>Preis: €1.200.000</p>
+                    <button onclick="showContactPopup('Charmantes Haus in Nizza')">Mehr erfahren</button>
                 </div>
                 <!-- Property 3 -->
                 <div class="property">
-                    <img src="images/house3.jpg" alt="Charmantes Landhaus">
-                    <h3>Charmantes Landhaus</h3>
-                    <p>4 Schlafzimmer | 2 Bäder | 200 m²</p>
-                    <button onclick="showContactPopup('Charmantes Landhaus')">Mehr erfahren</
-::contentReference[oaicite:0]{index=0}
- 
+                    <img src="images/cannes_wohnung.jpg" alt="Moderne Wohnung in Cannes">
+                    <h3>Moderne Wohnung in Cannes</h3>
+                    <p>3 Schlafzimmer | 2 Bäder | 150 m²</p>
+                    <p>Preis: €850.000</p>
+                    <button onclick="showContactPopup('Moderne Wohnung in Cannes')">Mehr erfahren</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Côte d'Azur Immobilien. Alle Rechte vorbehalten.</p>
+    </footer>
+
+    <!-- Contact Popup -->
+    <div id="contactPopup" class="popup">
+        <div class="popup-content">
+            <span id="closePopup">&times;</span>
+            <p id="popupText"></p>
+            <input type="text" placeholder="Ihr Name">
+            <input type="email" placeholder="Ihre E-Mail">
+            <input type="tel" placeholder="Ihre Telefonnummer">
+            <button id="submitPopup">Senden</button>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
