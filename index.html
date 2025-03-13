@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Côte d'Azur Immobilien – Startseite</title>
-  <meta name="description" content="Exklusive Immobilienangebote an der Côte d'Azur.">
+  <meta name="description" content="Exklusive Immobilienangebote an der Côte d'Azur. Finden Sie Ihr Traumhaus – kaufen oder verkaufen – sowie umfassende Dienstleistungen.">
   <meta name="keywords" content="Immobilien, Côte d'Azur, Haus verkaufen, Haus kaufen, Dienstleistungen">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <!-- Header with Navigation and Hamburger Menu -->
+  <!-- Header with Hamburger Menu -->
   <header>
     <div class="container header-container">
       <h1>Côte d'Azur Immobilien</h1>
@@ -35,22 +35,22 @@
     <section id="hero">
       <div class="slider" aria-label="Kategorien-Slider">
         <div class="slides">
-          <!-- Slide 1: Haus verkaufen (longer) -->
-          <div class="slide slide-long">
+          <!-- Slide 1: Haus verkaufen -->
+          <div class="slide slide-long" data-category="Haus verkaufen">
             <div class="slide-content">
               <h2>Haus verkaufen</h2>
               <p>Verkaufen Sie Ihre Immobilie schnell und sicher.</p>
             </div>
           </div>
-          <!-- Slide 2: Haus kaufen (longer) -->
-          <div class="slide slide-long">
+          <!-- Slide 2: Haus kaufen -->
+          <div class="slide slide-long" data-category="Haus kaufen">
             <div class="slide-content">
               <h2>Haus kaufen</h2>
               <p>Finden Sie Ihr Traumhaus an der Côte d'Azur.</p>
             </div>
           </div>
-          <!-- Slide 3: Dienstleistungen (shorter) -->
-          <div class="slide slide-short">
+          <!-- Slide 3: Dienstleistungen -->
+          <div class="slide slide-short" data-category="Dienstleistungen">
             <div class="slide-content">
               <h2>Dienstleistungen</h2>
               <p>Rundum-sorglos-Service für Ihre Immobilie.</p>
@@ -66,16 +66,17 @@
           <span class="dot" data-index="1"></span>
           <span class="dot" data-index="2"></span>
         </div>
+        <!-- Current Category Label -->
+        <div class="current-category" id="currentCategory">Haus verkaufen</div>
       </div>
     </section>
 
-    <!-- (Additional content sections could follow here) -->
+    <!-- Additional content can go here -->
   </main>
 
   <!-- Fixed WhatsApp Button -->
-  <a href="https://wa.me/YOUR_NUMBER?text=Hallo%20C%C3%B4te%20d%27Azur%20Immobilien" 
-     class="whatsapp-btn" target="_blank" aria-label="WhatsApp Kontakt">
-    <img src="images/whatsapp-icon.png" alt="WhatsApp">
+  <a href="https://wa.me/YOUR_NUMBER?text=Hallo%20C%C3%B4te%20d%27Azur%20Immobilien" class="whatsapp-btn" target="_blank" aria-label="WhatsApp Kontakt">
+    <img src="images/whatsapp-icon.png" alt="WhatsApp Kontakt">
   </a>
 
   <!-- Footer -->

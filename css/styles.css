@@ -1,4 +1,4 @@
-/* Global Reset & Styles */
+/* Global Reset & Base Styles */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -22,12 +22,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 10px 0;
 }
 
 header {
   background: #0044cc;
   color: #fff;
-  padding: 10px 0;
 }
 
 header h1 {
@@ -55,7 +55,7 @@ nav ul li a:hover {
   text-decoration: underline;
 }
 
-/* Hamburger Menu (visible on mobile) */
+/* Hamburger Menu */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -72,25 +72,22 @@ nav ul li a:hover {
   margin: 4px 0;
 }
 
-/* Slider Section */
+/* Slider Styles */
 .slider {
   position: relative;
   max-width: 1000px;
   margin: 20px auto;
   overflow: hidden;
   border-radius: 10px;
-  background: #ddd;
-  padding: 20px 0; /* extra padding for visual space */
+  background: #eee;
+  padding: 20px 0;
 }
 
 .slides {
   display: flex;
   transition: transform 0.5s ease-in-out;
-  justify-content: center; /* center slides horizontally */
-  align-items: center;
 }
 
-/* Slide classes for different widths */
 .slide {
   flex-shrink: 0;
   display: flex;
@@ -104,12 +101,12 @@ nav ul li a:hover {
   padding: 20px;
 }
 
+/* Different slide widths */
 .slide-long {
-  width: 40%;  /* Wider for Haus verkaufen and Haus kaufen */
+  width: 40%; /* For Haus verkaufen and Haus kaufen */
 }
-
 .slide-short {
-  width: 30%;  /* Narrower for Dienstleistungen */
+  width: 30%; /* For Dienstleistungen */
 }
 
 .slide-content h2 {
@@ -121,7 +118,7 @@ nav ul li a:hover {
   font-size: 1rem;
 }
 
-/* Slider Navigation Buttons */
+/* Navigation Buttons */
 .prev,
 .next {
   position: absolute;
@@ -167,6 +164,19 @@ nav ul li a:hover {
   background-color: #717171;
 }
 
+/* Current Category Label */
+.current-category {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
 /* Fixed WhatsApp Button */
 .whatsapp-btn {
   position: fixed;
@@ -182,7 +192,7 @@ nav ul li a:hover {
   height: 100%;
 }
 
-/* Footer */
+/* Footer Styles */
 footer {
   background: #333;
   color: #fff;
@@ -212,14 +222,27 @@ footer {
     display: flex;
   }
   
-  /* Make slider slides full width on mobile */
+  /* Slider adjustments on mobile */
+  .slides {
+    flex-direction: column;
+    align-items: center;
+  }
+  
   .slide-long,
   .slide-short {
     width: 80%;
     margin: 10px auto;
   }
   
-  .slides {
-    flex-direction: column;
+  .prev,
+  .next {
+    top: auto;
+    bottom: 10px;
+    transform: none;
+    font-size: 20px;
+  }
+  
+  .slider-dots {
+    bottom: 40px;
   }
 }
