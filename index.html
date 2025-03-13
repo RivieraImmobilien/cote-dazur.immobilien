@@ -3,68 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Côte d'Azur Immobilien – Startseite</title>
+    <title>Willkommen bei Côte d'Azur Immobilien</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <header>
+        <h1>Côte d'Azur Immobilien</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Startseite</a></li>
                 <li><a href="buy.html">Kaufen</a></li>
                 <li><a href="sell.html">Verkaufen</a></li>
                 <li><a href="services.html">Dienstleistungen</a></li>
-                <li><a href="contact.html">Kontakt</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <section id="hero">
-            <h1>Finden Sie Ihr Traumhaus an der Côte d'Azur</h1>
-            <p>Exklusive Immobilienangebote für Sie.</p>
-        </section>
-
-        <section id="featured-properties">
-            <h2>Exklusive Angebote</h2>
-            <div class="property-list">
-                <div class="property">
-                    <img src="images/saint_tropez_villa.jpg" alt="Luxusvilla in Saint Tropez">
-                    <h3>Luxusvilla in Saint Tropez</h3>
-                    <p>Preis: €2.500.000</p>
-                    <button onclick="showContactPopup('Luxusvilla in Saint Tropez')">Mehr erfahren</button>
-                </div>
-                <div class="property">
-                    <img src="images/nizza_haus.jpg" alt="Charmantes Haus in Nizza">
-                    <h3>Charmantes Haus in Nizza</h3>
-                    <p>Preis: €1.200.000</p>
-                    <button onclick="showContactPopup('Charmantes Haus in Nizza')">Mehr erfahren</button>
-                </div>
-                <div class="property">
-                    <img src="images/cannes_wohnung.jpg" alt="Moderne Wohnung in Cannes">
-                    <h3>Moderne Wohnung in Cannes</h3>
-                    <p>Preis: €850.000</p>
-                    <button onclick="showContactPopup('Moderne Wohnung in Cannes')">Mehr erfahren</button>
-                </div>
+    <section id="hero">
+        <div class="slider">
+            <div class="slide active">
+                <img src="images/slider/slide1.jpg" alt="Luxusvilla am Meer">
+                <div class="caption">Luxusvilla am Meer</div>
             </div>
-        </section>
-    </main>
+            <div class="slide">
+                <img src="images/slider/slide2.jpg" alt="Moderne Stadtwohnung">
+                <div class="caption">Moderne Stadtwohnung</div>
+            </div>
+            <!-- Weitere Folien nach Bedarf -->
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>Über uns</h2>
+        <p>Wir bieten exklusive Immobilien an der Côte d'Azur. Egal, ob Sie kaufen oder verkaufen möchten, wir sind Ihr vertrauenswürdiger Partner.</p>
+    </section>
 
     <footer>
-        <p>&copy; 2025 Côte d'Azur Immobilien. Alle Rechte vorbehalten.</p>
+        <p>© 2025 Côte d'Azur Immobilien – Alle Rechte vorbehalten.</p>
+        <button id="whatsappButton">Kontaktieren Sie uns via WhatsApp</button>
     </footer>
-
-    <!-- Contact Popup -->
-    <div id="contactPopup" class="popup">
-        <div class="popup-content">
-            <span id="closePopup">&times;</span>
-            <p id="popupText"></p>
-            <input type="text" placeholder="Ihr Name">
-            <input type="email" placeholder="Ihre E-Mail">
-            <input type="tel" placeholder="Ihre Telefonnummer">
-            <button id="submitPopup">Senden</button>
-        </div>
-    </div>
 
     <script src="js/script.js"></script>
 </body>
