@@ -1,42 +1,27 @@
-/* Global Reset & Base Styles */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
+/* General Styles */
 body {
+  margin: 0;
   font-family: Arial, sans-serif;
-  background: #f9f9f9;
-  color: #333;
-  line-height: 1.6;
 }
 
-.container {
-  width: 80%;
-  margin: auto;
-}
-
-/* Header & Navigation */
-.header-container {
+/* Navigation */
+nav {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 10px 0;
+  align-items: center;
+  background-color: #333;
+  padding: 10px;
 }
 
-header {
-  background: #0044cc;
+nav .logo {
   color: #fff;
-}
-
-header h1 {
-  font-size: 1.8rem;
-  margin-left: 20px;
+  font-size: 1.5em;
 }
 
 nav ul {
   list-style: none;
+  margin: 0;
+  padding: 0;
   display: flex;
 }
 
@@ -47,40 +32,26 @@ nav ul li {
 nav ul li a {
   color: #fff;
   text-decoration: none;
-  font-weight: bold;
 }
 
-nav ul li a.active,
-nav ul li a:hover {
-  text-decoration: underline;
+nav ul li a.active {
+  border-bottom: 2px solid #fff;
 }
 
 /* Hamburger Menu */
-.hamburger {
+.hamburger-menu {
   display: none;
-  flex-direction: column;
+  font-size: 1.5em;
+  color: #fff;
   cursor: pointer;
-  background: none;
-  border: none;
-  margin-right: 20px;
 }
 
-.hamburger .bar {
-  width: 25px;
-  height: 3px;
-  background-color: #fff;
-  margin: 4px 0;
-}
-
-/* Slider Styles */
+/* Slider */
 .slider {
   position: relative;
-  max-width: 1000px;
-  margin: 20px auto;
+  max-width: 100%;
+  margin: auto;
   overflow: hidden;
-  border-radius: 10px;
-  background: #eee;
-  padding: 20px 0;
 }
 
 .slides {
@@ -89,74 +60,58 @@ nav ul li a:hover {
 }
 
 .slide {
-  flex-shrink: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 10px;
-  border-radius: 10px;
-  background: #0044cc;
+  min-width: 100%;
+  position: relative;
+}
+
+.slide img {
+  width: 100%;
+  vertical-align: middle;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
   color: #fff;
-  text-align: center;
-  padding: 20px;
+  padding: 10px;
+  font-size: 1.2em;
 }
 
-/* Different slide widths */
-.slide-long {
-  width: 40%; /* For Haus verkaufen and Haus kaufen */
-}
-.slide-short {
-  width: 30%; /* For Dienstleistungen */
-}
-
-.slide-content h2 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-}
-
-.slide-content p {
-  font-size: 1rem;
-}
-
-/* Navigation Buttons */
-.prev,
-.next {
+/* Slider Controls */
+.slider-controls {
   position: absolute;
   top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
   transform: translateY(-50%);
-  background: rgba(0,0,0,0.5);
+}
+
+.slider-controls .prev,
+.slider-controls .next {
+  background-color: rgba(0, 0, 0, 0.5);
   color: #fff;
-  border: none;
-  font-size: 24px;
   padding: 10px;
   cursor: pointer;
-  border-radius: 3px;
-  z-index: 10;
-}
-
-.prev {
-  left: 10px;
-}
-
-.next {
-  right: 10px;
 }
 
 /* Slider Dots */
 .slider-dots {
+  text-align: center;
   position: absolute;
-  bottom: 15px;
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: 10px;
+  width: 100%;
 }
 
 .slider-dots .dot {
-  height: 12px;
-  width: 12px;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
   margin: 0 5px;
   background-color: #bbb;
   border-radius: 50%;
-  display: inline-block;
   cursor: pointer;
 }
 
@@ -164,85 +119,38 @@ nav ul li a:hover {
   background-color: #717171;
 }
 
-/* Current Category Label */
-.current-category {
-  position: absolute;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(0,0,0,0.6);
-  color: #fff;
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-size: 1rem;
-}
-
-/* Fixed WhatsApp Button */
-.whatsapp-btn {
+/* WhatsApp Button */
+.whatsapp-button {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  width: 60px;
-  height: 60px;
-  z-index: 100;
+  width: 50px;
+  height: 50px;
 }
 
-.whatsapp-btn img {
+.whatsapp-button img {
   width: 100%;
   height: 100%;
 }
 
-/* Footer Styles */
-footer {
-  background: #333;
-  color: #fff;
-  text-align: center;
-  padding: 20px 0;
-  margin-top: 40px;
-}
-
-/* Responsive Styles */
+/* Responsive Design */
 @media (max-width: 768px) {
-  .container {
-    width: 95%;
-  }
-  
   nav ul {
-    flex-direction: column;
-    display: none;
-    width: 100%;
-    text-align: center;
+      display: none;
+      flex-direction: column;
+      width: 100%;
   }
-  
+
+  nav ul.show {
+      display: flex;
+  }
+
   nav ul li {
-    margin: 10px 0;
+      margin: 10px 0;
+      text-align: center;
   }
-  
-  .hamburger {
-    display: flex;
-  }
-  
-  /* Slider adjustments on mobile */
-  .slides {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .slide-long,
-  .slide-short {
-    width: 80%;
-    margin: 10px auto;
-  }
-  
-  .prev,
-  .next {
-    top: auto;
-    bottom: 10px;
-    transform: none;
-    font-size: 20px;
-  }
-  
-  .slider-dots {
-    bottom: 40px;
+
+  .hamburger-menu {
+      display: block;
   }
 }

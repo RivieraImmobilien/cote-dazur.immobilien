@@ -1,91 +1,62 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Côte d'Azur Immobilien – Startseite</title>
-  <meta name="description" content="Exklusive Immobilienangebote an der Côte d'Azur. Finden Sie Ihr Traumhaus – kaufen oder verkaufen – sowie umfassende Dienstleistungen.">
-  <meta name="keywords" content="Immobilien, Côte d'Azur, Haus verkaufen, Haus kaufen, Dienstleistungen">
-  <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Côte d'Azur Immobilien</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <!-- Header with Hamburger Menu -->
-  <header>
-    <div class="container header-container">
-      <h1>Côte d'Azur Immobilien</h1>
-      <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
-      <nav id="navMenu">
-        <ul>
-          <li><a href="index.html" class="active">Startseite</a></li>
-          <li><a href="buy.html">Kaufen</a></li>
-          <li><a href="sell.html">Verkaufen</a></li>
-          <li><a href="services.html">Dienstleistungen</a></li>
-          <li><a href="contact.html">Kontakt</a></li>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Côte d'Azur Immobilien</div>
+        <div class="hamburger-menu" onclick="toggleMenu()">☰</div>
+        <ul id="nav-links">
+            <li><a href="index.html" class="active">Startseite</a></li>
+            <li><a href="kaufen.html">Haus kaufen</a></li>
+            <li><a href="verkaufen.html">Haus verkaufen</a></li>
+            <li><a href="dienstleistungen.html">Dienstleistungen</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
         </ul>
-      </nav>
-    </div>
-  </header>
+    </nav>
 
-  <main>
-    <!-- Slider Section Displaying Categories -->
-    <section id="hero">
-      <div class="slider" aria-label="Kategorien-Slider">
+    <!-- Slider -->
+    <div class="slider">
         <div class="slides">
-          <!-- Slide 1: Haus verkaufen -->
-          <div class="slide slide-long" data-category="Haus verkaufen">
-            <div class="slide-content">
-              <h2>Haus verkaufen</h2>
-              <p>Verkaufen Sie Ihre Immobilie schnell und sicher.</p>
+            <div class="slide" data-category="Haus verkaufen">
+                <img src="images/slide1.jpg" alt="Haus verkaufen">
+                <div class="overlay">Haus verkaufen</div>
             </div>
-          </div>
-          <!-- Slide 2: Haus kaufen -->
-          <div class="slide slide-long" data-category="Haus kaufen">
-            <div class="slide-content">
-              <h2>Haus kaufen</h2>
-              <p>Finden Sie Ihr Traumhaus an der Côte d'Azur.</p>
+            <div class="slide" data-category="Haus kaufen">
+                <img src="images/slide2.jpg" alt="Haus kaufen">
+                <div class="overlay">Haus kaufen</div>
             </div>
-          </div>
-          <!-- Slide 3: Dienstleistungen -->
-          <div class="slide slide-short" data-category="Dienstleistungen">
-            <div class="slide-content">
-              <h2>Dienstleistungen</h2>
-              <p>Rundum-sorglos-Service für Ihre Immobilie.</p>
+            <div class="slide" data-category="Dienstleistungen">
+                <img src="images/slide3.jpg" alt="Dienstleistungen">
+                <div class="overlay">Dienstleistungen</div>
             </div>
-          </div>
         </div>
-        <!-- Slider Navigation Buttons -->
-        <button class="prev" aria-label="Vorherige Kategorie">&#10094;</button>
-        <button class="next" aria-label="Nächste Kategorie">&#10095;</button>
-        <!-- Slider Dots -->
+        <div class="slider-controls">
+            <span class="prev" onclick="prevSlide()">&#10094;</span>
+            <span class="next" onclick="nextSlide()">&#10095;</span>
+        </div>
         <div class="slider-dots">
-          <span class="dot active" data-index="0"></span>
-          <span class="dot" data-index="1"></span>
-          <span class="dot" data-index="2"></span>
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
         </div>
-        <!-- Current Category Label -->
-        <div class="current-category" id="currentCategory">Haus verkaufen</div>
-      </div>
-    </section>
-
-    <!-- Additional content can go here -->
-  </main>
-
-  <!-- Fixed WhatsApp Button -->
-  <a href="https://wa.me/YOUR_NUMBER?text=Hallo%20C%C3%B4te%20d%27Azur%20Immobilien" class="whatsapp-btn" target="_blank" aria-label="WhatsApp Kontakt">
-    <img src="images/whatsapp-icon.png" alt="WhatsApp Kontakt">
-  </a>
-
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 Côte d'Azur Immobilien – Alle Rechte vorbehalten.</p>
     </div>
-  </footer>
 
-  <script src="js/script.js"></script>
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/YOUR_NUMBER" class="whatsapp-button" target="_blank">
+        <img src="images/whatsapp-icon.png" alt="WhatsApp">
+    </a>
+
+    <!-- Content -->
+    <div class="content">
+        <!-- Your content here -->
+    </div>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
