@@ -1,38 +1,95 @@
-let slideIndex = 0;
-const slides = document.querySelectorAll('.slide');
-const dots = document.querySelectorAll('.dot');
-let slideInterval;
+document.addEventListener("DOMContentLoaded", function () {
+  /* SLIDER FUNCTIONALITY */
+  const slidesContainer = document.querySelector(".slides");
+  const slides = document.querySelectorAll(".slide");
+  const prevButton = document.querySelector(".prev");
+  const nextButton = document.querySelector(".next");
+  const dots = document.querySelectorAll(".dot");
+  const currentCategoryLabel = document.getElementById("currentCategory");
+  let currentIndex = 0;
+  const totalSlides = slides.length;
+  let slideTimeout;
 
-function showSlide(index) {
-    slides.forEach((slide, i) => {
-        slide.style.display = i === index ? 'block' : 'none';
-        dots[i].classList.toggle('active', i === index);
+  // Custom durations (ms): 2500ms for Haus verkaufen & Haus kaufen, 1000ms for Dienstleistungen
+  const slideDurations = [2500, 2500, 1000];
+
+  function showSlide(index) {
+    if (index < 0) {
+      currentIndex = totalSlides - 1;
+    } else if (index >= totalSlides) {
+      currentIndex = 0;
+    } else {
+      currentIndex = index;
+    }
+    slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+    updateDots();
+    updateCategoryLabel();
+    restartSlideShow();
+  }
+
+  function updateDots() {
+    dots.forEach(dot => dot.classList.remove("active"));
+    if (dots[currentIndex]) {
+      dots[currentIndex].classList.add("active");
+    }
+  }
+
+  function updateCategoryLabel() {
+    const currentSlide = slides[currentIndex];
+    const category = currentSlide.getAttribute("data-category") || "";
+    if (currentCategoryLabel) {
+      currentCategoryLabel.textContent = category;
+    }
+  }
+
+  function nextSlide() {
+    showSlide(currentIndex + 1);
+  }
+
+  function prevSlide() {
+    showSlide(currentIndex - 1);
+  }
+
+  function restartSlideShow() {
+    clearTimeout(slideTimeout);
+    slideTimeout = setTimeout(() => {
+      nextSlide();
+    }, slideDurations[currentIndex]);
+  }
+
+  // Event Listeners for slider navigation
+  if (nextButton) {
+    nextButton.addEventListener("click", nextSlide);
+  }
+  if (prevButton) {
+    prevButton.addEventListener("click", prevSlide);
+  }
+  dots.forEach(dot => {
+    dot.addEventListener("click", function () {
+      const index = parseInt(this.getAttribute("data-index"));
+      showSlide(index);
     });
-    clearInterval(slideInterval);
-    const category = slides[index].dataset.category;
-    const duration = category === 'Dienstleistungen' ? 1000 : 2500;
-    slideInterval = setTimeout(nextSlide, duration);
-}
+  });
 
-function nextSlide() {
-    slideIndex = (slideIndex + 1) % slides.length;
-    showSlide(slideIndex);
-}
+  // Pause slider on mouse enter and resume on mouse leave
+  const slider = document.querySelector(".slider");
+  if (slider) {
+    slider.addEventListener("mouseenter", () => clearTimeout(slideTimeout));
+    slider.addEventListener("mouseleave", restartSlideShow);
+  }
+  
+  // Initialize slider
+  showSlide(currentIndex);
 
-function prevSlide() {
-    slideIndex = (slideIndex - 1 + slides.length) % slides.length;
-    showSlide(slideIndex);
-}
-
-function currentSlide(index) {
-    slideIndex = index - 1;
-    showSlide(slideIndex);
-}
-
-function toggleMenu() {
-    const navLinks = document.getElementById('nav-links');
-    navLinks.classList.toggle('show');
-}
-
-// Initialize the slider
-showSlide(slideIndex);
+  /* HAMBURGER MENU TOGGLE */
+  const hamburger = document.getElementById("hamburger");
+  const navMenu = document.getElementById("navMenu");
+  hamburger.addEventListener("click", function () {
+    navMenu.classList.toggle("active");
+    // Toggle display of navigation links for mobile
+    const navLinks = document.getElementById("nav-links");
+    if (navLinks) {
+      navLinks.classList.toggle("show");
+    }
+  });
+});
