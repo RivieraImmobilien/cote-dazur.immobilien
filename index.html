@@ -4,9 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Côte d'Azur Immobilien – Startseite</title>
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Exklusive Immobilienangebote an der Côte d'Azur. Finden Sie Ihr Traumhaus in Saint Tropez, Nizza oder Cannes.">
+  <meta name="keywords" content="Immobilien, Côte d'Azur, Luxusvilla, Haus kaufen, Nizza, Cannes, Saint Tropez">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+  <!-- Header with Navigation -->
   <header>
     <div class="container">
       <h1>Côte d'Azur Immobilien</h1>
@@ -22,34 +26,38 @@
     </div>
   </header>
 
+  <!-- Hero Section with Slider -->
   <section id="hero">
-    <div class="slider">
+    <div class="slider" aria-label="Immobilien-Slider">
       <div class="slides">
+        <!-- Each image uses lazy loading for performance -->
         <div class="slide">
-          <img src="images/slider/slide1.jpg" alt="Luxusvilla in Saint Tropez">
+          <img src="images/slider/slide1.jpg" alt="Luxusvilla in Saint Tropez" loading="lazy">
           <div class="caption">Luxusvilla in Saint Tropez</div>
         </div>
         <div class="slide">
-          <img src="images/slider/slide2.jpg" alt="Charmantes Haus in Nizza">
+          <img src="images/slider/slide2.jpg" alt="Charmantes Haus in Nizza" loading="lazy">
           <div class="caption">Charmantes Haus in Nizza</div>
         </div>
         <div class="slide">
-          <img src="images/slider/slide3.jpg" alt="Moderne Wohnung in Cannes">
+          <img src="images/slider/slide3.jpg" alt="Moderne Wohnung in Cannes" loading="lazy">
           <div class="caption">Moderne Wohnung in Cannes</div>
         </div>
       </div>
-      <button class="prev">&#10094;</button>
-      <button class="next">&#10095;</button>
+      <!-- Navigation buttons with ARIA labels -->
+      <button class="prev" aria-label="Vorheriges Bild">&#10094;</button>
+      <button class="next" aria-label="Nächstes Bild">&#10095;</button>
     </div>
   </section>
 
+  <!-- Featured Properties Section -->
   <section id="featured-properties">
     <div class="container">
       <h2>Exklusive Angebote</h2>
       <div class="property-list">
         <!-- Property 1 -->
         <div class="property">
-          <img src="images/house1.jpg" alt="Luxusvilla in Saint Tropez">
+          <img src="images/house1.jpg" alt="Luxusvilla in Saint Tropez" loading="lazy">
           <h3>Luxusvilla in Saint Tropez</h3>
           <p>Preis: €2.500.000</p>
           <p>Diese exquisite Villa bietet einen atemberaubenden Meerblick und modernen Komfort.</p>
@@ -57,7 +65,7 @@
         </div>
         <!-- Property 2 -->
         <div class="property">
-          <img src="images/house2.jpg" alt="Charmantes Haus in Nizza">
+          <img src="images/house2.jpg" alt="Charmantes Haus in Nizza" loading="lazy">
           <h3>Charmantes Haus in Nizza</h3>
           <p>Preis: €1.200.000</p>
           <p>Ein wunderschön renoviertes Haus im Herzen von Nizza mit historischem Flair.</p>
@@ -65,7 +73,7 @@
         </div>
         <!-- Property 3 -->
         <div class="property">
-          <img src="images/house3.jpg" alt="Moderne Wohnung in Cannes">
+          <img src="images/house3.jpg" alt="Moderne Wohnung in Cannes" loading="lazy">
           <h3>Moderne Wohnung in Cannes</h3>
           <p>Preis: €850.000</p>
           <p>Stilvolle Wohnung mit Meerblick, ideal gelegen nahe dem Zentrum von Cannes.</p>
@@ -76,9 +84,9 @@
   </section>
 
   <!-- Contact Popup -->
-  <div id="contactPopup" class="popup">
+  <div id="contactPopup" class="popup" aria-modal="true" role="dialog">
     <div class="popup-content">
-      <span id="closePopup">&times;</span>
+      <span id="closePopup" aria-label="Schließen">&times;</span>
       <p id="popupText"></p>
       <form id="contactForm">
         <input type="text" id="name" name="name" placeholder="Ihr Name" required>
@@ -89,9 +97,10 @@
     </div>
   </div>
 
+  <!-- Footer -->
   <footer>
     <div class="container">
-      <p>© 2025 Côte d'Azur Immobilien – Alle Rechte vorbehalten.</p>
+      <p>&copy; 2025 Côte d'Azur Immobilien – Alle Rechte vorbehalten.</p>
     </div>
   </footer>
 

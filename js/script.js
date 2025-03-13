@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // SLIDER FUNCTIONALITY
+  /* SLIDER FUNCTIONALITY */
   const slides = document.querySelectorAll(".slide");
   const slidesContainer = document.querySelector(".slides");
   const prevButton = document.querySelector(".prev");
@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const totalSlides = slides.length;
   let slideInterval;
 
-  // Show specific slide
+  // Display a specific slide
   function showSlide(index) {
     if (index < 0) {
       currentIndex = totalSlides - 1;
@@ -20,26 +20,23 @@ document.addEventListener("DOMContentLoaded", function () {
     slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
   }
 
-  // Show next slide
+  // Next and previous slide functions
   function nextSlide() {
     showSlide(currentIndex + 1);
   }
-
-  // Show previous slide
   function prevSlide() {
     showSlide(currentIndex - 1);
   }
 
-  // Auto slide
+  // Automatic slideshow with pause on hover
   function startSlideShow() {
-    slideInterval = setInterval(nextSlide, 4000); // 4 seconds interval
+    slideInterval = setInterval(nextSlide, 4000);
   }
-
   function stopSlideShow() {
     clearInterval(slideInterval);
   }
 
-  // Event listeners for manual navigation
+  // Event listeners for slider navigation
   if (nextButton) {
     nextButton.addEventListener("click", function () {
       stopSlideShow();
@@ -47,7 +44,6 @@ document.addEventListener("DOMContentLoaded", function () {
       startSlideShow();
     });
   }
-
   if (prevButton) {
     prevButton.addEventListener("click", function () {
       stopSlideShow();
@@ -56,9 +52,15 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // Pause slider on hover
+  const slider = document.querySelector(".slider");
+  if (slider) {
+    slider.addEventListener("mouseenter", stopSlideShow);
+    slider.addEventListener("mouseleave", startSlideShow);
+  }
   startSlideShow();
 
-  // CONTACT POPUP FUNCTIONALITY
+  /* CONTACT POPUP FUNCTIONALITY */
   window.showContactPopup = function (propertyName) {
     const popup = document.getElementById("contactPopup");
     const popupText = document.getElementById("popupText");

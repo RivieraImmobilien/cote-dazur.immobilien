@@ -1,4 +1,4 @@
-/* General Styles */
+/* Reset and Global Styles */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -8,8 +8,8 @@
 body {
   font-family: Arial, sans-serif;
   color: #333;
-  line-height: 1.6;
   background: #f9f9f9;
+  line-height: 1.6;
 }
 
 .container {
@@ -18,7 +18,7 @@ body {
   overflow: hidden;
 }
 
-/* Header Styles */
+/* Header */
 header {
   background: #0044cc;
   color: #fff;
@@ -54,7 +54,7 @@ nav ul li a:hover {
   text-decoration: underline;
 }
 
-/* Slider Styles */
+/* Slider */
 .slider {
   position: relative;
   max-width: 1000px;
@@ -82,7 +82,7 @@ nav ul li a:hover {
   position: absolute;
   bottom: 20px;
   left: 20px;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0,0,0,0.5);
   color: #fff;
   padding: 10px;
   border-radius: 5px;
@@ -101,6 +101,7 @@ nav ul li a:hover {
   padding: 10px;
   cursor: pointer;
   border-radius: 3px;
+  z-index: 10;
 }
 
 .prev {
@@ -118,8 +119,8 @@ nav ul li a:hover {
 
 .property-list {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .property {
@@ -167,6 +168,7 @@ nav ul li a:hover {
   background: rgba(0,0,0,0.7);
   justify-content: center;
   align-items: center;
+  z-index: 20;
 }
 
 .popup-content {
@@ -208,7 +210,7 @@ nav ul li a:hover {
   cursor: pointer;
 }
 
-/* Footer Styles */
+/* Footer */
 footer {
   background: #333;
   color: #fff;
