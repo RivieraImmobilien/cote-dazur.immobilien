@@ -78,7 +78,7 @@ nav ul li a:hover {
 .slider {
   position: relative;
   width: 100vw;
-  height: 60vh; /* Adjust height as needed */
+  height: 60vh; /* Adjust slider height as needed */
   overflow: hidden;
   background: #eee;
 }
@@ -89,7 +89,7 @@ nav ul li a:hover {
 }
 
 .slide {
-  width: 100vw; /* Full viewport width */
+  width: 100vw; /* Each slide spans full viewport width */
   height: 60vh;
   position: relative;
 }
