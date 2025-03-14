@@ -10,8 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const totalSlides = slides.length;
   let slideTimeout;
 
-  // Custom durations (in milliseconds)
-  // 2500ms for "Haus verkaufen" & "Haus kaufen", 1000ms for "Dienstleistungen"
+  // Custom durations (in milliseconds): 2500ms for "Haus verkaufen" & "Haus kaufen", 1000ms for "Dienstleistungen"
   const slideDurations = [2500, 2500, 1000];
 
   function showSlide(index) {
@@ -22,7 +21,6 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       currentIndex = index;
     }
-    // Use 100vw so that the slide spans full screen
     slidesContainer.style.transform = `translateX(-${currentIndex * 100}vw)`;
     updateDots();
     updateCategoryLabel();
@@ -78,13 +76,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Pause slider on mouse enter, resume on mouse leave
+  // Pause slider on mouse enter and resume on mouse leave
   const slider = document.querySelector(".slider");
   if (slider) {
     slider.addEventListener("mouseenter", () => clearTimeout(slideTimeout));
     slider.addEventListener("mouseleave", restartSlideTimeout);
   }
-
+  
   // Initialize slider
   showSlide(currentIndex);
 

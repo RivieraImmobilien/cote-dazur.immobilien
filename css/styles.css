@@ -13,7 +13,9 @@ body {
 }
 
 /* Containers */
-.header-container, .content-container, .footer-container {
+.header-container,
+.content-container,
+.footer-container {
   width: 90%;
   margin: auto;
 }
@@ -76,7 +78,7 @@ nav ul li a:hover {
 .slider {
   position: relative;
   width: 100vw;
-  height: 60vh; /* Adjust slider height as needed */
+  height: 60vh; /* Adjust slider height if needed */
   overflow: hidden;
   background: #eee;
 }
@@ -273,9 +275,12 @@ footer {
   }
   
   /* Adjust slider for mobile */
+  .slider {
+    height: 40vh; /* Adjust height for mobile if desired */
+  }
+  
   .slide {
-    width: 100vw;
-    height: 40vh; /* Reduce height on mobile if desired */
+    height: 40vh;
   }
   
   .slide-description h2 {
