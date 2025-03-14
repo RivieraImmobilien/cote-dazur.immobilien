@@ -6,6 +6,7 @@
   <title>Côte d'Azur Immobilien – Startseite</title>
   <meta name="description" content="Exklusive Immobilienangebote an der Côte d'Azur – Kaufen, Verkaufen und umfassende Dienstleistungen.">
   <meta name="keywords" content="Immobilien, Côte d'Azur, Haus verkaufen, Haus kaufen, Dienstleistungen">
+  <meta name="author" content="Côte d'Azur Immobilien">
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -34,32 +35,29 @@
   <main>
     <!-- Full-Width Slider Section -->
     <section id="hero">
-      <div class="slider" aria-label="Kategorien-Slider">
+      <div class="slider">
         <div class="slides">
-          <!-- Slide 1: Haus verkaufen -->
           <a href="sell.html" class="slide-link">
-            <div class="slide" data-category="Haus verkaufen">
-              <img src="images/slider/slide1.jpg" alt="Haus verkaufen" loading="lazy">
+            <div class="slide">
+              <img src="images/slider/slide1.webp" alt="Haus verkaufen" loading="lazy">
               <div class="slide-description">
                 <h2>Haus verkaufen</h2>
                 <p>Verkaufen Sie Ihre Immobilie schnell und sicher.</p>
               </div>
             </div>
           </a>
-          <!-- Slide 2: Haus kaufen -->
           <a href="buy.html" class="slide-link">
-            <div class="slide" data-category="Haus kaufen">
-              <img src="images/slider/slide2.jpg" alt="Haus kaufen" loading="lazy">
+            <div class="slide">
+              <img src="images/slider/slide2.webp" alt="Haus kaufen" loading="lazy">
               <div class="slide-description">
                 <h2>Haus kaufen</h2>
                 <p>Finden Sie Ihr Traumhaus an der Côte d'Azur.</p>
               </div>
             </div>
           </a>
-          <!-- Slide 3: Dienstleistungen -->
           <a href="services.html" class="slide-link">
-            <div class="slide" data-category="Dienstleistungen">
-              <img src="images/slider/slide3.jpg" alt="Dienstleistungen" loading="lazy">
+            <div class="slide">
+              <img src="images/slider/slide3.webp" alt="Dienstleistungen" loading="lazy">
               <div class="slide-description">
                 <h2>Dienstleistungen</h2>
                 <p>Rundum-sorglos-Service für Ihre Immobilie.</p>
@@ -67,17 +65,13 @@
             </div>
           </a>
         </div>
-        <!-- Slider Navigation Buttons -->
-        <button class="prev" aria-label="Vorherige Kategorie">&#10094;</button>
-        <button class="next" aria-label="Nächste Kategorie">&#10095;</button>
-        <!-- Slider Dots -->
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
         <div class="slider-dots">
-          <span class="dot active" data-index="0"></span>
-          <span class="dot" data-index="1"></span>
-          <span class="dot" data-index="2"></span>
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
         </div>
-        <!-- Current Category Label -->
-        <div class="current-category" id="currentCategory">Haus verkaufen</div>
       </div>
     </section>
 
@@ -86,28 +80,22 @@
       <div class="content-container">
         <h2>Exklusive Angebote</h2>
         <div class="property-list">
-          <!-- Sample Property 1 -->
           <div class="property">
-            <img src="images/house1.jpg" alt="Luxusvilla in Saint Tropez" loading="lazy">
+            <img src="images/house1.webp" alt="Luxusvilla in Saint Tropez" loading="lazy">
             <h3>Luxusvilla in Saint Tropez</h3>
             <p>Preis: €2.500.000</p>
-            <p>Diese exquisite Villa bietet einen atemberaubenden Meerblick und modernen Komfort.</p>
             <button onclick="showContactPopup('Luxusvilla in Saint Tropez')">Mehr erfahren</button>
           </div>
-          <!-- Sample Property 2 -->
           <div class="property">
-            <img src="images/house2.jpg" alt="Charmantes Haus in Nizza" loading="lazy">
+            <img src="images/house2.webp" alt="Charmantes Haus in Nizza" loading="lazy">
             <h3>Charmantes Haus in Nizza</h3>
             <p>Preis: €1.200.000</p>
-            <p>Ein wunderschön renoviertes Haus im Herzen von Nizza mit historischem Flair.</p>
             <button onclick="showContactPopup('Charmantes Haus in Nizza')">Mehr erfahren</button>
           </div>
-          <!-- Sample Property 3 -->
           <div class="property">
-            <img src="images/house3.jpg" alt="Moderne Wohnung in Cannes" loading="lazy">
+            <img src="images/house3.webp" alt="Moderne Wohnung in Cannes" loading="lazy">
             <h3>Moderne Wohnung in Cannes</h3>
             <p>Preis: €850.000</p>
-            <p>Stilvolle Wohnung mit Meerblick, ideal gelegen nahe dem Zentrum von Cannes.</p>
             <button onclick="showContactPopup('Moderne Wohnung in Cannes')">Mehr erfahren</button>
           </div>
         </div>
@@ -115,9 +103,9 @@
     </section>
   </main>
 
-  <!-- Fixed WhatsApp Button -->
+  <!-- WhatsApp Contact Button -->
   <a href="https://wa.me/0033781717466?text=Hallo%20C%C3%B4te%20d%27Azur%20Immobilien" class="whatsapp-btn" target="_blank" aria-label="WhatsApp Kontakt">
-    <img src="images/whatsapp-icon.png" alt="WhatsApp Kontakt">
+    <img src="images/whatsapp-icon.webp" alt="WhatsApp Kontakt">
   </a>
 
   <!-- Footer -->
