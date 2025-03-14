@@ -78,7 +78,7 @@ nav ul li a:hover {
 .slider {
   position: relative;
   width: 100vw;
-  height: 60vh; /* Adjust slider height if needed */
+  height: 60vh; /* Adjust height as needed */
   overflow: hidden;
   background: #eee;
 }
@@ -89,7 +89,7 @@ nav ul li a:hover {
 }
 
 .slide {
-  width: 100vw; /* Each slide spans full viewport width */
+  width: 100vw; /* Full viewport width */
   height: 60vh;
   position: relative;
 }
@@ -196,6 +196,11 @@ nav ul li a:hover {
   border-radius: 5px;
   overflow: hidden;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.property:hover {
+  transform: translateY(-5px);
 }
 
 .property img {
@@ -216,6 +221,7 @@ nav ul li a:hover {
   border: none;
   cursor: pointer;
   border-radius: 5px;
+  transition: background 0.3s;
 }
 
 .property button:hover {
@@ -276,7 +282,7 @@ footer {
   
   /* Adjust slider for mobile */
   .slider {
-    height: 40vh; /* Adjust height for mobile if desired */
+    height: 40vh;
   }
   
   .slide {

@@ -10,7 +10,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const totalSlides = slides.length;
   let slideTimeout;
 
-  // Custom durations (in milliseconds): 2500ms for "Haus verkaufen" & "Haus kaufen", 1000ms for "Dienstleistungen"
+  // Custom durations (in milliseconds):
+  // 2500ms for "Haus verkaufen" & "Haus kaufen", 1000ms for "Dienstleistungen"
   const slideDurations = [2500, 2500, 1000];
 
   function showSlide(index) {
@@ -55,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }, slideDurations[currentIndex]);
   }
 
-  // Event Listeners for slider navigation
+  // Event Listeners for slider navigation buttons
   if (nextButton) {
     nextButton.addEventListener("click", () => {
       clearTimeout(slideTimeout);
@@ -68,6 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
       prevSlide();
     });
   }
+  // Dot navigation
   dots.forEach(dot => {
     dot.addEventListener("click", function () {
       const index = parseInt(this.getAttribute("data-index"));
@@ -76,13 +78,32 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Pause slider on mouse enter and resume on mouse leave
+  // Pause slider on mouse enter, resume on mouse leave
   const slider = document.querySelector(".slider");
   if (slider) {
     slider.addEventListener("mouseenter", () => clearTimeout(slideTimeout));
     slider.addEventListener("mouseleave", restartSlideTimeout);
   }
   
+  // Touch events for swipe functionality (mobile)
+  let touchStartX = 0;
+  let touchEndX = 0;
+  slider.addEventListener("touchstart", function(e) {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+  slider.addEventListener("touchend", function(e) {
+    touchEndX = e.changedTouches[0].screenX;
+    handleGesture();
+  });
+  function handleGesture() {
+    if (touchEndX < touchStartX - 50) {
+      nextSlide();
+    }
+    if (touchEndX > touchStartX + 50) {
+      prevSlide();
+    }
+  }
+
   // Initialize slider
   showSlide(currentIndex);
 
