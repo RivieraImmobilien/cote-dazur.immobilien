@@ -1,52 +1,28 @@
 document.addEventListener("DOMContentLoaded", function () {
-  /* SLIDER FUNCTIONALITY */
-  const slidesContainer = document.querySelector(".slides");
-  const slides = document.querySelectorAll(".slide");
-  const prevButton = document.querySelector(".prev");
-  const nextButton = document.querySelector(".next");
-  const dots = document.querySelectorAll(".dot");
-  const currentCategoryLabel = document.getElementById("currentCategory");
+  // Slider functionality
   let currentIndex = 0;
-  const totalSlides = slides.length;
+  const slides = document.querySelectorAll(".slide");
+  const dots = document.querySelectorAll(".dot");
+  const slideDurations = [5000, 4000, 6000]; // Durations for each slide
   let slideTimeout;
 
-  // Custom durations (in milliseconds):
-  // 2500ms for "Haus verkaufen" & "Haus kaufen", 1000ms for "Dienstleistungen"
-  const slideDurations = [2500, 2500, 1000];
-
   function showSlide(index) {
-    if (index < 0) {
-      currentIndex = totalSlides - 1;
-    } else if (index >= totalSlides) {
-      currentIndex = 0;
-    } else {
-      currentIndex = index;
-    }
-    slidesContainer.style.transform = `translateX(-${currentIndex * 100}vw)`;
-    updateDots();
-    updateCategoryLabel();
+    slides.forEach((slide, i) => {
+      slide.style.display = i === index ? "block" : "none";
+    });
+    dots.forEach((dot, i) => {
+      dot.classList.toggle("active", i === index);
+    });
+    currentIndex = index;
     restartSlideTimeout();
   }
 
-  function updateDots() {
-    dots.forEach((dot, i) => {
-      dot.classList.toggle("active", i === currentIndex);
-    });
-  }
-
-  function updateCategoryLabel() {
-    const category = slides[currentIndex].getAttribute("data-category") || "";
-    if (currentCategoryLabel) {
-      currentCategoryLabel.textContent = category;
-    }
-  }
-
   function nextSlide() {
-    showSlide(currentIndex + 1);
+    showSlide((currentIndex + 1) % slides.length);
   }
 
   function prevSlide() {
-    showSlide(currentIndex - 1);
+    showSlide((currentIndex - 1 + slides.length) % slides.length);
   }
 
   function restartSlideTimeout() {
@@ -56,7 +32,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }, slideDurations[currentIndex]);
   }
 
-  // Event Listeners for slider navigation buttons
+  const nextButton = document.getElementById("nextButton");
+  const prevButton = document.getElementById("prevButton");
+
   if (nextButton) {
     nextButton.addEventListener("click", () => {
       clearTimeout(slideTimeout);
@@ -69,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
       prevSlide();
     });
   }
-  // Dot navigation
+
   dots.forEach(dot => {
     dot.addEventListener("click", function () {
       const index = parseInt(this.getAttribute("data-index"));
@@ -78,14 +56,12 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Pause slider on mouse enter, resume on mouse leave
   const slider = document.querySelector(".slider");
   if (slider) {
     slider.addEventListener("mouseenter", () => clearTimeout(slideTimeout));
     slider.addEventListener("mouseleave", restartSlideTimeout);
   }
-  
-  // Touch events for swipe functionality (mobile)
+
   let touchStartX = 0;
   let touchEndX = 0;
   slider.addEventListener("touchstart", function(e) {
@@ -95,6 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
     touchEndX = e.changedTouches[0].screenX;
     handleGesture();
   });
+
   function handleGesture() {
     if (touchEndX < touchStartX - 50) {
       nextSlide();
@@ -104,10 +81,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Initialize slider
   showSlide(currentIndex);
 
-  /* HAMBURGER MENU TOGGLE */
+  // Hamburger menu toggle
   const hamburger = document.getElementById("hamburger");
   const navMenu = document.getElementById("navMenu");
   hamburger.addEventListener("click", function () {
@@ -117,4 +93,23 @@ document.addEventListener("DOMContentLoaded", function () {
       navLinks.classList.toggle("show");
     }
   });
+
+  // Form validation
+  const sellForm = document.getElementById("sellForm");
+  if (sellForm) {
+    sellForm.addEventListener("submit", function (event) {
+      if (!sellForm.checkValidity()) {
+        event.preventDefault();
+        alert("Bitte füllen Sie alle erforderlichen Felder aus.");
+      }
+    });
+  }
+
+  // Initialize map (placeholder function)
+  function initializeMap() {
+    // Map initialization code here
+    console.log("Map initialized");
+  }
+
+  initializeMap();
 });

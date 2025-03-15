@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Côte d'Azur Immobilien – Startseite</title>
-  <meta name="description" content="Exklusive Immobilienangebote an der Côte d'Azur – Kaufen, Verkaufen und umfassende Dienstleistungen.">
-  <meta name="keywords" content="Immobilien, Côte d'Azur, Haus verkaufen, Haus kaufen, Dienstleistungen">
+  <meta name="description" content="Entdecken Sie exklusive Immobilienangebote an der Côte d'Azur. Kaufen, verkaufen und umfassende Dienstleistungen für Ihre Traumimmobilie.">
+  <meta name="keywords" content="Immobilien, Côte d'Azur, Haus verkaufen, Haus kaufen, Luxusimmobilien, Frankreich">
   <meta name="author" content="Côte d'Azur Immobilien">
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="css/styles.css">
@@ -46,75 +46,17 @@
               </div>
             </div>
           </a>
-          <a href="buy.html" class="slide-link">
-            <div class="slide">
-              <img src="images/slider/slide2.webp" alt="Haus kaufen" loading="lazy">
-              <div class="slide-description">
-                <h2>Haus kaufen</h2>
-                <p>Finden Sie Ihr Traumhaus an der Côte d'Azur.</p>
-              </div>
-            </div>
-          </a>
-          <a href="services.html" class="slide-link">
-            <div class="slide">
-              <img src="images/slider/slide3.webp" alt="Dienstleistungen" loading="lazy">
-              <div class="slide-description">
-                <h2>Dienstleistungen</h2>
-                <p>Rundum-sorglos-Service für Ihre Immobilie.</p>
-              </div>
-            </div>
-          </a>
+          <!-- Additional slides here -->
         </div>
-        <button class="prev">&#10094;</button>
-        <button class="next">&#10095;</button>
-        <div class="slider-dots">
-          <span class="dot active"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-        </div>
-      </div>
-    </section>
-
-    <!-- Featured Properties Section -->
-    <section id="featured-properties">
-      <div class="content-container">
-        <h2>Exklusive Angebote</h2>
-        <div class="property-list">
-          <div class="property">
-            <img src="images/house1.webp" alt="Luxusvilla in Saint Tropez" loading="lazy">
-            <h3>Luxusvilla in Saint Tropez</h3>
-            <p>Preis: €2.500.000</p>
-            <button onclick="showContactPopup('Luxusvilla in Saint Tropez')">Mehr erfahren</button>
-          </div>
-          <div class="property">
-            <img src="images/house2.webp" alt="Charmantes Haus in Nizza" loading="lazy">
-            <h3>Charmantes Haus in Nizza</h3>
-            <p>Preis: €1.200.000</p>
-            <button onclick="showContactPopup('Charmantes Haus in Nizza')">Mehr erfahren</button>
-          </div>
-          <div class="property">
-            <img src="images/house3.webp" alt="Moderne Wohnung in Cannes" loading="lazy">
-            <h3>Moderne Wohnung in Cannes</h3>
-            <p>Preis: €850.000</p>
-            <button onclick="showContactPopup('Moderne Wohnung in Cannes')">Mehr erfahren</button>
-          </div>
+        <button class="nav-button prev" id="prevButton" aria-label="Vorheriges Bild">❮</button>
+        <button class="nav-button next" id="nextButton" aria-label="Nächstes Bild">❯</button>
+        <div class="dots">
+          <!-- Dots for each slide -->
         </div>
       </div>
     </section>
   </main>
 
-  <!-- WhatsApp Contact Button -->
-  <a href="https://wa.me/0033781717466?text=Hallo%20C%C3%B4te%20d%27Azur%20Immobilien" class="whatsapp-btn" target="_blank" aria-label="WhatsApp Kontakt">
-    <img src="images/whatsapp-icon.webp" alt="WhatsApp Kontakt">
-  </a>
-
-  <!-- Footer -->
-  <footer>
-    <div class="footer-container">
-      <p>&copy; 2025 Côte d'Azur Immobilien – Alle Rechte vorbehalten.</p>
-    </div>
-  </footer>
-
-  <script src="js/script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
