@@ -70,9 +70,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
   // Dot navigation
-  dots.forEach(dot => {
+  dots.forEach((dot, index) => {
     dot.addEventListener("click", function () {
-      const index = parseInt(this.getAttribute("data-index"));
       clearTimeout(slideTimeout);
       showSlide(index);
     });
@@ -84,14 +83,14 @@ document.addEventListener("DOMContentLoaded", function () {
     slider.addEventListener("mouseenter", () => clearTimeout(slideTimeout));
     slider.addEventListener("mouseleave", restartSlideTimeout);
   }
-  
+
   // Touch events for swipe functionality (mobile)
   let touchStartX = 0;
   let touchEndX = 0;
-  slider.addEventListener("touchstart", function(e) {
+  slider.addEventListener("touchstart", function (e) {
     touchStartX = e.changedTouches[0].screenX;
   });
-  slider.addEventListener("touchend", function(e) {
+  slider.addEventListener("touchend", function (e) {
     touchEndX = e.changedTouches[0].screenX;
     handleGesture();
   });

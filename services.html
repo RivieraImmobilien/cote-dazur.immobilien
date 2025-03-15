@@ -1,51 +1,93 @@
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unsere Dienstleistungen</title>
-    <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Côte d'Azur Immobilien – Dienstleistungen</title>
+  <meta name="description" content="Umfassende Dienstleistungen für Immobilien an der Côte d'Azur. Erfahren Sie mehr über Immobilienverwaltung, Vermietungsservice, Beratung und Renovierungsmanagement.">
+  <meta name="keywords" content="Immobilien, Dienstleistungen, Immobilienverwaltung, Vermietungsservice, Immobilienberatung, Renovierungsmanagement">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <header>
+  <!-- Header (same as other pages) -->
+  <header>
+    <div class="header-container">
+      <div class="logo"><a href="index.html">Côte d'Azur Immobilien</a></div>
+      <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <nav id="navMenu">
+        <ul id="nav-links">
+          <li><a href="index.html">Startseite</a></li>
+          <li><a href="buy.html">Haus kaufen</a></li>
+          <li><a href="sell.html">Haus verkaufen</a></li>
+          <li><a href="services.html" class="active">Dienstleistungen</a></li>
+          <li><a href="contact.html">Kontakt</a></li>
+          <li><a href="valuation.html">Kostenlose Bewertung</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section for Dienstleistungen -->
+    <section id="services-hero">
+      <div class="hero-content">
         <h1>Unsere Dienstleistungen</h1>
-        <nav>
-            <ul>
-                <nav>
-    <ul>
-        <li><a href="index.html">Startseite</a></li>
-        <li><a href="buy.html">Kaufen</a></li>
-        <li><a href="sell.html">Verkaufen</a></li>
-        <li><a href="services.html">Dienstleistungen</a></li> <!-- NEW LINK -->
-    </ul>
-</nav>
-
-            </ul>
-        </nav>
-    </header>
-
-    <section id="services">
-        <h2>Unsere exklusiven Dienstleistungen</h2>
-
-        <div class="service">
-            <h3>🔑 Concierge Service</h3>
-            <p>Exklusive Unterstützung für Ihre Immobilie, von Reinigung bis hin zu VIP-Services.</p>
-        </div>
-
-        <div class="service">
-            <h3>🚚 Umzugsservice</h3>
-            <p>Reibungsloser Umzug mit deutschsprachiger Unterstützung für Ihre neue Immobilie.</p>
-        </div>
-
-        <div class="service">
-            <h3>🏡 Immobilienverwaltung</h3>
-            <p>Wir kümmern uns um die Verwaltung Ihrer Immobilie – professionell und zuverlässig.</p>
-        </div>
+        <p>Wir bieten Ihnen einen umfassenden Rundum-sorglos-Service für Ihre Immobilie. Von der Immobilienverwaltung über Vermietungsservice bis hin zur Beratung – wir sind Ihr kompetenter Partner an der Côte d'Azur.</p>
+      </div>
     </section>
 
-    <footer>
-        <p>© 2025 Côte d'Azur Immobilien – Alle Rechte vorbehalten.</p>
-    </footer>
+    <!-- Services List -->
+    <section id="services-list">
+      <div class="content-container">
+        <div class="service-item">
+          <img src="images/services/property_management.jpg" alt="Immobilienverwaltung" loading="lazy">
+          <h2>Immobilienverwaltung</h2>
+          <p>Professionelle Verwaltung Ihrer Immobilie, inklusive Instandhaltung und Mietmanagement.</p>
+        </div>
+        <div class="service-item">
+          <img src="images/services/rental_service.jpg" alt="Vermietungsservice" loading="lazy">
+          <h2>Vermietungsservice</h2>
+          <p>Unterstützung bei der Vermietung Ihrer Immobilie an qualifizierte Mieter.</p>
+        </div>
+        <div class="service-item">
+          <img src="images/services/consulting.jpg" alt="Immobilienberatung" loading="lazy">
+          <h2>Immobilienberatung</h2>
+          <p>Maßgeschneiderte Beratung für den Kauf oder Verkauf Ihrer Immobilie.</p>
+        </div>
+        <div class="service-item">
+          <img src="images/services/renovation_management.jpg" alt="Renovierungsmanagement" loading="lazy">
+          <h2>Renovierungsmanagement</h2>
+          <p>Koordination und Überwachung von Renovierungsprojekten, um den Wert Ihrer Immobilie zu steigern.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Fixed WhatsApp Button -->
+  <a href="https://wa.me/0033781717466?text=Hallo%20C%C3%B4te%20d%27Azur%20Immobilien" class="whatsapp-btn" target="_blank" aria-label="WhatsApp Kontakt">
+    <img src="images/whatsapp-icon.png" alt="WhatsApp Kontakt">
+  </a>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <p>&copy; 2025 Côte d'Azur Immobilien – Alle Rechte vorbehalten.</p>
+      <div class="social-share">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://cote-dazur.immobilien/services.html" target="_blank" aria-label="Facebook">
+          <img src="images/facebook-icon.png" alt="Facebook">
+        </a>
+        <a href="https://twitter.com/intent/tweet?url=https://cote-dazur.immobilien/services.html&text=Unsere%20Dienstleistungen" target="_blank" aria-label="Twitter">
+          <img src="images/twitter-icon.png" alt="Twitter">
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
 </body>
 </html>
