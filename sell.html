@@ -4,13 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Côte d'Azur Immobilien – Haus verkaufen</title>
-  <meta name="description" content="Verkaufen Sie Ihre Immobilie an der Côte d'Azur schnell und sicher mit unseren Experten.">
+  <meta name="description" content="Verkaufen Sie Ihre Immobilie an der Côte d'Azur mit unserem professionellen Service.">
+  <meta name="keywords" content="Haus verkaufen, Immobilien, Côte d'Azur">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+  <!-- Header -->
   <header>
-    <div class="header-container">
-      <div class="logo">Côte d'Azur Immobilien</div>
+    <div class="container header-container">
+      <h1 class="logo">Côte d'Azur Immobilien</h1>
       <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
         <span class="bar"></span>
         <span class="bar"></span>
@@ -28,27 +31,31 @@
     </div>
   </header>
 
+  <!-- Main Content: Haus verkaufen -->
   <main>
-    <section id="sell-property">
-      <h1>Haus verkaufen</h1>
-      <form id="sellForm">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-        <label for="email">E-Mail:</label>
-        <input type="email" id="email" name="email" required>
-        <label for="property-address">Adresse der Immobilie:</label>
-        <input type="text" id="property-address" name="property-address" required>
-        <label for="property-details">Details zur Immobilie:</label>
-        <textarea id="property-details" name="property-details" required></textarea>
-        <button type="submit">Absenden</button>
-      </form>
-      <div class="tips">
-        <h2>Tipps zum Verkauf Ihrer Immobilie</h2>
-        <p>Stellen Sie sicher, dass Ihre Immobilie in bestem Zustand ist, bevor Sie sie zum Verkauf anbieten.</p>
-        <p>Nutzen Sie hochwertige Fotos und Videos, um Ihre Immobilie optimal zu präsentieren.</p>
+    <section id="sell-content">
+      <div class="container">
+        <h2>Haus verkaufen</h2>
+        <p>Verkaufen Sie Ihre Immobilie schnell und professionell. Kontaktieren Sie uns für eine kostenlose Bewertung.</p>
+        <div class="sell-info">
+          <!-- You can add a contact form or more details about the selling process here -->
+          <button onclick="showContactPopup('Haus verkaufen')">Jetzt beraten lassen</button>
+        </div>
       </div>
     </section>
   </main>
+
+  <!-- Fixed WhatsApp Button -->
+  <a href="https://wa.me/YOUR_NUMBER?text=Hallo%20C%C3%B4te%20d%27Azur%20Immobilien" class="whatsapp-btn" target="_blank" aria-label="WhatsApp Kontakt">
+    <img src="images/whatsapp-icon.png" alt="WhatsApp Kontakt">
+  </a>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Côte d'Azur Immobilien – Alle Rechte vorbehalten.</p>
+    </div>
+  </footer>
 
   <script src="js/script.js"></script>
 </body>
