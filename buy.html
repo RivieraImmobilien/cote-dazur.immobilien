@@ -4,20 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Côte d'Azur Immobilien – Haus kaufen</title>
-  <meta name="description" content="Finden Sie Ihre Traumimmobilie an der Côte d'Azur. Entdecken Sie unsere exklusiven Angebote.">
-  <meta name="keywords" content="Immobilien kaufen, Côte d'Azur, Luxusimmobilien, Frankreich">
+  <meta name="description" content="Exklusive Immobilienangebote: Haus kaufen an der Côte d'Azur.">
+  <meta name="keywords" content="Haus kaufen, Immobilien, Côte d'Azur">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+  <!-- Header -->
   <header>
-    <div class="header-container">
-      <div class="logo">Côte d'Azur Immobilien</div>
+    <div class="container header-container">
+      <h1 class="logo">Côte d'Azur Immobilien</h1>
       <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
       </button>
-      <nav id="navMenu" aria-label="Hauptnavigation">
+      <nav id="navMenu">
         <ul id="nav-links">
           <li><a href="index.html">Startseite</a></li>
           <li><a href="buy.html" class="active">Haus kaufen</a></li>
@@ -29,28 +31,53 @@
     </div>
   </header>
 
+  <!-- Main Content: Haus kaufen -->
   <main>
-    <section id="property-listings">
-      <h1>Haus kaufen</h1>
-      <div class="filters">
-        <label for="price-range">Preis:</label>
-        <input type="range" id="price-range" name="price-range" min="100000" max="10000000">
-        <label for="location">Ort:</label>
-        <select id="location" name="location">
-          <option value="">Alle</option>
-          <option value="nice">Nizza</option>
-          <option value="cannes">Cannes</option>
-          <option value="monaco">Monaco</option>
-        </select>
-      </div>
-      <div id="map">
-        <!-- Interactive map will be integrated here -->
-      </div>
-      <div class="listings">
-        <!-- Property listings will be displayed here -->
+    <section id="buy-content">
+      <div class="container">
+        <h2>Haus kaufen</h2>
+        <p>Entdecken Sie exklusive Immobilienangebote zum Kauf an der Côte d'Azur.</p>
+        <div class="property-list">
+          <!-- Sample Property 1 -->
+          <div class="property">
+            <img src="images/house1.jpg" alt="Luxusvilla in Saint Tropez" loading="lazy">
+            <h3>Luxusvilla in Saint Tropez</h3>
+            <p>Preis: €2.500.000</p>
+            <p>Erleben Sie Luxus und Komfort in dieser exklusiven Villa.</p>
+            <button onclick="showContactPopup('Luxusvilla in Saint Tropez')">Mehr erfahren</button>
+          </div>
+          <!-- Sample Property 2 -->
+          <div class="property">
+            <img src="images/house2.jpg" alt="Charmantes Haus in Nizza" loading="lazy">
+            <h3>Charmantes Haus in Nizza</h3>
+            <p>Preis: €1.200.000</p>
+            <p>Ein gemütliches Haus mit historischem Charme.</p>
+            <button onclick="showContactPopup('Charmantes Haus in Nizza')">Mehr erfahren</button>
+          </div>
+          <!-- Sample Property 3 -->
+          <div class="property">
+            <img src="images/house3.jpg" alt="Moderne Wohnung in Cannes" loading="lazy">
+            <h3>Moderne Wohnung in Cannes</h3>
+            <p>Preis: €850.000</p>
+            <p>Stilvolle Wohnung mit Meerblick, ideal gelegen nahe dem Zentrum von Cannes.</p>
+            <button onclick="showContactPopup('Moderne Wohnung in Cannes')">Mehr erfahren</button>
+          </div>
+        </div>
       </div>
     </section>
   </main>
+
+  <!-- Fixed WhatsApp Button -->
+  <a href="https://wa.me/YOUR_NUMBER?text=Hallo%20C%C3%B4te%20d%27Azur%20Immobilien" class="whatsapp-btn" target="_blank" aria-label="WhatsApp Kontakt">
+    <img src="images/whatsapp-icon.png" alt="WhatsApp Kontakt">
+  </a>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Côte d'Azur Immobilien – Alle Rechte vorbehalten.</p>
+    </div>
+  </footer>
 
   <script src="js/script.js"></script>
 </body>
