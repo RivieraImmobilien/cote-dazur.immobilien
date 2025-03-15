@@ -7,8 +7,8 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #ecf0f1; /* Light Gray */
-  color: #2c3e50; /* Dark Blue */
+  background: #f9f9f9;
+  color: #333;
   line-height: 1.6;
 }
 
@@ -23,17 +23,18 @@ body {
 /* Header & Navigation */
 .header-container {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-  background-color: #2c3e50; /* Dark Blue */
+  justify-content: space-between;
+  padding: 10px 0;
 }
 
-.logo a {
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 1.5em;
-  font-weight: bold;
+header {
+  background: #0044cc;
+  color: #fff;
+}
+
+.logo {
+  font-size: 1.8rem;
 }
 
 nav ul {
@@ -47,17 +48,17 @@ nav ul li {
 }
 
 nav ul li a {
-  color: #ffffff;
+  color: #fff;
   text-decoration: none;
   font-weight: bold;
 }
 
 nav ul li a.active,
 nav ul li a:hover {
-  color: #18bc9c; /* Accent Turquoise */
+  text-decoration: underline;
 }
 
-/* Hamburger Menu (Mobile) */
+/* Hamburger Menu */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -69,24 +70,17 @@ nav ul li a:hover {
 .hamburger .bar {
   width: 25px;
   height: 3px;
-  background-color: #ffffff;
+  background-color: #fff;
   margin: 4px 0;
-  transition: 0.4s;
 }
 
 /* Slider Section */
-#hero {
-  position: relative;
-  width: 100vw;
-  overflow: hidden;
-}
-
 .slider {
-  width: 100vw;
-  height: 60vh; /* Adjust as needed */
   position: relative;
+  width: 100vw;
+  height: 60vh; /* Adjust height as needed */
   overflow: hidden;
-  background-color: #bdc3c7; /* Light gray fallback */
+  background: #eee;
 }
 
 .slides {
@@ -95,7 +89,7 @@ nav ul li a:hover {
 }
 
 .slide {
-  min-width: 100vw;
+  width: 100vw; /* Full viewport width */
   height: 60vh;
   position: relative;
 }
@@ -110,8 +104,8 @@ nav ul li a:hover {
   position: absolute;
   bottom: 20px;
   left: 20px;
-  background-color: rgba(0, 0, 0, 0.6);
-  color: #ffffff;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
   padding: 10px;
   border-radius: 5px;
 }
@@ -131,9 +125,9 @@ nav ul li a:hover {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
+  background: rgba(0,0,0,0.5);
+  color: #fff;
   border: none;
-  color: #ffffff;
   font-size: 2rem;
   padding: 10px;
   cursor: pointer;
@@ -146,11 +140,6 @@ nav ul li a:hover {
 
 .next {
   right: 20px;
-}
-
-.prev:hover,
-.next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
 }
 
 /* Slider Dots */
@@ -166,14 +155,13 @@ nav ul li a:hover {
   width: 12px;
   height: 12px;
   margin: 0 5px;
-  background-color: #bbb;
+  background: #bbb;
   border-radius: 50%;
   cursor: pointer;
-  transition: background-color 0.6s ease;
 }
 
 .slider-dots .dot.active {
-  background-color: #717171;
+  background: #717171;
 }
 
 /* Current Category Label */
@@ -182,37 +170,32 @@ nav ul li a:hover {
   top: 10px;
   left: 50%;
   transform: translateX(-50%);
-  background-color: rgba(0, 0, 0, 0.6);
-  color: #ffffff;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
   padding: 5px 10px;
   border-radius: 5px;
   font-size: 1.2rem;
 }
 
-/* Featured Properties Section */
+/* Featured Properties */
 #featured-properties {
   padding: 40px 0;
-  background-color: #ecf0f1;
-}
-
-.content-container {
-  max-width: 1200px;
-  margin: auto;
 }
 
 .property-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .property {
-  width: 30%;
-  background-color: #ffffff;
-  border: 1px solid #dddddd;
+  width: 32%;
+  background: #fff;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
   border-radius: 5px;
-  margin: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   transition: transform 0.3s;
 }
 
@@ -222,33 +205,27 @@ nav ul li a:hover {
 
 .property img {
   width: 100%;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  display: block;
 }
 
-.property h3 {
-  margin: 10px;
-  color: #2c3e50;
-}
-
+.property h3,
 .property p {
-  margin: 10px;
-  color: #2c3e50;
+  padding: 10px;
 }
 
 .property button {
   margin: 10px;
-  padding: 10px 20px;
-  background-color: #18bc9c;
-  color: #ffffff;
+  padding: 10px;
+  background: #0044cc;
+  color: #fff;
   border: none;
-  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  border-radius: 5px;
+  transition: background 0.3s;
 }
 
 .property button:hover {
-  background-color: #e74c3c;
+  background: #003399;
 }
 
 /* Fixed WhatsApp Button */
@@ -268,17 +245,11 @@ nav ul li a:hover {
 
 /* Footer */
 footer {
-  background-color: #2c3e50;
-  color: #ffffff;
+  background: #333;
+  color: #fff;
   text-align: center;
   padding: 20px 0;
   margin-top: 40px;
-}
-
-/* Social Media Share Buttons in Footer */
-.social-share a {
-  margin: 0 10px;
-  display: inline-block;
 }
 
 /* Responsive Styles */
