@@ -7,8 +7,8 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #ecf0f1; /* Light Gray */
-  color: #2c3e50; /* Dark Blue */
+  background-color: #ecf0f1;
+  color: #2c3e50;
   line-height: 1.6;
 }
 
@@ -26,7 +26,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #2c3e50; /* Dark Blue */
+  background-color: #2c3e50;
 }
 
 .logo a {
@@ -54,7 +54,7 @@ nav ul li a {
 
 nav ul li a.active,
 nav ul li a:hover {
-  color: #18bc9c; /* Accent Turquoise */
+  color: #18bc9c;
 }
 
 /* Hamburger Menu */
@@ -83,10 +83,10 @@ nav ul li a:hover {
 
 .slider {
   width: 100vw;
-  height: 60vh; /* Adjust slider height as needed */
+  height: 60vh;
   position: relative;
   overflow: hidden;
-  background-color: #bdc3c7; /* Light gray fallback */
+  background-color: #bdc3c7;
 }
 
 .slides {
@@ -189,7 +189,7 @@ nav ul li a:hover {
   font-size: 1.2rem;
 }
 
-/* Featured Properties Section */
+/* Featured Properties */
 #featured-properties {
   padding: 40px 0;
   background-color: #ecf0f1;
@@ -207,7 +207,7 @@ nav ul li a:hover {
   border: 1px solid #dddddd;
   border-radius: 5px;
   margin: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   transition: transform 0.3s;
 }
 
