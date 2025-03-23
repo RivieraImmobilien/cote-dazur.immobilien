@@ -32,7 +32,7 @@ body {
 .logo a {
   color: #ffffff;
   text-decoration: none;
-  font-size: 1.5em;
+  font-size: 1.8em;
   font-weight: bold;
 }
 
@@ -55,6 +55,18 @@ nav ul li a {
 nav ul li a.active,
 nav ul li a:hover {
   color: #18bc9c;
+}
+
+/* Language Toggle */
+.language-toggle {
+  margin-right: 20px;
+  font-size: 0.9em;
+}
+
+.language-toggle a {
+  color: #ffffff;
+  text-decoration: none;
+  margin: 0 5px;
 }
 
 /* Hamburger Menu */
@@ -176,20 +188,107 @@ nav ul li a:hover {
   background-color: #717171;
 }
 
-/* Current Category Label */
-.current-category {
-  position: absolute;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: rgba(0,0,0,0.6);
-  color: #ffffff;
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-size: 1.2rem;
+/* Testimonials Section */
+#testimonials {
+  padding: 40px 0;
+  background-color: #ecf0f1;
 }
 
-/* Featured Properties */
+.testimonial-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.testimonial {
+  width: 30%;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  font-style: italic;
+}
+
+.testimonial span {
+  display: block;
+  margin-top: 10px;
+  text-align: right;
+  font-weight: bold;
+}
+
+/* Blog Section */
+#blog {
+  padding: 40px 0;
+  background-color: #ecf0f1;
+}
+
+.blog-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.blog-post {
+  width: 45%;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.blog-post h3 {
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+.blog-post p {
+  margin-bottom: 10px;
+}
+
+.blog-post a {
+  color: #18bc9c;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Property Filter Section */
+#property-filter {
+  padding: 20px 0;
+  background-color: #ecf0f1;
+}
+
+#property-filter form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+#property-filter input,
+#property-filter button {
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+}
+
+#property-filter button {
+  background-color: #18bc9c;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#property-filter button:hover {
+  background-color: #e74c3c;
+}
+
+/* Featured Properties Section */
 #featured-properties {
   padding: 40px 0;
   background-color: #ecf0f1;
@@ -275,6 +374,45 @@ footer {
   display: inline-block;
 }
 
+/* Modal Popup for Contact */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 200;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.close-modal {
+  color: #aaa;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+  color: #000;
+}
+
 /* Responsive Styles */
 @media (max-width: 768px) {
   .header-container {
@@ -323,5 +461,10 @@ footer {
   .property {
     width: 100%;
     margin-bottom: 20px;
+  }
+  
+  #property-filter form {
+    flex-direction: column;
+    align-items: stretch;
   }
 }
