@@ -33,7 +33,7 @@
   <header>
     <div class="header-container">
       <div class="logo"><a href="index.html">Côte d'Azur Immobilien</a></div>
-      <!-- Language Toggle (future expansion) -->
+      <!-- Optional Language Toggle -->
       <div class="language-toggle">
         <a href="index.html">DE</a> | <a href="#">EN</a>
       </div>
@@ -56,7 +56,7 @@
   </header>
 
   <main>
-    <!-- Slider Section -->
+    <!-- Full-Width Slider Section -->
     <section id="hero">
       <div class="slider" aria-label="Kategorien-Slider">
         <div class="slides">
@@ -103,37 +103,24 @@
       </div>
     </section>
 
-    <!-- Property Filter Section -->
-    <section id="property-filter">
-      <div class="content-container">
-        <h2>Filter Immobilienangebote</h2>
-        <form id="filterForm">
-          <input type="text" id="filterKeyword" placeholder="Stichwort (z.B. Stadt)">
-          <input type="number" id="filterPriceMin" placeholder="Min. Preis">
-          <input type="number" id="filterPriceMax" placeholder="Max. Preis">
-          <button type="submit">Filtern</button>
-        </form>
-      </div>
-    </section>
-
     <!-- Featured Properties Section -->
     <section id="featured-properties">
       <div class="content-container">
         <h2>Exklusive Angebote</h2>
-        <div class="property-list" id="propertyList">
-          <div class="property" data-keyword="Saint Tropez">
+        <div class="property-list">
+          <div class="property">
             <img src="images/house1.jpg" alt="Luxusvilla in Saint Tropez" loading="lazy">
             <h3>Luxusvilla in Saint Tropez</h3>
             <p>Preis: €2.500.000</p>
             <button onclick="showContactPopup('Luxusvilla in Saint Tropez')">Mehr erfahren</button>
           </div>
-          <div class="property" data-keyword="Nizza">
+          <div class="property">
             <img src="images/house2.jpg" alt="Charmantes Haus in Nizza" loading="lazy">
             <h3>Charmantes Haus in Nizza</h3>
             <p>Preis: €1.200.000</p>
             <button onclick="showContactPopup('Charmantes Haus in Nizza')">Mehr erfahren</button>
           </div>
-          <div class="property" data-keyword="Cannes">
+          <div class="property">
             <img src="images/house3.jpg" alt="Moderne Wohnung in Cannes" loading="lazy">
             <h3>Moderne Wohnung in Cannes</h3>
             <p>Preis: €850.000</p>
@@ -142,69 +129,14 @@
         </div>
       </div>
     </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials">
-      <div class="content-container">
-        <h2>Kundenstimmen</h2>
-        <div class="testimonial-list">
-          <div class="testimonial">
-            <p>"Dank Côte d'Azur Immobilien konnten wir unser Haus schnell und zum besten Preis verkaufen!"</p>
-            <span>- Familie Müller</span>
-          </div>
-          <div class="testimonial">
-            <p>"Die Immobilienberatung war äußerst professionell. Ich habe mein Traumhaus gefunden!"</p>
-            <span>- Herr Schmidt</span>
-          </div>
-          <div class="testimonial">
-            <p>"Der Vermietungsservice hat uns viel Zeit und Stress erspart. Sehr empfehlenswert!"</p>
-            <span>- Frau Weber</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Latest Blog Section -->
-    <section id="blog">
-      <div class="content-container">
-        <h2>Neueste Blogbeiträge</h2>
-        <div class="blog-list">
-          <article class="blog-post">
-            <h3>Markttrends an der Côte d'Azur</h3>
-            <p>Erfahren Sie mehr über die aktuellen Trends und Entwicklungen auf dem Immobilienmarkt...</p>
-            <a href="blog1.html">Weiterlesen</a>
-          </article>
-          <article class="blog-post">
-            <h3>Tipps für den Immobilienverkauf</h3>
-            <p>So bereiten Sie Ihre Immobilie optimal für den Verkauf vor...</p>
-            <a href="blog2.html">Weiterlesen</a>
-          </article>
-        </div>
-      </div>
-    </section>
   </main>
 
-  <!-- Modal Contact Popup -->
-  <div id="contactModal" class="modal">
-    <div class="modal-content">
-      <span class="close-modal" id="closeModal">&times;</span>
-      <h2>Kontaktieren Sie uns</h2>
-      <p>Geben Sie Ihre Daten ein, und wir melden uns umgehend bei Ihnen.</p>
-      <form id="contactModalForm">
-        <input type="text" id="modalName" name="modalName" placeholder="Ihr Name" required>
-        <input type="email" id="modalEmail" name="modalEmail" placeholder="Ihre E-Mail" required>
-        <textarea id="modalMessage" name="modalMessage" placeholder="Ihre Nachricht" required></textarea>
-        <button type="submit">Absenden</button>
-      </form>
-    </div>
-  </div>
-
   <!-- Fixed WhatsApp Button -->
-  <a href="https://wa.me/+33781717466?text=Hallo%20C%C3%B4te%20d%27Azur%20Immobilien" class="whatsapp-btn" target="_blank" aria-label="WhatsApp Kontakt">
+  <a href="https://wa.me/0033781717466?text=Hallo%20C%C3%B4te%20d%27Azur%20Immobilien" class="whatsapp-btn" target="_blank" aria-label="WhatsApp Kontakt">
     <img src="images/whatsapp-icon.png" alt="WhatsApp Kontakt">
   </a>
 
-  <!-- Footer -->
+  <!-- Footer with Social Share Buttons -->
   <footer>
     <div class="footer-container">
       <p>&copy; 2025 Côte d'Azur Immobilien – Alle Rechte vorbehalten.</p>
@@ -218,15 +150,6 @@
       </div>
     </div>
   </footer>
-
-  <!-- Google Analytics (Replace YOUR_GA_ID with your actual ID) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_GA_ID"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'YOUR_GA_ID');
-  </script>
 
   <script src="js/script.js"></script>
 </body>
