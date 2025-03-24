@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", function () {
   let currentIndex = 0;
   const totalSlides = slides.length;
   let slideTimeout;
-  // Custom durations (ms): 2500 for Haus verkaufen/ Haus kaufen, 1000 for Dienstleistungen
   const slideDurations = [2500, 2500, 1000];
 
   function showSlide(index) {
@@ -80,51 +79,13 @@ document.addEventListener("DOMContentLoaded", function () {
   /* HAMBURGER MENU TOGGLE */
   const hamburger = document.getElementById("hamburger");
   const navMenu = document.getElementById("navMenu");
-  hamburger.addEventListener("click", function () {
-    navMenu.classList.toggle("active");
-    // Also toggle "show" on the nav-links ul
-    const navLinks = document.getElementById("nav-links");
-    if (navLinks) {
-      navLinks.classList.toggle("show");
-    }
-  });
-
-  /* INTERACTIVE PROPERTY FILTER */
-  const filterForm = document.getElementById("filterForm");
-  if (filterForm) {
-    filterForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-      const keyword = document.getElementById("filterKeyword").value.toLowerCase();
-      const priceMin = parseInt(document.getElementById("filterPriceMin").value) || 0;
-      const priceMax = parseInt(document.getElementById("filterPriceMax").value) || Infinity;
-      const properties = document.querySelectorAll(".property");
-      properties.forEach(prop => {
-        const propText = prop.innerText.toLowerCase();
-        // Assume price is mentioned as "Preis: €X" in the text
-        const priceMatch = propText.match(/preis:\s*€([\d,.]+)/i);
-        let price = priceMatch ? parseInt(priceMatch[1].replace(/[,.]/g, "")) : 0;
-        if (propText.includes(keyword) && price >= priceMin && price <= priceMax) {
-          prop.style.display = "block";
-        } else {
-          prop.style.display = "none";
-        }
-      });
-    });
-  }
-
-  /* MODAL CONTACT POPUP */
-  const contactModal = document.getElementById("contactModal");
-  const closeModal = document.getElementById("closeModal");
-  // Dummy function for "Mehr erfahren" buttons; you can expand this function as needed
-  window.showContactPopup = function(propertyName) {
-    if (contactModal) {
-      contactModal.style.display = "block";
-      // Optionally populate modal with propertyName details
-    }
-  };
-  if (closeModal) {
-    closeModal.addEventListener("click", function () {
-      contactModal.style.display = "none";
+  if (hamburger && navMenu) {
+    hamburger.addEventListener("click", function () {
+      navMenu.classList.toggle("active");
+      const navLinks = document.getElementById("nav-links");
+      if (navLinks) {
+        navLinks.classList.toggle("show");
+      }
     });
   }
 });

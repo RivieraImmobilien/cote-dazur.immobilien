@@ -59,14 +59,18 @@ nav ul li a:hover {
 
 /* Language Toggle */
 .language-toggle {
+  text-align: right;
   margin-right: 20px;
   font-size: 0.9em;
 }
-
 .language-toggle a {
   color: #ffffff;
   text-decoration: none;
   margin: 0 5px;
+  font-weight: bold;
+}
+.language-toggle a:hover {
+  color: #18bc9c;
 }
 
 /* Hamburger Menu */
@@ -188,6 +192,63 @@ nav ul li a:hover {
   background-color: #717171;
 }
 
+/* Featured Properties */
+#featured-properties {
+  padding: 40px 0;
+  background-color: #ecf0f1;
+}
+
+.property-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.property {
+  width: 30%;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  margin: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.property:hover {
+  transform: translateY(-5px);
+}
+
+.property img {
+  width: 100%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.property h3 {
+  margin: 10px;
+  color: #2c3e50;
+}
+
+.property p {
+  margin: 10px;
+  color: #2c3e50;
+}
+
+.property button {
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: #18bc9c;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.property button:hover {
+  background-color: #e74c3c;
+}
+
 /* Testimonials Section */
 #testimonials {
   padding: 40px 0;
@@ -288,63 +349,6 @@ nav ul li a:hover {
   background-color: #e74c3c;
 }
 
-/* Featured Properties Section */
-#featured-properties {
-  padding: 40px 0;
-  background-color: #ecf0f1;
-}
-
-.property-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-
-.property {
-  width: 30%;
-  background-color: #ffffff;
-  border: 1px solid #dddddd;
-  border-radius: 5px;
-  margin: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  transition: transform 0.3s;
-}
-
-.property:hover {
-  transform: translateY(-5px);
-}
-
-.property img {
-  width: 100%;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-}
-
-.property h3 {
-  margin: 10px;
-  color: #2c3e50;
-}
-
-.property p {
-  margin: 10px;
-  color: #2c3e50;
-}
-
-.property button {
-  margin: 10px;
-  padding: 10px 20px;
-  background-color: #18bc9c;
-  color: #ffffff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.property button:hover {
-  background-color: #e74c3c;
-}
-
 /* Fixed WhatsApp Button */
 .whatsapp-btn {
   position: fixed;
@@ -374,9 +378,9 @@ footer {
   display: inline-block;
 }
 
-/* Modal Popup for Contact */
+/* Modal Popup (for contact if needed) */
 .modal {
-  display: none; /* Hidden by default */
+  display: none;
   position: fixed;
   z-index: 200;
   left: 0;
@@ -441,7 +445,6 @@ footer {
     margin-right: 20px;
   }
   
-  /* Adjust slider for mobile */
   .slider {
     height: 40vh;
   }
@@ -467,10 +470,4 @@ footer {
     flex-direction: column;
     align-items: stretch;
   }
-.social-share img {
-  width: 24px;
-  height: 24px;
-  object-fit: contain;
-}
-
 }
