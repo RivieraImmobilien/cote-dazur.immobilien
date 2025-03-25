@@ -489,5 +489,37 @@ footer {
   #property-filter form {
     flex-direction: column;
     align-items: stretch;
-  }
+  }/* Custom styles for Google Translate widget */
+#google_translate_element {
+  font-size: 0.75em;      /* Reduce the font size */
+  background: transparent; /* Remove background color */
+  padding: 5px;
+}
+
+.goog-te-gadget-simple {
+  background-color: transparent !important;
+  border: none !important;
+  color: #ffffff !important;   /* Force text to white */
+  font-size: 0.75em !important; /* Smaller font size */
+}
+
+.goog-te-gadget-simple span {
+  color: #ffffff !important;
+}
+
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+
+body {
+  top: 0px !important;
+}
+/* Social Media Share Icons */
+.social-share img {
+  width: 24px;   /* Set a fixed width */
+  height: 24px;  /* Set a fixed height */
+  object-fit: contain;
+}
+
+
 }
