@@ -378,7 +378,7 @@ footer {
   display: inline-block;
 }
 
-/* Modal Popup (for contact if needed) */
+/* Modal Popup (if needed) */
 .modal {
   display: none;
   position: fixed;
