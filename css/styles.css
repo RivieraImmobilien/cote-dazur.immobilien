@@ -69,14 +69,12 @@ nav#navMenu ul li a.active {
   margin-right: 20px;
   font-size: 0.9em;
 }
-
 .language-toggle a {
   color: #ffffff;
   text-decoration: none;
   margin: 0 5px;
   font-weight: bold;
 }
-
 .language-toggle a:hover,
 .language-toggle a.active {
   color: #18bc9c;
@@ -394,6 +392,13 @@ footer {
   display: inline-block;
 }
 
+/* Social Media Share Icons */
+.social-share img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
 /* Modal Popup (if needed) */
 .modal {
   display: none;
@@ -489,37 +494,5 @@ footer {
   #property-filter form {
     flex-direction: column;
     align-items: stretch;
-  }/* Custom styles for Google Translate widget */
-#google_translate_element {
-  font-size: 0.75em;      /* Reduce the font size */
-  background: transparent; /* Remove background color */
-  padding: 5px;
-}
-
-.goog-te-gadget-simple {
-  background-color: transparent !important;
-  border: none !important;
-  color: #ffffff !important;   /* Force text to white */
-  font-size: 0.75em !important; /* Smaller font size */
-}
-
-.goog-te-gadget-simple span {
-  color: #ffffff !important;
-}
-
-.goog-te-banner-frame.skiptranslate {
-  display: none !important;
-}
-
-body {
-  top: 0px !important;
-}
-/* Social Media Share Icons */
-.social-share img {
-  width: 24px;   /* Set a fixed width */
-  height: 24px;  /* Set a fixed height */
-  object-fit: contain;
-}
-
-
+  }
 }
