@@ -69,12 +69,14 @@ nav#navMenu ul li a.active {
   margin-right: 20px;
   font-size: 0.9em;
 }
+
 .language-toggle a {
   color: #ffffff;
   text-decoration: none;
   margin: 0 5px;
   font-weight: bold;
 }
+
 .language-toggle a:hover,
 .language-toggle a.active {
   color: #18bc9c;
@@ -392,7 +394,7 @@ footer {
   display: inline-block;
 }
 
-/* Social Media Share Icons */
+/* Social Media Icon Size */
 .social-share img {
   width: 24px;
   height: 24px;
