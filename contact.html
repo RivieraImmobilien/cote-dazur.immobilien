@@ -17,7 +17,6 @@
   <header>
     <div class="header-container">
       <div class="logo">
-        <!-- Shimmer effect applied through CSS on this logo -->
         <a href="index.html">Côte d'Azur Immobilien</a>
       </div>
       <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
@@ -37,7 +36,6 @@
       </nav>
     </div>
   </header>
-
   <main>
     <section id="contact">
       <div class="content-container">
@@ -56,14 +54,12 @@
           <label for="message">Ihre Nachricht:</label>
           <textarea id="message" name="message" placeholder="Ihre Nachricht" required></textarea>
           
-          <!-- CAPTCHA Placeholder (Replace with an actual CAPTCHA integration later) -->
+          <!-- CAPTCHA Placeholder (to be integrated later if desired) -->
           <div class="captcha-placeholder" style="margin: 10px 0; padding: 10px; background: #f1f1f1; text-align: center;">
             [CAPTCHA hier einfügen]
           </div>
-          
           <button type="submit">Absenden</button>
         </form>
-        <!-- This message will be shown after successful form submission -->
         <div id="thankYouMessage" style="display: none; text-align: center; margin-top: 20px;">
           <h2>Vielen Dank!</h2>
           <p>Ihre Nachricht wurde erfolgreich übermittelt. Wir melden uns umgehend bei Ihnen.</p>
@@ -71,32 +67,36 @@
       </div>
     </section>
   </main>
-
-  <!-- Fixed WhatsApp Button (Increased size to ~90x90px) -->
+  <!-- Fixed WhatsApp Button (90x90px) -->
   <a href="https://wa.me/0033781717466?text=Hallo%20C%C3%B4te%20d%27Azur%20Immobilien" class="whatsapp-btn" target="_blank" aria-label="WhatsApp Kontakt">
     <img src="images/whatsapp-icon.png" alt="WhatsApp Kontakt">
   </a>
-
   <!-- Footer -->
   <footer>
     <div class="footer-container">
       <p>&copy; 2025 Côte d'Azur Immobilien – Alle Rechte vorbehalten.</p>
     </div>
   </footer>
-
-  <!-- Include the unified script -->
+  <!-- Include EmailJS SDK -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function() {
+      emailjs.init("OSIgWQt0HYi2A0Vv4"); // Your User Public Key
+    })();
+  </script>
   <script src="js/script.js"></script>
-  <!-- Additional inline script for Contact Form submission -->
+  <!-- Contact Form Submission via EmailJS -->
   <script>
-    // Add an event listener to the contact form to simulate form submission
     document.getElementById("contactForm").addEventListener("submit", function(e) {
-      e.preventDefault(); // Prevent the default submission behavior
-      
-      // Optionally, you could send the form data using fetch to your backend here
-      
-      // Hide the form and show a thank-you message
-      this.style.display = "none";
-      document.getElementById("thankYouMessage").style.display = "block";
+      e.preventDefault();
+      emailjs.sendForm("service_3w80icb", "template_n8yuvz7", this)
+        .then(function() {
+          document.getElementById("contactForm").style.display = "none";
+          document.getElementById("thankYouMessage").style.display = "block";
+        }, function(error) {
+          console.error("Fehler beim Senden des Formulars:", error);
+          alert("Beim Senden ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.");
+        });
     });
   </script>
 </body>
