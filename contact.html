@@ -8,6 +8,8 @@
   <meta name="keywords" content="Kontakt, Immobilien, Côte d'Azur, Haus verkaufen, Haus kaufen, Dienstleistungen">
   <link rel="alternate" hreflang="de" href="https://cote-dazur.immobilien/contact.html">
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <!-- Google Fonts: Open Sans -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -15,6 +17,7 @@
   <header>
     <div class="header-container">
       <div class="logo">
+        <!-- Shimmer effect applied through CSS on this logo -->
         <a href="index.html">Côte d'Azur Immobilien</a>
       </div>
       <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
@@ -34,39 +37,67 @@
       </nav>
     </div>
   </header>
+
   <main>
     <section id="contact">
       <div class="content-container">
         <h1>Kontakt</h1>
-        <p>Füllen Sie das folgende Formular aus, um mit uns in Kontakt zu treten. Alternativ können Sie uns auch direkt per WhatsApp kontaktieren.</p>
+        <p>Geben Sie Ihre Kontaktdaten ein, damit wir uns umgehend bei Ihnen melden – Sie können uns auch direkt per WhatsApp kontaktieren.</p>
         <form id="contactForm">
           <label for="name">Ihr Name:</label>
           <input type="text" id="name" name="name" placeholder="Ihr Name" required>
+          
           <label for="email">Ihre E-Mail:</label>
           <input type="email" id="email" name="email" placeholder="Ihre E-Mail" required>
+          
           <label for="phone">Ihre Telefonnummer:</label>
           <input type="tel" id="phone" name="phone" placeholder="Ihre Telefonnummer" required>
+          
           <label for="message">Ihre Nachricht:</label>
           <textarea id="message" name="message" placeholder="Ihre Nachricht" required></textarea>
-          <!-- CAPTCHA Placeholder (Replace with reCAPTCHA integration if desired) -->
-          <div class="captcha-placeholder">
+          
+          <!-- CAPTCHA Placeholder (Replace with an actual CAPTCHA integration later) -->
+          <div class="captcha-placeholder" style="margin: 10px 0; padding: 10px; background: #f1f1f1; text-align: center;">
             [CAPTCHA hier einfügen]
           </div>
+          
           <button type="submit">Absenden</button>
         </form>
+        <!-- This message will be shown after successful form submission -->
+        <div id="thankYouMessage" style="display: none; text-align: center; margin-top: 20px;">
+          <h2>Vielen Dank!</h2>
+          <p>Ihre Nachricht wurde erfolgreich übermittelt. Wir melden uns umgehend bei Ihnen.</p>
+        </div>
       </div>
     </section>
   </main>
-  <!-- Fixed WhatsApp Button -->
+
+  <!-- Fixed WhatsApp Button (Increased size to ~90x90px) -->
   <a href="https://wa.me/0033781717466?text=Hallo%20C%C3%B4te%20d%27Azur%20Immobilien" class="whatsapp-btn" target="_blank" aria-label="WhatsApp Kontakt">
     <img src="images/whatsapp-icon.png" alt="WhatsApp Kontakt">
   </a>
+
   <!-- Footer -->
   <footer>
     <div class="footer-container">
       <p>&copy; 2025 Côte d'Azur Immobilien – Alle Rechte vorbehalten.</p>
     </div>
   </footer>
+
+  <!-- Include the unified script -->
   <script src="js/script.js"></script>
+  <!-- Additional inline script for Contact Form submission -->
+  <script>
+    // Add an event listener to the contact form to simulate form submission
+    document.getElementById("contactForm").addEventListener("submit", function(e) {
+      e.preventDefault(); // Prevent the default submission behavior
+      
+      // Optionally, you could send the form data using fetch to your backend here
+      
+      // Hide the form and show a thank-you message
+      this.style.display = "none";
+      document.getElementById("thankYouMessage").style.display = "block";
+    });
+  </script>
 </body>
 </html>

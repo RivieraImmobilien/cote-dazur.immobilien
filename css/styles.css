@@ -30,7 +30,7 @@ body {
 }
 
 .logo a {
-  /* Azur shimmer effect */
+  /* Azur shimmer effect for logo */
   background: linear-gradient(90deg, #006bb3, #00aaff, #006bb3);
   background-size: 200% auto;
   -webkit-background-clip: text;
@@ -72,8 +72,6 @@ nav#navMenu ul li a:hover,
 nav#navMenu ul li a.active {
   color: #18bc9c;
 }
-
-/* Remove Language Toggle (not needed) */
 
 /* Hamburger Menu */
 .hamburger {
@@ -352,7 +350,7 @@ nav#navMenu ul li a.active {
   background-color: #e74c3c;
 }
 
-/* Fixed WhatsApp Button (Increased size to 90x90px) */
+/* Fixed WhatsApp Button (Increased to 90x90px) */
 .whatsapp-btn {
   position: fixed;
   bottom: 20px;
@@ -398,7 +396,7 @@ footer {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .modal-content {
