@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Côte d'Azur Immobilien – Kostenlose Bewertung</title>
-  <meta name="description" content="Erhalten Sie eine kostenlose Immobilienbewertung für Ihre Immobilie an der Côte d'Azur."/>
-  <meta name="keywords" content="Immobilienbewertung, Kostenlose Bewertung, Côte d'Azur, Immobilienverkauf"/>
-  <link rel="alternate" hreflang="de" href="https://cote-dazur.immobilien/valuation.html"/>
-  <link rel="icon" href="images/favicon.ico" type="image/x-icon"/>
+  <meta name="description" content="Erhalten Sie eine kostenlose Immobilienbewertung für Ihre Immobilie an der Côte d'Azur.">
+  <meta name="keywords" content="Immobilienbewertung, Kostenlose Bewertung, Côte d'Azur, Immobilienverkauf">
+  <link rel="alternate" hreflang="de" href="https://cote-dazur.immobilien/valuation.html">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
   <!-- Google Fonts: Open Sans -->
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="css/styles.css"/>
-  <!-- Include EmailJS SDK -->
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
-  <!-- Include Google Places API with your API key -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Include Google Maps Places Library -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-6J0Q6B_iXkcQMTvvaIHDnwuA0ZKJ6D8&libraries=places"></script>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <!-- Header -->
@@ -45,19 +43,17 @@
     <section id="valuation">
       <div class="content-container">
         <h1>Kostenlose Immobilienbewertung</h1>
-        <p>Geben Sie Ihre Immobiliendaten ein und senden Sie uns eine Nachricht, damit wir Ihre kostenlose Bewertung durchführen können.</p>
+        <p>Geben Sie Ihre Immobiliendaten ein und senden Sie uns Ihre Anfrage, damit wir Ihre kostenlose Bewertung durchführen können.</p>
         <form id="valuationForm">
-          <label for="address">Adresse (Frankreich):</label>
-          <input type="text" id="address" name="address" placeholder="Geben Sie die Adresse ein" required />
+          <label for="autocomplete">Adresse:</label>
+          <!-- Note: Using 'autocomplete' id enables Google Places Autocomplete -->
+          <input type="text" id="autocomplete" name="address" placeholder="Straße, PLZ, Stadt" required>
           
-          <label for="postal">Postleitzahl:</label>
-          <input type="text" id="postal" name="postal" placeholder="PLZ" required />
-          
-          <label for="size">Wohnfläche (in m²):</label>
-          <input type="number" id="size" name="size" placeholder="z.B. 120" required />
+          <label for="size">Wohnfläche (m²):</label>
+          <input type="number" id="size" name="size" placeholder="z.B. 120" required>
           
           <label for="rooms">Zimmeranzahl:</label>
-          <input type="number" id="rooms" name="rooms" placeholder="z.B. 4" required />
+          <input type="number" id="rooms" name="rooms" placeholder="z.B. 4" required>
           
           <label for="condition">Zustand:</label>
           <select id="condition" name="condition" required>
@@ -67,30 +63,24 @@
             <option value="renovierungsbedürftig">Renovierungsbedürftig</option>
           </select>
           
-          <!-- Additional Message Field -->
+          <!-- Optional Message Field -->
           <label for="message">Zusätzliche Nachricht (optional):</label>
           <textarea id="message" name="message" placeholder="Ihre Nachricht"></textarea>
           
-          <!-- CAPTCHA Placeholder (replace with reCAPTCHA integration if desired) -->
-          <div class="captcha-placeholder" style="margin: 10px 0; padding: 10px; background: #f1f1f1; text-align: center;">
-            [CAPTCHA hier einfügen]
-          </div>
           <button type="submit">Bewertung anfordern</button>
         </form>
         <div id="thankYouMessage" style="display: none; text-align: center; margin-top: 20px;">
           <h2>Vielen Dank!</h2>
           <p>Ihre Anfrage wurde übermittelt. Wir werden uns umgehend bei Ihnen melden.</p>
         </div>
-        <p style="text-align:center; margin-top:20px;">
-          Alternativ können Sie uns direkt per <a href="https://wa.me/0033781717466" target="_blank">WhatsApp</a> kontaktieren.
-        </p>
+        <p style="text-align:center; margin-top:20px;">Alternativ können Sie uns direkt per <a href="https://wa.me/0033781717466" target="_blank">WhatsApp</a> kontaktieren.</p>
       </div>
     </section>
   </main>
   
   <!-- Fixed WhatsApp Button (90×90px) -->
   <a href="https://wa.me/0033781717466?text=Hallo%20C%C3%B4te%20d%27Azur%20Immobilien" class="whatsapp-btn" target="_blank" aria-label="WhatsApp Kontakt">
-    <img src="images/whatsapp-icon.png" alt="WhatsApp Kontakt" />
+    <img src="images/whatsapp-icon.png" alt="WhatsApp Kontakt">
   </a>
   
   <!-- Footer -->
@@ -100,11 +90,37 @@
     </div>
   </footer>
   
-  <!-- EmailJS and Google Places Initialization -->
+  <!-- Include EmailJS SDK -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
   <script type="text/javascript">
-    // Initialize EmailJS with your public key
-    emailjs.init("OSIgWQt0HYi2A0Vv4");
-
-    // EmailJS form submission
+    (function() {
+      emailjs.init("OSIgWQt0HYi2A0Vv4");
+    })();
+  </script>
+  <script src="js/script.js"></script>
+  <!-- EmailJS Form Submission for Evaluation Page -->
+  <script>
     document.getElementById("valuationForm").addEventListener("submit", function(e) {
-
+      e.preventDefault();
+      emailjs.sendForm("service_3w80icb", "template_n8yuvz7", this)
+        .then(function() {
+          document.getElementById("valuationForm").style.display = "none";
+          document.getElementById("thankYouMessage").style.display = "block";
+        }, function(error) {
+          alert("Beim Senden ist ein Fehler aufgetreten: " + JSON.stringify(error));
+        });
+    });
+    
+    // Initialize Google Places Autocomplete for the address input
+    function initAutocomplete() {
+      var input = document.getElementById('autocomplete');
+      var autocomplete = new google.maps.places.Autocomplete(input, {
+        componentRestrictions: { country: "fr" },
+        types: ['address']  // Limit results to addresses
+      });
+    }
+    // Wait for the window to load, then initialize Autocomplete
+    window.addEventListener('load', initAutocomplete);
+  </script>
+</body>
+</html>
