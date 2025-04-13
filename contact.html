@@ -11,6 +11,8 @@
   <!-- Google Fonts: Open Sans -->
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <!-- Load reCAPTCHA v2 API (async and defer per best practices) -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
   <!-- Header -->
@@ -55,10 +57,9 @@
           <label for="message">Ihre Nachricht:</label>
           <textarea id="message" name="message" placeholder="Ihre Nachricht" required></textarea>
           
-          <!-- CAPTCHA Placeholder -->
-          <div class="captcha-placeholder" style="margin: 10px 0; padding: 10px; background: #f1f1f1; text-align: center;">
-            [CAPTCHA hier einfügen]
-          </div>
+          <!-- reCAPTCHA Widget -->
+          <div class="g-recaptcha" data-sitekey="6LdwFhcrAAAAAPbHHmmnu7jAqFVCkcVakbuDxa6b" style="margin: 15px 0;"></div>
+          
           <button type="submit">Absenden</button>
         </form>
         <div id="thankYouMessage" style="display: none; text-align: center; margin-top: 20px;">
