@@ -1,28 +1,24 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Côte d'Azur Immobilien – Kontakt</title>
-  <meta name="description" content="Kontaktieren Sie uns für weitere Informationen zu unseren Immobilienangeboten und Dienstleistungen an der Côte d'Azur.">
-  <meta name="keywords" content="Kontakt, Immobilien, Côte d'Azur, Haus verkaufen, Haus kaufen, Dienstleistungen">
-  <link rel="alternate" hreflang="de" href="https://cote-dazur.immobilien/contact.html">
-  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-  <!-- Google Fonts: Open Sans -->
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kontakt – Côte d'Azur Immobilien</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+  <!-- Google Places API -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-6J0Q6B_iXkcQMTvvaIHDnwuA0ZKJ6D8&libraries=places"></script>
 </head>
 <body>
-  <!-- Header -->
   <header>
     <div class="header-container">
       <div class="logo">
         <a href="index.html">Côte d'Azur Immobilien</a>
       </div>
-      <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
+      <button class="hamburger" id="hamburger">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </button>
       <nav id="navMenu">
         <ul id="nav-links">
@@ -36,71 +32,96 @@
       </nav>
     </div>
   </header>
-  
+
   <main>
-    <section id="contact">
-      <div class="content-container">
-        <h1>Kontakt</h1>
-        <p>Geben Sie Ihre Kontaktdaten ein, damit wir uns umgehend bei Ihnen melden – oder kontaktieren Sie uns direkt per WhatsApp.</p>
-        <form id="contactForm">
-          <label for="name">Ihr Name:</label>
-          <input type="text" id="name" name="name" placeholder="Ihr Name" required>
-          
-          <label for="email">Ihre E-Mail:</label>
-          <input type="email" id="email" name="email" placeholder="Ihre E-Mail" required>
-          
-          <label for="phone">Ihre Telefonnummer:</label>
-          <input type="tel" id="phone" name="phone" placeholder="Ihre Telefonnummer" required>
-          
-          <label for="message">Ihre Nachricht:</label>
-          <textarea id="message" name="message" placeholder="Ihre Nachricht" required></textarea>
-          
-          <!-- CAPTCHA Placeholder -->
-          <div class="captcha-placeholder" style="margin: 10px 0; padding: 10px; background: #f1f1f1; text-align: center;">
-            [CAPTCHA hier einfügen]
-          </div>
-          <button type="submit">Absenden</button>
-        </form>
-        <div id="thankYouMessage" style="display: none; text-align: center; margin-top: 20px;">
-          <h2>Vielen Dank!</h2>
-          <p>Ihre Nachricht wurde erfolgreich übermittelt. Wir melden uns umgehend bei Ihnen.</p>
-        </div>
+    <section class="content-container">
+      <h1>Kontaktieren Sie uns</h1>
+      <p>Wir freuen uns auf Ihre Nachricht. Bitte füllen Sie das Formular aus, und wir werden uns so schnell wie möglich bei Ihnen melden.</p>
+
+      <form id="contactForm">
+        <label for="name">Ihr Name:</label>
+        <input type="text" id="name" name="name" placeholder="Max Mustermann" required />
+
+        <label for="email">Ihre E-Mail:</label>
+        <input type="email" id="email" name="email" placeholder="beispiel@domain.com" required />
+
+        <label for="phone">Telefonnummer:</label>
+        <input type="tel" id="phone" name="phone" placeholder="+49 123 456789" required />
+
+        <label for="address">Adresse (Frankreich):</label>
+        <input type="text" id="address" name="address" placeholder="Geben Sie Ihre Adresse ein" required />
+
+        <label for="postal">Postleitzahl:</label>
+        <input type="text" id="postal" name="postal" placeholder="PLZ" required />
+
+        <label for="message">Nachricht:</label>
+        <textarea id="message" name="message" placeholder="Ihre Nachricht an uns..." required></textarea>
+
+        <button type="submit">Nachricht senden</button>
+      </form>
+
+      <div id="thankYouMessage" style="display: none; text-align: center; margin-top: 20px;">
+        <h2>Vielen Dank!</h2>
+        <p>Ihre Nachricht wurde erfolgreich übermittelt. Wir melden uns bald bei Ihnen!</p>
       </div>
     </section>
   </main>
-  
-  <!-- Fixed WhatsApp Button (90×90px) -->
-  <a href="https://wa.me/0033781717466?text=Hallo%20C%C3%B4te%20d%27Azur%20Immobilien" class="whatsapp-btn" target="_blank" aria-label="WhatsApp Kontakt">
-    <img src="images/whatsapp-icon.png" alt="WhatsApp Kontakt">
+
+  <a href="https://wa.me/0033781717466?text=Ich%20interessiere%20mich%20für%20eine%20Immobilienbewertung" class="whatsapp-btn" target="_blank">
+    <img src="images/whatsapp-icon.png" alt="WhatsApp Kontakt" />
   </a>
-  
-  <!-- Footer -->
+
   <footer>
     <div class="footer-container">
       <p>&copy; 2025 Côte d'Azur Immobilien – Alle Rechte vorbehalten.</p>
     </div>
   </footer>
-  
-  <!-- Include EmailJS SDK -->
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
-  <script type="text/javascript">
-    (function() {
-      emailjs.init("OSIgWQt0HYi2A0Vv4");
-    })();
-  </script>
-  <script src="js/script.js"></script>
-  <!-- EmailJS Form Submission for Contact Page -->
+
+  <!-- EmailJS & Google Places Script -->
   <script>
-    document.getElementById("contactForm").addEventListener("submit", function(e) {
+    emailjs.init("OSIgWQt0HYi2A0Vv4");
+
+    // FORM SUBMIT
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
       e.preventDefault();
-      emailjs.sendForm("service_3w80icb", "template_n8yuvz7", this)
-        .then(function() {
+
+      emailjs.sendForm("service_3w80icb", "template_n8yuvz7", this).then(
+        function () {
           document.getElementById("contactForm").style.display = "none";
           document.getElementById("thankYouMessage").style.display = "block";
-        }, function(error) {
-          alert("Beim Senden ist ein Fehler aufgetreten: " + JSON.stringify(error));
-        });
+        },
+        function (error) {
+          alert("Fehler beim Senden. Bitte versuchen Sie es erneut oder kontaktieren Sie uns direkt.");
+          console.error("EmailJS error:", error);
+        }
+      );
     });
+
+    // GOOGLE PLACES AUTOCOMPLETE
+    function initAutocomplete() {
+      const input = document.getElementById("address");
+      const options = {
+        types: ["address"],
+        componentRestrictions: { country: "fr" }
+      };
+
+      const autocomplete = new google.maps.places.Autocomplete(input, options);
+
+      autocomplete.addListener("place_changed", function () {
+        const place = autocomplete.getPlace();
+        if (!place.address_components) return;
+
+        const postalInput = document.getElementById("postal");
+        for (const component of place.address_components) {
+          if (component.types.includes("postal_code")) {
+            postalInput.value = component.long_name;
+            break;
+          }
+        }
+      });
+    }
+
+    window.onload = initAutocomplete;
   </script>
 </body>
 </html>
