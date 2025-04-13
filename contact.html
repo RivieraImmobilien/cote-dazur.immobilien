@@ -11,7 +11,7 @@
   <!-- Google Fonts: Open Sans -->
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
-  <!-- Load reCAPTCHA v2 API (async and defer per best practices) -->
+  <!-- Load reCAPTCHA v2 API (async and defer) -->
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
@@ -57,8 +57,8 @@
           <label for="message">Ihre Nachricht:</label>
           <textarea id="message" name="message" placeholder="Ihre Nachricht" required></textarea>
           
-          <!-- reCAPTCHA Widget -->
-          <div class="g-recaptcha" data-sitekey="6LdwFhcrAAAAAPbHHmmnu7jAqFVCkcVakbuDxa6b" style="margin: 15px 0;"></div>
+          <!-- reCAPTCHA Widget using your v2 key -->
+          <div class="g-recaptcha" data-sitekey="6LesMhcrAAAAAGvAUdE90BHAgBD3Y_uLS_A8ed34" style="margin: 15px 0;"></div>
           
           <button type="submit">Absenden</button>
         </form>
@@ -90,10 +90,16 @@
     })();
   </script>
   <script src="js/script.js"></script>
-  <!-- EmailJS Form Submission for Contact Page -->
+  <!-- EmailJS Form Submission with reCAPTCHA Check for Contact Page -->
   <script>
     document.getElementById("contactForm").addEventListener("submit", function(e) {
       e.preventDefault();
+      // Check if reCAPTCHA is completed
+      var captchaResponse = grecaptcha.getResponse();
+      if(captchaResponse.length === 0) {
+        alert("Bitte bestätigen Sie, dass Sie kein Roboter sind.");
+        return;
+      }
       emailjs.sendForm("service_3w80icb", "template_n8yuvz7", this)
         .then(function() {
           document.getElementById("contactForm").style.display = "none";

@@ -10,9 +10,9 @@
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
   <!-- Google Fonts: Open Sans -->
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-  <!-- Load Google Maps API (async, defer, with Places library) -->
+  <!-- Load Google Maps API (with Places library; async and defer) -->
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-6J0Q6B_iXkcQMTvvaIHDnwuA0ZKJ6D8&libraries=places"></script>
-  <!-- Load reCAPTCHA v2 API (async, defer) -->
+  <!-- Load reCAPTCHA v2 API (async and defer) -->
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -48,8 +48,7 @@
         <p>Geben Sie Ihre Immobiliendaten ein und wählen Sie Ihre Adresse, um eine präzise Bewertung zu erhalten.</p>
         <form id="valuationForm">
           <label for="autocomplete">Adresse:</label>
-          <!-- Standard input used with Autocomplete (you can style its width as needed) -->
-          <input type="text" id="autocomplete" name="address" placeholder="Straße, PLZ, Stadt" required style="width: 100%; padding: 10px; font-size: 1em;">
+          <input type="text" id="autocomplete" name="address" placeholder="Straße, PLZ, Stadt" required style="width:100%; padding:10px; font-size:1em;">
           
           <label for="size">Wohnfläche (m²):</label>
           <input type="number" id="size" name="size" placeholder="z.B. 120" required>
@@ -74,8 +73,8 @@
           <label for="message">Zusätzliche Nachricht (optional):</label>
           <textarea id="message" name="message" placeholder="Ihre Nachricht"></textarea>
           
-          <!-- reCAPTCHA Widget for spam protection -->
-          <div class="g-recaptcha" data-sitekey="6LdwFhcrAAAAAPbHHmmnu7jAqFVCkcVakbuDxa6b" style="margin: 15px 0;"></div>
+          <!-- reCAPTCHA Widget using your v2 key -->
+          <div class="g-recaptcha" data-sitekey="6LesMhcrAAAAAGvAUdE90BHAgBD3Y_uLS_A8ed34" style="margin: 15px 0;"></div>
           
           <button type="submit">Bewertung anfordern</button>
         </form>
@@ -113,53 +112,14 @@
     })();
   </script>
   <script src="js/script.js"></script>
-  <!-- EmailJS Form Submission for Valuation Page -->
+  <!-- EmailJS Form Submission with reCAPTCHA check for Valuation Page -->
   <script>
     document.getElementById("valuationForm").addEventListener("submit", function(e) {
       e.preventDefault();
+      // Check that reCAPTCHA is complete
+      var captchaResponse = grecaptcha.getResponse();
+      if(captchaResponse.length === 0) {
+        alert("Bitte bestätigen Sie, dass Sie kein Roboter sind.");
+        return;
+      }
       emailjs.sendForm("service_3w80icb", "template_n8yuvz7", this)
-        .then(function() {
-          document.getElementById("valuationForm").style.display = "none";
-          document.getElementById("thankYouMessage").style.display = "block";
-        }, function(error) {
-          alert("Beim Senden ist ein Fehler aufgetreten: " + JSON.stringify(error));
-        });
-    });
-    
-    // Initialize Google Places Autocomplete for the address field
-    function initAutocomplete() {
-      const input = document.getElementById('autocomplete');
-      if (!input) return;
-      const autocomplete = new google.maps.places.Autocomplete(input, {
-        componentRestrictions: { country: "fr" },
-        types: ['address']
-      });
-      
-      const mapDiv = document.getElementById('map');
-      const map = new google.maps.Map(mapDiv, {
-        center: { lat: 46.603354, lng: 1.8883335 }, // center of France
-        zoom: 6
-      });
-      const marker = new google.maps.Marker({
-        map: map
-      });
-      
-      autocomplete.addListener('place_changed', function () {
-        const place = autocomplete.getPlace();
-        if (!place.geometry) {
-          alert("Keine Details verfügbar für die eingegebene Adresse.");
-          return;
-        }
-        if (place.geometry.location) {
-          map.setCenter(place.geometry.location);
-          map.setZoom(15);
-          marker.setPosition(place.geometry.location);
-          marker.setVisible(true);
-        }
-      });
-    }
-    
-    window.addEventListener('load', initAutocomplete);
-  </script>
-</body>
-</html>
