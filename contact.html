@@ -11,7 +11,7 @@
   <!-- Google Fonts: Open Sans -->
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
-  <!-- Load reCAPTCHA v2 API (async and defer) -->
+  <!-- Load reCAPTCHA v2 API (async & defer) -->
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
@@ -94,7 +94,7 @@
   <script>
     document.getElementById("contactForm").addEventListener("submit", function(e) {
       e.preventDefault();
-      // Check if reCAPTCHA is completed
+      // Check if reCAPTCHA response exists.
       var captchaResponse = grecaptcha.getResponse();
       if(captchaResponse.length === 0) {
         alert("Bitte bestätigen Sie, dass Sie kein Roboter sind.");

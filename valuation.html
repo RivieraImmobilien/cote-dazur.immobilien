@@ -10,14 +10,12 @@
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
   <!-- Google Fonts: Open Sans -->
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-  <!-- Load Google Maps API (with Places library; async and defer) -->
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-6J0Q6B_iXkcQMTvvaIHDnwuA0ZKJ6D8&libraries=places"></script>
-  <!-- Load reCAPTCHA v2 API (async and defer) -->
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <link rel="stylesheet" href="css/styles.css">
+  <!-- Load reCAPTCHA v2 API (async, defer) -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
-  <!-- Header -->
+  <!-- Header (shared with other pages) -->
   <header>
     <div class="header-container">
       <div class="logo">
@@ -40,15 +38,17 @@
       </nav>
     </div>
   </header>
-  
+
   <main>
+    <!-- Valuation Form Section -->
     <section id="valuation">
       <div class="content-container">
         <h1>Kostenlose Immobilienbewertung</h1>
         <p>Geben Sie Ihre Immobiliendaten ein und wählen Sie Ihre Adresse, um eine präzise Bewertung zu erhalten.</p>
         <form id="valuationForm">
           <label for="autocomplete">Adresse:</label>
-          <input type="text" id="autocomplete" name="address" placeholder="Straße, PLZ, Stadt" required style="width:100%; padding:10px; font-size:1em;">
+          <!-- New web component for Places Autocomplete -->
+          <place-autocomplete id="autocomplete" name="address" placeholder="Straße, PLZ, Stadt" style="width:100%; padding:10px; font-size:1em;" required></place-autocomplete>
           
           <label for="size">Wohnfläche (m²):</label>
           <input type="number" id="size" name="size" placeholder="z.B. 120" required>
@@ -74,51 +74,47 @@
           <textarea id="message" name="message" placeholder="Ihre Nachricht"></textarea>
           
           <!-- reCAPTCHA Widget using your v2 key -->
-          <div class="g-recaptcha" data-sitekey="6LesMhcrAAAAAGvAUdE90BHAgBD3Y_uLS_A8ed34" style="margin: 15px 0;"></div>
+          <div class="g-recaptcha" data-sitekey="6LesMhcrAAAAAGvAUdE90BHAgBD3Y_uLS_A8ed34" style="margin:15px 0;"></div>
           
           <button type="submit">Bewertung anfordern</button>
         </form>
-        <div id="thankYouMessage" style="display: none; text-align: center; margin-top: 20px;">
+        <div id="thankYouMessage" style="display:none; text-align:center; margin-top:20px;">
           <h2>Vielen Dank!</h2>
-          <p>Ihre Anfrage wurde übermittelt. Wir werden uns umgehend bei Ihnen melden.</p>
+          <p>Ihre Anfrage wurde übermittelt. Wir melden uns umgehend bei Ihnen.</p>
         </div>
       </div>
     </section>
-    <section id="mapSection" style="margin: 20px 0;">
+    <!-- Map Section -->
+    <section id="mapSection" style="margin:20px 0;">
       <div class="content-container">
         <h2>Standort der Immobilie</h2>
-        <div id="map" style="width: 100%; height: 300px; border: 1px solid #cccccc;"></div>
+        <div id="map" style="width:100%; height:300px; border:1px solid #cccccc;"></div>
       </div>
     </section>
   </main>
-  
+
   <!-- Fixed WhatsApp Button (90×90px) -->
   <a href="https://wa.me/0033781717466?text=Hallo%20C%C3%B4te%20d%27Azur%20Immobilien" class="whatsapp-btn" target="_blank" aria-label="WhatsApp Kontakt">
     <img src="images/whatsapp-icon.png" alt="WhatsApp Kontakt">
   </a>
-  
+
   <!-- Footer -->
   <footer>
     <div class="footer-container">
       <p>&copy; 2025 Côte d'Azur Immobilien – Alle Rechte vorbehalten.</p>
     </div>
   </footer>
-  
-  <!-- Include EmailJS SDK -->
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
-  <script type="text/javascript">
+
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+  <script>
     (function() {
       emailjs.init("OSIgWQt0HYi2A0Vv4");
     })();
-  </script>
-  <script src="js/script.js"></script>
-  <!-- EmailJS Form Submission with reCAPTCHA check for Valuation Page -->
-  <script>
     document.getElementById("valuationForm").addEventListener("submit", function(e) {
       e.preventDefault();
-      // Check that reCAPTCHA is complete
-      var captchaResponse = grecaptcha.getResponse();
-      if(captchaResponse.length === 0) {
+      // Ensure reCAPTCHA was completed
+      if (grecaptcha.getResponse().length === 0) {
         alert("Bitte bestätigen Sie, dass Sie kein Roboter sind.");
         return;
       }
@@ -130,41 +126,55 @@
           alert("Beim Senden ist ein Fehler aufgetreten: " + JSON.stringify(error));
         });
     });
+  </script>
+  
+  <!-- Our Module for using the new Places component and AdvancedMarkerElement -->
+  <script type="module">
+    // Import the new Place Autocomplete element (beta version)
+    import { PlaceAutocompleteElement } from "https://maps.googleapis.com/maps/api/js?key=AIzaSyD-6J0Q6B_iXkcQMTvvaIHDnwuA0ZKJ6D8&libraries=places&v=beta";
+    customElements.define("place-autocomplete", PlaceAutocompleteElement);
     
-    // Initialize Google Places Autocomplete for the address field
-    function initAutocomplete() {
-      const input = document.getElementById('autocomplete');
-      if (!input) return;
-      const autocomplete = new google.maps.places.Autocomplete(input, {
-        componentRestrictions: { country: "fr" },
-        types: ['address']
-      });
-      
-      const mapDiv = document.getElementById('map');
+    // Import the new Advanced Marker element (beta version)
+    import { AdvancedMarkerElement } from "https://maps.googleapis.com/maps/api/js?key=AIzaSyD-6J0Q6B_iXkcQMTvvaIHDnwuA0ZKJ6D8&libraries=marker&v=beta";
+    
+    // Initialize the map and update the marker based on the selected place.
+    function initMapAndMarker() {
+      const mapDiv = document.getElementById("map");
       const map = new google.maps.Map(mapDiv, {
-        center: { lat: 46.603354, lng: 1.8883335 }, // Center of France
+        center: { lat: 46.603354, lng: 1.8883335 },
         zoom: 6
       });
-      const marker = new google.maps.Marker({
-        map: map
-      });
+      let marker;
       
-      autocomplete.addListener('place_changed', function () {
-        const place = autocomplete.getPlace();
-        if (!place.geometry) {
+      // Listen for the 'place_changed' event on the new Place Autocomplete element.
+      const autocompleteEl = document.getElementById("autocomplete");
+      autocompleteEl.addEventListener("place_changed", () => {
+        // The PlaceAutocompleteElement sets its property 'place' when a place is selected.
+        const place = autocompleteEl.place;
+        if (!place || !place.geometry) {
           alert("Keine Details verfügbar für die eingegebene Adresse.");
           return;
         }
-        if (place.geometry.location) {
-          map.setCenter(place.geometry.location);
-          map.setZoom(15);
-          marker.setPosition(place.geometry.location);
-          marker.setVisible(true);
+        // Center the map on the selected location, update zoom level.
+        map.setCenter(place.geometry.location);
+        map.setZoom(15);
+        // If marker doesn't exist, create an AdvancedMarkerElement.
+        if (!marker) {
+          marker = new AdvancedMarkerElement({
+            map: map,
+            position: place.geometry.location,
+          });
+        } else {
+          marker.position = place.geometry.location;
         }
+        marker.setVisible(true);
       });
     }
     
-    window.addEventListener('load', initAutocomplete);
+    window.addEventListener("load", initMapAndMarker);
   </script>
+  
+  <!-- Include common script file -->
+  <script src="js/script.js"></script>
 </body>
 </html>
