@@ -10,14 +10,11 @@
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
   <!-- Google Fonts: Open Sans -->
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-  <!-- Load Google Maps API (with Places library; async and defer) -->
+  <!-- Load Google Maps API (async and defer, with Places library) -->
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-6J0Q6B_iXkcQMTvvaIHDnwuA0ZKJ6D8&libraries=places"></script>
-  <!-- Load reCAPTCHA v2 API (async and defer) -->
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <!-- Header -->
   <header>
     <div class="header-container">
       <div class="logo">
@@ -59,112 +56,4 @@
           <label for="condition">Zustand:</label>
           <select id="condition" name="condition" required>
             <option value="">Bitte wählen</option>
-            <option value="gut">Gut</option>
-            <option value="mittel">Mittel</option>
-            <option value="renovierungsbedürftig">Renovierungsbedürftig</option>
-          </select>
-          
-          <label for="email">Ihre E-Mail:</label>
-          <input type="email" id="email" name="email" placeholder="Ihre E-Mail" required>
-          
-          <label for="phone">Telefonnummer (optional):</label>
-          <input type="tel" id="phone" name="phone" placeholder="Ihre Telefonnummer">
-          
-          <label for="message">Zusätzliche Nachricht (optional):</label>
-          <textarea id="message" name="message" placeholder="Ihre Nachricht"></textarea>
-          
-          <!-- reCAPTCHA Widget using your v2 key -->
-          <div class="g-recaptcha" data-sitekey="6LesMhcrAAAAAGvAUdE90BHAgBD3Y_uLS_A8ed34" style="margin: 15px 0;"></div>
-          
-          <button type="submit">Bewertung anfordern</button>
-        </form>
-        <div id="thankYouMessage" style="display: none; text-align: center; margin-top: 20px;">
-          <h2>Vielen Dank!</h2>
-          <p>Ihre Anfrage wurde übermittelt. Wir werden uns umgehend bei Ihnen melden.</p>
-        </div>
-      </div>
-    </section>
-    <section id="mapSection" style="margin: 20px 0;">
-      <div class="content-container">
-        <h2>Standort der Immobilie</h2>
-        <div id="map" style="width: 100%; height: 300px; border: 1px solid #cccccc;"></div>
-      </div>
-    </section>
-  </main>
-  
-  <!-- Fixed WhatsApp Button (90×90px) -->
-  <a href="https://wa.me/0033781717466?text=Hallo%20C%C3%B4te%20d%27Azur%20Immobilien" class="whatsapp-btn" target="_blank" aria-label="WhatsApp Kontakt">
-    <img src="images/whatsapp-icon.png" alt="WhatsApp Kontakt">
-  </a>
-  
-  <!-- Footer -->
-  <footer>
-    <div class="footer-container">
-      <p>&copy; 2025 Côte d'Azur Immobilien – Alle Rechte vorbehalten.</p>
-    </div>
-  </footer>
-  
-  <!-- Include EmailJS SDK -->
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
-  <script type="text/javascript">
-    (function() {
-      emailjs.init("OSIgWQt0HYi2A0Vv4");
-    })();
-  </script>
-  <script src="js/script.js"></script>
-  <!-- EmailJS Form Submission with reCAPTCHA check for Valuation Page -->
-  <script>
-    document.getElementById("valuationForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-      // Check that reCAPTCHA is complete
-      var captchaResponse = grecaptcha.getResponse();
-      if(captchaResponse.length === 0) {
-        alert("Bitte bestätigen Sie, dass Sie kein Roboter sind.");
-        return;
-      }
-      emailjs.sendForm("service_3w80icb", "template_n8yuvz7", this)
-        .then(function() {
-          document.getElementById("valuationForm").style.display = "none";
-          document.getElementById("thankYouMessage").style.display = "block";
-        }, function(error) {
-          alert("Beim Senden ist ein Fehler aufgetreten: " + JSON.stringify(error));
-        });
-    });
-    
-    // Initialize Google Places Autocomplete for the address field
-    function initAutocomplete() {
-      const input = document.getElementById('autocomplete');
-      if (!input) return;
-      const autocomplete = new google.maps.places.Autocomplete(input, {
-        componentRestrictions: { country: "fr" },
-        types: ['address']
-      });
-      
-      const mapDiv = document.getElementById('map');
-      const map = new google.maps.Map(mapDiv, {
-        center: { lat: 46.603354, lng: 1.8883335 }, // Center of France
-        zoom: 6
-      });
-      const marker = new google.maps.Marker({
-        map: map
-      });
-      
-      autocomplete.addListener('place_changed', function () {
-        const place = autocomplete.getPlace();
-        if (!place.geometry) {
-          alert("Keine Details verfügbar für die eingegebene Adresse.");
-          return;
-        }
-        if (place.geometry.location) {
-          map.setCenter(place.geometry.location);
-          map.setZoom(15);
-          marker.setPosition(place.geometry.location);
-          marker.setVisible(true);
-        }
-      });
-    }
-    
-    window.addEventListener('load', initAutocomplete);
-  </script>
-</body>
-</html>
+            <option value="gut">Gut</option
