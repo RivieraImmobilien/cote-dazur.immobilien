@@ -30,7 +30,7 @@ body {
 }
 
 .logo a {
-  /* Azur shimmer effect: slower 4s animation, turquoise to deep azur */
+  /* Azur shimmer effect with slower animation and turquoise-to-azur gradient */
   background: linear-gradient(90deg, #30d5c8, #007fff, #30d5c8);
   background-size: 200% auto;
   -webkit-background-clip: text;
@@ -396,7 +396,7 @@ footer {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0,0,0,0.5);
 }
 
 .modal-content {

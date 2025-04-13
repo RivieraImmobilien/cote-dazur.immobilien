@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Run slider code only if a slider exists on the page.
+  // Check if slider exists before running slider code.
   const slidesContainer = document.querySelector(".slides");
   if (slidesContainer) {
     const slides = document.querySelectorAll(".slide");
