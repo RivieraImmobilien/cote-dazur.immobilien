@@ -26,7 +26,7 @@ body {
   background-color: #2c3e50;
 }
 .logo a {
-  /* Shimmering effect for logo text with original 'Azur' color gradient */
+  /* Shimmering logo text with original "Azur" effect */
   font-size: 1.8em;
   font-weight: bold;
   text-decoration: none;
@@ -165,13 +165,13 @@ nav ul li a:hover {
   top: 10px;
   left: 50%;
   transform: translateX(-50%);
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0,0,0,0.6);
   color: #ffffff;
   padding: 5px 10px;
   border-radius: 5px;
   font-size: 1.2rem;
 }
-/* Featured Properties */
+/* Featured Properties Section */
 #featured-properties {
   padding: 40px 0;
   background-color: #ecf0f1;
@@ -286,3 +286,23 @@ footer {
   }
   .hamburger {
     display: flex;
+    align-self: flex-end;
+    margin-right: 20px;
+  }
+  .slider {
+    height: 40vh;
+  }
+  .slide {
+    height: 40vh;
+  }
+  .slide-description h2 {
+    font-size: 1.5rem;
+  }
+  .slide-description p {
+    font-size: 1rem;
+  }
+  .property {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
