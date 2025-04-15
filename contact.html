@@ -37,7 +37,7 @@
     <section id="contact">
       <div class="content-container">
         <h1>Kontakt</h1>
-        <p>Füllen Sie das folgende Formular aus, um uns zu kontaktieren. Falls Sie von einem bestimmten Immobilienangebot kommen, wird dieser Hinweis im Formular übernommen.</p>
+        <p>Füllen Sie bitte das Formular aus. Falls Sie von einer bestimmten Immobilie kommen, wird diese Information übernommen.</p>
         <form id="contactForm" action="https://formspree.io/f/xwplzwzn" method="POST">
           <label for="name">Ihr Name:</label>
           <input type="text" id="name" name="name" required placeholder="Ihr Name" />
@@ -45,7 +45,6 @@
           <input type="email" id="email" name="email" required placeholder="Ihre E-Mail" />
           <label for="message">Nachricht:</label>
           <textarea id="message" name="message" required placeholder="Ihre Nachricht"></textarea>
-          <!-- Hidden field for property info -->
           <input type="hidden" id="property" name="property" value="" />
           <div class="g-recaptcha" data-sitekey="6Le8qxkrAAAAALscf5yepC5OcpabOPLyeKWL1tQQ"></div>
           <button type="submit">Senden</button>
@@ -68,10 +67,10 @@
 
   <script src="js/script.js"></script>
   <script>
-    // If a property query parameter is provided, prefill the hidden field
+    // Pre-fill property field if query parameter exists
     const params = new URLSearchParams(window.location.search);
     const propertyParam = params.get('property');
-    if(propertyParam) {
+    if(propertyParam){
       document.getElementById('property').value = propertyParam;
     }
   </script>

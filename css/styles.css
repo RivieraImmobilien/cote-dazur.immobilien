@@ -23,17 +23,22 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #2c3e50;
+  background-color: #2c3e50; /* Dark Blue */
 }
 .logo a {
-  color: #ffffff;
-  text-decoration: none;
+  /* Shimmering effect: gradient moving from left to right over 3 seconds */
   font-size: 1.8em;
   font-weight: bold;
-  /* Shimmer effect for the 'Azur' part (customize as needed) */
-  background: linear-gradient(90deg, #ffffff 0%, #00aaff 100%);
+  text-decoration: none;
+  background: linear-gradient(90deg, #ffffff, #00aaff, #ffffff);
+  background-size: 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  animation: shimmer 3s linear infinite;
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
 }
 nav ul {
   list-style: none;
@@ -182,123 +187,4 @@ nav ul li a:hover {
   border: 1px solid #dddddd;
   border-radius: 5px;
   margin: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  transition: transform 0.3s;
-}
-.property:hover {
-  transform: translateY(-5px);
-}
-.property img {
-  width: 100%;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-}
-.property h3 {
-  margin: 10px;
-  color: #2c3e50;
-}
-.property p {
-  margin: 10px;
-  color: #2c3e50;
-}
-.property button {
-  margin: 10px;
-  padding: 10px 20px;
-  background-color: #18bc9c;
-  color: #ffffff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-.property button:hover {
-  background-color: #e74c3c;
-}
-/* Fixed WhatsApp Button (Doubled Size) */
-.whatsapp-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 100px;
-  height: 100px;
-  z-index: 1000;
-}
-.whatsapp-btn img {
-  width: 100%;
-  height: 100%;
-}
-/* Footer */
-footer {
-  background-color: #2c3e50;
-  color: #ffffff;
-  text-align: center;
-  padding: 20px 0;
-  margin-top: 40px;
-}
-.social-share a {
-  margin: 0 10px;
-  display: inline-block;
-}
-/* Small Slider (for buy/sell pages) */
-.small-slider {
-  overflow: hidden;
-  width: 100%;
-  max-width: 800px;
-  margin: 20px auto;
-}
-.small-slides {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-}
-.small-slides img {
-  width: 100%;
-  max-width: 150px;
-  margin: 0 5px;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: transform 0.3s;
-}
-.small-slides img:hover {
-  transform: scale(1.05);
-}
-/* Responsive Styles */
-@media (max-width: 768px) {
-  .header-container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  nav ul {
-    flex-direction: column;
-    display: none;
-    width: 100%;
-    text-align: center;
-  }
-  nav ul.show {
-    display: flex;
-  }
-  nav ul li {
-    margin: 10px 0;
-  }
-  .hamburger {
-    display: flex;
-    align-self: flex-end;
-    margin-right: 20px;
-  }
-  /* Adjust slider for mobile */
-  .slider {
-    height: 40vh;
-  }
-  .slide {
-    height: 40vh;
-  }
-  .slide-description h2 {
-    font-size: 1.5rem;
-  }
-  .slide-description p {
-    font-size: 1rem;
-  }
-  .property {
-    width: 100%;
-    margin-bottom: 20px;
-  }
-}
+  box-shadow: 0 2px
