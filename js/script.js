@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const prevButton = document.querySelector(".prev");
   const nextButton = document.querySelector(".next");
   const dots = document.querySelectorAll(".dot");
+  const currentCategoryLabel = document.getElementById("currentCategory");
   let currentIndex = 0;
   const totalSlides = slides.length;
   let slideTimeout;
@@ -21,8 +22,10 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       currentIndex = index;
     }
+    // Slide container moves in 100vw increments
     slidesContainer.style.transform = `translateX(-${currentIndex * 100}vw)`;
     updateDots();
+    updateCategoryLabel();
     restartSlideTimeout();
   }
 
@@ -30,6 +33,13 @@ document.addEventListener("DOMContentLoaded", function () {
     dots.forEach((dot, i) => {
       dot.classList.toggle("active", i === currentIndex);
     });
+  }
+
+  function updateCategoryLabel() {
+    const category = slides[currentIndex].getAttribute("data-category") || "";
+    if (currentCategoryLabel) {
+      currentCategoryLabel.textContent = category;
+    }
   }
 
   function nextSlide() {
@@ -42,10 +52,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function restartSlideTimeout() {
     clearTimeout(slideTimeout);
-    slideTimeout = setTimeout(nextSlide, slideDurations[currentIndex]);
+    slideTimeout = setTimeout(() => {
+      nextSlide();
+    }, slideDurations[currentIndex]);
   }
 
-  // Event Listeners for slider navigation
   if (nextButton) {
     nextButton.addEventListener("click", () => {
       clearTimeout(slideTimeout);
@@ -64,15 +75,11 @@ document.addEventListener("DOMContentLoaded", function () {
       showSlide(index);
     });
   });
-
-  // Pause slider on hover, resume on mouse leave
   const slider = document.querySelector(".slider");
   if (slider) {
     slider.addEventListener("mouseenter", () => clearTimeout(slideTimeout));
     slider.addEventListener("mouseleave", restartSlideTimeout);
   }
-  
-  // Touch events for swipe functionality (mobile)
   let touchStartX = 0;
   let touchEndX = 0;
   slider.addEventListener("touchstart", function (e) {
@@ -80,14 +87,16 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   slider.addEventListener("touchend", function (e) {
     touchEndX = e.changedTouches[0].screenX;
+    handleGesture();
+  });
+  function handleGesture() {
     if (touchEndX < touchStartX - 50) {
       nextSlide();
-    } else if (touchEndX > touchStartX + 50) {
+    }
+    if (touchEndX > touchStartX + 50) {
       prevSlide();
     }
-  });
-
-  // Initialize slider
+  }
   showSlide(currentIndex);
 
   /* HAMBURGER MENU TOGGLE */
@@ -100,12 +109,4 @@ document.addEventListener("DOMContentLoaded", function () {
       navLinks.classList.toggle("show");
     }
   });
-
-  /* ADDRESS SEARCH FUNCTIONALITY USING Algolia Places */
-  if(document.getElementById("address-input")) {
-    places({
-      container: document.querySelector("#address-input"),
-      countries: ['fr']
-    });
-  }
 });
