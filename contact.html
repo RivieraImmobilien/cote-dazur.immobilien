@@ -46,7 +46,7 @@
           <input type="email" id="email" name="email" required placeholder="Ihre E-Mail" />
           <label for="message">Nachricht:</label>
           <textarea id="message" name="message" required placeholder="Ihre Nachricht"></textarea>
-          <!-- Hidden field for property info -->
+          <!-- Hidden field to capture property info -->
           <input type="hidden" id="property" name="property" value="" />
           <div class="g-recaptcha" data-sitekey="6LdcBhorAAAAAFZG049z-oZEOIfruNxnw3KO0Wbn"></div>
           <button type="submit">Senden</button>
@@ -69,10 +69,10 @@
 
   <script src="js/script.js"></script>
   <script>
-    // Pre-fill hidden property field if ?property= is in URL
+    // If a property parameter exists in the URL, pre-fill hidden field
     const params = new URLSearchParams(window.location.search);
     const propertyParam = params.get('property');
-    if(propertyParam){
+    if (propertyParam) {
       document.getElementById('property').value = propertyParam;
     }
   </script>

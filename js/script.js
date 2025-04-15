@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let currentIndex = 0;
   const totalSlides = slides.length;
   let slideTimeout;
+  
   // Custom durations: 2500ms for Haus verkaufen & Haus kaufen; 1000ms for Dienstleistungen
   const slideDurations = [2500, 2500, 1000];
 
