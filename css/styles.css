@@ -30,10 +30,18 @@ body {
 }
 
 .logo a {
-  color: #ffffff;
+  color: #ffffff;  /* White text */
   text-decoration: none;
   font-size: 1.8em;
   font-weight: bold;
+  /* Shimmer effect (simple animation) */
+  animation: shimmer 2s infinite linear;
+}
+
+@keyframes shimmer {
+  0% { text-shadow: 0 0 5px #ffffff; }
+  50% { text-shadow: 0 0 20px #18bc9c; }
+  100% { text-shadow: 0 0 5px #ffffff; }
 }
 
 nav ul {
@@ -47,7 +55,7 @@ nav ul li {
 }
 
 nav ul li a {
-  color: #ffffff;
+  color: #ffffff;  /* White text */
   text-decoration: none;
   font-weight: bold;
 }
@@ -57,7 +65,7 @@ nav ul li a:hover {
   color: #18bc9c; /* Accent Turquoise */
 }
 
-/* Hamburger Menu */
+/* Hamburger Menu (Mobile) */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -74,6 +82,16 @@ nav ul li a:hover {
   transition: 0.4s;
 }
 
+/* Address Search Field */
+#address-search {
+  margin-left: 20px;
+}
+#address-search input {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
 /* Slider Section */
 #hero {
   position: relative;
@@ -83,22 +101,21 @@ nav ul li a:hover {
 
 .slider {
   width: 100vw;
-  height: 60vh; /* Adjust height as needed */
+  height: 60vh; /* Adjust slider height as needed */
   position: relative;
   overflow: hidden;
-  background-color: #bdc3c7; /* Light Gray Fallback */
+  background-color: #bdc3c7;
 }
 
 .slides {
   display: flex;
-  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out; /* Added opacity transition for fade */
+  transition: transform 0.5s ease-in-out;
 }
 
 .slide {
   min-width: 100vw;
   height: 60vh;
   position: relative;
-  opacity: 1;
 }
 
 .slide img {
@@ -111,7 +128,7 @@ nav ul li a:hover {
   position: absolute;
   bottom: 20px;
   left: 20px;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0,0,0,0.6);
   color: #ffffff;
   padding: 10px;
   border-radius: 5px;
@@ -177,20 +194,7 @@ nav ul li a:hover {
   background-color: #717171;
 }
 
-/* Current Category Label */
-.current-category {
-  position: absolute;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: rgba(0,0,0,0.6);
-  color: #ffffff;
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-size: 1.2rem;
-}
-
-/* Featured Properties Section */
+/* Featured Properties */
 #featured-properties {
   padding: 40px 0;
   background-color: #ecf0f1;
@@ -274,20 +278,6 @@ footer {
 .social-share a {
   margin: 0 10px;
   display: inline-block;
-}
-
-/* Back to Top Button (Optional Enhancement) */
-#back-to-top {
-  position: fixed;
-  bottom: 90px;
-  right: 20px;
-  background-color: #18bc9c;
-  color: #ffffff;
-  padding: 10px;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 110;
-  display: none;
 }
 
 /* Responsive Styles */

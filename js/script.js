@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const prevButton = document.querySelector(".prev");
   const nextButton = document.querySelector(".next");
   const dots = document.querySelectorAll(".dot");
-  const currentCategoryLabel = document.getElementById("currentCategory");
   let currentIndex = 0;
   const totalSlides = slides.length;
   let slideTimeout;
@@ -24,7 +23,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     slidesContainer.style.transform = `translateX(-${currentIndex * 100}vw)`;
     updateDots();
-    updateCategoryLabel();
     restartSlideTimeout();
   }
 
@@ -32,13 +30,6 @@ document.addEventListener("DOMContentLoaded", function () {
     dots.forEach((dot, i) => {
       dot.classList.toggle("active", i === currentIndex);
     });
-  }
-
-  function updateCategoryLabel() {
-    const category = slides[currentIndex].getAttribute("data-category") || "";
-    if (currentCategoryLabel) {
-      currentCategoryLabel.textContent = category;
-    }
   }
 
   function nextSlide() {
@@ -51,12 +42,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function restartSlideTimeout() {
     clearTimeout(slideTimeout);
-    slideTimeout = setTimeout(() => {
-      nextSlide();
-    }, slideDurations[currentIndex]);
+    slideTimeout = setTimeout(nextSlide, slideDurations[currentIndex]);
   }
 
-  // Event listeners for navigation
+  // Event Listeners for slider navigation
   if (nextButton) {
     nextButton.addEventListener("click", () => {
       clearTimeout(slideTimeout);
@@ -76,14 +65,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Pause slider on hover, resume on leave
+  // Pause slider on hover, resume on mouse leave
   const slider = document.querySelector(".slider");
   if (slider) {
     slider.addEventListener("mouseenter", () => clearTimeout(slideTimeout));
     slider.addEventListener("mouseleave", restartSlideTimeout);
   }
-
-  // Touch events for swipe functionality
+  
+  // Touch events for swipe functionality (mobile)
   let touchStartX = 0;
   let touchEndX = 0;
   slider.addEventListener("touchstart", function (e) {
@@ -91,16 +80,12 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   slider.addEventListener("touchend", function (e) {
     touchEndX = e.changedTouches[0].screenX;
-    handleGesture();
-  });
-  function handleGesture() {
     if (touchEndX < touchStartX - 50) {
       nextSlide();
-    }
-    if (touchEndX > touchStartX + 50) {
+    } else if (touchEndX > touchStartX + 50) {
       prevSlide();
     }
-  }
+  });
 
   // Initialize slider
   showSlide(currentIndex);
@@ -116,19 +101,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  /* BACK TO TOP BUTTON (Optional Enhancement) */
-  // Uncomment below if you add a "Back to Top" button in HTML with ID "back-to-top"
-  /*
-  const backToTop = document.getElementById("back-to-top");
-  window.addEventListener("scroll", function () {
-    if (window.pageYOffset > 300) {
-      backToTop.style.display = "block";
-    } else {
-      backToTop.style.display = "none";
-    }
-  });
-  backToTop.addEventListener("click", function () {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-  */
+  /* ADDRESS SEARCH FUNCTIONALITY USING Algolia Places */
+  if(document.getElementById("address-input")) {
+    places({
+      container: document.querySelector("#address-input"),
+      countries: ['fr']
+    });
+  }
 });

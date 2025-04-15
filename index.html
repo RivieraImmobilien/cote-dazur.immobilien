@@ -8,6 +8,8 @@
   <meta name="keywords" content="Immobilien, Côte d'Azur, Haus verkaufen, Haus kaufen, Dienstleistungen, Immobilienverkauf Côte d'Azur, Kostenlose Immobilienbewertung">
   <link rel="alternate" hreflang="de" href="https://cote-dazur.immobilien/index.html">
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <!-- Include Algolia Places for Address Search -->
+  <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
   <!-- JSON-LD Structured Data for Local Business -->
   <script type="application/ld+json">
   {
@@ -32,7 +34,12 @@
   <!-- HEADER -->
   <header>
     <div class="header-container">
+      <!-- Shimmering Logo -->
       <div class="logo"><a href="index.html">Côte d'Azur Immobilien</a></div>
+      <!-- Address Search Field -->
+      <div id="address-search">
+        <input type="text" id="address-input" placeholder="Adresse in Frankreich suchen...">
+      </div>
       <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
         <span class="bar"></span>
         <span class="bar"></span>
@@ -90,7 +97,6 @@
         <!-- Slider Navigation -->
         <button class="prev" aria-label="Vorherige Kategorie">&#10094;</button>
         <button class="next" aria-label="Nächste Kategorie">&#10095;</button>
-        <!-- Slider Dots -->
         <div class="slider-dots">
           <span class="dot active" data-index="0"></span>
           <span class="dot" data-index="1"></span>
@@ -132,7 +138,7 @@
     <img src="images/whatsapp-icon.png" alt="WhatsApp Kontakt">
   </a>
 
-  <!-- FOOTER -->
+  <!-- FOOTER WITH SOCIAL SHARE BUTTONS -->
   <footer>
     <div class="footer-container">
       <p>&copy; 2025 Côte d'Azur Immobilien – Alle Rechte vorbehalten.</p>
