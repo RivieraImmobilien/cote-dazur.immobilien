@@ -1,93 +1,134 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Run slider code only if a slider exists on the page.
+  /* SLIDER FUNCTIONALITY */
   const slidesContainer = document.querySelector(".slides");
-  if (slidesContainer) {
-    const slides = document.querySelectorAll(".slide");
-    const prevButton = document.querySelector(".prev");
-    const nextButton = document.querySelector(".next");
-    const dots = document.querySelectorAll(".dot");
-    let currentIndex = 0;
-    const totalSlides = slides.length;
-    let slideTimeout;
-    const slideDurations = [2500, 2500, 1000];
+  const slides = document.querySelectorAll(".slide");
+  const prevButton = document.querySelector(".prev");
+  const nextButton = document.querySelector(".next");
+  const dots = document.querySelectorAll(".dot");
+  const currentCategoryLabel = document.getElementById("currentCategory");
+  let currentIndex = 0;
+  const totalSlides = slides.length;
+  let slideTimeout;
 
-    function showSlide(index) {
-      if (index < 0) {
-        currentIndex = totalSlides - 1;
-      } else if (index >= totalSlides) {
-        currentIndex = 0;
-      } else {
-        currentIndex = index;
-      }
-      slidesContainer.style.transform = `translateX(-${currentIndex * 100}vw)`;
-      updateDots();
-      restartSlideTimeout();
-    }
+  // Custom durations (in milliseconds):
+  // 2500ms for "Haus verkaufen" & "Haus kaufen", 1000ms for "Dienstleistungen"
+  const slideDurations = [2500, 2500, 1000];
 
-    function updateDots() {
-      dots.forEach((dot, i) => {
-        dot.classList.toggle("active", i === currentIndex);
-      });
+  function showSlide(index) {
+    if (index < 0) {
+      currentIndex = totalSlides - 1;
+    } else if (index >= totalSlides) {
+      currentIndex = 0;
+    } else {
+      currentIndex = index;
     }
-
-    function nextSlide() {
-      showSlide(currentIndex + 1);
-    }
-
-    function prevSlide() {
-      showSlide(currentIndex - 1);
-    }
-
-    function restartSlideTimeout() {
-      clearTimeout(slideTimeout);
-      slideTimeout = setTimeout(nextSlide, slideDurations[currentIndex]);
-    }
-
-    if (nextButton) {
-      nextButton.addEventListener("click", () => {
-        clearTimeout(slideTimeout);
-        nextSlide();
-      });
-    }
-    if (prevButton) {
-      prevButton.addEventListener("click", () => {
-        clearTimeout(slideTimeout);
-        prevSlide();
-      });
-    }
-    dots.forEach((dot, index) => {
-      dot.addEventListener("click", function () {
-        clearTimeout(slideTimeout);
-        showSlide(index);
-      });
-    });
-    const slider = document.querySelector(".slider");
-    if (slider) {
-      slider.addEventListener("mouseenter", () => clearTimeout(slideTimeout));
-      slider.addEventListener("mouseleave", restartSlideTimeout);
-      let touchStartX = 0, touchEndX = 0;
-      slider.addEventListener("touchstart", e => {
-        touchStartX = e.changedTouches[0].screenX;
-      });
-      slider.addEventListener("touchend", e => {
-        touchEndX = e.changedTouches[0].screenX;
-        if (touchEndX < touchStartX - 50) nextSlide();
-        if (touchEndX > touchStartX + 50) prevSlide();
-      });
-    }
-    showSlide(currentIndex);
+    slidesContainer.style.transform = `translateX(-${currentIndex * 100}vw)`;
+    updateDots();
+    updateCategoryLabel();
+    restartSlideTimeout();
   }
 
-  // HAMBURGER MENU TOGGLE
+  function updateDots() {
+    dots.forEach((dot, i) => {
+      dot.classList.toggle("active", i === currentIndex);
+    });
+  }
+
+  function updateCategoryLabel() {
+    const category = slides[currentIndex].getAttribute("data-category") || "";
+    if (currentCategoryLabel) {
+      currentCategoryLabel.textContent = category;
+    }
+  }
+
+  function nextSlide() {
+    showSlide(currentIndex + 1);
+  }
+
+  function prevSlide() {
+    showSlide(currentIndex - 1);
+  }
+
+  function restartSlideTimeout() {
+    clearTimeout(slideTimeout);
+    slideTimeout = setTimeout(() => {
+      nextSlide();
+    }, slideDurations[currentIndex]);
+  }
+
+  // Event listeners for navigation
+  if (nextButton) {
+    nextButton.addEventListener("click", () => {
+      clearTimeout(slideTimeout);
+      nextSlide();
+    });
+  }
+  if (prevButton) {
+    prevButton.addEventListener("click", () => {
+      clearTimeout(slideTimeout);
+      prevSlide();
+    });
+  }
+  dots.forEach((dot, index) => {
+    dot.addEventListener("click", function () {
+      clearTimeout(slideTimeout);
+      showSlide(index);
+    });
+  });
+
+  // Pause slider on hover, resume on leave
+  const slider = document.querySelector(".slider");
+  if (slider) {
+    slider.addEventListener("mouseenter", () => clearTimeout(slideTimeout));
+    slider.addEventListener("mouseleave", restartSlideTimeout);
+  }
+
+  // Touch events for swipe functionality
+  let touchStartX = 0;
+  let touchEndX = 0;
+  slider.addEventListener("touchstart", function (e) {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+  slider.addEventListener("touchend", function (e) {
+    touchEndX = e.changedTouches[0].screenX;
+    handleGesture();
+  });
+  function handleGesture() {
+    if (touchEndX < touchStartX - 50) {
+      nextSlide();
+    }
+    if (touchEndX > touchStartX + 50) {
+      prevSlide();
+    }
+  }
+
+  // Initialize slider
+  showSlide(currentIndex);
+
+  /* HAMBURGER MENU TOGGLE */
   const hamburger = document.getElementById("hamburger");
   const navMenu = document.getElementById("navMenu");
-  if (hamburger && navMenu) {
-    hamburger.addEventListener("click", function () {
-      navMenu.classList.toggle("active");
-      const navLinks = document.getElementById("nav-links");
-      if (navLinks) {
-        navLinks.classList.toggle("show");
-      }
-    });
-  }
+  hamburger.addEventListener("click", function () {
+    navMenu.classList.toggle("active");
+    const navLinks = document.getElementById("nav-links");
+    if (navLinks) {
+      navLinks.classList.toggle("show");
+    }
+  });
+
+  /* BACK TO TOP BUTTON (Optional Enhancement) */
+  // Uncomment below if you add a "Back to Top" button in HTML with ID "back-to-top"
+  /*
+  const backToTop = document.getElementById("back-to-top");
+  window.addEventListener("scroll", function () {
+    if (window.pageYOffset > 300) {
+      backToTop.style.display = "block";
+    } else {
+      backToTop.style.display = "none";
+    }
+  });
+  backToTop.addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+  */
 });

@@ -2,29 +2,19 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <!-- Use viewport for responsive design -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Côte d'Azur Immobilien – Kostenlose Bewertung</title>
   <meta name="description" content="Erhalten Sie eine kostenlose Immobilienbewertung für Ihre Immobilie an der Côte d'Azur.">
   <meta name="keywords" content="Immobilienbewertung, Kostenlose Bewertung, Côte d'Azur, Immobilienverkauf">
   <link rel="alternate" hreflang="de" href="https://cote-dazur.immobilien/valuation.html">
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-  <!-- Google Fonts: Open Sans -->
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
-  <!-- Load Google Maps API (async & defer, with Places library) -->
-  <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-6J0Q6B_iXkcQMTvvaIHDnwuA0ZKJ6D8&libraries=places">
-  </script>
 </head>
 <body>
-  <!-- Header (Use your common header for consistency) -->
+  <!-- HEADER -->
   <header>
     <div class="header-container">
-      <div class="logo">
-        <a href="index.html">Côte d'Azur Immobilien</a>
-      </div>
-      <!-- Hamburger Menu: visible on mobile (the full nav is hidden by default on small screens) -->
+      <div class="logo"><a href="index.html">Côte d'Azur Immobilien</a></div>
       <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
         <span class="bar"></span>
         <span class="bar"></span>
@@ -44,22 +34,18 @@
   </header>
 
   <main>
-    <!-- Valuation Form Section -->
+    <!-- Valuation Tool Section -->
     <section id="valuation">
       <div class="content-container">
         <h1>Kostenlose Immobilienbewertung</h1>
-        <p>Geben Sie Ihre Immobiliendaten ein und wählen Sie Ihre Adresse, um eine präzise Bewertung zu erhalten.</p>
-        <form id="valuationForm">
-          <!-- Address input field with Places Autocomplete -->
-          <label for="autocomplete">Adresse:</label>
-          <input type="text" id="autocomplete" name="address" placeholder="Straße, PLZ, Stadt" required style="width: 100%; padding: 10px; font-size: 1em;">
-          
+        <p>Geben Sie Ihre Immobiliendaten ein, um eine kostenlose Bewertung zu erhalten:</p>
+        <form id="valuationForm" action="https://formspree.io/f/yourFormID" method="POST">
+          <label for="address">Adresse:</label>
+          <input type="text" id="address" name="address" required placeholder="Straße, PLZ, Stadt">
           <label for="size">Wohnfläche (m²):</label>
-          <input type="number" id="size" name="size" placeholder="z.B. 120" required>
-          
+          <input type="number" id="size" name="size" required placeholder="z.B. 120">
           <label for="rooms">Zimmeranzahl:</label>
-          <input type="number" id="rooms" name="rooms" placeholder="z.B. 4" required>
-          
+          <input type="number" id="rooms" name="rooms" required placeholder="z.B. 4">
           <label for="condition">Zustand:</label>
           <select id="condition" name="condition" required>
             <option value="">Bitte wählen</option>
@@ -67,100 +53,24 @@
             <option value="mittel">Mittel</option>
             <option value="renovierungsbedürftig">Renovierungsbedürftig</option>
           </select>
-          
-          <!-- Optional Message Field -->
-          <label for="message">Zusätzliche Nachricht (optional):</label>
-          <textarea id="message" name="message" placeholder="Ihre Nachricht"></textarea>
-          
-          <button type="submit">Bewertung anfordern</button>
+          <button type="submit">Bewertung erhalten</button>
         </form>
-        <div id="thankYouMessage" style="display: none; text-align: center; margin-top: 20px;">
-          <h2>Vielen Dank!</h2>
-          <p>Ihre Anfrage wurde übermittelt. Wir werden uns umgehend bei Ihnen melden.</p>
-        </div>
-      </div>
-    </section>
-    <!-- Map Section: displays map once address is selected -->
-    <section id="mapSection" style="margin: 20px 0;">
-      <div class="content-container">
-        <h2>Standort der Immobilie</h2>
-        <div id="map" style="width: 100%; height: 300px; border: 1px solid #cccccc;"></div>
       </div>
     </section>
   </main>
 
-  <!-- Fixed WhatsApp Button (90×90px) -->
+  <!-- FIXED WHATSAPP BUTTON -->
   <a href="https://wa.me/0033781717466?text=Hallo%20C%C3%B4te%20d%27Azur%20Immobilien" class="whatsapp-btn" target="_blank" aria-label="WhatsApp Kontakt">
     <img src="images/whatsapp-icon.png" alt="WhatsApp Kontakt">
   </a>
 
-  <!-- Footer -->
+  <!-- FOOTER -->
   <footer>
     <div class="footer-container">
       <p>&copy; 2025 Côte d'Azur Immobilien – Alle Rechte vorbehalten.</p>
     </div>
   </footer>
-  
-  <!-- Include EmailJS SDK -->
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
-  <script type="text/javascript">
-    (function() {
-      emailjs.init("OSIgWQt0HYi2A0Vv4");
-    })();
-  </script>
-  <!-- Load common script file -->
+
   <script src="js/script.js"></script>
-  
-  <!-- EmailJS Form Submission for Valuation Page -->
-  <script>
-    document.getElementById("valuationForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-      emailjs.sendForm("service_3w80icb", "template_n8yuvz7", this)
-        .then(function() {
-          document.getElementById("valuationForm").style.display = "none";
-          document.getElementById("thankYouMessage").style.display = "block";
-        }, function(error) {
-          alert("Beim Senden ist ein Fehler aufgetreten: " + JSON.stringify(error));
-        });
-    });
-    
-    // Initialize Google Places Autocomplete for the address input
-    function initAutocomplete() {
-      const input = document.getElementById('autocomplete');
-      if (!input) return;
-      const autocomplete = new google.maps.places.Autocomplete(input, {
-        componentRestrictions: { country: "fr" },
-        types: ['address']
-      });
-      
-      // Create a map and a marker; center the map once a place is selected.
-      const mapDiv = document.getElementById('map');
-      const map = new google.maps.Map(mapDiv, {
-        center: { lat: 46.603354, lng: 1.8883335 }, // approximate center of France
-        zoom: 6
-      });
-      const marker = new google.maps.Marker({
-        map: map
-      });
-      
-      autocomplete.addListener('place_changed', function () {
-        const place = autocomplete.getPlace();
-        if (!place.geometry) {
-          alert("Keine Details verfügbar für die eingegebene Adresse.");
-          return;
-        }
-        // Center map on the selected place and place a marker.
-        if (place.geometry.location) {
-          map.setCenter(place.geometry.location);
-          map.setZoom(15);
-          marker.setPosition(place.geometry.location);
-          marker.setVisible(true);
-        }
-      });
-    }
-    
-    // Initialize Autocomplete after the API is loaded
-    window.addEventListener('load', initAutocomplete);
-  </script>
 </body>
 </html>

@@ -5,21 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Côte d'Azur Immobilien – Startseite</title>
   <meta name="description" content="Exklusive Immobilienangebote an der Côte d'Azur – Kaufen, Verkaufen und umfassende Dienstleistungen.">
-  <meta name="keywords" content="Immobilien, Côte d'Azur, Haus verkaufen, Haus kaufen, Dienstleistungen, Immobilienverkauf, Kostenlose Immobilienbewertung">
+  <meta name="keywords" content="Immobilien, Côte d'Azur, Haus verkaufen, Haus kaufen, Dienstleistungen, Immobilienverkauf Côte d'Azur, Kostenlose Immobilienbewertung">
   <link rel="alternate" hreflang="de" href="https://cote-dazur.immobilien/index.html">
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-  <!-- Google Fonts: Open Sans -->
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <!-- JSON-LD Structured Data for Local Business -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Côte d'Azur Immobilien",
+    "image": "https://cote-dazur.immobilien/images/logo.png",
+    "telephone": "0033781717466",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Beispielstraße 1",
+      "addressLocality": "Nizza",
+      "postalCode": "06000",
+      "addressCountry": "FR"
+    },
+    "url": "https://cote-dazur.immobilien/"
+  }
+  </script>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <!-- Header -->
+  <!-- HEADER -->
   <header>
     <div class="header-container">
-      <div class="logo">
-        <a href="index.html">Côte d'Azur Immobilien</a>
-      </div>
-      <!-- Hamburger Menu (shows on mobile; on desktop full nav is visible) -->
+      <div class="logo"><a href="index.html">Côte d'Azur Immobilien</a></div>
       <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
         <span class="bar"></span>
         <span class="bar"></span>
@@ -39,7 +52,7 @@
   </header>
 
   <main>
-    <!-- Full-Width Slider Section -->
+    <!-- FULL-WIDTH SLIDER -->
     <section id="hero">
       <div class="slider" aria-label="Kategorien-Slider">
         <div class="slides">
@@ -74,7 +87,7 @@
             </div>
           </a>
         </div>
-        <!-- Navigation Buttons -->
+        <!-- Slider Navigation -->
         <button class="prev" aria-label="Vorherige Kategorie">&#10094;</button>
         <button class="next" aria-label="Nächste Kategorie">&#10095;</button>
         <!-- Slider Dots -->
@@ -86,7 +99,7 @@
       </div>
     </section>
 
-    <!-- Featured Properties Section -->
+    <!-- FEATURED PROPERTIES -->
     <section id="featured-properties">
       <div class="content-container">
         <h2>Exklusive Angebote</h2>
@@ -114,12 +127,12 @@
     </section>
   </main>
 
-  <!-- Fixed WhatsApp Button (90×90px) -->
+  <!-- FIXED WHATSAPP BUTTON -->
   <a href="https://wa.me/0033781717466?text=Hallo%20C%C3%B4te%20d%27Azur%20Immobilien" class="whatsapp-btn" target="_blank" aria-label="WhatsApp Kontakt">
     <img src="images/whatsapp-icon.png" alt="WhatsApp Kontakt">
   </a>
 
-  <!-- Footer -->
+  <!-- FOOTER -->
   <footer>
     <div class="footer-container">
       <p>&copy; 2025 Côte d'Azur Immobilien – Alle Rechte vorbehalten.</p>
@@ -133,7 +146,7 @@
       </div>
     </div>
   </footer>
-  
+
   <script src="js/script.js"></script>
 </body>
 </html>
