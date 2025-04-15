@@ -34,7 +34,7 @@ body {
   background-size: 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: shimmer 3s linear infinite;
+  animation: shimmer 4s linear infinite;
 }
 @keyframes shimmer {
   0% { background-position: -200% 0; }
