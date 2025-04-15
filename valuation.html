@@ -9,10 +9,10 @@
   <link rel="alternate" hreflang="de" href="https://cote-dazur.immobilien/valuation.html" />
   <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="css/styles.css" />
-  <!-- Google Maps API with Places (using new migration classes) -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-6J0Q6B_iXkcQMTvvaIHDnwuA0ZKJ6D8&libraries=places"></script>
+  <!-- Google Maps API loaded with async and defer for optimal performance -->
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-6J0Q6B_iXkcQMTvvaIHDnwuA0ZKJ6D8&libraries=places"></script>
   <!-- Google reCAPTCHA -->
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <script async defer src="https://www.google.com/recaptcha/api.js"></script>
 </head>
 <body>
   <!-- HEADER -->
@@ -38,7 +38,7 @@
   </header>
 
   <main>
-    <!-- Valuation Form Section -->
+    <!-- Valuation Tool Section -->
     <section id="valuation">
       <div class="content-container">
         <h1>Kostenlose Immobilienbewertung</h1>
@@ -60,11 +60,46 @@
           <div class="g-recaptcha" data-sitekey="6Le8qxkrAAAAALscf5yepC5OcpabOPLyeKWL1tQQ"></div>
           <button type="submit">Bewertung erhalten</button>
         </form>
-        <!-- Google Map Container -->
+        <!-- Map Container -->
         <div id="map" style="height:400px;"></div>
       </div>
     </section>
   </main>
 
-  <!-- FIXED WHATSAPP BUTTON -->
-  <a href="https://wa.me/0033781717466?text=Hallo%20C%C3%B4te%20d%27
+  <!-- FIXED WHATSAPP BUTTON (100x100px) -->
+  <a href="https://wa.me/0033781717466?text=Hallo%20C%C3%B4te%20d%27Azur%20Immobilien" class="whatsapp-btn" target="_blank" aria-label="WhatsApp Kontakt">
+    <img src="images/whatsapp-icon.png" alt="WhatsApp Kontakt" />
+  </a>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
+      <p>&copy; 2025 Côte d'Azur Immobilien – Alle Rechte vorbehalten.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Initialize Google Maps with Places Autocomplete
+    function initMap() {
+      var map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: 43.6, lng: 7.1 },
+        zoom: 12
+      });
+      var input = document.getElementById('address');
+      var autocomplete = new google.maps.places.Autocomplete(input, { componentRestrictions: { country: 'fr' } });
+      autocomplete.bindTo('bounds', map);
+      var marker = new google.maps.Marker({ map: map });
+      autocomplete.addListener('place_changed', function () {
+        var place = autocomplete.getPlace();
+        if (!place.geometry) return;
+        map.setCenter(place.geometry.location);
+        map.setZoom(17);
+        marker.setPosition(place.geometry.location);
+      });
+    }
+    // Attach initMap to the window load event
+    window.addEventListener('load', initMap);
+  </script>
+  <script src="js/script.js"></script>
+</body>
+</html>
