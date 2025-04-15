@@ -9,8 +9,9 @@ document.addEventListener("DOMContentLoaded", function () {
   let currentIndex = 0;
   const totalSlides = slides.length;
   let slideTimeout;
-  // Durations: 2500ms for Haus verkaufen & Haus kaufen; 1000ms for Dienstleistungen
+  // Custom durations: 2500ms for Haus verkaufen & Haus kaufen; 1000ms for Dienstleistungen
   const slideDurations = [2500, 2500, 1000];
+
   function showSlide(index) {
     if (index < 0) {
       currentIndex = totalSlides - 1;
@@ -24,29 +25,35 @@ document.addEventListener("DOMContentLoaded", function () {
     updateCategoryLabel();
     restartSlideTimeout();
   }
+
   function updateDots() {
     dots.forEach((dot, i) => {
       dot.classList.toggle("active", i === currentIndex);
     });
   }
+
   function updateCategoryLabel() {
     const category = slides[currentIndex].getAttribute("data-category") || "";
     if (currentCategoryLabel) {
       currentCategoryLabel.textContent = category;
     }
   }
+
   function nextSlide() {
     showSlide(currentIndex + 1);
   }
+
   function prevSlide() {
     showSlide(currentIndex - 1);
   }
+
   function restartSlideTimeout() {
     clearTimeout(slideTimeout);
     slideTimeout = setTimeout(() => {
       nextSlide();
     }, slideDurations[currentIndex]);
   }
+
   if (nextButton) {
     nextButton.addEventListener("click", () => {
       clearTimeout(slideTimeout);
