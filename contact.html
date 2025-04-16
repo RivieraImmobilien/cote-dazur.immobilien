@@ -29,6 +29,7 @@
           <li><a href="services.html">Dienstleistungen</a></li>
           <li><a href="contact.html" class="active">Kontakt</a></li>
           <li><a href="valuation.html">Kostenlose Bewertung</a></li>
+          <li class="about-link"><a href="about.html">Über uns</a></li>
         </ul>
       </nav>
     </div>
@@ -69,7 +70,7 @@
 
   <script src="js/script.js"></script>
   <script>
-    // Pre-fill hidden property field if a query parameter is provided in URL
+    // Pre-fill "property" hidden field if query parameter exists
     const params = new URLSearchParams(window.location.search);
     const propertyParam = params.get('property');
     if (propertyParam) {

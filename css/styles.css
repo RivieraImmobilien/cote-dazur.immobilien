@@ -23,10 +23,10 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #2c3e50; /* Dark Blue */
+  background-color: #2c3e50;
 }
 .logo a {
-  /* Shimmering logo with original Azur gradient */
+  /* Shimmering effect with original Azur gradient */
   font-size: 1.8em;
   font-weight: bold;
   text-decoration: none;
@@ -56,6 +56,10 @@ nav ul li a {
 nav ul li a.active,
 nav ul li a:hover {
   color: #18bc9c; /* Accent Turquoise */
+}
+/* Push "Über uns" to the far right */
+.about-link {
+  margin-left: auto;
 }
 /* Hamburger Menu */
 .hamburger {
@@ -103,7 +107,7 @@ nav ul li a:hover {
   position: absolute;
   bottom: 20px;
   left: 20px;
-  background-color: rgba(0,0,0,0.6);
+  background-color: rgba(0, 0, 0, 0.6);
   color: #ffffff;
   padding: 10px;
   border-radius: 5px;
@@ -240,8 +244,16 @@ footer {
   padding: 20px 0;
   margin-top: 40px;
 }
+.social-share a img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 5px;
+}
 .social-share a {
-  margin: 0 10px;
+  margin: 0 5px;
   display: inline-block;
 }
 /* Small Slider for Buy/Sell Pages */
@@ -290,3 +302,19 @@ footer {
     margin-right: 20px;
   }
   .slider {
+    height: 40vh;
+  }
+  .slide {
+    height: 40vh;
+  }
+  .slide-description h2 {
+    font-size: 1.5rem;
+  }
+  .slide-description p {
+    font-size: 1rem;
+  }
+  .property {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
