@@ -9,7 +9,7 @@
   <link rel="alternate" hreflang="de" href="https://cote-dazur.immobilien/valuation.html" />
   <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="css/styles.css" />
-  <!-- Google Maps API loaded async & defer -->
+  <!-- Load Google Maps API asynchronously with defer -->
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-6J0Q6B_iXkcQMTvvaIHDnwuA0ZKJ6D8&libraries=places"></script>
   <!-- reCAPTCHA v2 -->
   <script async defer src="https://www.google.com/recaptcha/api.js"></script>
@@ -60,8 +60,8 @@
           <div class="g-recaptcha" data-sitekey="6LdcBhorAAAAAFZG049z-oZEOIfruNxnw3KO0Wbn"></div>
           <button type="submit">Bewertung erhalten</button>
         </form>
-        <!-- Google Map Container -->
-        <div id="map" style="height:400px;"></div>
+        <!-- GOOGLE MAP CONTAINER -->
+        <div id="map" style="height: 400px;"></div>
       </div>
     </section>
   </main>
@@ -79,7 +79,7 @@
   </footer>
 
   <script>
-    // Initialize legacy Autocomplete to avoid errors from new API properties
+    // Initialize legacy Autocomplete to avoid new API errors
     function initMap() {
       var map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: 43.6, lng: 7.1 },
