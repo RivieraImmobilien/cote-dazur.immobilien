@@ -9,7 +9,7 @@
   <link rel="alternate" hreflang="de" href="https://cote-dazur.immobilien/valuation.html" />
   <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="css/styles.css" />
-  <!-- Load Google Maps API with async & defer -->
+  <!-- Google Maps API loaded async & defer -->
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-6J0Q6B_iXkcQMTvvaIHDnwuA0ZKJ6D8&libraries=places"></script>
   <!-- reCAPTCHA v2 -->
   <script async defer src="https://www.google.com/recaptcha/api.js"></script>
@@ -38,7 +38,7 @@
   </header>
 
   <main>
-    <!-- Valuation Section -->
+    <!-- VALUATION SECTION -->
     <section id="valuation">
       <div class="content-container">
         <h1>Kostenlose Immobilienbewertung</h1>
@@ -79,14 +79,13 @@
   </footer>
 
   <script>
-    // Initialize legacy Autocomplete to avoid new API errors
+    // Initialize legacy Autocomplete to avoid errors from new API properties
     function initMap() {
       var map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: 43.6, lng: 7.1 },
         zoom: 12
       });
       var input = document.getElementById('address');
-      // Using legacy Autocomplete to avoid "accept" error from new PlaceAutocompleteElement
       var autocomplete = new google.maps.places.Autocomplete(input, { componentRestrictions: { country: 'fr' } });
       autocomplete.bindTo('bounds', map);
       var marker = new google.maps.Marker({ map: map });

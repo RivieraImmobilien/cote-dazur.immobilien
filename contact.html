@@ -69,12 +69,13 @@
 
   <script src="js/script.js"></script>
   <script>
-    // If a property parameter exists in the URL, pre-fill hidden field
+    // Pre-fill hidden "property" field if a query parameter exists
     const params = new URLSearchParams(window.location.search);
     const propertyParam = params.get('property');
-    if (propertyParam) {
+    if(propertyParam){
       document.getElementById('property').value = propertyParam;
     }
   </script>
 </body>
 </html>
+
