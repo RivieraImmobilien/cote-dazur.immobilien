@@ -1,36 +1,38 @@
-/* Global Reset ----------------------------------------------------------- */
+/* styles.css - Updated Full CSS */
+
+/* Global Reset */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* Body ------------------------------------------------------------------- */
+/* Body Styles */
 body {
   font-family: Arial, sans-serif;
-  background: #ecf0f1;
+  background-color: #ecf0f1;
   color: #2c3e50;
   line-height: 1.6;
 }
 
-/* Header ----------------------------------------------------------------- */
+/* Header Styles */
 header {
   width: 100%;
-  background: #2c3e50;
+  background-color: #2c3e50;
 }
 .header-container {
-  display: flex;             /* Flex layout */
-  align-items: center;       /* Vertical centering */
-  width: 100%;               /* Full‑width container */
+  width: 100%;
+  display: flex;
+  align-items: center;
   padding: 10px 20px;
+  margin: 0 auto;
 }
 
-/* Logo with Shimmer ------------------------------------------------------ */
+/* Logo Shimmer: Right-to-Left in 4s */
 .logo a {
   font-size: 1.8em;
   font-weight: bold;
   text-decoration: none;
-  white-space: nowrap;       /* Prevent wrapping */
   background: linear-gradient(90deg, #ffffff, #00aaff, #ffffff);
   background-size: 200%;
   -webkit-background-clip: text;
@@ -38,23 +40,27 @@ header {
   animation: shimmer 4s ease-in-out infinite;
 }
 @keyframes shimmer {
-  0%   { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }
 
-/* Navigation ------------------------------------------------------------- */
+/* Navigation */
 nav ul {
   list-style: none;
   display: flex;
   margin-left: 20px;
-  overflow-y: auto;          /* Scrollable on mobile */
-  max-height: 80vh;          /* Constrain height */
+  overflow-y: auto;
+  max-height: 80vh;
 }
 nav ul li {
   margin-left: 20px;
 }
 nav ul li.about-link {
-  margin-left: auto;         /* Push “Über uns” to right */
+  margin-left: auto; /* pushes Über uns to far right */
 }
 nav ul li a {
   color: #fff;
@@ -66,32 +72,34 @@ nav ul li a:hover {
   color: #18bc9c;
 }
 
-/* Hamburger (mobile) ----------------------------------------------------- */
+/* Hamburger Menu */
 .hamburger {
   display: none;
   flex-direction: column;
   background: none;
   border: none;
   cursor: pointer;
-  margin-left: auto;
+  margin-left: 20px;
 }
 .hamburger .bar {
   width: 25px;
   height: 3px;
-  background: #fff;
+  background-color: #fff;
   margin: 4px 0;
+  transition: 0.4s;
 }
 
-/* Hero Slider ------------------------------------------------------------ */
+/* Hero Slider Full Width */
 #hero {
   width: 100vw;
   overflow: hidden;
 }
 .slider {
-  position: relative;
   width: 100vw;
   height: 60vh;
-  background: #bdc3c7;
+  position: relative;
+  overflow: hidden;
+  background-color: #bdc3c7;
 }
 .slides {
   display: flex;
@@ -106,23 +114,23 @@ nav ul li a:hover {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  loading: lazy;             /* Lazy-load hint */
 }
 .slide-description {
   position: absolute;
   bottom: 20px;
   left: 20px;
-  background: rgba(0,0,0,0.6);
+  background-color: rgba(0, 0, 0, 0.6);
   color: #fff;
   padding: 15px;
   border-radius: 5px;
   z-index: 1;
 }
-.prev, .next {
+.prev,
+.next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   border: none;
   color: #fff;
   font-size: 2rem;
@@ -130,8 +138,16 @@ nav ul li a:hover {
   cursor: pointer;
   z-index: 2;
 }
-.prev { left: 20px; }
-.next { right: 20px; }
+.prev {
+  left: 20px;
+}
+.next {
+  right: 20px;
+}
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
 .slider-dots {
   position: absolute;
   bottom: 15px;
@@ -142,24 +158,20 @@ nav ul li a:hover {
   display: inline-block;
   width: 12px;
   height: 12px;
-  background: #bbb;
-  border-radius: 50%;
   margin: 0 5px;
+  background-color: #bbb;
+  border-radius: 50%;
   cursor: pointer;
+  transition: background-color 0.6s ease;
 }
 .slider-dots .dot.active {
-  background: #717171;
+  background-color: #717171;
 }
 
-/* Featured Properties ---------------------------------------------------- */
-.content-container {
-  width: 90%;
-  max-width: 1200px;
-  margin: auto;
-}
+/* Featured Properties */
 #featured-properties {
   padding: 40px 0;
-  background: #ecf0f1;
+  background-color: #ecf0f1;
 }
 .property-list {
   display: flex;
@@ -168,12 +180,12 @@ nav ul li a:hover {
 }
 .property {
   width: 30%;
-  background: #fff;
+  background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 5px;
   margin: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease; /* Smooth hover */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
 }
 .property:hover {
   transform: translateY(-5px);
@@ -182,26 +194,27 @@ nav ul li a:hover {
   width: 100%;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  loading: lazy;
 }
-.property h3, .property p {
+.property h3,
+.property p {
   margin: 10px;
+  color: #2c3e50;
 }
 .property button {
   margin: 10px;
   padding: 10px 20px;
-  background: #18bc9c;
+  background-color: #18bc9c;
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background-color 0.3s;
 }
 .property button:hover {
-  background: #e74c3c;
+  background-color: #e74c3c;
 }
 
-/* Small Image Slider ----------------------------------------------------- */
+/* Small Slider for Buy/Sell pages */
 .small-slider {
   overflow: hidden;
   width: 100%;
@@ -218,15 +231,14 @@ nav ul li a:hover {
   margin: 0 5px;
   cursor: pointer;
   border-radius: 5px;
-  transition: transform 0.3s ease; /* Hover effect */
+  transition: transform 0.3s;
   object-fit: cover;
-  loading: lazy;
 }
 .small-slides img:hover {
   transform: scale(1.05);
 }
 
-/* WhatsApp Button -------------------------------------------------------- */
+/* WhatsApp Button */
 .whatsapp-btn {
   position: fixed;
   bottom: 20px;
@@ -240,9 +252,9 @@ nav ul li a:hover {
   height: 100%;
 }
 
-/* Footer ----------------------------------------------------------------- */
+/* Footer */
 footer {
-  background: #2c3e50;
+  background-color: #2c3e50;
   color: #fff;
   text-align: center;
   padding: 20px 0;
@@ -255,7 +267,7 @@ footer {
   margin: 0 5px;
 }
 
-/* Responsive ---------------------------------------------------------------- */
+/* Responsive */
 @media (max-width: 768px) {
   .hamburger {
     display: flex;
