@@ -8,7 +8,6 @@
   <meta name="keywords" content="Kontakt, Immobilien, Côte d'Azur" />
   <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="css/styles.css" />
-  <!-- reCAPTCHA v2 -->
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
@@ -21,7 +20,7 @@
         <span class="bar"></span>
         <span class="bar"></span>
       </button>
-      <nav id="navMenu">
+      <nav>
         <ul id="nav-links">
           <li><a href="index.html">Startseite</a></li>
           <li><a href="buy.html">Haus kaufen</a></li>
@@ -35,6 +34,7 @@
     </div>
   </header>
 
+  <!-- MAIN CONTENT -->
   <main>
     <section id="contact">
       <div class="content-container">
@@ -47,7 +47,6 @@
           <input type="email" id="email" name="email" required placeholder="Ihre E-Mail" />
           <label for="message">Nachricht:</label>
           <textarea id="message" name="message" required placeholder="Ihre Nachricht"></textarea>
-          <!-- Hidden field to capture property info -->
           <input type="hidden" id="property" name="property" value="" />
           <div class="g-recaptcha" data-sitekey="6LdcBhorAAAAAFZG049z-oZEOIfruNxnw3KO0Wbn"></div>
           <button type="submit">Senden</button>
@@ -56,8 +55,9 @@
     </section>
   </main>
 
-  <!-- FIXED WHATSAPP BUTTON -->
-  <a href="https://wa.me/0033781717466?text=Hallo%20C%C3%B4te%20d%27Azur%20Immobilien" class="whatsapp-btn" target="_blank" aria-label="WhatsApp Kontakt">
+  <!-- WHATSAPP -->
+  <a href="https://wa.me/0033781717466?text=Hallo%20C%C3%B4te%20d'Azur%20Immobilien"
+     class="whatsapp-btn" target="_blank" aria-label="WhatsApp Kontakt">
     <img src="images/whatsapp-icon.png" alt="WhatsApp Kontakt" />
   </a>
 
@@ -70,12 +70,10 @@
 
   <script src="js/script.js"></script>
   <script>
-    // Pre-fill "property" hidden field if query parameter exists
-    const params = new URLSearchParams(window.location.search);
-    const propertyParam = params.get('property');
-    if (propertyParam) {
-      document.getElementById('property').value = propertyParam;
-    }
+    // Pre-fill "property" hidden field if provided in URL
+    const params = new URLSearchParams(window.location.search),
+          prop = params.get('property');
+    if (prop) document.getElementById('property').value = prop;
   </script>
 </body>
 </html>
