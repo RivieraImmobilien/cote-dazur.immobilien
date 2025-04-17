@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>Kostenlose Bewertung – Côte d'Azur Immobilien</title>
-  <link rel="stylesheet" href="css/styles.css"><link rel="icon" href="images/favicon.ico">
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="manifest" href="manifest.json"/>
+  <link rel="icon" href="images/favicon.ico"/>
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-6J0Q6B_iXkcQMTvvaIHDnwuA0ZKJ6D8&libraries=places"></script>
   <script async defer src="https://www.google.com/recaptcha/api.js"></script>
 </head>
@@ -25,31 +28,50 @@
   </header>
 
   <main>
-    <div class="content-container">
-      <h1>Kostenlose Bewertung</h1>
+    <div class="content-container" style="padding:40px 0;">
+      <h1>Kostenlose Immobilienbewertung</h1>
       <form action="https://formspree.io/f/xwplzwzn" method="POST">
-        <!-- fields + recaptcha -->
+        <label for="address">Adresse:</label>
+        <input type="text" id="address" name="address" required placeholder="Straße, PLZ, Stadt"/>
+        <label for="size">Wohnfläche (m²):</label>
+        <input type="number" id="size" name="size" required placeholder="z. B. 120"/>
+        <label for="rooms">Zimmeranzahl:</label>
+        <input type="number" id="rooms" name="rooms" required placeholder="z. B. 4"/>
+        <label for="condition">Zustand:</label>
+        <select id="condition" name="condition" required>
+          <option value="">Bitte wählen</option>
+          <option value="gut">Gut</option>
+          <option value="mittel">Mittel</option>
+          <option value="renovierungsbedürftig">Renovierungsbedürftig</option>
+        </select>
+        <div class="g-recaptcha" data-sitekey="6LdcBhorAAAAAFZG049z-oZEOIfruNxnw3KO0Wbn"></div>
+        <button type="submit">Bewertung erhalten</button>
       </form>
-      <div id="map" style="height:400px;"></div>
+      <div id="map" style="height:400px; margin-top:20px;"></div>
     </div>
   </main>
 
-  <a href="https://wa.me/0033781717466" class="whatsapp-btn"><img src="images/whatsapp-icon.png" alt="WhatsApp"></a>
+  <a href="https://wa.me/0033781717466" class="whatsapp-btn"><img src="images/whatsapp-icon.png" alt="WhatsApp"/></a>
   <footer><div class="footer-container"><p>&copy; 2025 Côte d'Azur Immobilien</p></div></footer>
 
   <script>
     function initMap() {
-      const map=new google.maps.Map(document.getElementById('map'),{center:{lat:43.6,lng:7.1},zoom:12});
-      const input=document.getElementById('address');
-      const ac=new google.maps.places.Autocomplete(input,{componentRestrictions:{country:'fr'}});
-      ac.bindTo('bounds',map);
-      const marker=new google.maps.Marker({map});
-      ac.addListener('place_changed',()=>{
-        const p=ac.getPlace(); if(!p.geometry) return;
-        map.setCenter(p.geometry.location); map.setZoom(17); marker.setPosition(p.geometry.location);
+      const map = new google.maps.Map(document.getElementById('map'),{ center:{ lat:43.6, lng:7.1 }, zoom:12 });
+      const input = document.getElementById('address');
+      const ac = new google.maps.places.Autocomplete(input,{ componentRestrictions:{ country:'fr' } });
+      ac.bindTo('bounds', map);
+      const marker = new google.maps.Marker({ map });
+      ac.addListener('place_changed', () => {
+        const place = ac.getPlace(); if (!place.geometry) return;
+        map.setCenter(place.geometry.location);
+        map.setZoom(17);
+        marker.setPosition(place.geometry.location);
       });
     }
-    window.addEventListener('load',initMap);
+    window.addEventListener('load', initMap);
+  </script>
+  <script>
+    if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js');
   </script>
   <script src="js/script.js"></script>
 </body>

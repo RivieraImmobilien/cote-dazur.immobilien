@@ -1,28 +1,24 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Côte d'Azur Immobilien – Haus kaufen</title>
-  <meta name="description" content="Finden Sie Ihr Traumhaus an der Côte d'Azur." />
-  <meta name="keywords" content="Haus kaufen, Immobilien, Côte d'Azur" />
-  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="css/styles.css" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Côte d'Azur Immobilien – Startseite</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="manifest" href="manifest.json"/>
+  <link rel="icon" href="images/favicon.ico"/>
 </head>
 <body>
-  <!-- HEADER -->
   <header>
     <div class="header-container">
       <div class="logo"><a href="index.html">Côte d'Azur Immobilien</a></div>
       <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </button>
       <nav>
         <ul id="nav-links">
-          <li><a href="index.html">Startseite</a></li>
-          <li><a href="buy.html" class="active">Haus kaufen</a></li>
+          <li><a href="index.html" class="active">Startseite</a></li>
+          <li><a href="buy.html">Haus kaufen</a></li>
           <li><a href="sell.html">Haus verkaufen</a></li>
           <li><a href="services.html">Dienstleistungen</a></li>
           <li><a href="contact.html">Kontakt</a></li>
@@ -33,50 +29,68 @@
     </div>
   </header>
 
-  <!-- MAIN CONTENT -->
   <main>
-    <section id="content">
-      <div class="content-container">
-        <h1>Haus kaufen</h1>
-        <p>Hier finden Sie Angebote für Immobilien zum Kauf an der Côte d'Azur.</p>
-        <div class="small-slider">
-          <div class="small-slides">
-            <img src="images/house1.jpg" alt="Angebot 1" loading="lazy"
-                 onclick="window.location.href='contact.html?property=house1'" />
-            <img src="images/house2.jpg" alt="Angebot 2" loading="lazy"
-                 onclick="window.location.href='contact.html?property=house2'" />
-            <img src="images/house3.jpg" alt="Angebot 3" loading="lazy"
-                 onclick="window.location.href='contact.html?property=house3'" />
-          </div>
+    <section id="hero">
+      <div class="slider">
+        <div class="slides">
+          <a href="sell.html"><div class="slide"><img src="images/slider/slide1.jpg" alt="Haus verkaufen"/><div class="slide-description"><h2>Haus verkaufen</h2><p>Verkaufen Sie Ihre Immobilie schnell und sicher.</p></div></div></a>
+          <a href="buy.html"><div class="slide"><img src="images/slider/slide2.jpg" alt="Haus kaufen"/><div class="slide-description"><h2>Haus kaufen</h2><p>Finden Sie Ihr Traumhaus an der Côte d'Azur.</p></div></div></a>
+          <a href="services.html"><div class="slide"><img src="images/slider/slide3.jpg" alt="Dienstleistungen"/><div class="slide-description"><h2>Dienstleistungen</h2><p>Rundum-sorglos-Service für Ihre Immobilie.</p></div></div></a>
         </div>
-        <p>Klicken Sie auf ein Bild, um zur Kontaktseite zu gelangen.</p>
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+        <div class="slider-dots">
+          <span class="dot active" data-index="0"></span>
+          <span class="dot" data-index="1"></span>
+          <span class="dot" data-index="2"></span>
+        </div>
+      </div>
+    </section>
+
+    <section id="featured-properties">
+      <div class="content-container">
+        <h2>Exklusive Angebote</h2>
+        <div class="property-list">
+          <div class="property"><img src="images/house1.jpg" alt="Luxusvilla"/><h3>Luxusvilla in Saint Tropez</h3><p>€2.500.000</p><button onclick="showContactPopup('Luxusvilla in Saint Tropez')">Mehr erfahren</button></div>
+          <div class="property"><img src="images/house2.jpg" alt="Charmantes Haus"/><h3>Charmantes Haus in Nizza</h3><p>€1.200.000</p><button onclick="showContactPopup('Charmantes Haus in Nizza')">Mehr erfahren</button></div>
+          <div class="property"><img src="images/house3.jpg" alt="Moderne Wohnung"/><h3>Moderne Wohnung in Cannes</h3><p>€850.000</p><button onclick="showContactPopup('Moderne Wohnung in Cannes')">Mehr erfahren</button></div>
+        </div>
       </div>
     </section>
   </main>
 
-  <!-- WHATSAPP -->
-  <a href="https://wa.me/0033781717466?text=Hallo%20C%C3%B4te%20d'Azur%20Immobilien"
-     class="whatsapp-btn" target="_blank" aria-label="WhatsApp Kontakt">
-    <img src="images/whatsapp-icon.png" alt="WhatsApp Kontakt" />
+  <!-- WhatsApp -->
+  <a href="https://wa.me/0033781717466?text=Hallo%20C%C3%B4te%20d'Azur%20Immobilien" class="whatsapp-btn" target="_blank">
+    <img src="images/whatsapp-icon.png" alt="WhatsApp Kontakt"/>
   </a>
 
-  <!-- FOOTER -->
+  <!-- Live Chat (Tawk.to) -->
+  <script type="text/javascript">
+  var Tawk_API=Tawk_API||{},Tawk_LoadStart=new Date();
+  (function(){
+    var s=document.createElement("script"),e=document.getElementsByTagName("script")[0];
+    s.async=true; s.src='https://embed.tawk.to/YOUR_TAWK_ID/default';
+    s.charset='UTF-8'; s.setAttribute('crossorigin','*');
+    e.parentNode.insertBefore(s,e);
+  })();
+  </script>
+
   <footer>
     <div class="footer-container">
       <p>&copy; 2025 Côte d'Azur Immobilien – Alle Rechte vorbehalten.</p>
       <div class="social-share">
-        <a href="https://facebook.com/sharer/sharer.php?u=https://cote-dazur.immobilien/buy.html"
-           target="_blank" aria-label="Facebook">
-          <img src="images/facebook-icon.png" alt="Facebook" />
-        </a>
-        <a href="https://twitter.com/intent/tweet?url=https://cote-dazur.immobilien/buy.html"
-           target="_blank" aria-label="Twitter">
-          <img src="images/twitter-icon.png" alt="Twitter" />
-        </a>
+        <a href="https://facebook.com/sharer/sharer.php?u=https://cote-dazur.immobilien"><img src="images/facebook-icon.png" alt="Facebook"/></a>
+        <a href="https://twitter.com/intent/tweet?url=https://cote-dazur.immobilien"><img src="images/twitter-icon.png" alt="Twitter"/></a>
       </div>
     </div>
   </footer>
 
+  <!-- PWA & SW -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js');
+    }
+  </script>
   <script src="js/script.js"></script>
 </body>
 </html>

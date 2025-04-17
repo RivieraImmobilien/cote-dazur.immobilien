@@ -1,15 +1,29 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>Über uns – Côte d'Azur Immobilien</title>
-  <link rel="stylesheet" href="css/styles.css"><link rel="icon" href="images/favicon.ico">
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="manifest" href="manifest.json"/>
+  <link rel="icon" href="images/favicon.ico"/>
+  <!-- Voice‑Search JSON‑LD -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"RealEstateAgent",
+    "name":"Côte d'Azur Immobilien",
+    "url":"https://cote-dazur.immobilien",
+    "telephone":"0033781717466",
+    "availableLanguage":["de","en","fr"]
+  }
+  </script>
 </head>
 <body>
   <header>
     <div class="header-container">
       <div class="logo"><a href="index.html">Côte d'Azur Immobilien</a></div>
-      <button class="hamburger" id="hamburger"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+      <button class="hamburger" id="hamburger" aria-label="Menü öffnen"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
       <nav><ul id="nav-links">
         <li><a href="index.html">Startseite</a></li>
         <li><a href="buy.html">Haus kaufen</a></li>
@@ -21,27 +35,49 @@
       </ul></nav>
     </div>
   </header>
-  
+
   <section id="about-hero" style="background:url('images/slider/slide2.jpg') center/cover no-repeat; height:50vh;">
-    <div class="hero-content" style="background:rgba(0,0,0,0.5);padding:20px;">
+    <div style="background:rgba(0,0,0,0.5); padding:30px; position:relative; top:50%; transform:translateY(-50%); text-align:center; color:#fff;">
       <h1>Über uns</h1>
       <p>Ihr vertrauenswürdiger Partner in allen Immobilienangelegenheiten</p>
-      <a href="contact.html" class="cta">Jetzt Kontakt aufnehmen</a>
+      <a href="contact.html" style="display:inline-block;padding:10px 20px;background:#18bc9c;color:#fff;border-radius:5px;margin-top:10px;">Jetzt Kontakt aufnehmen</a>
     </div>
   </section>
 
   <main>
     <div class="content-container">
       <h2>Immobilienberater bei Leggett Immobilier</h2>
-      <p>Als Immobilienberater bei Leggett Immobilier nutze ich jahrzehntelange Erfahrung in der DACH-Region, um maßgeschneiderte Immobilientransaktionen ... </p>
-      <!-- rest of your About content -->
+      <p>Als Immobilienberater bei Leggett Immobilier nutze ich jahrzehntelange Erfahrung in der DACH-Region, um maßgeschneiderte Immobilientransaktionen für deutschsprachige Käufer und Verkäufer zu realisieren. Ich bin Muttersprachler in Deutsch und Englisch, spreche fließend Französisch und habe umfangreiche Erfahrung auf den Immobilienmärkten in Großbritannien und Zypern. Dank meiner tiefen Kenntnisse der Bedürfnisse deutscher, österreichischer und schweizerischer Käufer kann ich personalisierte Dienstleistungen anbieten und eng mit einem engagierten Head-Office-Team zusammenarbeiten, das sämtliche Aspekte von Immobilientransaktionen abdeckt.</p>
+      <p>Leggett Immobilier verfügt über ein umfangreiches Portfolio an exklusiven Immobilien in ganz Frankreich sowie über ein Netzwerk spezialisierter Agenten. Selbst wenn sich eine Immobilie außerhalb meines direkten Fachgebiets befindet, können wir Ihnen mit unserem Netzwerk unterstützen. Darüber hinaus biete ich mehrsprachigen Support und maßgeschneiderte Lösungen – speziell zugeschnitten auf die Anforderungen unserer internationalen und deutschsprachigen Kunden.</p>
+      <p>Ich habe bereits zahlreiche britische, US-amerikanische, chinesische und russische Kunden betreut, was meine interkulturelle Expertise weiter stärkt. Mein Ziel ist es, jede Transaktion mit höchster Professionalität, fundiertem Markt-Know-how und individueller Betreuung abzuschließen.</p>
+      <!-- Interactive Map -->
+      <iframe src="https://www.google.com/maps/d/embed?mid=YOUR_CUSTOM_MAP_ID" width="100%" height="400" style="border:0;margin-top:20px;" loading="lazy"></iframe>
+      <!-- 3D Tour -->
+      <iframe title="3D-Tour" src="https://my.matterport.com/show/?m=YOUR_MATTERPORT_ID" width="100%" height="480" frameborder="0" allowfullscreen loading="lazy" style="margin-top:20px;"></iframe>
+      <!-- Climate Widget -->
+      <script async defer src="https://widget.climate.data.org/?lat=43.6&lng=7.1"></script>
+      <div id="climate-widget" style="margin-top:20px;"></div>
     </div>
   </main>
 
-  <a href="https://wa.me/0033781717466" class="whatsapp-btn" target="_blank"><img src="images/whatsapp-icon.png" alt="WhatsApp"></a>
-  <footer>
-    <div class="footer-container"><p>&copy; 2025 Côte d'Azur Immobilien</p></div>
-  </footer>
+  <a href="https://wa.me/0033781717466" class="whatsapp-btn" target="_blank"><img src="images/whatsapp-icon.png" alt="WhatsApp"/></a>
+  <footer><div class="footer-container"><p>&copy; 2025 Côte d'Azur Immobilien</p></div></footer>
+
+  <!-- Chat Widget -->
+  <script type="text/javascript">
+  var Tawk_API=Tawk_API||{},Tawk_LoadStart=new Date();
+  (function(){
+    var s=document.createElement("script"),e=document.getElementsByTagName("script")[0];
+    s.async=true; s.src='https://embed.tawk.to/YOUR_TAWK_ID/default';
+    s.charset='UTF-8'; s.setAttribute('crossorigin','*');
+    e.parentNode.insertBefore(s,e);
+  })();
+  </script>
+
+  <!-- PWA -->
+  <script>
+    if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js');
+  </script>
   <script src="js/script.js"></script>
 </body>
 </html>

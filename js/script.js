@@ -1,27 +1,27 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // SLIDER
-  const slides = document.querySelectorAll(".slide"),
+  // Slider
+  const slides    = document.querySelectorAll(".slide"),
         container = document.querySelector(".slides"),
-        prev = document.querySelector(".prev"),
-        next = document.querySelector(".next"),
-        dots = document.querySelectorAll(".dot");
-  let index = 0, timeout,
-      durations = [2500,2500,1000];
+        prevBtn   = document.querySelector(".prev"),
+        nextBtn   = document.querySelector(".next"),
+        dots      = document.querySelectorAll(".dot");
+  let idx = 0, timer;
+  const durations = [2500, 2500, 1000];
 
-  function showSlide(i) {
-    index = (i + slides.length) % slides.length;
-    container.style.transform = `translateX(-${index*100}vw)`;
-    dots.forEach((d,ii) => d.classList.toggle("active", ii===index));
-    clearTimeout(timeout);
-    timeout = setTimeout(() => showSlide(index+1), durations[index]);
+  function show(i) {
+    idx = (i + slides.length) % slides.length;
+    container.style.transform = `translateX(-${idx*100}vw)`;
+    dots.forEach((d,j) => d.classList.toggle("active", j===idx));
+    clearTimeout(timer);
+    timer = setTimeout(() => show(idx+1), durations[idx]);
   }
-  next && next.addEventListener("click", () => { clearTimeout(timeout); showSlide(index+1); });
-  prev && prev.addEventListener("click", () => { clearTimeout(timeout); showSlide(index-1); });
-  dots.forEach((d, i) => d.addEventListener("click", () => { clearTimeout(timeout); showSlide(i); }));
-  showSlide(0);
+  prevBtn && prevBtn.addEventListener("click", () => { clearTimeout(timer); show(idx-1); });
+  nextBtn && nextBtn.addEventListener("click", () => { clearTimeout(timer); show(idx+1); });
+  dots.forEach((d,i) => d.addEventListener("click", () => { clearTimeout(timer); show(i); }));
+  show(0);
 
-  // HAMBURGER
+  // Hamburger
   const burger = document.getElementById("hamburger"),
-        nav = document.getElementById("nav-links");
+        nav     = document.getElementById("nav-links");
   burger && burger.addEventListener("click", () => nav.classList.toggle("show"));
 });
