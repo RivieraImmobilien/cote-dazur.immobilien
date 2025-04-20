@@ -1,15 +1,1 @@
-{
-  "name": "Côte d'Azur Immobilien",
-  "short_name": "CDAI",
-  "start_url": "/index.html",
-  "display": "standalone",
-  "background_color": "#ecf0f1",
-  "theme_color": "#2c3e50",
-  "icons": [
-    {
-      "src": "images/favicon.ico",
-      "sizes": "64x64",
-      "type": "image/x-icon"
-    }
-  ]
-}
+{ "name": "Côte d'Azur Immobilien", "short_name": "Immobilien", "start_url": ".", "display": "standalone", "background_color": "#ffffff", "description": "Immobilien an der Côte d'Azur", "icons": [] }
