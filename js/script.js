@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
   showSlide(currentIndex);
-
+  
   /* HAMBURGER MENU TOGGLE */
   const hamburger = document.getElementById("hamburger");
   const navMenu = document.getElementById("navMenu");
