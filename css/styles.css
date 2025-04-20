@@ -1,195 +1,60 @@
-/* Global Reset & Base */
+/* Global Reset */
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-  font-family: Arial, sans-serif;
-  background: #ecf0f1;
-  color: #2c3e50;
-  line-height: 1.6;
-}
-
-/* HEADER (full-width) */
-header {
-  width: 100%;
-  background: #2c3e50;
-}
-.header-container {
-  width: 100%;
-  max-width: none; /* remove centering cap */ 
-  display: flex;
-  align-items: center;
-  padding: 10px 20px;
-}
-
-/* Logo shimmer (left→right over 4s) */
-.logo a {
-  font-size: 1.8em;
-  font-weight: bold;
-  text-decoration: none;
-  background: linear-gradient(90deg, #fff, #00aaff, #fff);
-  background-size: 200%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: shimmer 4s linear infinite; /* Web Design Inspiration */
-}
-@keyframes shimmer {
-  0%   { background-position: -200% 0; }
-  100% { background-position: 200% 0; } /* DesignRush */
-}
-
+body { font-family: Arial, sans-serif; background: #ecf0f1; color: #2c3e50; line-height: 1.6; }
+/* HEADER full-width */
+header { width: 100%; background-color: #2c3e50; }
+.header-container { width: 100%; margin: auto; display: flex; align-items: center; padding: 10px 20px; }
+/* Logo shimmer */
+.logo a { font-size: 1.8em; font-weight: bold; text-decoration: none; background: linear-gradient(90deg, #fff, #00aaff, #fff); background-size: 200%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shimmer 4s linear infinite; }
+@keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
 /* NAVIGATION */
-nav ul {
-  list-style: none;
-  display: flex;
-  margin-left: 20px;
-}
-nav ul li {
-  margin-left: 20px;
-}
-nav ul li.about-link {
-  margin-left: auto; /* pushes “Über uns” to right — Inkbot Design */
-}
-nav ul li a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-}
-nav ul li a.active,
-nav ul li a:hover {
-  color: #18bc9c;
-}
-
-/* Hamburger (mobile) */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-.hamburger .bar {
-  width: 25px; height: 3px;
-  background: #fff; margin: 4px 0;
-  transition: 0.4s;
-}
-
-/* make mobile nav scrollable if long — B12 |
-   The easiest AI website builder */
-@media(max-width:768px) {
-  .hamburger { display: flex; }
-  nav ul {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    max-height: 80vh;
-    overflow-y: auto; /* ensures scroll if too many items */
-  }
-  nav ul.show {
-    display: flex;
-  }
-  nav ul li { margin: 10px 0; }
-}
-
-/* HERO SLIDER (full-viewport width) */
+nav ul { list-style: none; display: flex; margin-left: 20px; }
+nav ul li { margin-left: 20px; }
+nav ul li a { color: #fff; text-decoration: none; font-weight: bold; } nav ul li a.active, nav ul li a:hover { color: #18bc9c; }
+/* Push Über uns */
+nav ul li.about-link { margin-left: auto; }
+/* Hamburger */
+.hamburger { display: none; flex-direction: column; background: none; border: none; cursor: pointer; }
+.hamburger .bar { width: 25px; height: 3px; background-color: #fff; margin: 4px 0; transition: 0.4s; }
+/* Slider full-width */
 #hero { width:100vw; overflow:hidden; }
-.slider {
-  width:100vw; height:60vh;
-  position:relative; overflow:hidden;
-  background:#bdc3c7;
-}
-.slides {
-  display:flex; transition: transform .5s ease-in-out;
-}
-.slide {
-  min-width:100vw; height:60vh; position:relative;
-}
-.slide img {
-  width:100%; height:100%; object-fit:cover;
-}
-.slide-description {
-  position:absolute; bottom:20px; left:20px;
-  background:rgba(0,0,0,0.5); /* enough padding so text shows — Colorlib */
-  color:#fff; padding:20px; border-radius:5px; z-index:2;
-}
-.prev, .next {
-  position:absolute; top:50%; transform:translateY(-50%);
-  background:rgba(0,0,0,0.5); border:none;
-  color:#fff; font-size:2rem; padding:10px; cursor:pointer; z-index:10;
-}
+.slider { width:100vw; height:60vh; position:relative; overflow:hidden; background:#bdc3c7; }
+.slides { display:flex; transition: transform .5s ease-in-out; }
+.slide { min-width:100vw; height:60vh; position:relative; }
+.slide img { width:100%; height:100%; object-fit:cover; }
+.slide-description { position:absolute; bottom:20px; left:20px; background:rgba(0,0,0,0.6); color:#fff; padding:10px; border-radius:5px; }
+.prev, .next { position:absolute; top:50%; transform:translateY(-50%); background:rgba(0,0,0,0.5); border:none; color:#fff; font-size:2rem; padding:10px; cursor:pointer; z-index:10; }
 .prev { left:20px; } .next { right:20px; }
-.slider-dots {
-  position:absolute; bottom:15px; left:50%;
-  transform:translateX(-50%);
-}
-.slider-dots .dot {
-  display:inline-block; width:12px; height:12px;
-  background:#bbb; border-radius:50%;
-  margin:0 5px; cursor:pointer;
-}
+.slider-dots { position:absolute; bottom:15px; left:50%; transform:translateX(-50%); }
+.slider-dots .dot { display:inline-block; width:12px; height:12px; background:#bbb; border-radius:50%; margin:0 5px; cursor:pointer; }
 .slider-dots .dot.active { background:#717171; }
-
-/* FEATURED PROPERTIES */
-.content-container {
-  width:90%; max-width:1200px; margin: auto; /* still cap content */
-}
-#featured-properties {
-  padding:40px 0; background:#ecf0f1;
-}
-.property-list {
-  display:flex; flex-wrap:wrap; justify-content:space-around;
-}
-.property {
-  width:30%; background:#fff;
-  border:1px solid #ddd; border-radius:5px;
-  margin:10px; box-shadow:0 2px 5px rgba(0,0,0,0.1);
-  transition: transform .3s;
-}
+/* Properties */
+.content-container { max-width:1200px; width:90%; margin:auto; }
+#featured-properties { padding:40px 0; background:#ecf0f1; }
+.property-list { display:flex; flex-wrap:wrap; justify-content:space-around; }
+.property { width:30%; background:#fff; border:1px solid #ddd; border-radius:5px; margin:10px; box-shadow:0 2px 5px rgba(0,0,0,0.1); transition: transform .3s; }
 .property:hover { transform: translateY(-5px); }
-.property img {
-  width:100%; border-top-left-radius:5px; border-top-right-radius:5px;
-  loading: lazy; /* Lazy Loading — capturly.com */
-}
-.property h3, .property p {
-  margin:10px; color:#2c3e50;
-}
-.property button {
-  margin:10px; padding:10px 20px;
-  background:#18bc9c; color:#fff;
-  border:none; border-radius:5px; cursor:pointer;
-  transition: background-color .3s;
-}
+.property img { width:100%; border-top-left-radius:5px; border-top-right-radius:5px; }
+.property h3, .property p { margin:10px; color:#2c3e50; }
+.property button { margin:10px; padding:10px 20px; background:#18bc9c; color:#fff; border:none; border-radius:5px; cursor:pointer; transition: background-color .3s; }
 .property button:hover { background:#e74c3c; }
-
-/* SMALL SLIDER FOR BUY/SELL */
-.small-slider {
-  overflow:hidden; width:100%; max-width:800px; margin:20px auto;
-}
-.small-slides {
-  display:flex; transition: transform .5s ease-in-out;
-}
-.small-slides img {
-  width:100%; max-width:150px; margin:0 5px;
-  cursor:pointer; border-radius:5px; transition: transform .3s;
-}
+/* Small slider */
+.small-slider { overflow:hidden; width:100%; max-width:800px; margin:20px auto; }
+.small-slides { display:flex; transition: transform .5s ease-in-out; }
+.small-slides img { width:100%; max-width:150px; margin:0 5px; cursor:pointer; border-radius:5px; transition:transform .3s; }
 .small-slides img:hover { transform: scale(1.05); }
-
-/* WHATSAPP BUTTON */
-.whatsapp-btn {
-  position:fixed; bottom:20px; right:20px;
-  width:100px; height:100px; z-index:1000;
-}
+/* WhatsApp */
+.whatsapp-btn { position:fixed; bottom:20px; right:20px; width:100px; height:100px; z-index:1000; }
 .whatsapp-btn img { width:100%; height:100%; }
-
-/* FOOTER */
-footer {
-  background:#2c3e50; color:#fff;
-  text-align:center; padding:20px 0; margin-top:40px;
-}
-.social-share a img {
-  width:24px; height:24px; object-fit:contain; margin:0 5px;
-}
-
-/* RESPONSIVE ADJUSTMENTS */
+/* Footer */
+footer { background:#2c3e50; color:#fff; text-align:center; padding:20px 0; margin-top:40px; }
+.social-share a img { width:24px; height:24px; object-fit:contain; margin:0 5px; }
+/* Responsive */
 @media(max-width:768px) {
+  .hamburger { display:flex; }
+  nav ul { display:none; flex-direction:column; width:100%; text-align:center; overflow-y:auto; }
+  nav ul.show { display:flex; }
+  nav ul li { margin:10px 0; }
   .slider { height:40vh; }
   .slide { height:40vh; }
   .slide-description h2 { font-size:1.5rem; }
