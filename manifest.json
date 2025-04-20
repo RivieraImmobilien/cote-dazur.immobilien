@@ -1,1 +1,2 @@
-{ "name": "Côte d'Azur Immobilien", "short_name": "Immobilien", "start_url": ".", "display": "standalone", "background_color": "#ffffff", "description": "Immobilien an der Côte d'Azur", "icons": [] }
+// Content for manifest.json
+PLACEHOLDER_MANIFEST_JSON
