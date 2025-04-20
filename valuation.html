@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Côte d'Azur Immobilien – Kostenlose Bewertung</title>
+  <meta name="description" content="Erhalten Sie eine kostenlose Immobilienbewertung für Ihre Immobilie an der Côte d'Azur." />
+  <meta name="keywords" content="Immobilienbewertung, Kostenlose Bewertung, Côte d'Azur, Immobilienverkauf" />
+  <link rel="alternate" hreflang="de" href="https://cote-dazur.immobilien/valuation.html" />
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <!-- Load Google Maps API asynchronously with defer -->
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-6J0Q6B_iXkcQMTvvaIHDnwuA0ZKJ6D8&libraries=places"></script>
+  <!-- reCAPTCHA v2 -->
+  <script async defer src="https://www.google.com/recaptcha/api.js"></script>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="header-container">
+      <div class="logo"><a href="index.html">Côte d'Azur Immobilien</a></div>
+      <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <nav id="navMenu">
+        <ul id="nav-links">
+          <li><a href="index.html">Startseite</a></li>
+          <li><a href="buy.html">Haus kaufen</a></li>
+          <li><a href="sell.html">Haus verkaufen</a></li>
+          <li><a href="services.html">Dienstleistungen</a></li>
+          <li><a href="contact.html">Kontakt</a></li>
+          <li><a href="valuation.html" class="active">Kostenlose Bewertung</a></li>
+          <li class="about-link"><a href="about.html">Über uns</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  <main>
+    <!-- VALUATION SECTION -->
+    <section id="valuation">
+      <div class="content-container">
+        <h1>Kostenlose Immobilienbewertung</h1>
+        <p>Geben Sie Ihre Immobiliendaten ein, um eine kostenlose Bewertung zu erhalten:</p>
+        <form id="valuationForm" action="https://formspree.io/f/xwplzwzn" method="POST">
+          <label for="address">Adresse:</label>
+          <input type="text" id="address" name="address" required placeholder="Straße, PLZ, Stadt" />
+          <label for="size">Wohnfläche (m²):</label>
+          <input type="number" id="size" name="size" required placeholder="z. B. 120" />
+          <label for="rooms">Zimmeranzahl:</label>
+          <input type="number" id="rooms" name="rooms" required placeholder="z. B. 4" />
+          <label for="condition">Zustand:</label>
+          <select id="condition" name="condition" required>
+            <option value="">Bitte wählen</option>
+            <option value="gut">Gut</option>
+            <option value="mittel">Mittel</option>
+            <option value="renovierungsbedürftig">Renovierungsbedürftig</option>
+          </select>
+          <div class="g-recaptcha" data-sitekey="6LdcBhorAAAAAFZG049z-oZEOIfruNxnw3KO0Wbn"></div>
+          <button type="submit">Bewertung erhalten</button>
+        </form>
+        <!-- GOOGLE MAP CONTAINER -->
+        <div id="map" style="height:400px;"></div>
+      </div>
+    </section>
+  </main>
+  
+  <!-- FIXED WHATSAPP BUTTON -->
+  <a href="https://wa.me/0033781717466?text=Hallo%20C%C3%B4te%20d%27Azur%20Immobilien" class="whatsapp-btn" target="_blank" aria-label="WhatsApp Kontakt">
+    <img src="images/whatsapp-icon.png" alt="WhatsApp Kontakt" />
+  </a>
+  
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
+      <p>&copy; 2025 Côte d'Azur Immobilien – Alle Rechte vorbehalten.</p>
+    </div>
+  </footer>
+  
+  <script>
+    // Initialize legacy Autocomplete to avoid new API errors
+    function initMap() {
+      var map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: 43.6, lng: 7.1 },
+        zoom: 12
+      });
+      var input = document.getElementById('address');
+      var autocomplete = new google.maps.places.Autocomplete(input, { componentRestrictions: { country: 'fr' } });
+      autocomplete.bindTo('bounds', map);
+      var marker = new google.maps.Marker({ map: map });
+      autocomplete.addListener('place_changed', function () {
+        var place = autocomplete.getPlace();
+        if (!place.geometry) return;
+        map.setCenter(place.geometry.location);
+        map.setZoom(17);
+        marker.setPosition(place.geometry.location);
+      });
+    }
+    window.addEventListener('load', initMap);
+  </script>
+  <script src="js/script.js"></script>
+</body>
+</html>
