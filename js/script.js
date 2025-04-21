@@ -1,31 +1,31 @@
 document.addEventListener("DOMContentLoaded", () => {
-  /* SLIDER */
-  const slidesContainer = document.querySelector(".slides");
-  const slides = document.querySelectorAll(".slide");
-  const prevBtn = document.querySelector(".prev");
-  const nextBtn = document.querySelector(".next");
+  // SLIDER
+  const slides = document.querySelector(".slides");
+  const total = document.querySelectorAll(".slide").length;
   const dots = document.querySelectorAll(".dot");
-  let currentIndex = 0;
-  const durations = [2500, 2500, 1000];
-  let timeout;
+  let idx=0, timer;
 
-  function showSlide(i) {
-    currentIndex = (i + slides.length) % slides.length;
-    slidesContainer.style.transform = `translateX(-${currentIndex * 100}vw)`;
-    dots.forEach((d, idx) => d.classList.toggle("active", idx === currentIndex));
-    clearTimeout(timeout);
-    timeout = setTimeout(() => showSlide(currentIndex + 1), durations[currentIndex]);
+  function show(n) {
+    if (n<0) idx=total-1;
+    else if(n>=total) idx=0;
+    else idx=n;
+    slides.style.transform = `translateX(-${idx*100}%)`;
+    dots.forEach((d,i)=>d.classList.toggle("active", i===idx));
   }
+  function next(){ show(idx+1); }
+  document.querySelector(".next").addEventListener("click", ()=>{ clearTimeout(timer); next(); });
+  document.querySelector(".prev").addEventListener("click", ()=>{ clearTimeout(timer); show(idx-1); });
+  dots.forEach((d,i)=>d.addEventListener("click", ()=>{ clearTimeout(timer); show(i); }));
+  slides.parentElement.addEventListener("mouseenter", ()=>clearTimeout(timer));
+  slides.parentElement.addEventListener("mouseleave", ()=>timer=setTimeout(next, [2500,2500,1000][idx]));
+  timer = setTimeout(next, 2500);
 
-  nextBtn?.addEventListener("click", () => showSlide(currentIndex + 1));
-  prevBtn?.addEventListener("click", () => showSlide(currentIndex - 1));
-  dots.forEach((dot, idx) => dot.addEventListener("click", () => showSlide(idx)));
-  showSlide(0);
+  // HAMBURGER
+  const ham = document.getElementById("hamburger"), nav = document.getElementById("nav-links");
+  ham.addEventListener("click", ()=>nav.classList.toggle("show"));
 
-  /* HAMBURGER */
-  const hamburger = document.getElementById("hamburger");
-  const navLinks = document.getElementById("nav-links");
-  hamburger.addEventListener("click", () => {
-    navLinks.classList.toggle("show");
-  });
+  // Show contact popup
+  window.showContactPopup = property => {
+    alert(`Interessiert an ${property}? Bitte kontaktieren Sie uns über WhatsApp oder das Kontaktformular.`);
+  };
 });
