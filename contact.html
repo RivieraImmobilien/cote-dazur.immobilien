@@ -1,17 +1,26 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Côte d'Azur Immobilien – Kontakt</title>
-  <link rel="icon" href="images/favicon.ico" />
+  <meta name="description" content="Kontaktieren Sie Côte d'Azur Immobilien für weitere Informationen." />
+  <meta name="keywords" content="Kontakt, Immobilien, Côte d'Azur" />
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="css/styles.css" />
+  <!-- reCAPTCHA v2 -->
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
+  <!-- HEADER -->
   <header>
     <div class="header-container">
       <div class="logo"><a href="index.html">Côte d'Azur Immobilien</a></div>
-      <button class="hamburger" id="hamburger"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+      <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
       <nav id="navMenu">
         <ul id="nav-links">
           <li><a href="index.html">Startseite</a></li>
@@ -25,34 +34,48 @@
       </nav>
     </div>
   </header>
+
   <main>
     <section id="contact">
       <div class="content-container">
         <h1>Kontakt</h1>
-        <form action="https://formspree.io/f/xwplzwzn" method="POST">
-          <label for="name">Ihr Name</label>
-          <input type="text" id="name" name="name" required />
-          <label for="email">Ihre E-Mail</label>
-          <input type="email" id="email" name="email" required />
-          <label for="message">Nachricht</label>
-          <textarea id="message" name="message" required></textarea>
-          <input type="hidden" id="property" name="property" />
+        <p>Füllen Sie das Formular aus, um uns zu kontaktieren. Falls Sie von einem bestimmten Angebot kommen, wird diese Information übernommen.</p>
+        <form id="contactForm" action="https://formspree.io/f/xwplzwzn" method="POST">
+          <label for="name">Ihr Name:</label>
+          <input type="text" id="name" name="name" required placeholder="Ihr Name" />
+          <label for="email">Ihre E-Mail:</label>
+          <input type="email" id="email" name="email" required placeholder="Ihre E-Mail" />
+          <label for="message">Nachricht:</label>
+          <textarea id="message" name="message" required placeholder="Ihre Nachricht"></textarea>
+          <!-- Hidden field to capture property info -->
+          <input type="hidden" id="property" name="property" value="" />
           <div class="g-recaptcha" data-sitekey="6LdcBhorAAAAAFZG049z-oZEOIfruNxnw3KO0Wbn"></div>
           <button type="submit">Senden</button>
         </form>
       </div>
     </section>
   </main>
-  <a href="https://wa.me/0033781717466?text=Hallo%20C%C3%B4te%20d'Azur%20Immobilien" class="whatsapp-btn">
+
+  <!-- FIXED WHATSAPP BUTTON -->
+  <a href="https://wa.me/0033781717466?text=Hallo%20C%C3%B4te%20d%27Azur%20Immobilien" class="whatsapp-btn" target="_blank" aria-label="WhatsApp Kontakt">
     <img src="images/whatsapp-icon.png" alt="WhatsApp Kontakt" />
   </a>
+
+  <!-- FOOTER -->
   <footer>
-    <div class="footer-container"><p>&copy; 2025 Côte d'Azur Immobilien</p></div>
+    <div class="footer-container">
+      <p>&copy; 2025 Côte d'Azur Immobilien – Alle Rechte vorbehalten.</p>
+    </div>
   </footer>
+
   <script src="js/script.js"></script>
   <script>
+    // Pre-fill "property" hidden field if query parameter exists
     const params = new URLSearchParams(window.location.search);
-    document.getElementById('property').value = params.get('property') || '';
+    const propertyParam = params.get('property');
+    if (propertyParam) {
+      document.getElementById('property').value = propertyParam;
+    }
   </script>
 </body>
 </html>
