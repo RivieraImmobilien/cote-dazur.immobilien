@@ -1,30 +1,31 @@
-document.addEventListener("DOMContentLoaded", function() {
-  // Slider
-  let idx = 0, slides = document.querySelectorAll(".slide"), total = slides.length;
-  const container = document.querySelector(".slides"), prev = document.querySelector(".prev"), next = document.querySelector(".next"), dots = document.querySelectorAll(".dot");
-  const durations = [2500,2500,1000];
-  let to;
+document.addEventListener("DOMContentLoaded", () => {
+  /* SLIDER */
+  const slidesContainer = document.querySelector(".slides");
+  const slides = document.querySelectorAll(".slide");
+  const prevBtn = document.querySelector(".prev");
+  const nextBtn = document.querySelector(".next");
+  const dots = document.querySelectorAll(".dot");
+  let currentIndex = 0;
+  const durations = [2500, 2500, 1000];
+  let timeout;
 
-  function show(i) {
-    idx = (i + total) % total;
-    container.style.transform = `translateX(-${idx*100}vw)`;
-    dots.forEach(d=>d.classList.remove("active")); dots[idx].classList.add("active");
-    clearTimeout(to); to = setTimeout(()=>show(idx+1), durations[idx]);
+  function showSlide(i) {
+    currentIndex = (i + slides.length) % slides.length;
+    slidesContainer.style.transform = `translateX(-${currentIndex * 100}vw)`;
+    dots.forEach((d, idx) => d.classList.toggle("active", idx === currentIndex));
+    clearTimeout(timeout);
+    timeout = setTimeout(() => showSlide(currentIndex + 1), durations[currentIndex]);
   }
-  prev && prev.addEventListener("click", ()=>show(idx-1));
-  next && next.addEventListener("click", ()=>show(idx+1));
-  dots.forEach((d,i)=>d.addEventListener("click", ()=>show(i)));
-  show(idx);
 
-  // Hamburger
-  const ham = document.getElementById("hamburger"), navL = document.getElementById("nav-links");
-  ham.addEventListener("click", ()=>navL.classList.toggle("show"));
+  nextBtn?.addEventListener("click", () => showSlide(currentIndex + 1));
+  prevBtn?.addEventListener("click", () => showSlide(currentIndex - 1));
+  dots.forEach((dot, idx) => dot.addEventListener("click", () => showSlide(idx)));
+  showSlide(0);
 
-  // Contact Popup
-  window.showContactPopup = function(prop) {
-    const popup = document.getElementById("contactPopup"), txt = document.getElementById("popupText");
-    txt.innerHTML = `Interessiert an <strong>${prop}</strong>? Hinterlassen Sie Ihre Kontaktdaten!`;
-    popup.style.display = "flex";
-  };
-  document.querySelectorAll("#closePopup, #submitPopup").forEach(el=>el.addEventListener("click", ()=>document.getElementById("contactPopup").style.display="none"));
+  /* HAMBURGER */
+  const hamburger = document.getElementById("hamburger");
+  const navLinks = document.getElementById("nav-links");
+  hamburger.addEventListener("click", () => {
+    navLinks.classList.toggle("show");
+  });
 });

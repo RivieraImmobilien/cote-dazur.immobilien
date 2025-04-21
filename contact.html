@@ -11,10 +11,13 @@
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
+  <!-- HEADER -->
   <header>
     <div class="header-container">
       <div class="logo"><a href="index.html">Côte d'Azur Immobilien</a></div>
-      <button class="hamburger" id="hamburger"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+      <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
       <nav id="navMenu">
         <ul id="nav-links">
           <li><a href="index.html">Startseite</a></li>
@@ -33,7 +36,7 @@
     <section id="contact">
       <div class="content-container">
         <h1>Kontakt</h1>
-        <p>Füllen Sie das Formular aus. (Wenn Sie von einem Angebot kommen, wird dieses übernommen.)</p>
+        <p>Füllen Sie das Formular aus, um uns zu kontaktieren. Falls Sie von einem bestimmten Angebot kommen, wird diese Information übernommen.</p>
         <form id="contactForm" action="https://formspree.io/f/xwplzwzn" method="POST">
           <label for="name">Ihr Name:</label>
           <input type="text" id="name" name="name" required placeholder="Ihr Name" />
@@ -49,8 +52,12 @@
     </section>
   </main>
 
-  <a href="https://wa.me/0033781717466" class="whatsapp-btn"><img src="images/whatsapp-icon.png" alt="WhatsApp" /></a>
+  <!-- WHATSAPP -->
+  <a href="https://wa.me/0033781717466?text=Hallo%20C%C3%B4te%20d'Azur%20Immobilien" class="whatsapp-btn" target="_blank" aria-label="WhatsApp Kontakt">
+    <img src="images/whatsapp-icon.png" alt="WhatsApp Kontakt" />
+  </a>
 
+  <!-- FOOTER -->
   <footer>
     <div class="footer-container">
       <p>&copy; 2025 Côte d'Azur Immobilien – Alle Rechte vorbehalten.</p>
@@ -59,7 +66,6 @@
 
   <script src="js/script.js"></script>
   <script>
-    // Pre-fill 'property' if passed via URL
     const params = new URLSearchParams(window.location.search);
     const prop = params.get('property');
     if (prop) document.getElementById('property').value = prop;
