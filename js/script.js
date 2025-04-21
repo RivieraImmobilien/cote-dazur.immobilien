@@ -1,110 +1,31 @@
-document.addEventListener("DOMContentLoaded", function () {
-  /* SLIDER FUNCTIONALITY */
+document.addEventListener("DOMContentLoaded", () => {
+  /* SLIDER */
   const slidesContainer = document.querySelector(".slides");
   const slides = document.querySelectorAll(".slide");
-  const prevButton = document.querySelector(".prev");
-  const nextButton = document.querySelector(".next");
+  const prevBtn = document.querySelector(".prev");
+  const nextBtn = document.querySelector(".next");
   const dots = document.querySelectorAll(".dot");
-  const currentCategoryLabel = document.getElementById("currentCategory");
   let currentIndex = 0;
-  const totalSlides = slides.length;
-  let slideTimeout;
-  
-  // Custom durations: 2500ms for Haus verkaufen & Haus kaufen; 1000ms for Dienstleistungen
-  const slideDurations = [2500, 2500, 1000];
-  
-  function showSlide(index) {
-    if (index < 0) {
-      currentIndex = totalSlides - 1;
-    } else if (index >= totalSlides) {
-      currentIndex = 0;
-    } else {
-      currentIndex = index;
-    }
+  const durations = [2500, 2500, 1000];
+  let timeout;
+
+  function showSlide(i) {
+    currentIndex = (i + slides.length) % slides.length;
     slidesContainer.style.transform = `translateX(-${currentIndex * 100}vw)`;
-    updateDots();
-    updateCategoryLabel();
-    restartSlideTimeout();
+    dots.forEach((d, idx) => d.classList.toggle("active", idx === currentIndex));
+    clearTimeout(timeout);
+    timeout = setTimeout(() => showSlide(currentIndex + 1), durations[currentIndex]);
   }
-  
-  function updateDots() {
-    dots.forEach((dot, i) => {
-      dot.classList.toggle("active", i === currentIndex);
-    });
-  }
-  
-  function updateCategoryLabel() {
-    const category = slides[currentIndex].getAttribute("data-category") || "";
-    if (currentCategoryLabel) {
-      currentCategoryLabel.textContent = category;
-    }
-  }
-  
-  function nextSlide() {
-    showSlide(currentIndex + 1);
-  }
-  
-  function prevSlide() {
-    showSlide(currentIndex - 1);
-  }
-  
-  function restartSlideTimeout() {
-    clearTimeout(slideTimeout);
-    slideTimeout = setTimeout(() => {
-      nextSlide();
-    }, slideDurations[currentIndex]);
-  }
-  
-  if (nextButton) {
-    nextButton.addEventListener("click", () => {
-      clearTimeout(slideTimeout);
-      nextSlide();
-    });
-  }
-  if (prevButton) {
-    prevButton.addEventListener("click", () => {
-      clearTimeout(slideTimeout);
-      prevSlide();
-    });
-  }
-  dots.forEach((dot, index) => {
-    dot.addEventListener("click", function () {
-      clearTimeout(slideTimeout);
-      showSlide(index);
-    });
-  });
-  const slider = document.querySelector(".slider");
-  if (slider) {
-    slider.addEventListener("mouseenter", () => clearTimeout(slideTimeout));
-    slider.addEventListener("mouseleave", restartSlideTimeout);
-  }
-  let touchStartX = 0;
-  let touchEndX = 0;
-  slider.addEventListener("touchstart", function (e) {
-    touchStartX = e.changedTouches[0].screenX;
-  });
-  slider.addEventListener("touchend", function (e) {
-    touchEndX = e.changedTouches[0].screenX;
-    handleGesture();
-  });
-  function handleGesture() {
-    if (touchEndX < touchStartX - 50) {
-      nextSlide();
-    }
-    if (touchEndX > touchStartX + 50) {
-      prevSlide();
-    }
-  }
-  showSlide(currentIndex);
-  
-  /* HAMBURGER MENU TOGGLE */
+
+  nextBtn?.addEventListener("click", () => showSlide(currentIndex + 1));
+  prevBtn?.addEventListener("click", () => showSlide(currentIndex - 1));
+  dots.forEach((dot, idx) => dot.addEventListener("click", () => showSlide(idx)));
+  showSlide(0);
+
+  /* HAMBURGER */
   const hamburger = document.getElementById("hamburger");
-  const navMenu = document.getElementById("navMenu");
-  hamburger.addEventListener("click", function () {
-    navMenu.classList.toggle("active");
-    const navLinks = document.getElementById("nav-links");
-    if (navLinks) {
-      navLinks.classList.toggle("show");
-    }
+  const navLinks = document.getElementById("nav-links");
+  hamburger.addEventListener("click", () => {
+    navLinks.classList.toggle("show");
   });
 });
