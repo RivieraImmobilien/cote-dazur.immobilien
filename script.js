@@ -1,40 +1,60 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Slider functionality
-  let currentIndex = 0;
+  /* SLIDER FUNCTIONALITY */
+  const slidesContainer = document.querySelector(".slides");
   const slides = document.querySelectorAll(".slide");
+  const prevButton = document.querySelector(".prev");
+  const nextButton = document.querySelector(".next");
   const dots = document.querySelectorAll(".dot");
-  const slideDurations = [5000, 4000, 6000]; // Durations for each slide
+  const currentCategoryLabel = document.getElementById("currentCategory");
+  let currentIndex = 0;
+  const totalSlides = slides.length;
   let slideTimeout;
-
+  
+  // Custom durations: 2500ms for Haus verkaufen & Haus kaufen; 1000ms for Dienstleistungen
+  const slideDurations = [2500, 2500, 1000];
+  
   function showSlide(index) {
-    slides.forEach((slide, i) => {
-      slide.style.display = i === index ? "block" : "none";
-    });
-    dots.forEach((dot, i) => {
-      dot.classList.toggle("active", i === index);
-    });
-    currentIndex = index;
+    if (index < 0) {
+      currentIndex = totalSlides - 1;
+    } else if (index >= totalSlides) {
+      currentIndex = 0;
+    } else {
+      currentIndex = index;
+    }
+    slidesContainer.style.transform = `translateX(-${currentIndex * 100}vw)`;
+    updateDots();
+    updateCategoryLabel();
     restartSlideTimeout();
   }
-
+  
+  function updateDots() {
+    dots.forEach((dot, i) => {
+      dot.classList.toggle("active", i === currentIndex);
+    });
+  }
+  
+  function updateCategoryLabel() {
+    const category = slides[currentIndex].getAttribute("data-category") || "";
+    if (currentCategoryLabel) {
+      currentCategoryLabel.textContent = category;
+    }
+  }
+  
   function nextSlide() {
-    showSlide((currentIndex + 1) % slides.length);
+    showSlide(currentIndex + 1);
   }
-
+  
   function prevSlide() {
-    showSlide((currentIndex - 1 + slides.length) % slides.length);
+    showSlide(currentIndex - 1);
   }
-
+  
   function restartSlideTimeout() {
     clearTimeout(slideTimeout);
     slideTimeout = setTimeout(() => {
       nextSlide();
     }, slideDurations[currentIndex]);
   }
-
-  const nextButton = document.getElementById("nextButton");
-  const prevButton = document.getElementById("prevButton");
-
+  
   if (nextButton) {
     nextButton.addEventListener("click", () => {
       clearTimeout(slideTimeout);
@@ -47,31 +67,26 @@ document.addEventListener("DOMContentLoaded", function () {
       prevSlide();
     });
   }
-
-  dots.forEach(dot => {
+  dots.forEach((dot, index) => {
     dot.addEventListener("click", function () {
-      const index = parseInt(this.getAttribute("data-index"));
       clearTimeout(slideTimeout);
       showSlide(index);
     });
   });
-
   const slider = document.querySelector(".slider");
   if (slider) {
     slider.addEventListener("mouseenter", () => clearTimeout(slideTimeout));
     slider.addEventListener("mouseleave", restartSlideTimeout);
   }
-
   let touchStartX = 0;
   let touchEndX = 0;
-  slider.addEventListener("touchstart", function(e) {
-    touchStartX = e.touches[0].clientX;
+  slider.addEventListener("touchstart", function (e) {
+    touchStartX = e.changedTouches[0].screenX;
   });
-  slider.addEventListener("touchmove", function(e) {
-    touchEndX = e.touches[0].clientX;
+  slider.addEventListener("touchend", function (e) {
+    touchEndX = e.changedTouches[0].screenX;
     handleGesture();
   });
-
   function handleGesture() {
     if (touchEndX < touchStartX - 50) {
       nextSlide();
@@ -80,10 +95,9 @@ document.addEventListener("DOMContentLoaded", function () {
       prevSlide();
     }
   }
-
   showSlide(currentIndex);
-
-  // Hamburger menu toggle
+  
+  /* HAMBURGER MENU TOGGLE */
   const hamburger = document.getElementById("hamburger");
   const navMenu = document.getElementById("navMenu");
   hamburger.addEventListener("click", function () {
@@ -93,23 +107,4 @@ document.addEventListener("DOMContentLoaded", function () {
       navLinks.classList.toggle("show");
     }
   });
-
-  // Form validation
-  const sellForm = document.getElementById("sellForm");
-  if (sellForm) {
-    sellForm.addEventListener("submit", function (event) {
-      if (!sellForm.checkValidity()) {
-        event.preventDefault();
-        alert("Bitte füllen Sie alle erforderlichen Felder aus.");
-      }
-    });
-  }
-
-  // Initialize map (placeholder function)
-  function initializeMap() {
-    // Map initialization code here
-    console.log("Map initialized");
-  }
-
-  initializeMap();
 });
