@@ -1,40 +1,38 @@
-```
+document.addEventListener('DOMContentLoaded', () => {
+  const input = document.getElementById('address');
+  const display = document.getElementById('addressDisplay');
+  const mapEl = document.getElementById('map');
 
----
+  // Karte initialisieren
+  const map = new google.maps.Map(mapEl, {
+    center: { lat: 50.1109, lng: 8.6821 }, // z.B. Frankfurt a.M.
+    zoom: 6
+  });
+  const marker = new google.maps.Marker({ map });
 
-### 3. **js/script.js**
-```js
-document.addEventListener("DOMContentLoaded", () => {
-  // Slider (unchanged)
-  const slides = document.querySelectorAll(".slide"),
-        container = document.querySelector(".slides"),
-        prev = document.querySelector(".prev"),
-        next = document.querySelector(".next"),
-        dots = document.querySelectorAll(".dot");
-  let idx = 0, timeout;
-  const durations = [2500, 2500, 1000];
+  // Autocomplete für DE & CH
+  const autocomplete = new google.maps.places.Autocomplete(input, {
+    componentRestrictions: { country: ['de', 'ch'] },
+    types: ['address']
+  });
+  autocomplete.bindTo('bounds', map);
 
-  function show(n) {
-    idx = (n + slides.length) % slides.length;
-    container.style.transform = `translateX(-${idx * 100}%)`;
-    dots.forEach(dot => dot.classList.remove("active"));
-    dots[idx].classList.add("active");
-    clearTimeout(timeout);
-    timeout = setTimeout(() => show(idx + 1), durations[idx]);
-  }
+  // Wenn Nutzer tippt, Overlay updaten
+  input.addEventListener('input', () => {
+    display.textContent = input.value;
+  });
 
-  prev.addEventListener("click", () => show(idx - 1));
-  next.addEventListener("click", () => show(idx + 1));
-  dots.forEach((dot, i) => dot.addEventListener("click", () => show(i)));
+  // Wenn Ort gewählt wird, Karte & Overlay updaten
+  autocomplete.addListener('place_changed', () => {
+    const place = autocomplete.getPlace();
+    if (!place.geometry) return;
 
-  show(0);
+    // Karte neu zentrieren
+    map.setCenter(place.geometry.location);
+    map.setZoom(15);
+    marker.setPosition(place.geometry.location);
 
-  // Hamburger menu toggle
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('nav-links');
-  hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
+    // Vollständige Adresse anzeigen
+    display.textContent = place.formatted_address;
   });
 });
-
-
