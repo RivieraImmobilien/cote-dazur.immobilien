@@ -1,5 +1,11 @@
+```
+
+---
+
+### 3. **js/script.js**
+```js
 document.addEventListener("DOMContentLoaded", () => {
-  // Slider
+  // Slider (unchanged)
   const slides = document.querySelectorAll(".slide"),
         container = document.querySelector(".slides"),
         prev = document.querySelector(".prev"),
@@ -10,23 +16,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function show(n) {
     idx = (n + slides.length) % slides.length;
-    container.style.transform = `translateX(-${idx * 100}vw)`;
-    dots.forEach(d => d.classList.remove("active"));
+    container.style.transform = `translateX(-${idx * 100}%)`;
+    dots.forEach(dot => dot.classList.remove("active"));
     dots[idx].classList.add("active");
     clearTimeout(timeout);
     timeout = setTimeout(() => show(idx + 1), durations[idx]);
   }
+
   prev.addEventListener("click", () => show(idx - 1));
   next.addEventListener("click", () => show(idx + 1));
-  dots.forEach((d,i) => d.addEventListener("click", ()=> show(i)));
+  dots.forEach((dot, i) => dot.addEventListener("click", () => show(i)));
+
   show(0);
 
-  // Hamburger
-  document.getElementById("hamburger").addEventListener("click", () => {
-    document.getElementById("nav-links").classList.toggle("show");
+  // Hamburger menu toggle
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
   });
-
-  // Contact Popup Buttons (if any)
-  if (window.showContactPopup) return;
-  window.showContactPopup = property => alert(`Interessiert an ${property}? Wir melden uns!`);
 });
+
+
