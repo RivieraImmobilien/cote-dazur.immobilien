@@ -80,13 +80,11 @@ nav ul li a:hover {
 #hero {
   position: relative;
   width: 100vw;
-  overflow: hidden;
 }
 .slider {
   width: 100vw;
   height: 60vh;
   position: relative;
-  overflow: hidden;
   background-color: #bdc3c7;
 }
 .slides {
@@ -258,7 +256,6 @@ footer {
 }
 /* Small Slider for Buy/Sell Pages */
 .small-slider {
-  overflow: hidden;
   width: 100%;
   max-width: 800px;
   margin: 20px auto;
@@ -317,4 +314,31 @@ footer {
     width: 100%;
     margin-bottom: 20px;
   }
+}
+
+/* Spacing Improvements */
+.content-container {
+  position: relative;
+  padding: 20px 0;
+}
+
+section,
+article,
+form,
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Google Places Autocomplete Dropdown */
+.pac-container {
+  z-index: 9999 !important;
+  position: absolute !important;
+  width: auto !important;
+}
+
+/* Address Input Full Width */
+input#address {
+  width: 100%;
+  padding: 8px;
+  font-size: 1rem;
 }
