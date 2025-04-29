@@ -1,61 +1,72 @@
-/* Reset/base */
+/* Reset & Base */
 *{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:Arial,sans-serif;background:#ecf0f1;color:#2c3e50;line-height:1.6;}
+body{font:16px/1.6 Arial,sans-serif;color:#2c3e50;background:#ecf0f1;}
+.no-gutter{width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);}
+
 /* Header */
-header .header-container{display:flex;justify-content:space-between;align-items:center;padding:10px 20px;width:100%;background:#2c3e50;}
-.logo a{font-size:1.8em;font-weight:bold;text-decoration:none;
-  background:linear-gradient(90deg,#fff,#00aaff,#fff);background-size:200%;
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  animation:shimmer 3s linear infinite;}
-@keyframes shimmer{0%{background-position:-200% 0;}100%{background-position:200% 0;}}
-nav ul{list-style:none;display:flex;margin:0;}
+.header-container{display:flex;align-items:center;padding:10px;background:#2c3e50;}
+.logo a{font-size:1.8em;font-weight:bold;
+  background:linear-gradient(90deg,#fff,#00aaff,#fff);
+  background-clip:text;-webkit-background-clip:text;
+  color:transparent;animation:shimmer 3s linear infinite;}
+@keyframes shimmer{0%{background-position:-200%}100%{background-position:200%}}
+nav ul{display:flex;list-style:none;margin-left:20px;}
 nav ul li{margin-left:20px;}
 nav ul li a{color:#fff;text-decoration:none;font-weight:bold;}
 nav ul li a.active,nav ul li a:hover{color:#18bc9c;}
 .about-link{margin-left:auto;}
 .hamburger{display:none;flex-direction:column;cursor:pointer;background:none;border:none;}
-.hamburger .bar{width:25px;height:3px;background:#fff;margin:4px 0;transition:0.4s;}
-/* Hero */
-#hero,.slider{width:100vw;overflow:hidden;}
-.slider{position:relative;height:60vh;background:#bdc3c7;}
-.slides{display:flex;transition:transform .5s ease-in-out;}
+.hamburger .bar{width:25px;height:3px;background:#fff;margin:3px 0;}
+
+/* Hero slider spans full width */
+#hero{width:100vw;overflow:hidden;}
+.slider{position:relative;width:100vw;height:60vh;overflow:hidden;background:#bdc3c7;}
+.slides{display:flex;transition:transform .5s;}
 .slide{min-width:100vw;position:relative;}
-.slide img{width:100%;height:60vh;object-fit:cover;}
-.slide-description{position:absolute;bottom:20px;left:20px;background:rgba(0,0,0,.6);color:#fff;padding:10px;border-radius:5px;}
-.prev,.next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.5);border:none;color:#fff;font-size:2rem;padding:10px;cursor:pointer;z-index:10;}
-.prev{left:20px;}.next{right:20px;}
+.slide img{width:100%;height:100%;object-fit:cover;}
+.slide-description{position:absolute;bottom:20px;left:20px;background:rgba(0,0,0,.6);padding:10px;border-radius:5px;}
+.prev,.next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.5);color:#fff;font-size:2rem;border:none;padding:10px;cursor:pointer;}
+.prev{left:20px;} .next{right:20px;}
 .slider-dots{position:absolute;bottom:15px;left:50%;transform:translateX(-50%);}
-.dot{display:inline-block;width:12px;height:12px;margin:0 5px;background:#bbb;border-radius:50%;cursor:pointer;transition:background .6s;}
+.dot{display:inline-block;width:12px;height:12px;background:#bbb;border-radius:50%;margin:0 5px;cursor:pointer;}
 .dot.active{background:#717171;}
-/* Featured */
-#featured-properties{padding:40px 0;background:#ecf0f1;}
-.property-list{display:flex;flex-wrap:wrap;justify-content:space-around;}
-.property{width:30%;background:#fff;border:1px solid #ddd;border-radius:5px;margin:10px;box-shadow:0 2px 5px rgba(0,0,0,.1);transition:transform .3s;}
-.property:hover{transform:translateY(-5px);}
+
+/* Featured properties */
+.property-list{display:flex;flex-wrap:wrap;justify-content:space-around;padding:20px;}
+.property{width:30%;background:#fff;border:1px solid #ddd;border-radius:5px;box-shadow:0 2px 5px rgba(0,0,0,.1);margin:10px;transition:.3s;}
 .property img{width:100%;border-radius:5px 5px 0 0;}
 .property h3,p{margin:10px;}
-.property button{margin:10px;padding:10px 20px;background:#18bc9c;color:#fff;border:none;border-radius:5px;cursor:pointer;transition:background .3s;}
+.property button{margin:10px;padding:10px 20px;background:#18bc9c;border:none;color:#fff;border-radius:5px;cursor:pointer;transition:.3s;}
 .property button:hover{background:#e74c3c;}
-/* Forms & Valuation */
-.full-address{margin:5px 0 15px;color:#333;font-style:italic;}
-/* Small sliders */
-.small-slider{overflow:hidden;width:100%;max-width:800px;margin:20px auto;}
-.small-slides{display:flex;transition:transform .5s ease-in-out;}
-.small-slides img{width:100%;max-width:150px;margin:0 5px;cursor:pointer;border-radius:5px;transition:transform .3s;}
+
+/* About hero */
+#about-hero{display:flex;align-items:center;justify-content:center;color:#fff;text-align:center;}
+.hero-content{background:rgba(0,0,0,.5);padding:20px;}
+.btn-cta{display:inline-block;margin-top:10px;padding:10px 20px;background:#18bc9c;color:#fff;text-decoration:none;border-radius:5px;}
+
+/* Valuation full address display */
+.full-address{margin:5px 0 15px;padding:8px;background:#fff;border:1px solid #ccc;border-radius:4px;min-height:1.5em;color:#333;}
+
+/* Small slider */
+.small-slider{overflow:hidden;width:100%;margin:20px auto;}
+.small-slides{display:flex;transition:transform .5s;}
+.small-slides img{width:150px;height:100px;object-fit:cover;border-radius:5px;margin:0 5px;cursor:pointer;transition:.3s;}
 .small-slides img:hover{transform:scale(1.05);}
-/* WhatsApp */
+
+/* Fixed WhatsApp */
 .whatsapp-btn{position:fixed;bottom:20px;right:20px;width:100px;height:100px;z-index:1000;}
 .whatsapp-btn img{width:100%;height:100%;}
-/* Footer */
-footer{background:#2c3e50;color:#fff;text-align:center;padding:20px 0;margin-top:40px;}
-.social-share a img{width:24px;height:24px;vertical-align:middle;margin:0 5px;}
+
+/* Footer & social icons */
+footer{text-align:center;padding:20px;background:#2c3e50;color:#fff;}
+.social-share{margin-top:10px;}
+.social-share a img{width:24px;height:24px;margin:0 5px;}
+
 /* Responsive */
 @media(max-width:768px){
   .hamburger{display:flex;}
-  nav ul{flex-direction:column;display:none;width:100%;text-align:center;}
+  nav ul{display:none;flex-direction:column;width:100%;text-align:center;}
   nav ul.show{display:flex;}
   nav ul li{margin:10px 0;}
-  .slider{height:40vh;} .slide img{height:40vh;}
-  .slide-description h2{font-size:1.5rem;} .slide-description p{font-size:1rem;}
-  .property{width:100%;margin-bottom:20px;}
+  #hero{height:40vh;}
 }
