@@ -1,24 +1,33 @@
 <!DOCTYPE html>
 <html lang="de">
-<head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Côte d'Azur Immobilien – Haus kaufen</title>
-  <link rel="icon" href="images/favicon.ico"/><link rel="stylesheet" href="css/styles.css"/>
+  <meta name="description" content="Finden Sie Ihr Traumhaus an der Côte d'Azur." />
+  <meta name="keywords" content="Haus kaufen, Immobilien, Côte d'Azur" />
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
   <!-- HEADER -->
   <header>
     <div class="header-container">
       <div class="logo"><a href="index.html">Côte d'Azur Immobilien</a></div>
-      <button class="hamburger" id="hamburger"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+      <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
       <nav id="navMenu">
         <ul id="nav-links">
           <li><a href="index.html">Startseite</a></li>
           <li><a href="buy.html" class="active">Haus kaufen</a></li>
           <li><a href="sell.html">Haus verkaufen</a></li>
           <li><a href="services.html">Dienstleistungen</a></li>
+          <li><a href="about.html">Über uns</a></li>
           <li><a href="contact.html">Kontakt</a></li>
-          <li><a href="valuation.html">Bewertung</a></li>
-          <li class="about-link"><a href="about.html">Über uns</a></li>
+          <li><a href="valuation.html">Kostenlose Bewertung</a></li>
         </ul>
       </nav>
     </div>
@@ -28,19 +37,33 @@
     <section id="content">
       <div class="content-container">
         <h1>Haus kaufen</h1>
+        <p>Hier finden Sie Angebote für Immobilien zum Kauf an der Côte d'Azur.</p>
+        <!-- SMALL SLIDER FOR PROPERTY IMAGES -->
         <div class="small-slider">
           <div class="small-slides">
-            <img src="images/house1.jpg" alt="Angebot 1" onclick="location.href='contact.html?property=house1'"/>
-            <img src="images/house2.jpg" alt="Angebot 2" onclick="location.href='contact.html?property=house2'"/>
-            <img src="images/house3.jpg" alt="Angebot 3" onclick="location.href='contact.html?property=house3'"/>
+            <img src="images/house1.jpg" alt="Angebot 1" loading="lazy" onclick="window.location.href='contact.html?property=house1'" />
+            <img src="images/house2.jpg" alt="Angebot 2" loading="lazy" onclick="window.location.href='contact.html?property=house2'" />
+            <img src="images/house3.jpg" alt="Angebot 3" loading="lazy" onclick="window.location.href='contact.html?property=house3'" />
+            <!-- Additional images can be added here -->
           </div>
         </div>
+        <p>Klicken Sie auf ein Bild, um zur Kontaktseite zu gelangen.</p>
       </div>
     </section>
   </main>
 
-  <a href="https://wa.me/0033781717466" class="whatsapp-btn"><img src="images/whatsapp-icon.png"/></a>
-  <footer><div class="footer-container"><p>&copy; 2025 Côte d'Azur Immobilien</p></div></footer>
+  <!-- FIXED WHATSAPP BUTTON -->
+  <a href="https://wa.me/0033781717466?text=Hallo%20C%C3%B4te%20d%27Azur%20Immobilien" class="whatsapp-btn" target="_blank" aria-label="WhatsApp Kontakt">
+    <img src="images/whatsapp-icon.png" alt="WhatsApp Kontakt" />
+  </a>
+  
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
+      <p>&copy; 2025 Côte d'Azur Immobilien – Alle Rechte vorbehalten.</p>
+    </div>
+  </footer>
+  
   <script src="js/script.js"></script>
 </body>
 </html>
