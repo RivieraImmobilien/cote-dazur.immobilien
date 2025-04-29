@@ -1,23 +1,46 @@
 <!DOCTYPE html>
 <html lang="de">
-<head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>… Haus kaufen / verkaufen</title>
-  <link rel="icon" href="images/favicon.ico"><link rel="stylesheet" href="css/styles.css">
+<head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Côte d'Azur Immobilien – Haus kaufen</title>
+  <link rel="icon" href="images/favicon.ico"/><link rel="stylesheet" href="css/styles.css"/>
 </head>
 <body>
-  <header>…same header…</header>
+  <!-- HEADER -->
+  <header>
+    <div class="header-container">
+      <div class="logo"><a href="index.html">Côte d'Azur Immobilien</a></div>
+      <button class="hamburger" id="hamburger"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+      <nav id="navMenu">
+        <ul id="nav-links">
+          <li><a href="index.html">Startseite</a></li>
+          <li><a href="buy.html" class="active">Haus kaufen</a></li>
+          <li><a href="sell.html">Haus verkaufen</a></li>
+          <li><a href="services.html">Dienstleistungen</a></li>
+          <li><a href="contact.html">Kontakt</a></li>
+          <li><a href="valuation.html">Bewertung</a></li>
+          <li class="about-link"><a href="about.html">Über uns</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
   <main>
-    <section class="small-slider">
-      <div class="small-slides">
-        <!-- Sample items; for Point 3 replace with dynamic loop -->
-        <img src="images/house1.jpg" alt="Objekt 1" onclick="location='contact.html?property=house1'"/>
-        <!-- … -->
+    <section id="content">
+      <div class="content-container">
+        <h1>Haus kaufen</h1>
+        <div class="small-slider">
+          <div class="small-slides">
+            <img src="images/house1.jpg" alt="Angebot 1" onclick="location.href='contact.html?property=house1'"/>
+            <img src="images/house2.jpg" alt="Angebot 2" onclick="location.href='contact.html?property=house2'"/>
+            <img src="images/house3.jpg" alt="Angebot 3" onclick="location.href='contact.html?property=house3'"/>
+          </div>
+        </div>
       </div>
     </section>
   </main>
-  <a class="whatsapp-btn" href="https://wa.me/0033781717466" target="_blank"><img src="images/whatsapp-icon.png"/></a>
-  <footer>…</footer>
+
+  <a href="https://wa.me/0033781717466" class="whatsapp-btn"><img src="images/whatsapp-icon.png"/></a>
+  <footer><div class="footer-container"><p>&copy; 2025 Côte d'Azur Immobilien</p></div></footer>
   <script src="js/script.js"></script>
 </body>
 </html>
