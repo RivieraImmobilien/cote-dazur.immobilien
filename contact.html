@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <title>Côte d'Azur Immobilien – Kontakt</title>
-  <link rel="stylesheet" href="css/styles.css" /><link rel="icon" href="images/favicon.ico" />
-  <script async defer src="https://www.google.com/recaptcha/api.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Kontakt – Côte d'Azur Immobilien</title>
+  <link rel="icon" href="images/favicon.ico" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
+  <!-- HEADER -->
   <header>
     <div class="header-container">
       <div class="logo"><a href="index.html">Côte d'Azur Immobilien</a></div>
-      <button class="hamburger" id="hamburger"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+      <button id="hamburger" class="hamburger"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
       <nav id="navMenu">
         <ul id="nav-links">
           <li><a href="index.html">Startseite</a></li>
@@ -30,9 +33,12 @@
       <div class="content-container">
         <h1>Kontakt</h1>
         <form action="https://formspree.io/f/xwplzwzn" method="POST">
-          <label>Ihr Name</label><input type="text" name="name" required />
-          <label>E-Mail</label><input type="email" name="email" required />
-          <label>Nachricht</label><textarea name="message" required></textarea>
+          <label for="name">Ihr Name:</label>
+          <input type="text" id="name" name="name" required />
+          <label for="email">Ihre E-Mail:</label>
+          <input type="email" id="email" name="email" required />
+          <label for="message">Nachricht:</label>
+          <textarea id="message" name="message" required></textarea>
           <input type="hidden" id="property" name="property" value="" />
           <div class="g-recaptcha" data-sitekey="6LdcBhorAAAAAFZG049z-oZEOIfruNxnw3KO0Wbn"></div>
           <button type="submit">Senden</button>
@@ -41,13 +47,13 @@
     </section>
   </main>
 
-  <a href="https://wa.me/0033781717466" class="whatsapp-btn" target="_blank"><img src="images/whatsapp-icon.png" alt="WhatsApp" /></a>
-  <footer><div class="footer-container"><p>&copy; 2025 Côte d'Azur Immobilien</p></div></footer>
+  <a href="https://wa.me/0033781717466" class="whatsapp-btn"><img src="images/whatsapp-icon.png" alt="WhatsApp"/></a>
+  <footer><div class="footer-container"><p>© 2025 Côte d'Azur Immobilien</p></div></footer>
 
   <script>
-    // prefill property param
-    const p = new URLSearchParams(window.location.search).get('property');
-    if (p) document.getElementById('property').value = p;
+    const params=new URLSearchParams(window.location.search);
+    const p=params.get('property');
+    if(p) document.getElementById('property').value=p;
   </script>
   <script src="js/script.js"></script>
 </body>

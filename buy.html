@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <title>Côte d'Azur Immobilien – Haus kaufen</title>
-  <link rel="stylesheet" href="css/styles.css" /><link rel="icon" href="images/favicon.ico" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Haus kaufen – Côte d'Azur Immobilien</title>
+  <link rel="icon" href="images/favicon.ico" />
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <!-- HEADER -->
+  <!-- HEADER same as index.html -->
   <header>
     <div class="header-container">
       <div class="logo"><a href="index.html">Côte d'Azur Immobilien</a></div>
-      <button class="hamburger" id="hamburger"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+      <button id="hamburger" class="hamburger"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
       <nav id="navMenu">
         <ul id="nav-links">
           <li><a href="index.html">Startseite</a></li>
@@ -29,20 +31,20 @@
     <section id="content">
       <div class="content-container">
         <h1>Haus kaufen</h1>
+        <p>Angebote zum Kauf an der Côte d'Azur:</p>
         <div class="small-slider">
           <div class="small-slides">
-            <img src="images/house1.jpg" alt="Angebot 1" onclick="location='contact.html?property=house1'" />
-            <img src="images/house2.jpg" alt="Angebot 2" onclick="location='contact.html?property=house2'" />
-            <img src="images/house3.jpg" alt="Angebot 3" onclick="location='contact.html?property=house3'" />
+            <img src="images/house1.jpg" alt="Angebot 1" onclick="location='contact.html?property=house1'" loading="lazy"/>
+            <img src="images/house2.jpg" alt="Angebot 2" onclick="location='contact.html?property=house2'" loading="lazy"/>
+            <img src="images/house3.jpg" alt="Angebot 3" onclick="location='contact.html?property=house3'" loading="lazy"/>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <a href="https://wa.me/0033781717466" class="whatsapp-btn" target="_blank"><img src="images/whatsapp-icon.png" alt="WhatsApp" /></a>
-
-  <footer><div class="footer-container"><p>&copy; 2025 Côte d'Azur Immobilien</p></div></footer>
+  <a href="https://wa.me/0033781717466" class="whatsapp-btn"><img src="images/whatsapp-icon.png" alt="WhatsApp"/></a>
+  <footer><div class="footer-container"><p>© 2025 Côte d'Azur Immobilien</p></div></footer>
   <script src="js/script.js"></script>
 </body>
 </html>

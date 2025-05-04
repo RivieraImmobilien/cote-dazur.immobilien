@@ -1,40 +1,33 @@
-document.addEventListener("DOMContentLoaded", function () {
-  // SLIDER
-  const slides = document.querySelectorAll(".slide");
-  const slidesContainer = document.querySelector(".slides");
-  const dots = document.querySelectorAll(".dot");
-  const prevBtn = document.querySelector(".prev");
-  const nextBtn = document.querySelector(".next");
-  let idx = 0, slideTimeout;
-  const durations = [2500,2500,1000];
-  function showSlide(i){
-    idx = (i+slides.length)%slides.length;
-    slidesContainer.style.transform = `translateX(-${idx*100}vw)`;
-    dots.forEach(d=>d.classList.remove("active"));
-    dots[idx].classList.add("active");
-    clearTimeout(slideTimeout);
-    slideTimeout = setTimeout(()=>showSlide(idx+1), durations[idx]);
-  }
-  prevBtn.onclick = ()=>showSlide(idx-1);
-  nextBtn.onclick = ()=>showSlide(idx+1);
-  dots.forEach((d,i)=>d.onclick=()=>showSlide(i));
-  showSlide(0);
-
-  // Hamburger
-  const ham = document.getElementById("hamburger");
-  const nav = document.getElementById("navMenu");
+document.addEventListener("DOMContentLoaded", () => {
+  // Hamburger Toggle
+  const hamburger = document.getElementById("hamburger");
   const navLinks = document.getElementById("nav-links");
-  ham.addEventListener("click", ()=>{
+  hamburger.addEventListener("click", () => {
     navLinks.classList.toggle("show");
   });
 
-  // Contact Popup (if present)
-  window.showContactPopup = function(prop){
-    const popup = document.getElementById("contactPopup");
-    const text = document.getElementById("popupText");
-    popup.style.display="flex";
-    text.textContent=`Interessiert an ${prop}? Hinterlassen Sie Ihre Daten.`;
+  // Full-width Slider
+  const slides = document.querySelectorAll(".slide");
+  const slidesContainer = document.querySelector(".slides");
+  const prev = document.querySelector(".prev");
+  const next = document.querySelector(".next");
+  const dots = document.querySelectorAll(".dot");
+  let current = 0, total = slides.length, timeout;
+  const durations = [2500,2500,1000];
+  function goTo(n) {
+    current = (n<0?total-1:n>=total?0:n);
+    slidesContainer.style.transform = `translateX(-${current*100}%)`;
+    dots.forEach(d=>d.classList.toggle("active", d.dataset.index==current));
+    clearTimeout(timeout);
+    timeout = setTimeout(()=>goTo(current+1), durations[current]);
+  }
+  prev && prev.addEventListener("click", ()=>goTo(current-1));
+  next && next.addEventListener("click", ()=>goTo(current+1));
+  dots.forEach(d=>d.addEventListener("click", ()=>goTo(+d.dataset.index)));
+  goTo(0);
+
+  // Contact Popup (if used)
+  window.showContactPopup = (name) => {
+    alert(`Interessiert an ${name}? Wir kontaktieren Sie!`);
   };
-  const closeBtn = document.getElementById("closePopup");
-  if(closeBtn) closeBtn.onclick = ()=>document.getElementById("contactPopup").style.display="none";
 });

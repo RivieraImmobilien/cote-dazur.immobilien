@@ -2,17 +2,19 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Côte d'Azur Immobilien – Über uns</title>
-  <link rel="stylesheet" href="css/styles.css" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Über uns – Côte d'Azur Immobilien</title>
   <link rel="icon" href="images/favicon.ico" />
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <!-- HEADER (same as index) -->
+  <!-- HEADER (same as index.html) -->
   <header>
     <div class="header-container">
       <div class="logo"><a href="index.html">Côte d'Azur Immobilien</a></div>
-      <button class="hamburger" id="hamburger"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+      <button id="hamburger" class="hamburger" aria-label="Menü öffnen">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
       <nav id="navMenu">
         <ul id="nav-links">
           <li><a href="index.html">Startseite</a></li>
@@ -27,37 +29,35 @@
     </div>
   </header>
 
-  <!-- FULL-WIDTH HERO -->
-  <section id="about-hero" class="full-hero" style="background-image:url('images/slider/slide2.jpg')">
+  <!-- BANNER HERO -->
+  <section id="about-hero" class="banner-hero">
     <div class="hero-overlay">
       <h1>Über uns</h1>
       <p>Ihr vertrauenswürdiger Partner in allen Immobilienangelegenheiten</p>
-      <a href="contact.html" class="btn">Jetzt Kontakt aufnehmen</a>
+      <a href="contact.html" class="cta">Jetzt Kontakt aufnehmen</a>
     </div>
   </section>
 
-  <!-- ABOUT CONTENT -->
-  <main>
-    <section id="about-content">
-      <div class="content-container">
-        <h2>Immobilienberater bei Leggett Immobilier</h2>
-        <p>
-          Als Immobilienberater bei Leggett Immobilier nutze ich jahrzehntelange Erfahrung in der DACH-Region, um maßgeschneiderte Immobilientransaktionen für deutschsprachige Käufer und Verkäufer zu realisieren. Ich bin Muttersprachler in Deutsch und Englisch, spreche fließend Französisch und habe umfangreiche Erfahrung auf den Immobilienmärkten in Großbritannien und Zypern. Dank meiner tiefen Kenntnisse der Bedürfnisse deutscher, österreichischer und schweizerischer Käufer kann ich personalisierte Dienstleistungen anbieten und eng mit einem engagierten Head-Office-Team zusammenarbeiten, das sämtliche Aspekte von Immobilientransaktionen abdeckt.
-        </p>
-        <p>
-          Leggett Immobilier verfügt über ein umfangreiches Portfolio an exklusiven Immobilien in ganz Frankreich sowie über ein Netzwerk spezialisierter Agenten. Selbst wenn sich eine Immobilie außerhalb meines direkten Fachgebiets befindet, können wir Ihnen mit unserem breit aufgestellten Netzwerk unterstützen. Darüber hinaus biete ich mehrsprachigen Support und maßgeschneiderte Lösungen – speziell zugeschnitten auf die Anforderungen unserer internationalen und deutschsprachigen Kunden.
-        </p>
-        <p>
-          Ich habe bereits zahlreiche britische, US-amerikanische, chinesische und russische Kunden betreut, was meine interkulturelle Expertise weiter stärkt. Mein Ziel ist es, jede Transaktion mit höchster Professionalität, fundiertem Markt-Know-how und individueller Betreuung abzuschließen.
-        </p>
-      </div>
-    </section>
-  </main>
+  <!-- CONTENT -->
+  <section id="about-content">
+    <div class="content-container">
+      <h2>Immobilienberater bei Leggett Immobilier</h2>
+      <p>Als Immobilienberater bei Leggett Immobilier nutze ich jahrzehntelange Erfahrung in der DACH-Region, um maßgeschneiderte Immobilientransaktionen für deutschsprachige Käufer und Verkäufer zu realisieren. Ich bin Muttersprachler in Deutsch und Englisch, spreche fließend Französisch und habe umfangreiche Kenntnisse der UK- und Zypern-Märkte. Meine Expertise für deutsche, österreichische und schweizerische Käufer ermöglicht personalisierte Lösungen in enger Zusammenarbeit mit unserem Head-Office.</p>
+      <p>Leggett Immobilier verfügt über ein umfangreiches Portfolio exklusiver Objekte in ganz Frankreich sowie spezialisierte Agenten-Teams, u. a. in den Luxus- und Chalet-Divisionen. Ich biete mehrsprachigen Support und habe erfolgreich Kunden aus Deutschland, Österreich, der Schweiz, Großbritannien, den USA, China und Russland betreut.</p>
+      <p>Mein Anspruch: Jede Transaktion wird mit höchster Professionalität, tiefem Marktverständnis und individueller Betreuung Ihrer Anforderungen abgeschlossen.</p>
+    </div>
+  </section>
 
-  <a href="https://wa.me/0033781717466" class="whatsapp-btn" target="_blank"><img src="images/whatsapp-icon.png" alt="WhatsApp" /></a>
+  <!-- FIXED WHATSAPP -->
+  <a href="https://wa.me/0033781717466" class="whatsapp-btn" aria-label="WhatsApp">
+    <img src="images/whatsapp-icon.png" alt="WhatsApp Kontakt"/>
+  </a>
 
+  <!-- FOOTER -->
   <footer>
-    <div class="footer-container"><p>&copy; 2025 Côte d'Azur Immobilien</p></div>
+    <div class="footer-container">
+      <p>© 2025 Côte d'Azur Immobilien – Alle Rechte vorbehalten.</p>
+    </div>
   </footer>
 
   <script src="js/script.js"></script>
