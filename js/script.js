@@ -1,4 +1,4 @@
-// Redirect helper for "Mehr erfahren" buttons
+// Redirect helper for “Mehr erfahren”
 function showContactPopup(property) {
   window.location.href = 'contact.html?property=' + encodeURIComponent(property);
 }
@@ -8,9 +8,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const hamburger = document.getElementById("hamburger");
   const nav       = document.querySelector("nav");
   hamburger.addEventListener("click", () => {
-    const isOpen = hamburger.getAttribute("aria-expanded") === "true";
-    hamburger.setAttribute("aria-expanded", String(!isOpen));
-    hamburger.setAttribute("aria-label", isOpen ? "Menü öffnen" : "Menü schließen");
+    const open = hamburger.getAttribute("aria-expanded") === "true";
+    hamburger.setAttribute("aria-expanded", String(!open));
+    hamburger.setAttribute("aria-label", open ? "Menü öffnen" : "Menü schließen");
     nav.classList.toggle("show");
   });
 
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Slider initialization
+  // Slider
   const slider = document.querySelector(".slider");
   if (slider) {
     const slidesContainer = slider.querySelector(".slides");
@@ -40,11 +40,11 @@ document.addEventListener("DOMContentLoaded", () => {
       timeout = setTimeout(() => show(index + 1), durations[index]);
     }
 
-    prevBtn && prevBtn.addEventListener("click", () => show(index - 1));
-    nextBtn && nextBtn.addEventListener("click", () => show(index + 1));
+    prevBtn  && prevBtn.addEventListener("click", () => show(index - 1));
+    nextBtn  && nextBtn.addEventListener("click", () => show(index + 1));
     dots.forEach((d, idx) => d.addEventListener("click", () => show(idx)));
 
-    // Swipe support
+    // Swipe
     let startX = 0;
     slider.addEventListener("touchstart", e => startX = e.changedTouches[0].screenX);
     slider.addEventListener("touchend", e => {
