@@ -1,20 +1,27 @@
-// Show contact popup by redirect
+// Redirect helper for “Mehr erfahren” buttons
 function showContactPopup(property) {
   window.location.href = 'contact.html?property=' + encodeURIComponent(property);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Hamburger toggle
+  // Hamburger menu toggle
   const hamburger = document.getElementById("hamburger");
-  const nav = document.querySelector("nav");
+  const nav       = document.querySelector("nav");
+
   hamburger.addEventListener("click", () => {
+    // toggle visibility
+    nav.classList.toggle("show");
+
+    // update ARIA
     const expanded = hamburger.getAttribute("aria-expanded") === "true";
     hamburger.setAttribute("aria-expanded", String(!expanded));
-    hamburger.setAttribute("aria-label", expanded ? "Menü öffnen" : "Menü schließen");
-    nav.classList.toggle("show");
+    hamburger.setAttribute(
+      "aria-label",
+      expanded ? "Menü öffnen" : "Menü schließen"
+    );
   });
 
-  // Slider functionality (if on page with slider)
+  // Slider (if present on page)
   const slidesContainer = document.querySelector(".slides");
   if (slidesContainer) {
     const slides = document.querySelectorAll(".slide");
@@ -29,19 +36,22 @@ document.addEventListener("DOMContentLoaded", () => {
       slidesContainer.style.transform = `translateX(-${index * 100}vw)`;
       dots.forEach((d, idx) => d.classList.toggle("active", idx === index));
       clearTimeout(timeout);
-      timeout = setTimeout(() => show(index+1), durations[index]);
+      timeout = setTimeout(() => show(index + 1), durations[index]);
     }
-    prev && prev.addEventListener("click", () => show(index-1));
-    next && next.addEventListener("click", () => show(index+1));
+
+    prev && prev.addEventListener("click", () => show(index - 1));
+    next && next.addEventListener("click", () => show(index + 1));
     dots.forEach((d, idx) => d.addEventListener("click", () => show(idx)));
+
     // Swipe support
     let startX = 0;
     slidesContainer.addEventListener("touchstart", e => startX = e.touches[0].screenX);
     slidesContainer.addEventListener("touchend", e => {
       const endX = e.changedTouches[0].screenX;
-      if (endX < startX - 50) show(index+1);
-      if (endX > startX + 50) show(index-1);
+      if (endX < startX - 50) show(index + 1);
+      if (endX > startX + 50) show(index - 1);
     });
+
     show(0);
   }
 });
