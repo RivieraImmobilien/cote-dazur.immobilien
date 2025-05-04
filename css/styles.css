@@ -6,8 +6,8 @@
 }
 body {
   font-family: Arial, sans-serif;
-  background-color: #ecf0f1; /* Light Gray */
-  color: #2c3e50;           /* Dark Blue */
+  background-color: #ecf0f1;
+  color: #2c3e50;
   line-height: 1.6;
 }
 
@@ -19,28 +19,39 @@ body {
   margin: auto;
 }
 
-/* Header & Navigation */
-.header-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background-color: #2c3e50;
-}
+/* Logo + Shimmer */
 .logo a {
   font-size: 1.8em;
   font-weight: bold;
   text-decoration: none;
-  background: linear-gradient(90deg, #ffffff, #00aaff, #ffffff);
-  background-size: 200%;
+  background: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    #00aaff 30%,
+    #20b2aa 60%,
+    #ffffff 100%
+  );
+  background-size: 300% 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: shimmer 3s linear infinite;
+  animation: shimmer 5s ease-in-out infinite;
 }
 @keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+  0%   { background-position: -300% 0; }
+  100% { background-position: 300%  0; }
 }
+
+/* Header Flex Cleanup */
+header .header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 10px 20px;
+}
+
+/* Navigation */
 nav ul {
   list-style: none;
   display: flex;
@@ -56,7 +67,7 @@ nav ul li a {
 }
 nav ul li a.active,
 nav ul li a:hover {
-  color: #18bc9c; /* Accent Turquoise */
+  color: #18bc9c;
 }
 .about-link {
   margin-left: auto;
@@ -109,7 +120,7 @@ nav ul li a:hover {
   position: absolute;
   bottom: 20px;
   left: 20px;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0,0,0,0.6);
   color: #ffffff;
   padding: 10px;
   border-radius: 5px;
@@ -122,7 +133,7 @@ nav ul li a:hover {
   font-size: 1.2rem;
 }
 
-/* Slider Navigation Buttons */
+/* Slider Controls */
 .prev,
 .next {
   position: absolute;
@@ -139,11 +150,9 @@ nav ul li a:hover {
 .prev { left: 20px; }
 .next { right: 20px; }
 .prev:hover,
-.next:hover {
-  background-color: rgba(0,0,0,0.8);
-}
+.next:hover { background-color: rgba(0,0,0,0.8); }
 
-/* Slider Dots */
+/* Dots */
 .slider-dots {
   position: absolute;
   bottom: 15px;
@@ -164,20 +173,7 @@ nav ul li a:hover {
   background-color: #717171;
 }
 
-/* Current Category Label */
-.current-category {
-  position: absolute;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: rgba(0,0,0,0.6);
-  color: #ffffff;
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-size: 1.2rem;
-}
-
-/* Featured Properties Section */
+/* Featured Properties */
 #featured-properties {
   padding: 40px 0;
   background-color: #ecf0f1;
@@ -196,19 +192,14 @@ nav ul li a:hover {
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   transition: transform 0.3s;
 }
-.property:hover {
-  transform: translateY(-5px);
-}
+.property:hover { transform: translateY(-5px); }
 .property img {
   width: 100%;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
 .property h3,
-.property p {
-  margin: 10px;
-  color: #2c3e50;
-}
+.property p { margin: 10px; color: #2c3e50; }
 .property button {
   margin: 10px;
   padding: 10px 20px;
@@ -219,11 +210,9 @@ nav ul li a:hover {
   cursor: pointer;
   transition: background-color 0.3s;
 }
-.property button:hover {
-  background-color: #e74c3c;
-}
+.property button:hover { background-color: #e74c3c; }
 
-/* Fixed WhatsApp Button (100×100px) */
+/* WhatsApp Button */
 .whatsapp-btn {
   position: fixed;
   bottom: 20px;
@@ -249,16 +238,10 @@ footer {
   width: 24px;
   height: 24px;
   object-fit: contain;
-  display: inline-block;
-  vertical-align: middle;
   margin: 0 5px;
-}
-.social-share a {
-  margin: 0 5px;
-  display: inline-block;
 }
 
-/* Small Slider for Buy/Sell Pages */
+/* Small Slider */
 .small-slider {
   overflow: hidden;
   width: 100%;
@@ -281,60 +264,31 @@ footer {
   transform: scale(1.05);
 }
 
-/* Responsive Styles */
+/* Responsive */
 @media (max-width: 768px) {
-  .header-container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  nav ul {
-    flex-direction: column;
-    display: none;
-    width: 100%;
-    text-align: center;
-  }
-  nav ul.show {
-    display: flex;
-  }
-  nav ul li {
-    margin: 10px 0;
-  }
-  .hamburger {
-    display: flex;
-    align-self: flex-end;
-    margin-right: 20px;
-  }
-  .slider {
-    height: 40vh;
-  }
-  .slide {
-    height: 40vh;
-  }
-  .slide-description h2 {
-    font-size: 1.5rem;
-  }
-  .slide-description p {
-    font-size: 1rem;
-  }
-  .property {
-    width: 100%;
-    margin-bottom: 20px;
-  }
+  nav ul { display: none; flex-direction: column; width: 100%; text-align: center; }
+  nav ul.show { display: flex; }
+  nav ul li { margin: 10px 0; }
+  .hamburger { display: flex; }
+  .slider { height: 40vh; }
+  .slide { height: 40vh; }
+  .slide-description h2 { font-size: 1.5rem; }
+  .slide-description p { font-size: 1rem; }
+  .property { width: 100%; margin-bottom: 20px; }
 }
 
-/* ─── GLOBAL FORM FIELDS ─────────────────────────────────────────────────────── */
+/* Global Form Fields */
 form input,
 form textarea,
 form select {
   width: 100%;
-  max-width: 100%;
   margin-bottom: 15px;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
-/* ─── VALUATION PAGE OVERLAY ────────────────────────────────────────────────── */
+/* Valuation Overlay */
 .valuation-wrapper {
   position: relative;
 }
@@ -348,7 +302,4 @@ form select {
   border-radius: 5px;
   width: calc(100% - 40px);
   max-width: 600px;
-}
-.valuation-form .form-group {
-  margin-bottom: 15px;
 }

@@ -3,29 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Côte d'Azur Immobilien – Kontakt</title>
-  <meta name="description" content="Kontaktieren Sie Côte d'Azur Immobilien für weitere Informationen." />
-  <meta name="keywords" content="Kontakt, Immobilien, Côte d'Azur" />
-  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+  <title>Côte d’Azur Immobilien – Kontakt</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+  <link rel="alternate icon" href="images/favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="images/favicon.png" type="image/png" />
   <link rel="stylesheet" href="css/styles.css" />
-  <!-- reCAPTCHA v2 -->
   <script async defer src="https://www.google.com/recaptcha/api.js"></script>
 </head>
 <body>
   <header>
     <div class="header-container">
-      <div class="logo"><a href="index.html">Côte d'Azur Immobilien</a></div>
-      <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
-        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-      </button>
+      <div class="logo"><a href="index.html">Côte d’Azur Immobilien</a></div>
+      <button class="hamburger" id="hamburger" aria-label="Menü öffnen"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
       <nav id="navMenu">
         <ul id="nav-links">
           <li><a href="index.html">Startseite</a></li>
           <li><a href="buy.html">Haus kaufen</a></li>
           <li><a href="sell.html">Haus verkaufen</a></li>
           <li><a href="services.html">Dienstleistungen</a></li>
-          <li><a href="contact.html" class="active">Kontakt</a></li>
           <li><a href="valuation.html">Kostenlose Bewertung</a></li>
+          <li><a href="contact.html" class="active">Kontakt</a></li>
           <li class="about-link"><a href="about.html">Über uns</a></li>
         </ul>
       </nav>
@@ -36,21 +33,14 @@
     <section id="contact">
       <div class="content-container">
         <h1>Kontakt</h1>
-        <p>Füllen Sie das Formular aus, um uns zu kontaktieren. Falls Sie von einem bestimmten Angebot kommen, wird diese Information übernommen.</p>
+        <p>Füllen Sie das Formular aus, um uns zu kontaktieren.</p>
         <form id="contactForm" action="https://formspree.io/f/xwplzwzn" method="POST">
-          <div class="form-group">
-            <label for="name">Ihr Name:</label>
-            <input type="text" id="name" name="name" required placeholder="Ihr Name" />
-          </div>
-          <div class="form-group">
-            <label for="email">Ihre E-Mail:</label>
-            <input type="email" id="email" name="email" required placeholder="Ihre E-Mail" />
-          </div>
-          <div class="form-group">
-            <label for="message">Nachricht:</label>
-            <textarea id="message" name="message" required placeholder="Ihre Nachricht"></textarea>
-          </div>
-          <!-- Hidden field to capture property info -->
+          <label for="name">Ihr Name:</label>
+          <input type="text" id="name" name="name" required placeholder="Ihr Name" />
+          <label for="email">Ihre E-Mail:</label>
+          <input type="email" id="email" name="email" required placeholder="Ihre E-Mail" />
+          <label for="message">Nachricht:</label>
+          <textarea id="message" name="message" required placeholder="Ihre Nachricht"></textarea>
           <input type="hidden" id="property" name="property" value="" />
           <div class="g-recaptcha" data-sitekey="6LdcBhorAAAAAFZG049z-oZEOIfruNxnw3KO0Wbn"></div>
           <button type="submit">Senden</button>
@@ -59,24 +49,17 @@
     </section>
   </main>
 
-  <a href="https://wa.me/0033781717466?text=Hallo%20C%C3%B4te%20d%27Azur%20Immobilien" class="whatsapp-btn" target="_blank" aria-label="WhatsApp Kontakt">
-    <img src="images/whatsapp-icon.png" alt="WhatsApp Kontakt" />
-  </a>
+  <a href="https://wa.me/0033781717466" class="whatsapp-btn" target="_blank"><img src="images/whatsapp-icon.png" alt="WhatsApp"/></a>
 
   <footer>
-    <div class="footer-container">
-      <p>&copy; 2025 Côte d'Azur Immobilien – Alle Rechte vorbehalten.</p>
-    </div>
+    <div class="footer-container"><p>&copy; 2025 Côte d’Azur Immobilien – Alle Rechte vorbehalten</p></div>
   </footer>
 
   <script defer src="js/script.js"></script>
   <script>
-    // Pre‑fill "property" hidden field if query parameter exists
     const params = new URLSearchParams(window.location.search);
-    const propertyParam = params.get('property');
-    if (propertyParam) {
-      document.getElementById('property').value = propertyParam;
-    }
+    const p = params.get('property');
+    if (p) document.getElementById('property').value = p;
   </script>
 </body>
 </html>
