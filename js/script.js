@@ -1,4 +1,4 @@
-// Redirect helper for "Mehr erfahren" buttons
+// Redirect helper for “Mehr erfahren” buttons
 function showContactPopup(property) {
   window.location.href = 'contact.html?property=' + encodeURIComponent(property);
 }
