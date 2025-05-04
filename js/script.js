@@ -1,29 +1,105 @@
-document.addEventListener('DOMContentLoaded', () => {
-  // Hamburger toggle
-  const hamb = document.getElementById('hamburger');
-  const nav = document.getElementById('nav-links');
-  hamb.addEventListener('click', () => nav.classList.toggle('show'));
+document.addEventListener("DOMContentLoaded", function () {
+  /* SLIDER FUNCTIONALITY */
+  const slidesContainer = document.querySelector(".slides");
+  const slides = document.querySelectorAll(".slide");
+  const prevButton = document.querySelector(".prev");
+  const nextButton = document.querySelector(".next");
+  const dots = document.querySelectorAll(".dot");
+  const currentCategoryLabel = document.getElementById("currentCategory");
+  let currentIndex = 0;
+  const totalSlides = slides.length;
+  let slideTimeout;
 
-  // Hero slider
-  const slides = document.querySelector('.slides');
-  const slideEls = document.querySelectorAll('.slide');
-  const prev = document.querySelector('.prev'), next = document.querySelector('.next');
-  const dots = document.querySelectorAll('.dot');
-  let idx = 0, timer;
-  const durations = [2500,2500,1000];
-  function show(n){
-    idx = (n+slideEls.length)%slideEls.length;
-    slides.style.transform = `translateX(-${idx*100}vw)`;
-    dots.forEach(d=>d.classList.remove('active')); dots[idx].classList.add('active');
-    clearTimeout(timer); timer = setTimeout(()=>show(idx+1), durations[idx]);
+  // Custom durations: 2500ms for Haus verkaufen & Haus kaufen; 1000ms for Dienstleistungen
+  const slideDurations = [2500, 2500, 1000];
+
+  function showSlide(index) {
+    if (index < 0) {
+      currentIndex = totalSlides - 1;
+    } else if (index >= totalSlides) {
+      currentIndex = 0;
+    } else {
+      currentIndex = index;
+    }
+    slidesContainer.style.transform = `translateX(-${currentIndex * 100}vw)`;
+    updateDots();
+    updateCategoryLabel();
+    restartSlideTimeout();
   }
-  prev.onclick = ()=>{clearTimeout(timer); show(idx-1)};
-  next.onclick = ()=>{clearTimeout(timer); show(idx+1)};
-  dots.forEach((d,i)=>d.onclick=()=>{clearTimeout(timer); show(i)});
-  show(0);
 
-  // Contact popup (if used)
-  window.showContactPopup = (prop) => {
-    alert(`Interesse an ${prop}? Wir melden uns!`);
-  };
+  function updateDots() {
+    dots.forEach((dot, i) => {
+      dot.classList.toggle("active", i === currentIndex);
+    });
+  }
+
+  function updateCategoryLabel() {
+    const category = slides[currentIndex].getAttribute("data-category") || "";
+    if (currentCategoryLabel) {
+      currentCategoryLabel.textContent = category;
+    }
+  }
+
+  function nextSlide() {
+    showSlide(currentIndex + 1);
+  }
+
+  function prevSlide() {
+    showSlide(currentIndex - 1);
+  }
+
+  function restartSlideTimeout() {
+    clearTimeout(slideTimeout);
+    slideTimeout = setTimeout(nextSlide, slideDurations[currentIndex]);
+  }
+
+  if (nextButton) {
+    nextButton.addEventListener("click", () => {
+      clearTimeout(slideTimeout);
+      nextSlide();
+    });
+  }
+  if (prevButton) {
+    prevButton.addEventListener("click", () => {
+      clearTimeout(slideTimeout);
+      prevSlide();
+    });
+  }
+  dots.forEach((dot, index) => {
+    dot.addEventListener("click", function () {
+      clearTimeout(slideTimeout);
+      showSlide(index);
+    });
+  });
+
+  /* Only bind hover & touch on pages that have a slider */
+  const slider = document.querySelector(".slider");
+  if (slider) {
+    slider.addEventListener("mouseenter", () => clearTimeout(slideTimeout));
+    slider.addEventListener("mouseleave", restartSlideTimeout);
+
+    let touchStartX = 0,
+        touchEndX = 0;
+    slider.addEventListener("touchstart", e => {
+      touchStartX = e.changedTouches[0].screenX;
+    });
+    slider.addEventListener("touchend", e => {
+      touchEndX = e.changedTouches[0].screenX;
+      if (touchEndX < touchStartX - 50) nextSlide();
+      if (touchEndX > touchStartX + 50) prevSlide();
+    });
+  }
+
+  showSlide(currentIndex);
+
+  /* HAMBURGER MENU TOGGLE */
+  const hamburger = document.getElementById("hamburger");
+  const navMenu   = document.getElementById("navMenu");
+  if (hamburger && navMenu) {
+    hamburger.addEventListener("click", function () {
+      navMenu.classList.toggle("active");
+      const navLinks = document.getElementById("nav-links");
+      if (navLinks) navLinks.classList.toggle("show");
+    });
+  }
 });
