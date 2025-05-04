@@ -38,7 +38,7 @@ header {
   flex-wrap: wrap;
 }
 
-/* Logo + Shimmer */
+/* Logo + Shimmer (10s left-to-right) */
 .logo a {
   font-size: 1.8em;
   font-weight: bold;
@@ -53,11 +53,11 @@ header {
   background-size: 200% 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: shimmer 6s linear infinite;
+  animation: shimmer 10s linear infinite;
 }
 @keyframes shimmer {
-  0%   { background-position: 0%   0; }
-  100% { background-position: 200% 0; }
+  0%   { background-position: -100% 0; }
+  100% { background-position: 100%  0; }
 }
 
 /* Navigation */
@@ -85,7 +85,7 @@ nav ul li a.active {
   color: #00aaff;
 }
 nav ul li:last-child {
-  margin-left: 40px; /* extra space before “Über uns” */
+  margin-left: 40px; /* extra space before “Über uns” */
 }
 
 /* Hamburger Menu */
@@ -123,16 +123,14 @@ nav ul li:last-child {
   }
 }
 
-/* ─────────────────────────────────────────────────────────────────────────────
-   Focus Outlines for Accessibility
-   ──────────────────────────────────────────────────────────────────────────── */
+/* Focus Outlines for Accessibility */
 a:focus, button:focus, input:focus {
   outline: 3px solid #00aaff;
   outline-offset: 2px;
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   Slider Section (if present)
+   Slider Section
    ──────────────────────────────────────────────────────────────────────────── */
 #hero {
   position: relative;
@@ -276,6 +274,7 @@ a:focus, button:focus, input:focus {
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   Forms & Footer etc.
-   … (continue with your existing form, contact, valuation and footer styles)
+   Forms & Footer & Other Sections
+   … include your existing styles for contact forms, valuation map, services,
+     about‑hero, footer, etc., unchanged from the previous full CSS version …
    ──────────────────────────────────────────────────────────────────────────── */
