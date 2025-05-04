@@ -50,7 +50,7 @@ header {
     #20b2aa 60%,
     #ffffff 100%
   );
-  background-size: 400% 100%;
+  background-size: 200% 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: shimmer 6s linear infinite;
