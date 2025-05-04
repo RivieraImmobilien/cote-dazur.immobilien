@@ -24,37 +24,31 @@ body {
   font-size: 1.8em;
   font-weight: bold;
   text-decoration: none;
-  background: linear-gradient(
-    to right,
-    #0080FF 0%,    /* azure blue */
-    #0080FF 100%   /* hold azure until final frame */
-  );
+  /* hold azure until 99%, then shift to turquoise */
+  background: linear-gradient(to right, #0080FF 0%, #0080FF 100%);
   background-size: 200% 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: shimmer-azur 2s ease-in-out infinite;
 }
 
-/* === Header Flex Cleanup (Single Line) === */
+/* === Header: Single‑Line Flex Container === */
 header .header-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: nowrap;   /* force header items on one line */
+  flex-wrap: nowrap;        /* never wrap into two rows */
   gap: 1rem;
-  padding: 20px 40px;  /* more breathing room */
-  background-color: #2c3e50; /* dark background for contrast */
+  padding: 20px 40px;       /* generous spacing */
+  background-color: #2c3e50;/* dark backdrop for contrast */
 }
 
-/* Navigation */
+/* Navigation Links */
 nav ul {
   list-style: none;
   display: flex;
   gap: 1.5rem;
   margin-right: 40px;
-}
-nav ul li {
-  margin: 0;
 }
 nav ul li a {
   color: #ffffff;
@@ -69,7 +63,7 @@ nav ul li a:hover {
   margin-left: auto;
 }
 
-/* Hamburger Menu */
+/* Hamburger (mobile) */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -82,7 +76,16 @@ nav ul li a:hover {
   height: 3px;
   background-color: #ffffff;
   margin: 4px 0;
-  transition: 0.4s;
+  transition: transform 0.4s, opacity 0.4s;
+}
+.hamburger[aria-expanded="true"] .bar:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+}
+.hamburger[aria-expanded="true"] .bar:nth-child(2) {
+  opacity: 0;
+}
+.hamburger[aria-expanded="true"] .bar:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
 }
 
 /* Slider Section */
@@ -94,7 +97,6 @@ nav ul li a:hover {
 .slider {
   width: 100vw;
   height: 60vh;
-  position: relative;
   overflow: hidden;
   background-color: #bdc3c7;
 }
@@ -102,13 +104,14 @@ nav ul li a:hover {
   display: flex;
   transition: transform 0.5s ease-in-out;
 }
-/* Make the <a> wrappers into full‑width flex items */
+/* —— Slider fix: make each slide exactly viewport‑wide —— */
 .slides > a {
+  flex: 0 0 100vw;
   display: block;
 }
-/* Force each .slide to exactly one viewport width */
 .slide {
-  flex: 0 0 100vw;
+  /* inner content stretches to fill the anchor */
+  width: 100%;
   height: 60vh;
   position: relative;
 }
@@ -135,8 +138,7 @@ nav ul li a:hover {
 }
 
 /* Slider Controls */
-.prev,
-.next {
+.prev, .next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -150,8 +152,7 @@ nav ul li a:hover {
 }
 .prev { left: 20px; }
 .next { right: 20px; }
-.prev:hover,
-.next:hover { background-color: rgba(0,0,0,0.8); }
+.prev:hover, .next:hover { background-color: rgba(0,0,0,0.8); }
 
 /* Dots */
 .slider-dots {
@@ -193,14 +194,18 @@ nav ul li a:hover {
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   transition: transform 0.3s;
 }
-.property:hover { transform: translateY(-5px); }
+.property:hover {
+  transform: translateY(-5px);
+}
 .property img {
   width: 100%;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
-.property h3,
-.property p { margin: 10px; color: #2c3e50; }
+.property h3, .property p {
+  margin: 10px;
+  color: #2c3e50;
+}
 .property button {
   margin: 10px;
   padding: 10px 20px;
@@ -211,7 +216,9 @@ nav ul li a:hover {
   cursor: pointer;
   transition: background-color 0.3s;
 }
-.property button:hover { background-color: #e74c3c; }
+.property button:hover {
+  background-color: #e74c3c;
+}
 
 /* WhatsApp Button */
 .whatsapp-btn {
@@ -242,30 +249,7 @@ footer {
   margin: 0 5px;
 }
 
-/* Small Slider */
-.small-slider {
-  overflow: hidden;
-  width: 100%;
-  max-width: 800px;
-  margin: 20px auto;
-}
-.small-slides {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-}
-.small-slides img {
-  width: 100%;
-  max-width: 150px;
-  margin: 0 5px;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: transform 0.3s;
-}
-.small-slides img:hover {
-  transform: scale(1.05);
-}
-
-/* Responsive */
+/* Responsive adjustments */
 @media (max-width: 768px) {
   nav ul { display: none; flex-direction: column; width: 100%; text-align: center; }
   nav ul.show { display: flex; }
@@ -276,15 +260,9 @@ footer {
   .slide-description h2 { font-size: 1.5rem; }
   .slide-description p { font-size: 1rem; }
   .property { width: 100%; margin-bottom: 20px; }
-}
 
-/* === Mobile Menu (Hamburger) Spacing & Toggler Styles === */
-@media (max-width: 768px) {
-  nav { display: none; }
-  nav.show { display: block; }
+  /* Mobile menu spacing */
   nav.show ul {
-    display: flex;
-    flex-direction: column;
     gap: 1.5rem;
     padding: 1rem 0;
   }
@@ -295,47 +273,6 @@ footer {
     padding: 8px;
     margin-left: auto;
   }
-  .hamburger .bar {
-    flex: 1;
-    border-radius: 2px;
-    transition: transform 0.4s, opacity 0.4s;
-  }
-}
-.hamburger[aria-expanded="true"] .bar:nth-child(1) {
-  transform: translateY(10px) rotate(45deg);
-}
-.hamburger[aria-expanded="true"] .bar:nth-child(2) {
-  opacity: 0;
-}
-.hamburger[aria-expanded="true"] .bar:nth-child(3) {
-  transform: translateY(-10px) rotate(-45deg);
-}
-
-/* Global Form Fields */
-form input,
-form textarea,
-form select {
-  width: 100%;
-  margin-bottom: 15px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-/* Valuation Overlay */
-.valuation-wrapper {
-  position: relative;
-}
-.valuation-form {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  z-index: 10;
-  background: rgba(255,255,255,0.9);
-  padding: 20px;
-  border-radius: 5px;
-  width: calc(100% - 40px);
-  max-width: 600px;
 }
 
 /* === Shimmer Animation Azure → Turquoise (2s) === */
