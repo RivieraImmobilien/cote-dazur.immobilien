@@ -1,44 +1,24 @@
 /* ─────────────────────────────────────────────────────────────────────────────
-   Global Reset & Base Styles
-   ──────────────────────────────────────────────────────────────────────────── */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-body {
-  font-family: Arial, sans-serif;
-  background: #ecf0f1;
-  color: #2c3e50;
-  line-height: 1.6;
-}
-
-/* ─────────────────────────────────────────────────────────────────────────────
-   Containers
-   ──────────────────────────────────────────────────────────────────────────── */
-.header-container,
-.content-container,
-.footer-container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* ─────────────────────────────────────────────────────────────────────────────
-   Header & Navigation
+   Header & Navigation Overhaul
    ──────────────────────────────────────────────────────────────────────────── */
 header {
-  background: #2c3e50;
+  background-color: #2c3e50;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
+
 .header-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 20px;
-  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px 20px;
 }
 
-/* Logo + Shimmer (10s left-to-right) */
+/* Logo + Shimmer (10s left‑to‑right) */
 .logo a {
   font-size: 1.8em;
   font-weight: bold;
@@ -63,218 +43,72 @@ header {
 /* Navigation */
 nav {
   flex: 1;
-  text-align: right;
 }
 nav ul {
+  display: flex;
+  gap: 25px;
   list-style: none;
-}
-nav ul li {
-  display: inline-block;
-  margin-left: 20px;
+  justify-content: flex-end;
 }
 nav ul li a {
   color: #ffffff;
   text-decoration: none;
   font-weight: bold;
-  padding: 8px;
+  padding: 8px 0;
   transition: color 0.3s;
 }
 nav ul li a:hover,
 nav ul li a:focus,
 nav ul li a.active {
-  color: #00aaff;
-}
-nav ul li:last-child {
-  margin-left: 40px; /* extra space before “Über uns” */
+  color: #20b2aa;
 }
 
-/* Hamburger Menu */
+/* Bring “Über uns” into line */
+nav ul li:last-child a {
+  padding-left: 40px; /* extra space before last link */
+}
+
+/* Hamburger (mobile) */
 .hamburger {
   display: none;
   flex-direction: column;
-  background: none;
   border: none;
+  background: none;
   cursor: pointer;
 }
 .hamburger .bar {
   width: 25px;
   height: 3px;
-  background: #ffffff;
+  background-color: #ffffff;
   margin: 4px 0;
 }
 
-/* Responsive Navigation */
+/* Mobile Responsiveness */
 @media (max-width: 768px) {
+  .header-container {
+    flex-wrap: wrap;
+  }
   .hamburger {
     display: flex;
+    order: 2;
   }
   nav {
-    width: 100%;
-    text-align: center;
-    margin-top: 10px;
     display: none;
+    width: 100%;
+    order: 3;
   }
   nav.show {
     display: block;
   }
-  nav ul li {
-    display: block;
-    margin: 10px 0;
+  nav ul {
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px 0;
   }
 }
 
-/* Focus Outlines for Accessibility */
-a:focus, button:focus, input:focus {
+/* Focus outline */
+a:focus, button:focus {
   outline: 3px solid #00aaff;
   outline-offset: 2px;
 }
-
-/* ─────────────────────────────────────────────────────────────────────────────
-   Slider Section
-   ──────────────────────────────────────────────────────────────────────────── */
-#hero {
-  position: relative;
-  width: 100vw;
-  overflow: hidden;
-}
-.slider {
-  width: 100vw;
-  height: 60vh;
-  position: relative;
-  overflow: hidden;
-  background: #bdc3c7;
-}
-.slides {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-}
-.slide {
-  min-width: 100vw;
-  height: 60vh;
-  position: relative;
-}
-.slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.slide-description {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  background: rgba(0,0,0,0.6);
-  color: #fff;
-  padding: 10px;
-  border-radius: 5px;
-}
-.slide-description h2 { font-size: 2rem; margin-bottom: 5px; }
-.slide-description p  { font-size: 1.2rem; }
-
-/* Slider Controls */
-.prev, .next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0,0,0,0.5);
-  border: none;
-  color: #fff;
-  font-size: 2rem;
-  padding: 10px;
-  cursor: pointer;
-  z-index: 10;
-}
-.prev { left: 10px; }
-.next { right: 10px; }
-.prev:focus, .next:focus {
-  outline: 3px solid #00aaff;
-}
-
-/* Slider Dots */
-.slider-dots {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-.slider-dots .dot {
-  display: inline-block;
-  width: 12px;
-  height: 12px;
-  background: rgba(255,255,255,0.5);
-  border-radius: 50%;
-  margin: 0 5px;
-  cursor: pointer;
-}
-.slider-dots .dot.active,
-.slider-dots .dot:hover {
-  background: #fff;
-}
-.slider-dots .dot:focus {
-  outline: 3px solid #00aaff;
-}
-
-/* ─────────────────────────────────────────────────────────────────────────────
-   Featured Properties
-   ──────────────────────────────────────────────────────────────────────────── */
-#featured-properties {
-  padding: 40px 0;
-  background: #ecf0f1;
-}
-.property-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-.property {
-  width: 300px;
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-.property img {
-  width: 100%;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-}
-.property h3 { margin: 10px; font-size: 1.2rem; }
-.property p  { margin: 10px; }
-.property button {
-  width: 100%;
-  padding: 10px 0;
-  border: none;
-  background: #00aaff;
-  color: #fff;
-  font-weight: bold;
-  cursor: pointer;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-}
-.property button:hover,
-.property button:focus {
-  background: #008fcc;
-}
-
-/* ─────────────────────────────────────────────────────────────────────────────
-   Call‑to‑Action Buttons
-   ──────────────────────────────────────────────────────────────────────────── */
-.cta {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 10px 20px;
-  background: #00aaff;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 4px;
-}
-.cta:hover,
-.cta:focus {
-  background: #008fcc;
-}
-
-/* ─────────────────────────────────────────────────────────────────────────────
-   Forms & Footer & Other Sections
-   … include your existing styles for contact forms, valuation map, services,
-     about‑hero, footer, etc., unchanged from the previous full CSS version …
-   ──────────────────────────────────────────────────────────────────────────── */
