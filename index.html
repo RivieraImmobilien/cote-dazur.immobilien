@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Côte d'Azur Immobilien – Startseite</title>
-  <link rel="icon" href="images/favicon.ico">
-  <link rel="stylesheet" href="css/styles.css">
+  <meta name="description" content="Exklusive Immobilienangebote an der Côte d'Azur – Kaufen, Verkaufen, Dienstleistungen."/>
+  <link rel="icon" href="images/favicon.ico" />
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
   <!-- HEADER -->
   <header>
     <div class="header-container">
-      <div class="logo"><a href="index.html">Côte d'Azur Immobilien</a></div>
-      <button id="hamburger" class="hamburger" aria-label="Menü öffnen">
+      <a href="index.html" class="logo">Côte d'Azur Immobilien</a>
+      <button id="hamburger" class="hamburger" aria-label="Menü">
         <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </button>
       <nav id="navMenu">
@@ -22,7 +23,7 @@
           <li><a href="sell.html">Haus verkaufen</a></li>
           <li><a href="services.html">Dienstleistungen</a></li>
           <li><a href="contact.html">Kontakt</a></li>
-          <li><a href="valuation.html">Kostenlose Bewertung</a></li>
+          <li><a href="valuation.html">Bewertung</a></li>
           <li class="about-link"><a href="about.html">Über uns</a></li>
         </ul>
       </nav>
@@ -33,35 +34,21 @@
   <section id="hero">
     <div class="slider">
       <div class="slides">
-        <div class="slide" data-category="Haus verkaufen">
-          <a href="sell.html"><img src="images/slider/slide1.jpg" alt="Haus verkaufen"></a>
-          <div class="slide-description">
-            <h2>Haus verkaufen</h2>
-            <p>Verkaufen Sie Ihre Immobilie schnell und sicher.</p>
-          </div>
-        </div>
-        <div class="slide" data-category="Haus kaufen">
-          <a href="buy.html"><img src="images/slider/slide2.jpg" alt="Haus kaufen"></a>
-          <div class="slide-description">
-            <h2>Haus kaufen</h2>
-            <p>Finden Sie Ihr Traumhaus an der Côte d'Azur.</p>
-          </div>
-        </div>
-        <div class="slide" data-category="Dienstleistungen">
-          <a href="services.html"><img src="images/slider/slide3.jpg" alt="Dienstleistungen"></a>
-          <div class="slide-description">
-            <h2>Dienstleistungen</h2>
-            <p>Rundum-sorglos-Service für Ihre Immobilie.</p>
-          </div>
-        </div>
+        <a href="sell.html" class="slide" data-category="Haus verkaufen">
+          <img src="images/slider/slide1.jpg" alt="Haus verkaufen">
+          <div class="slide-description"><h2>Haus verkaufen</h2><p>Verkaufen Sie Ihre Immobilie.</p></div>
+        </a>
+        <a href="buy.html" class="slide" data-category="Haus kaufen">
+          <img src="images/slider/slide2.jpg" alt="Haus kaufen">
+          <div class="slide-description"><h2>Haus kaufen</h2><p>Finden Sie Ihr Traumhaus.</p></div>
+        </a>
+        <a href="services.html" class="slide" data-category="Dienstleistungen">
+          <img src="images/slider/slide3.jpg" alt="Dienstleistungen">
+          <div class="slide-description"><h2>Dienstleistungen</h2><p>Umfassender Service.</p></div>
+        </a>
       </div>
-      <button class="prev" aria-label="Zurück">&#10094;</button>
-      <button class="next" aria-label="Weiter">&#10095;</button>
-      <div class="slider-dots">
-        <span class="dot active" data-index="0"></span>
-        <span class="dot" data-index="1"></span>
-        <span class="dot" data-index="2"></span>
-      </div>
+      <button class="prev">&#10094;</button><button class="next">&#10095;</button>
+      <div class="slider-dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
     </div>
   </section>
 
@@ -71,34 +58,30 @@
       <h2>Exklusive Angebote</h2>
       <div class="property-list">
         <div class="property">
-          <img src="images/house1.jpg" alt="Luxusvilla in Saint Tropez">
-          <h3>Luxusvilla in Saint Tropez</h3>
-          <p>Preis: €2.500.000</p>
-          <button onclick="showContactPopup('Luxusvilla in Saint Tropez')">Mehr erfahren</button>
+          <img src="images/house1.jpg" alt="Villa"><h3>Villa St. Tropez</h3><p>€2.500.000</p>
+          <button onclick="showContactPopup('Villa St. Tropez')">Mehr erfahren</button>
         </div>
         <div class="property">
-          <img src="images/house2.jpg" alt="Charmantes Haus in Nizza">
-          <h3>Charmantes Haus in Nizza</h3>
-          <p>Preis: €1.200.000</p>
-          <button onclick="showContactPopup('Charmantes Haus in Nizza')">Mehr erfahren</button>
+          <img src="images/house2.jpg" alt="Haus"><h3>Haus Nizza</h3><p>€1.200.000</p>
+          <button onclick="showContactPopup('Haus Nizza')">Mehr erfahren</button>
         </div>
         <div class="property">
-          <img src="images/house3.jpg" alt="Moderne Wohnung in Cannes">
-          <h3>Moderne Wohnung in Cannes</h3>
-          <p>Preis: €850.000</p>
-          <button onclick="showContactPopup('Moderne Wohnung in Cannes')">Mehr erfahren</button>
+          <img src="images/house3.jpg" alt="Wohnung"><h3>Wohnung Cannes</h3><p>€850.000</p>
+          <button onclick="showContactPopup('Wohnung Cannes')">Mehr erfahren</button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- WHATSAPP BUTTON -->
-  <a href="https://wa.me/0033781717466" class="whatsapp-btn" target="_blank"><img src="images/whatsapp-icon.png" alt="WhatsApp Kontakt"></a>
+  <!-- WHATSAPP -->
+  <a href="https://wa.me/0033781717466" class="whatsapp-btn" target="_blank" aria-label="WhatsApp">
+    <img src="images/whatsapp-icon.png" alt="WhatsApp">
+  </a>
 
   <!-- FOOTER -->
   <footer>
     <div class="footer-container">
-      <p>&copy; 2025 Côte d'Azur Immobilien</p>
+      <p>© 2025 Côte d'Azur Immobilien</p>
       <div class="social-share">
         <a href="#"><img src="images/facebook-icon.png" alt="Facebook"></a>
         <a href="#"><img src="images/twitter-icon.png" alt="Twitter"></a>
