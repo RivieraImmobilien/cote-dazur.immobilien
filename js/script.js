@@ -1,16 +1,16 @@
-// Redirect helper for “Mehr erfahren” buttons
+// Redirect helper for "Mehr erfahren" buttons
 function showContactPopup(property) {
   window.location.href = 'contact.html?property=' + encodeURIComponent(property);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  /* ─────────── Hamburger Toggle ─────────── */
+  // Hamburger toggle
   const hamburger = document.getElementById("hamburger");
   const nav       = document.querySelector("nav");
   hamburger.addEventListener("click", () => {
-    const expanded = hamburger.getAttribute("aria-expanded") === "true";
-    hamburger.setAttribute("aria-expanded", String(!expanded));
-    hamburger.setAttribute("aria-label", expanded ? "Menü öffnen" : "Menü schließen");
+    const isOpen = hamburger.getAttribute("aria-expanded") === "true";
+    hamburger.setAttribute("aria-expanded", String(!isOpen));
+    hamburger.setAttribute("aria-label", isOpen ? "Menü öffnen" : "Menü schließen");
     nav.classList.toggle("show");
   });
 
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  /* ─────────── Slider ─────────── */
+  // Slider initialization
   const slider = document.querySelector(".slider");
   if (slider) {
     const slidesContainer = slider.querySelector(".slides");
