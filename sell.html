@@ -4,35 +4,46 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Côte d'Azur Immobilien – Haus verkaufen</title>
+  <meta name="description" content="Erfahren Sie mehr über verkaufte Immobilien an der Côte d'Azur.">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <header>
-    <div class="header-container">
-      <div class="logo"><a href="index.html">Côte d'Azur Immobilien</a></div>
-      <button class="hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false">
-        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-      </button>
-      <nav role="navigation" id="navMenu" aria-label="Hauptnavigation">
-        <ul>
-          <li><a href="index.html">Startseite</a></li>
-          <li><a href="buy.html">Haus&nbsp;kaufen</a></li>
-          <li><a href="sell.html" class="active">Haus&nbsp;verkaufen</a></li>
-          <li><a href="services.html">Dienstleistungen</a></li>
-          <li><a href="contact.html">Kontakt</a></li>
-          <li><a href="valuation.html">Kostenlose&nbsp;Bewertung</a></li>
-          <li><a href="about.html">Über&nbsp;uns</a></li>
-        </ul>
-      </nav>
+  <div class="header-container">
+    <div class="logo">
+      <a href="index.html">Côte d'Azur Immobilien</a>
     </div>
-  </header>
+    <button class="hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+    <nav id="navMenu" role="navigation" aria-label="Hauptnavigation">
+      <ul>
+        <li><a href="index.html" class="active">Startseite</a></li>
+        <li><a href="buy.html">Haus kaufen</a></li>
+        <li><a href="sell.html">Haus verkaufen</a></li>
+        <li><a href="services.html">Dienstleistungen</a></li>
+        <li><a href="contact.html">Kontakt</a></li>
+        <li><a href="valuation.html">Kostenlose Bewertung</a></li>
+        <li><a href="about.html">Über uns</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
 
   <main>
-    <section id="sell-content">
+    <section id="content">
       <div class="content-container">
-        <h1>Verkaufen</h1>
-        <p>Egal ob exklusiv oder Standard‑Mandat: Wir vermarkten Ihre Immobilie professionell. Exklusivmandat: hochwertiges Exposé, Fotos, 3D‑Rundgang, Flyer und Preisschätzung. Standard‑Mandat: umfassende Vermarktung.</p>
-        <p>Leggett erreicht 2,8 Mio. jährliche Besucher, erstellt virtuelle Rundgänge und inseriert international (inkl. Rightmove und Hamptons). Mit 2 Mio. € Marketingbudget in Messen und Publikationen wie der Financial Times. Unser mehrsprachiges Team sorgt für reibungslose Abwicklung ohne Sprachbarrieren.</p>
+        <h1>Haus verkaufen</h1>
+        <p>Hier finden Sie Beispiele für verkaufte Immobilien an der Côte d'Azur.</p>
+        <div class="small-slider">
+          <div class="small-slides">
+            <img src="images/house1.jpg" alt="Verkauft 1" loading="lazy" onclick="window.location.href='contact.html?property=verkauft1'">
+            <img src="images/house2.jpg" alt="Verkauft 2" loading="lazy" onclick="window.location.href='contact.html?property=verkauft2'">
+            <img src="images/house3.jpg" alt="Verkauft 3" loading="lazy" onclick="window.location.href='contact.html?property=verkauft3'">
+          </div>
+        </div>
+        <p>Klicken Sie auf ein Bild, um uns bezüglich dieser Immobilie zu kontaktieren.</p>
       </div>
     </section>
   </main>
@@ -40,6 +51,7 @@
   <a href="https://wa.me/0033781717466" class="whatsapp-btn" aria-label="WhatsApp Kontakt" target="_blank">
     <img src="images/whatsapp-icon.png" alt="WhatsApp Kontakt">
   </a>
+
   <footer>
     <div class="footer-container">
       <p>&copy; 2025 Côte d'Azur Immobilien – Alle Rechte vorbehalten.</p>

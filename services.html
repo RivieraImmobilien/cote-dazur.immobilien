@@ -4,45 +4,62 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Côte d'Azur Immobilien – Dienstleistungen</title>
+  <meta name="description" content="Umfassende Dienstleistungen für Ihre Immobilie an der Côte d'Azur.">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <header>
-    <div class="header-container">
-      <div class="logo"><a href="index.html">Côte d'Azur Immobilien</a></div>
-      <button class="hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false">
-        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-      </button>
-      <nav role="navigation" id="navMenu" aria-label="Hauptnavigation">
-        <ul>
-          <li><a href="index.html">Startseite</a></li>
-          <li><a href="buy.html">Haus&nbsp;kaufen</a></li>
-          <li><a href="sell.html">Haus&nbsp;verkaufen</a></li>
-          <li><a href="services.html" class="active">Dienstleistungen</a></li>
-          <li><a href="contact.html">Kontakt</a></li>
-          <li><a href="valuation.html">Kostenlose&nbsp;Bewertung</a></li>
-          <li><a href="about.html">Über&nbsp;uns</a></li>
-        </ul>
-      </nav>
+  <div class="header-container">
+    <div class="logo">
+      <a href="index.html">Côte d'Azur Immobilien</a>
     </div>
-  </header>
+    <button class="hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+    <nav id="navMenu" role="navigation" aria-label="Hauptnavigation">
+      <ul>
+        <li><a href="index.html" class="active">Startseite</a></li>
+        <li><a href="buy.html">Haus kaufen</a></li>
+        <li><a href="sell.html">Haus verkaufen</a></li>
+        <li><a href="services.html">Dienstleistungen</a></li>
+        <li><a href="contact.html">Kontakt</a></li>
+        <li><a href="valuation.html">Kostenlose Bewertung</a></li>
+        <li><a href="about.html">Über uns</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
 
   <main>
-    <section id="services-content">
+    <section id="services-hero" class="about-hero">
+      <div class="hero-content">
+        <h1>Unsere Dienstleistungen</h1>
+        <p>Rundum-sorglos-Service für Ihre Immobilie</p>
+      </div>
+    </section>
+    <section id="services-list">
       <div class="content-container">
-        <h1>Dienstleistungen</h1>
-        <ul>
-          <li><strong>Rechts‑ und Notariatsservice:</strong> Vermittlung deutschsprachiger Notare und Anwälte für Erbschafts‑ und Steuerrecht.</li>
-          <li><strong>Finanzierung:</strong> Partnerberatung bei Hypotheken und spezialisiertem Mortgage‑Broker‑Support.</li>
-          <li><strong>Währungs‑ und Zahlungsdienstleistungen:</strong> Devisen‑Experten für günstigen Währungsumtausch.</li>
-          <li><strong>Versicherungen:</strong> Vermittlung von Gebäude‑, Hausrat‑ und weiteren Policen.</li>
-          <li><strong>Haus‑ und Objektverwaltung:</strong> Leggett Property Management für Gartenpflege, Hausmeister und Technik.</li>
-          <li><strong>Renovierung &amp; Bauleitung:</strong> Empfehlung und Koordination erfahrener Handwerker und Baufirmen.</li>
-          <li><strong>Innenarchitektur:</strong> Verweis an Innenarchitekten und Einrichtungsberater.</li>
-          <li><strong>Relocation‑Service:</strong> Umzugsorganisation, Anmeldung und Behördengänge.</li>
-          <li><strong>Steuer‑ und Erbschaftsberatung:</strong> Experten für Liegenschafts‑ und Erbschaftssteuerfragen.</li>
-          <li><strong>After‑Sales‑Support:</strong> Hilfe bei Strom, Wasser, Internet, Telefon und weiteren Formalitäten.</li>
-        </ul>
+        <div class="service-item">
+          <img src="images/services/property_management.jpg" alt="Immobilienverwaltung" loading="lazy">
+          <h2>Immobilienverwaltung</h2>
+          <p>Professionelle Verwaltung und Instandhaltung.</p>
+        </div>
+        <div class="service-item">
+          <img src="images/services/rental_service.jpg" alt="Vermietungsservice" loading="lazy">
+          <h2>Vermietungsservice</h2>
+          <p>Vermietungsunterstützung an qualifizierte Mieter.</p>
+        </div>
+        <div class="service-item">
+          <img src="images/services/consulting.jpg" alt="Beratung" loading="lazy">
+          <h2>Immobilienberatung</h2>
+          <p>Maßgeschneiderte Beratung für Kauf und Verkauf.</p>
+        </div>
+        <div class="service-item">
+          <img src="images/services/renovation_management.jpg" alt="Renovierungsmanagement" loading="lazy">
+          <h2>Renovierungsmanagement</h2>
+          <p>Koordination von Renovierungsprojekten.</p>
+        </div>
       </div>
     </section>
   </main>
@@ -50,6 +67,7 @@
   <a href="https://wa.me/0033781717466" class="whatsapp-btn" aria-label="WhatsApp Kontakt" target="_blank">
     <img src="images/whatsapp-icon.png" alt="WhatsApp Kontakt">
   </a>
+
   <footer>
     <div class="footer-container">
       <p>&copy; 2025 Côte d'Azur Immobilien – Alle Rechte vorbehalten.</p>

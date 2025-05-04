@@ -4,36 +4,45 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Côte d'Azur Immobilien – Haus kaufen</title>
+  <meta name="description" content="Finden Sie Ihr Traumhaus an der Côte d'Azur.">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <header>
-    <div class="header-container">
-      <div class="logo"><a href="index.html">Côte d'Azur Immobilien</a></div>
-      <button class="hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false">
-        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-      </button>
-      <nav role="navigation" id="navMenu" aria-label="Hauptnavigation">
-        <ul>
-          <li><a href="index.html">Startseite</a></li>
-          <li><a href="buy.html" class="active">Haus&nbsp;kaufen</a></li>
-          <li><a href="sell.html">Haus&nbsp;verkaufen</a></li>
-          <li><a href="services.html">Dienstleistungen</a></li>
-          <li><a href="contact.html">Kontakt</a></li>
-          <li><a href="valuation.html">Kostenlose&nbsp;Bewertung</a></li>
-          <li><a href="about.html">Über&nbsp;uns</a></li>
-        </ul>
-      </nav>
+  <div class="header-container">
+    <div class="logo">
+      <a href="index.html">Côte d'Azur Immobilien</a>
     </div>
-  </header>
+    <button class="hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+    <nav id="navMenu" role="navigation" aria-label="Hauptnavigation">
+      <ul>
+        <li><a href="index.html" class="active">Startseite</a></li>
+        <li><a href="buy.html">Haus kaufen</a></li>
+        <li><a href="sell.html">Haus verkaufen</a></li>
+        <li><a href="services.html">Dienstleistungen</a></li>
+        <li><a href="contact.html">Kontakt</a></li>
+        <li><a href="valuation.html">Kostenlose Bewertung</a></li>
+        <li><a href="about.html">Über uns</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
   <main>
-    <section id="buy-content">
+    <section id="content">
       <div class="content-container">
-        <h1>Kaufen</h1>
-        <p>Als Käufer profitieren Sie von unserem einzigartigen Zugriff auf das gesamte Leggett‑Portfolio – von Bauernhäusern bis Schlössern, Villen und Chalets. Über unsere 650 Agenten erhalten Sie Zugang zu Standard‑, Luxus‑ und Ski‑Immobilien. Unsere Experten beraten Sie umfassend zu Lage, Preisen, Schulen, Freizeit und regionalen Besonderheiten.</p>
-        <p>Sie bekommen einen persönlichen Suchberater, der passende Objekte findet und mit unserem preisgekrönten Backoffice zusammenarbeitet. Unser mehrsprachiges Team unterstützt Sie durchgängig. Viele Objekte haben Fotos, Videos, 360°‑Rundgänge und Grundrisse, damit Sie sich auch aus der Ferne ein Bild machen können.</p>
-        <p>Sobald Sie ein Angebot abgegeben haben, kümmert sich unser zweisprachiges Vertrags‑ und Notariatsteam um einen reibungslosen Abschluss. Wir beraten zu Erst‑ und Zweitwohnsitz, Ferienhaus oder Anlageobjekt – immer abgestimmt auf Budget und Vorstellungen.</p>
+        <h1>Haus kaufen</h1>
+        <p>Hier finden Sie Angebote für Immobilien zum Kauf an der Côte d'Azur.</p>
+        <div class="small-slider">
+          <div class="small-slides">
+            <img src="images/house1.jpg" alt="Angebot 1" loading="lazy" onclick="window.location.href='contact.html?property=house1'">
+            <img src="images/house2.jpg" alt="Angebot 2" loading="lazy" onclick="window.location.href='contact.html?property=house2'">
+            <img src="images/house3.jpg" alt="Angebot 3" loading="lazy" onclick="window.location.href='contact.html?property=house3'">
+          </div>
+        </div>
+        <p>Klicken Sie auf ein Bild, um zur Kontaktseite zu gelangen.</p>
       </div>
     </section>
   </main>
@@ -41,6 +50,7 @@
   <a href="https://wa.me/0033781717466" class="whatsapp-btn" aria-label="WhatsApp Kontakt" target="_blank">
     <img src="images/whatsapp-icon.png" alt="WhatsApp Kontakt">
   </a>
+
   <footer>
     <div class="footer-container">
       <p>&copy; 2025 Côte d'Azur Immobilien – Alle Rechte vorbehalten.</p>
