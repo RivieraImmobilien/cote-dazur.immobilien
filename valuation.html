@@ -1,39 +1,99 @@
-<!-- Updated valuation.html -->
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Côte d’Azur Immobilien – Wertermittlung</title>
-  <link rel="stylesheet" href="css/styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Côte d'Azur Immobilien – Kostenlose Bewertung</title>
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Google Maps API with your key and callback -->
+  <script
+    async
+    defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-6J0Q6B_iXkcQMTvvaIHDnwuA0ZKJ6D8&libraries=places&callback=initMap">
+  </script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
   <header>
     <div class="header-container">
-      …
+      <div class="logo"><a href="index.html">Côte d'Azur Immobilien</a></div>
+      <button class="hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+      <nav role="navigation" id="navMenu" aria-label="Hauptnavigation">
+        <ul>
+          <li><a href="index.html">Startseite</a></li>
+          <li><a href="buy.html">Haus&nbsp;kaufen</a></li>
+          <li><a href="sell.html">Haus&nbsp;verkaufen</a></li>
+          <li><a href="services.html">Dienstleistungen</a></li>
+          <li><a href="contact.html">Kontakt</a></li>
+          <li><a href="valuation.html" class="active">Kostenlose&nbsp;Bewertung</a></li>
+          <li><a href="about.html">Über&nbsp;uns</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
   <main>
-    <h1>Wertermittlung Ihrer Immobilie</h1>
-    <p>Nutzen Sie unseren kostenlosen, unverbindlichen Service:</p>
-    <ul>
-      <li>Marktpreiseinschätzung basierend auf Lage, Größe und Zustand</li>
-      <li>Analyse mit Leggett-Datenbank und lokalen Vergleichswerten</li>
-      <li>Persönliche Vor-Ort-Besichtigung auf Wunsch</li>
-      <li>Expertise von über 650 Leggett-Agenten in ganz Frankreich</li>
-    </ul>
-    <p>Erhalten Sie eine realistische und verlässliche Einschätzung Ihres Immobilienwertes.</p>
-    <a href="contact.html">
-      <img src="images/valuation.jpg" alt="Immobilienbewertung" />
-    </a>
+    <section id="valuation">
+      <div class="content-container">
+        <h1>Wertermittlung</h1>
+        <p>Als besonderen Service bieten wir Ihnen eine professionelle, unverbindliche Wertermittlung Ihrer Immobilie an – für jede Region in Frankreich...</p>
+        <form id="valuationForm" action="https://formspree.io/f/xwplzwzn" method="POST">
+          <label for="address">Adresse:</label>
+          <input type="text" id="address" name="address" required placeholder="Straße, PLZ, Stadt">
+          <label for="size">Wohnfläche (m²):</label>
+          <input type="number" id="size" name="size" required placeholder="z. B. 120">
+          <label for="rooms">Zimmeranzahl:</label>
+          <input type="number" id="rooms" name="rooms" required placeholder="z. B. 4">
+          <label for="condition">Zustand:</label>
+          <select id="condition" name="condition" required>
+            <option value="">Bitte wählen</option>
+            <option value="gut">Gut</option>
+            <option value="mittel">Mittel</option>
+            <option value="renovierungsbedürftig">Renovierungsbedürftig</option>
+          </select>
+          <div class="g-recaptcha" data-sitekey="6LdcBhorAAAAAFZG049z-oZEOIfruNxnw3KO0Wbn"></div>
+          <button type="submit">Bewertung erhalten</button>
+        </form>
+        <div id="map" style="width:100%;height:400px;border-radius:5px;"></div>
+      </div>
+    </section>
   </main>
+
+  <a href="https://wa.me/0033781717466" class="whatsapp-btn" aria-label="WhatsApp Kontakt" target="_blank">
+    <img src="images/whatsapp-icon.png" alt="WhatsApp Kontakt">
+  </a>
 
   <footer>
     <div class="footer-container">
-      <p>&copy; 2025 Côte d’Azur Immobilien – Alle Rechte vorbehalten</p>
+      <p>&copy; 2025 Côte d'Azur Immobilien – Alle Rechte vorbehalten.</p>
     </div>
   </footer>
-  <script defer src="js/script.js"></script>
+
+  <script>
+    // Google Maps callback
+    function initMap() {
+      const map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: 43.6, lng: 7.1 },
+        zoom: 12
+      });
+      const input = document.getElementById('address');
+      const autocomplete = new google.maps.places.Autocomplete(input, {
+        componentRestrictions: { country: 'fr' }
+      });
+      autocomplete.bindTo('bounds', map);
+      const marker = new google.maps.Marker({ map });
+      autocomplete.addListener('place_changed', () => {
+        const place = autocomplete.getPlace();
+        if (!place.geometry) return;
+        map.setCenter(place.geometry.location);
+        map.setZoom(17);
+        marker.setPosition(place.geometry.location);
+      });
+    }
+  </script>
+  <script src="js/script.js"></script>
 </body>
 </html>

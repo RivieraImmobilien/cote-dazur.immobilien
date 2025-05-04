@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <header style="width:100%; position:relative; left:0; right:0;">
+  <header>
     <div class="header-container">
       <div class="logo">
         <a href="index.html">Côte d’Azur Immobilien</a>
@@ -39,33 +39,9 @@
     <section id="hero">
       <div class="slider" aria-label="Kategorien-Slider">
         <div class="slides">
-          <div class="slide" data-category="Haus verkaufen">
-            <a href="contact.html">
-              <img src="images/slider/slide1.jpg" alt="Haus verkaufen" loading="lazy"/>
-            </a>
-            <div class="slide-description">
-              <h2>Haus verkaufen</h2>
-              <p>Verkaufen Sie Ihre Immobilie schnell und sicher.</p>
-            </div>
-          </div>
-          <div class="slide" data-category="Haus kaufen">
-            <a href="contact.html">
-              <img src="images/slider/slide2.jpg" alt="Haus kaufen" loading="lazy"/>
-            </a>
-            <div class="slide-description">
-              <h2>Haus kaufen</h2>
-              <p>Finden Sie Ihr Traumhaus an der Côte d’Azur.</p>
-            </div>
-          </div>
-          <div class="slide" data-category="Dienstleistungen">
-            <a href="contact.html">
-              <img src="images/slider/slide3.jpg" alt="Dienstleistungen" loading="lazy"/>
-            </a>
-            <div class="slide-description">
-              <h2>Dienstleistungen</h2>
-              <p>Rundum-sorglos-Service für Ihre Immobilie.</p>
-            </div>
-          </div>
+          <a href="sell.html"><div class="slide" data-category="Haus verkaufen"><img src="images/slider/slide1.jpg" alt="Haus verkaufen" loading="lazy"/><div class="slide-description"><h2>Haus verkaufen</h2><p>Verkaufen Sie Ihre Immobilie schnell und sicher.</p></div></div></a>
+          <a href="buy.html"><div class="slide" data-category="Haus kaufen"><img src="images/slider/slide2.jpg" alt="Haus kaufen" loading="lazy"/><div class="slide-description"><h2>Haus kaufen</h2><p>Finden Sie Ihr Traumhaus an der Côte d’Azur.</p></div></div></a>
+          <a href="services.html"><div class="slide" data-category="Dienstleistungen"><img src="images/slider/slide3.jpg" alt="Dienstleistungen" loading="lazy"/><div class="slide-description"><h2>Dienstleistungen</h2><p>Rundum-sorglos-Service für Ihre Immobilie.</p></div></div></a>
         </div>
         <button class="prev" aria-label="Vorherige Kategorie">&#10094;</button>
         <button class="next" aria-label="Nächste Kategorie">&#10095;</button>
@@ -82,38 +58,15 @@
       <div class="content-container">
         <h2>Exklusive Angebote</h2>
         <div class="property-list">
-          <div class="property">
-            <a href="contact.html">
-              <img src="images/house1.jpg" alt="Luxusvilla in Saint Tropez"/>
-            </a>
-            <h3>Luxusvilla in Saint Tropez</h3>
-            <p>€2.500.000</p>
-            <button onclick="showContactPopup('Luxusvilla in Saint Tropez')">Mehr erfahren</button>
-          </div>
-          <div class="property">
-            <a href="contact.html">
-              <img src="images/house2.jpg" alt="Charmantes Haus in Nizza"/>
-            </a>
-            <h3>Charmantes Haus in Nizza</h3>
-            <p>€1.200.000</p>
-            <button onclick="showContactPopup('Charmantes Haus in Nizza')">Mehr erfahren</button>
-          </div>
-          <div class="property">
-            <a href="contact.html">
-              <img src="images/house3.jpg" alt="Moderne Wohnung in Cannes"/>
-            </a>
-            <h3>Moderne Wohnung in Cannes</h3>
-            <p>€850.000</p>
-            <button onclick="showContactPopup('Moderne Wohnung in Cannes')">Mehr erfahren</button>
-          </div>
+          <div class="property"><img src="images/house1.jpg" alt="Luxusvilla in Saint Tropez"/><h3>Luxusvilla in Saint Tropez</h3><p>€2.500.000</p><button onclick="showContactPopup('Luxusvilla in Saint Tropez')">Mehr erfahren</button></div>
+          <div class="property"><img src="images/house2.jpg" alt="Charmantes Haus in Nizza"/><h3>Charmantes Haus in Nizza</h3><p>€1.200.000</p><button onclick="showContactPopup('Charmantes Haus in Nizza')">Mehr erfahren</button></div>
+          <div class="property"><img src="images/house3.jpg" alt="Moderne Wohnung in Cannes"/><h3>Moderne Wohnung in Cannes</h3><p>€850.000</p><button onclick="showContactPopup('Moderne Wohnung in Cannes')">Mehr erfahren</button></div>
         </div>
       </div>
     </section>
   </main>
 
-  <a href="https://wa.me/0033781717466" class="whatsapp-btn" target="_blank">
-    <img src="images/whatsapp-icon.png" alt="WhatsApp"/>
-  </a>
+  <a href="https://wa.me/0033781717466" class="whatsapp-btn" target="_blank"><img src="images/whatsapp-icon.png" alt="WhatsApp"/></a>
 
   <footer>
     <div class="footer-container">
