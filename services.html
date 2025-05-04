@@ -1,78 +1,51 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Côte d'Azur Immobilien – Dienstleistungen</title>
-  <meta name="description" content="Umfassende Dienstleistungen für Ihre Immobilie an der Côte d'Azur.">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <header>
-  <div class="header-container">
-    <div class="logo">
-      <a href="index.html">Côte d'Azur Immobilien</a>
+  <header>  
+    <div class="header-container">
+      <div class="logo"><a href="index.html">Côte d'Azur Immobilien</a></div>
+      <button class="hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+      <nav role="navigation" aria-label="Hauptnavigation">
+        <ul>
+          <li><a href="index.html">Startseite</a></li>
+          <li><a href="buy.html">Haus kaufen</a></li>
+          <li><a href="sell.html">Haus verkaufen</a></li>
+          <li><a href="services.html" class="active">Dienstleistungen</a></li>
+          <li><a href="contact.html">Kontakt</a></li>
+          <li><a href="valuation.html">Kostenlose Bewertung</a></li>
+          <li><a href="about.html">Über uns</a></li>
+        </ul>
+      </nav>
     </div>
-    <button class="hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false">
-      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-    </button>
-    <nav id="navMenu" role="navigation" aria-label="Hauptnavigation">
-      <ul>
-        <li><a href="index.html" class="active">Startseite</a></li>
-        <li><a href="buy.html">Haus kaufen</a></li>
-        <li><a href="sell.html">Haus verkaufen</a></li>
-        <li><a href="services.html">Dienstleistungen</a></li>
-        <li><a href="contact.html">Kontakt</a></li>
-        <li><a href="valuation.html">Kostenlose Bewertung</a></li>
-        <li><a href="about.html">Über uns</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
+  </header>
 
   <main>
-    <section id="services-hero" class="about-hero">
-      <div class="hero-content">
-        <h1>Unsere Dienstleistungen</h1>
-        <p>Rundum-sorglos-Service für Ihre Immobilie</p>
-      </div>
-    </section>
     <section id="services-list">
       <div class="content-container">
-        <div class="service-item">
-          <img src="images/services/property_management.jpg" alt="Immobilienverwaltung" loading="lazy">
-          <h2>Immobilienverwaltung</h2>
-          <p>Professionelle Verwaltung und Instandhaltung.</p>
-        </div>
-        <div class="service-item">
-          <img src="images/services/rental_service.jpg" alt="Vermietungsservice" loading="lazy">
-          <h2>Vermietungsservice</h2>
-          <p>Vermietungsunterstützung an qualifizierte Mieter.</p>
-        </div>
-        <div class="service-item">
-          <img src="images/services/consulting.jpg" alt="Beratung" loading="lazy">
-          <h2>Immobilienberatung</h2>
-          <p>Maßgeschneiderte Beratung für Kauf und Verkauf.</p>
-        </div>
-        <div class="service-item">
-          <img src="images/services/renovation_management.jpg" alt="Renovierungsmanagement" loading="lazy">
-          <h2>Renovierungsmanagement</h2>
-          <p>Koordination von Renovierungsprojekten.</p>
-        </div>
+        <h1>Dienstleistungen</h1>
+        <ul>
+          <li><strong>Rechts- und Notariatsservice:</strong> Wir vermitteln deutschsprachige Notare und Anwälte sowie Experten für Erbschafts- und Steuerrecht, die Sie kompetent beraten.</li>
+          <li><strong>Finanzierung:</strong> Unsere Partner beraten Sie bei der Hypotheken- und Finanzierungsvermittlung. Bei Bedarf erhalten Sie Unterstützung durch spezialisierte Mortgage-Broker.</li>
+          <li><strong>Währungs- und Zahlungsdienstleistungen:</strong> Wir arbeiten mit Devisen-Experten zusammen, damit Sie den Währungsumtausch zu günstigen Konditionen durchführen können.</li>
+          <li><strong>Versicherungen:</strong> Auf Wunsch vermitteln wir Ihnen passende Immobilienversicherungen (z. B. Gebäude- und Hausratversicherung) und andere relevante Policen.</li>
+          <li><strong>Haus- und Objektverwaltung:</strong> Über unseren Bereich Leggett Property Management organisieren wir die laufende Betreuung Ihrer Immobilie: von Gartenpflege und Hausmeisterdiensten bis hin zur technischen Wartung.</li>
+          <li><strong>Renovierung & Bauleitung:</strong> Wir empfehlen erfahrene Handwerker und Baufirmen für Renovierungen oder Bauprojekte und koordinieren die Arbeiten vor Ort.</li>
+          <li><strong>Innenarchitektur:</strong> Auf Wunsch verweisen wir Sie an Innenarchitekten und Einrichtungsberater, die aus Ihrer Immobilie ein stilvolles Zuhause machen.</li>
+          <li><strong>Relocation-Service:</strong> Wir unterstützen Ihren Umzug nach Frankreich (Organisieren des Umzugs, Anmeldung, Behördengänge etc.) und machen Ihnen den Einstieg so einfach wie möglich.</li>
+          <li><strong>Steuer- und Erbschaftsberatung:</strong> Unsere Experten klären alle steuerlichen Fragen rund um Immobilienbesitz in Frankreich (Liegenschaftsteuer, Erbschaftsregelungen usw.).</li>
+          <li><strong>After-Sales-Support:</strong> Nach dem Kauf helfen wir bei der Anmeldung von Strom, Wasser, Internet und Telefon sowie beim Abschluss weiterer Verträge und leisten Unterstützung bei allen Formalitäten vor Ort.</li>
+        </ul>
       </div>
     </section>
   </main>
-
-  <a href="https://wa.me/0033781717466" class="whatsapp-btn" aria-label="WhatsApp Kontakt" target="_blank">
-    <img src="images/whatsapp-icon.png" alt="WhatsApp Kontakt">
-  </a>
-
-  <footer>
-    <div class="footer-container">
-      <p>&copy; 2025 Côte d'Azur Immobilien – Alle Rechte vorbehalten.</p>
-    </div>
-  </footer>
 
   <script src="js/script.js"></script>
 </body>

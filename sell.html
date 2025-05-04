@@ -1,62 +1,43 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Côte d'Azur Immobilien – Haus verkaufen</title>
-  <meta name="description" content="Erfahren Sie mehr über verkaufte Immobilien an der Côte d'Azur.">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <header>
-  <div class="header-container">
-    <div class="logo">
-      <a href="index.html">Côte d'Azur Immobilien</a>
+  <header>  
+    <div class="header-container">
+      <div class="logo"><a href="index.html">Côte d'Azur Immobilien</a></div>
+      <button class="hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+      <nav role="navigation" aria-label="Hauptnavigation">
+        <ul>
+          <li><a href="index.html">Startseite</a></li>
+          <li><a href="buy.html">Haus kaufen</a></li>
+          <li><a href="sell.html" class="active">Haus verkaufen</a></li>
+          <li><a href="services.html">Dienstleistungen</a></li>
+          <li><a href="contact.html">Kontakt</a></li>
+          <li><a href="valuation.html">Kostenlose Bewertung</a></li>
+          <li><a href="about.html">Über uns</a></li>
+        </ul>
+      </nav>
     </div>
-    <button class="hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false">
-      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-    </button>
-    <nav id="navMenu" role="navigation" aria-label="Hauptnavigation">
-      <ul>
-        <li><a href="index.html" class="active">Startseite</a></li>
-        <li><a href="buy.html">Haus kaufen</a></li>
-        <li><a href="sell.html">Haus verkaufen</a></li>
-        <li><a href="services.html">Dienstleistungen</a></li>
-        <li><a href="contact.html">Kontakt</a></li>
-        <li><a href="valuation.html">Kostenlose Bewertung</a></li>
-        <li><a href="about.html">Über uns</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
+  </header>
 
   <main>
     <section id="content">
       <div class="content-container">
-        <h1>Haus verkaufen</h1>
-        <p>Hier finden Sie Beispiele für verkaufte Immobilien an der Côte d'Azur.</p>
-        <div class="small-slider">
-          <div class="small-slides">
-            <img src="images/house1.jpg" alt="Verkauft 1" loading="lazy" onclick="window.location.href='contact.html?property=verkauft1'">
-            <img src="images/house2.jpg" alt="Verkauft 2" loading="lazy" onclick="window.location.href='contact.html?property=verkauft2'">
-            <img src="images/house3.jpg" alt="Verkauft 3" loading="lazy" onclick="window.location.href='contact.html?property=verkauft3'">
-          </div>
-        </div>
-        <p>Klicken Sie auf ein Bild, um uns bezüglich dieser Immobilie zu kontaktieren.</p>
+        <h1>Verkaufen</h1>
+        <p>Ob Sie uns einen exklusiven oder einen einfachen Verkaufsauftrag erteilen – wir bieten in jedem Fall eine professionelle Vermarktung Ihrer Immobilie. Mit einem Exklusivmandat profitieren Sie von maximaler Marktbearbeitung: Wir erstellen für Sie ein hochwertiges Exposé mit professionellen Fotos, 3D‑Rundgang und Flyer sowie eine marktorientierte Preisschätzung. Selbst bei einem Standard‑Mandat vermarkten wir Ihr Objekt umfassend.</p>
+        <p>Leggett erreicht mehr internationale Kaufinteressenten als jede andere französische Immobilienagentur und setzt dafür modernste Kanäle ein. Ihr Objekt wird auf unserer Website mit über 2,8 Mio. Besuchern pro Jahr gelistet; zudem erstellen wir auf Wunsch kostenlose virtuelle Rundgänge, damit Käufer weltweit einen realistischen Eindruck erhalten.</p>
+        <p>Wir inserieren überregional und international: Ihre Immobilie erscheint auf führenden Portalen in Europa, Asien und den USA – inklusive garantierter Listung auf Rightmove International. Durch unsere Partnerschaft mit Hamptons International wird Ihr Angebot zusätzlich über deren weltweites Netzwerk präsentiert.</p>
+        <p>Dank eines jährlichen Marketingbudgets von rund 2 Mio. € nehmen wir regelmäßig an großen Immobilienmessen teil und werben in renommierten Publikationen wie Financial Times und Country Life International. Unser mehrsprachiges Team (Englisch, Französisch, Deutsch, Niederländisch, Chinesisch, Russisch u. v. m.) unterstützt Sie beim gesamten Verkaufsprozess und stellt sicher, dass es bei der Abwicklung keinerlei Sprachbarrieren gibt.</p>
       </div>
     </section>
   </main>
-
-  <a href="https://wa.me/0033781717466" class="whatsapp-btn" aria-label="WhatsApp Kontakt" target="_blank">
-    <img src="images/whatsapp-icon.png" alt="WhatsApp Kontakt">
-  </a>
-
-  <footer>
-    <div class="footer-container">
-      <p>&copy; 2025 Côte d'Azur Immobilien – Alle Rechte vorbehalten.</p>
-    </div>
-  </footer>
 
   <script src="js/script.js"></script>
 </body>
