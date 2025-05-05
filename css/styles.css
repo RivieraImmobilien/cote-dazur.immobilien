@@ -24,13 +24,7 @@ body {
   font-size: 1.8em;
   font-weight: bold;
   text-decoration: none;
-  background: linear-gradient(
-    90deg,
-    #ffffff 0%,
-    #00aaff 30%,
-    #20b2aa 60%,
-    #ffffff 100%
-  );
+  background: linear-gradient(90deg, #ffffff 0%, #00aaff 30%, #20b2aa 60%, #ffffff 100%);
   background-size: 300% 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -48,17 +42,19 @@ header .header-container {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 1rem;
-  padding: 10px 20px;
+  padding: 20px 40px;
+  background-color: #2c3e50;
 }
 
 /* Navigation */
 nav ul {
   list-style: none;
   display: flex;
-  margin-right: 20px;
+  gap: 1.5rem;
+  margin-right: 40px;
 }
 nav ul li {
-  margin-left: 20px;
+  margin-left: 0;
 }
 nav ul li a {
   color: #ffffff;
@@ -77,16 +73,20 @@ nav ul li a:hover {
 .hamburger {
   display: none;
   flex-direction: column;
+  justify-content: space-between;
+  width: 32px;
+  height: 28px;
+  padding: 8px;
+  margin-left: auto;
   cursor: pointer;
   background: none;
   border: none;
 }
 .hamburger .bar {
-  width: 25px;
-  height: 3px;
+  flex: 1;
   background-color: #ffffff;
-  margin: 4px 0;
-  transition: 0.4s;
+  border-radius: 2px;
+  transition: transform 0.4s, background-color 0.4s;
 }
 
 /* Slider Section */
@@ -266,53 +266,45 @@ footer {
 
 /* Responsive */
 @media (max-width: 768px) {
-  nav ul { display: none; flex-direction: column; width: 100%; text-align: center; }
-  nav ul.show { display: flex; }
-  nav ul li { margin: 10px 0; }
-  .hamburger { display: flex; }
-  .slider { height: 40vh; }
-  .slide { height: 40vh; }
-  .slide-description h2 { font-size: 1.5rem; }
-  .slide-description p { font-size: 1rem; }
-  .property { width: 100%; margin-bottom: 20px; }
-}
-/* === Mobile Menu (Hamburger) Spacing & Toggler Styles === */
-@media (max-width: 768px) {
-  /* Ensure nav is hidden until toggled */
   nav {
     display: none;
   }
   nav.show {
     display: block;
   }
-  /* Space out the menu items when open */
   nav.show ul {
-    display: flex;
     flex-direction: column;
-    gap: 1.5rem;       /* vertical spacing between links */
-    padding: 1rem 0;   /* top/bottom breathing room */
+    gap: 1.5rem;
+    padding: 1rem 0;
   }
 
-  /* Increase the clickable area & spacing around the hamburger icon */
+  nav ul li {
+    margin: 10px 0;
+  }
+
   .hamburger {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 32px;
-    height: 28px;
-    padding: 8px;
-    margin-left: auto; /* push it to the right */
-    cursor: pointer;
   }
-  .hamburger .bar {
-    flex: 1;
-    background-color: #ffffff;
-    border-radius: 2px;
-    transition: transform 0.4s, background-color 0.4s;
+
+  .slider,
+  .slide {
+    height: 40vh;
+  }
+
+  .slide-description h2 {
+    font-size: 1.5rem;
+  }
+  .slide-description p {
+    font-size: 1rem;
+  }
+
+  .property {
+    width: 100%;
+    margin-bottom: 20px;
   }
 }
 
-/* === Optional: Animate to “X” on open === */
+/* Animate Hamburger to X */
 .hamburger[aria-expanded="true"] .bar:nth-child(1) {
   transform: translateY(10px) rotate(45deg);
 }
@@ -322,7 +314,6 @@ footer {
 .hamburger[aria-expanded="true"] .bar:nth-child(3) {
   transform: translateY(-10px) rotate(-45deg);
 }
-
 
 /* Global Form Fields */
 form input,
@@ -349,20 +340,4 @@ form select {
   border-radius: 5px;
   width: calc(100% - 40px);
   max-width: 600px;
-}
-
-/* === Header Fix: Contrast + Spacing === */
-header .header-container {
-  padding: 20px 40px;
-  background-color: #2c3e50;
-}
-
-nav ul {
-  display: flex;
-  gap: 1.5rem;
-  margin-right: 40px;
-}
-
-nav ul li {
-  margin-left: 0;
 }
