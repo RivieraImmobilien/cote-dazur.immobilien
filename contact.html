@@ -1,49 +1,65 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Kontakt – Côte d’Azur Immobilien</title>
-  <link rel="stylesheet" href="css/styles.css">
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Côte d’Azur Immobilien – Kontakt</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+  <link rel="alternate icon" href="images/favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="images/favicon.png" type="image/png" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script async defer src="https://www.google.com/recaptcha/api.js"></script>
 </head>
 <body>
-  <!-- HEADER -->
   <header>
     <div class="header-container">
-      <div class="logo"><a href="index.html">Côte d’Azur Immobilien</a></div>
-      <button class="hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false">
-        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-      </button>
+      <div class="logo"><a href="index.html">Côte d’Azur Immobilien</a></div>
+      <button class="hamburger" id="hamburger" aria-label="Menü öffnen"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
       <nav id="navMenu">
-        <ul>
+        <ul id="nav-links">
           <li><a href="index.html">Startseite</a></li>
           <li><a href="buy.html">Haus kaufen</a></li>
           <li><a href="sell.html">Haus verkaufen</a></li>
           <li><a href="services.html">Dienstleistungen</a></li>
           <li><a href="valuation.html">Kostenlose Bewertung</a></li>
           <li><a href="contact.html" class="active">Kontakt</a></li>
-          <li><a href="about.html">Über uns</a></li>
+          <li class="about-link"><a href="about.html">Über uns</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- MAIN CONTENT -->
-  <main class="content-container">
-    <h1>Kontakt</h1>
-    <form id="contactForm" action="https://formspree.io/f/xwplzwzn" method="POST">
-      <label for="name">Ihr Name:</label>
-      <input type="text" id="name" name="name" required placeholder="Ihr Name">
-      <label for="email">Ihre E‑Mail:</label>
-      <input type="email" id="email" name="email" required placeholder="Ihre E‑Mail">
-      <label for="message">Nachricht:</label>
-      <textarea id="message" name="message" required placeholder="Ihre Nachricht"></textarea>
-      <div class="g-recaptcha" data-sitekey="6LdcBhorAAAAAFZG049z-oZEOIfruNxnw3KO0Wbn"></div>
-      <button type="submit">Senden</button>
-    </form>
+  <main>
+    <section id="contact">
+      <div class="content-container">
+        <h1>Kontakt</h1>
+        <p>Füllen Sie das Formular aus, um uns zu kontaktieren.</p>
+        <form id="contactForm" action="https://formspree.io/f/xwplzwzn" method="POST">
+          <label for="name">Ihr Name:</label>
+          <input type="text" id="name" name="name" required placeholder="Ihr Name" />
+          <label for="email">Ihre E-Mail:</label>
+          <input type="email" id="email" name="email" required placeholder="Ihre E-Mail" />
+          <label for="message">Nachricht:</label>
+          <textarea id="message" name="message" required placeholder="Ihre Nachricht"></textarea>
+          <input type="hidden" id="property" name="property" value="" />
+          <div class="g-recaptcha" data-sitekey="6LdcBhorAAAAAFZG049z-oZEOIfruNxnw3KO0Wbn"></div>
+          <button type="submit">Senden</button>
+        </form>
+      </div>
+    </section>
   </main>
 
+  <a href="https://wa.me/0033781717466" class="whatsapp-btn" target="_blank"><img src="images/whatsapp-icon.png" alt="WhatsApp"/></a>
+
+  <footer>
+    <div class="footer-container"><p>&copy; 2025 Côte d’Azur Immobilien – Alle Rechte vorbehalten</p></div>
+  </footer>
+
   <script defer src="js/script.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const p = params.get('property');
+    if (p) document.getElementById('property').value = p;
+  </script>
 </body>
 </html>

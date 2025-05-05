@@ -1,4 +1,4 @@
-// Redirect helper for “Mehr erfahren” buttons
+// Redirect helper for "Mehr erfahren" buttons
 function showContactPopup(property) {
   window.location.href = 'contact.html?property=' + encodeURIComponent(property);
 }
@@ -6,12 +6,11 @@ function showContactPopup(property) {
 document.addEventListener("DOMContentLoaded", () => {
   // Hamburger toggle
   const hamburger = document.getElementById("hamburger");
-  const nav       = document.getElementById("navMenu");
-  hamburger.setAttribute("aria-expanded", "false");
+  const nav       = document.querySelector("nav");
   hamburger.addEventListener("click", () => {
-    const open = hamburger.getAttribute("aria-expanded") === "true";
-    hamburger.setAttribute("aria-expanded", String(!open));
-    hamburger.setAttribute("aria-label", open ? "Menü öffnen" : "Menü schließen");
+    const isOpen = hamburger.getAttribute("aria-expanded") === "true";
+    hamburger.setAttribute("aria-expanded", String(!isOpen));
+    hamburger.setAttribute("aria-label", isOpen ? "Menü öffnen" : "Menü schließen");
     nav.classList.toggle("show");
   });
 
@@ -32,6 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const nextBtn         = slider.querySelector(".next");
     let index = 0, timeout;
     const durations = [2500, 2500, 1000];
+
     function show(i) {
       index = (i + slides.length) % slides.length;
       slidesContainer.style.transform = `translateX(-${index * 100}vw)`;
@@ -39,11 +39,12 @@ document.addEventListener("DOMContentLoaded", () => {
       clearTimeout(timeout);
       timeout = setTimeout(() => show(index + 1), durations[index]);
     }
+
     prevBtn && prevBtn.addEventListener("click", () => show(index - 1));
     nextBtn && nextBtn.addEventListener("click", () => show(index + 1));
     dots.forEach((d, idx) => d.addEventListener("click", () => show(idx)));
 
-    // Swipe
+    // Swipe support
     let startX = 0;
     slider.addEventListener("touchstart", e => startX = e.changedTouches[0].screenX);
     slider.addEventListener("touchend", e => {
@@ -55,20 +56,3 @@ document.addEventListener("DOMContentLoaded", () => {
     show(0);
   }
 });
-
-// Google Maps Initialization
-function initMap() {
-  const mapElement = document.getElementById('map');
-  if (mapElement) {
-    const map = new google.maps.Map(mapElement, {
-      center: { lat: 43.7102, lng: 7.2620 },
-      zoom: 12
-    });
-    const input = document.getElementById('searchInput');
-    if (input) {
-      const autocomplete = new google.maps.places.Autocomplete(input);
-      autocomplete.bindTo('bounds', map);
-    }
-  }
-}
-window.initMap = initMap;
