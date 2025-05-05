@@ -1,3 +1,58 @@
+/* ——————————————————————————
+   Header Branding & Logo Toggle
+   —————————————————————————— */
+
+/* Hide mobile logo on desktop, show on mobile */
+.brand .logo-img {
+  display: none;
+  max-height: 40px;
+}
+.brand .logo-text {
+  display: inline-block;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #0088cc; /* azure/turquoise */
+}
+
+/* Below 768px: show SVG logo, hide text */
+@media (max-width: 767px) {
+  .brand .logo-img {
+    display: inline-block;
+  }
+  .brand .logo-text {
+    display: none;
+  }
+}
+
+/* ——————————————————————————
+   Skip-Link Styles
+   —————————————————————————— */
+
+.skip-link {
+  position: absolute;
+  top: 0; left: 0;
+  background: #2c3e50;
+  color: #ffffff;
+  padding: 8px 16px;
+  z-index: 1001;
+  transform: translateY(-120%);
+  transition: transform 0.3s ease;
+  text-decoration: none;
+}
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* ——————————————————————————
+   Ensure “sticky” header covers skip-link when visible
+   —————————————————————————— */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* just below skip-link */
+}
+
 /* Global Reset & Base Styles */
 * {
   box-sizing: border-box;
