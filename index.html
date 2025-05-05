@@ -3,25 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Côte d’Azur Immobilien</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>Côte d’Azur Immobilien – Startseite</title>
+  <meta name="description" content="Exklusive Immobilienangebote an der Côte d’Azur für deutschsprachige Kunden." />
+  <meta name="keywords" content="Immobilien, Côte d’Azur, Haus kaufen, Haus verkaufen, Bewertung" />
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+  <link rel="alternate icon" href="images/favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="images/favicon.png" type="image/png" />
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <!-- Skip Link for Accessibility -->
-  <a href="#main-content" class="skip-link">Zum Inhalt springen</a>
+  <!-- Skip-Link for Accessibility -->
+  <a href="#maincontent" class="skip-link">Zum Hauptinhalt springen</a>
 
-  <!-- Header -->
+  <!-- Semantic, Sticky Header -->
   <header role="banner" class="site-header">
     <div class="header-container">
-      <!-- Logo with Shimmer Effect -->
+      <!-- Brand / Logo -->
       <div class="brand">
-        <a href="index.html" class="logo">
+        <a href="index.html">
+          <img src="images/favicon.svg"
+               alt="Côte d’Azur Immobilien Logo"
+               class="logo-img" />
           <span class="logo-text">Côte d’Azur Immobilien</span>
         </a>
       </div>
 
-      <!-- Hamburger Menu -->
-      <button class="hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false">
+      <!-- Hamburger Toggle -->
+      <button
+        class="hamburger"
+        id="hamburger"
+        aria-label="Menü öffnen"
+        aria-expanded="false"
+      >
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
@@ -30,6 +43,7 @@
       <!-- Navigation -->
       <nav id="navMenu" class="navigation" aria-label="Hauptnavigation">
         <ul class="nav-list">
+          <li><a href="index.html" aria-current="page">Startseite</a></li>
           <li><a href="buy.html">Haus kaufen</a></li>
           <li><a href="sell.html">Haus verkaufen</a></li>
           <li><a href="services.html">Dienstleistungen</a></li>
@@ -41,88 +55,93 @@
     </div>
   </header>
 
-  <!-- Main Content -->
-  <main id="main-content">
+  <main id="maincontent">
     <!-- Hero Slider -->
     <section id="hero">
-      <div class="slider">
+      <div class="slider" aria-label="Kategorien-Slider">
         <div class="slides">
-          <div class="slide">
-            <img src="images/slide1.jpg" alt="Slide 1" />
-            <div class="slide-description">
-              <h2>Willkommen an der Côte d’Azur</h2>
-              <p>Exklusive Immobilienangebote für Sie</p>
+          <a href="sell.html">
+            <div class="slide" data-category="Haus verkaufen">
+              <img src="images/slider/slide1.jpg" alt="Haus verkaufen" loading="lazy" />
+              <div class="slide-description">
+                <h2>Haus verkaufen</h2>
+                <p>Verkaufen Sie Ihre Immobilie schnell und sicher.</p>
+              </div>
             </div>
-          </div>
-          <div class="slide">
-            <img src="images/slide2.jpg" alt="Slide 2" />
-            <div class="slide-description">
-              <h2>Luxuriöse Villen</h2>
-              <p>Finden Sie Ihr Traumhaus am Meer</p>
+          </a>
+          <a href="buy.html">
+            <div class="slide" data-category="Haus kaufen">
+              <img src="images/slider/slide2.jpg" alt="Haus kaufen" loading="lazy" />
+              <div class="slide-description">
+                <h2>Haus kaufen</h2>
+                <p>Finden Sie Ihr Traumhaus an der Côte d’Azur.</p>
+              </div>
             </div>
-          </div>
-          <div class="slide">
-            <img src="images/slide3.jpg" alt="Slide 3" />
-            <div class="slide-description">
-              <h2>Professionelle Beratung</h2>
-              <p>Wir begleiten Sie beim Immobilienkauf</p>
+          </a>
+          <a href="services.html">
+            <div class="slide" data-category="Dienstleistungen">
+              <img src="images/slider/slide3.jpg" alt="Dienstleistungen" loading="lazy" />
+              <div class="slide-description">
+                <h2>Dienstleistungen</h2>
+                <p>Rundum-sorglos-Service für Ihre Immobilie.</p>
+              </div>
             </div>
-          </div>
+          </a>
         </div>
-        <!-- Slider Controls -->
-        <button class="prev" aria-label="Vorherige Folie">&#10094;</button>
-        <button class="next" aria-label="Nächste Folie">&#10095;</button>
-        <!-- Slider Dots -->
+        <button class="prev" aria-label="Vorherige Kategorie">&#10094;</button>
+        <button class="next" aria-label="Nächste Kategorie">&#10095;</button>
         <div class="slider-dots">
-          <span class="dot active"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
+          <span class="dot active" data-index="0"></span>
+          <span class="dot" data-index="1"></span>
+          <span class="dot" data-index="2"></span>
         </div>
       </div>
     </section>
 
     <!-- Featured Properties -->
     <section id="featured-properties">
-      <h2>Unsere Top-Immobilien</h2>
-      <div class="property-list">
-        <div class="property">
-          <img src="images/property1.jpg" alt="Immobilie 1" />
-          <h3>Villa in Nizza</h3>
-          <p>Luxuriöse Villa mit Meerblick</p>
-          <button>Mehr erfahren</button>
-        </div>
-        <div class="property">
-          <img src="images/property2.jpg" alt="Immobilie 2" />
-          <h3>Apartment in Cannes</h3>
-          <p>Modernes Apartment im Stadtzentrum</p>
-          <button>Mehr erfahren</button>
-        </div>
-        <div class="property">
-          <img src="images/property3.jpg" alt="Immobilie 3" />
-          <h3>Landhaus in Antibes</h3>
-          <p>Charmantes Landhaus mit Garten</p>
-          <button>Mehr erfahren</button>
+      <div class="content-container">
+        <h2>Exklusive Angebote</h2>
+        <div class="property-list">
+          <div class="property">
+            <img src="images/house1.jpg" alt="Luxusvilla in Saint Tropez" />
+            <h3>Luxusvilla in Saint Tropez</h3>
+            <p>€2.500.000</p>
+            <button onclick="showContactPopup('Luxusvilla in Saint Tropez')">Mehr erfahren</button>
+          </div>
+          <div class="property">
+            <img src="images/house2.jpg" alt="Charmantes Haus in Nizza" />
+            <h3>Charmantes Haus in Nizza</h3>
+            <p>€1.200.000</p>
+            <button onclick="showContactPopup('Charmantes Haus in Nizza')">Mehr erfahren</button>
+          </div>
+          <div class="property">
+            <img src="images/house3.jpg" alt="Moderne Wohnung in Cannes" />
+            <h3>Moderne Wohnung in Cannes</h3>
+            <p>€850.000</p>
+            <button onclick="showContactPopup('Moderne Wohnung in Cannes')">Mehr erfahren</button>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
   <!-- WhatsApp Button -->
-  <a href="https://wa.me/1234567890" class="whatsapp-btn" target="_blank" aria-label="Chat auf WhatsApp">
-    <img src="images/whatsapp-icon.png" alt="WhatsApp Icon" />
+  <a href="https://wa.me/0033781717466" class="whatsapp-btn" target="_blank">
+    <img src="images/whatsapp-icon.png" alt="WhatsApp" />
   </a>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Côte d’Azur Immobilien. Alle Rechte vorbehalten.</p>
-    <div class="social-share">
-      <a href="#"><img src="images/facebook-icon.png" alt="Facebook" /></a>
-      <a href="#"><img src="images/instagram-icon.png" alt="Instagram" /></a>
-      <a href="#"><img src="images/twitter-icon.png" alt="Twitter" /></a>
+    <div class="footer-container">
+      <p>&copy; 2025 Côte d’Azur Immobilien – Alle Rechte vorbehalten</p>
+      <div class="social-share">
+        <a href="#"><img src="images/facebook-icon.png" alt="Facebook" /></a>
+        <a href="#"><img src="images/twitter-icon.png" alt="Twitter" /></a>
+      </div>
     </div>
   </footer>
 
-  <!-- JavaScript -->
-  <script src="scripts.js"></script>
+  <script defer src="js/script.js"></script>
 </body>
 </html>
