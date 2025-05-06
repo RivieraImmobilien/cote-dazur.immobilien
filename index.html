@@ -4,48 +4,29 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Côte d’Azur Immobilien – Startseite</title>
-  <meta name="description" content="Exklusive Immobilienangebote an der Côte d’Azur für deutschsprachige Kunden." />
-  <meta name="keywords" content="Immobilien, Côte d’Azur, Haus kaufen, Haus verkaufen, Bewertung" />
-  <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
-  <link rel="alternate icon" href="images/favicon.ico" type="image/x-icon" />
-  <link rel="icon" href="images/favicon.png" type="image/png" />
+  <meta name="description" content="Exklusive Immobilienangebote an der Côte d’Azur für deutschsprachige Kunden aus Deutschland und der Schweiz." />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <!-- Skip-Link for Accessibility -->
-  <a href="#maincontent" class="skip-link">Zum Hauptinhalt springen</a>
+  <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
 
-  <!-- New Semantic, Sticky Header -->
-  <header role="banner" class="site-header">
+  <header class="site-header">
     <div class="header-container">
-      <!-- Brand / Logo -->
-      <div class="brand">
+      <div class="brand home-brand">
         <a href="index.html">
           <img src="images/favicon.svg" alt="Côte d’Azur Immobilien Logo" class="logo-img" />
-          <span class="logo-text">Côte d’Azur Immobilien</span>
+          <span class="logo-text shimmer">Côte d’Azur Immobilien</span>
         </a>
       </div>
-
-      <!-- Hamburger Toggle -->
-      <button
-        class="hamburger"
-        id="hamburger"
-        aria-label="Menü öffnen"
-        aria-expanded="false"
-      >
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
+      <button class="hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </button>
-
-      <!-- Navigation -->
-      <nav id="navMenu" class="navigation" aria-label="Hauptnavigation">
-        <ul class="nav-list">
-          <li><a href="index.html" aria-current="page">Startseite</a></li>
+      <nav class="navigation" aria-label="Hauptnavigation">
+        <ul id="nav-links" class="nav-list">
           <li><a href="buy.html">Haus kaufen</a></li>
           <li><a href="sell.html">Haus verkaufen</a></li>
           <li><a href="services.html">Dienstleistungen</a></li>
-          <li><a href="valuation.html">Kostenlose Bewertung</a></li>
+          <li><a href="valuation.html">Wertermittlung</a></li>
           <li><a href="contact.html" class="cta-button">Kontakt</a></li>
           <li><a href="about.html">Über uns</a></li>
         </ul>
@@ -53,84 +34,81 @@
     </div>
   </header>
 
-  <!-- Main Content -->
-  <main id="maincontent">
+  <main id="main-content">
     <!-- Hero Slider -->
     <section id="hero">
-      <div class="slider" aria-label="Kategorien-Slider">
-        <div class="slides">
-          <a href="sell.html">
-            <div class="slide" data-category="Haus verkaufen">
-              <img src="images/slider/slide1.jpg" alt="Haus verkaufen" loading="lazy" />
-              <div class="slide-description">
-                <h2>Haus verkaufen</h2>
-                <p>Verkaufen Sie Ihre Immobilie schnell und sicher.</p>
-              </div>
-            </div>
-          </a>
-          <a href="buy.html">
-            <div class="slide" data-category="Haus kaufen">
-              <img src="images/slider/slide2.jpg" alt="Haus kaufen" loading="lazy" />
-              <div class="slide-description">
-                <h2>Haus kaufen</h2>
-                <p>Finden Sie Ihr Traumhaus an der Côte d’Azur.</p>
-              </div>
-            </div>
-          </a>
-          <a href="services.html">
-            <div class="slide" data-category="Dienstleistungen">
-              <img src="images/slider/slide3.jpg" alt="Dienstleistungen" loading="lazy" />
-              <div class="slide-description">
-                <h2>Dienstleistungen</h2>
-                <p>Rundum-sorglos-Service für Ihre Immobilie.</p>
-              </div>
-            </div>
-          </a>
+      <div class="slides">
+        <div class="slide">
+          <img src="images/slider1.jpg" alt="Haus verkaufen" loading="lazy" />
+          <div class="slide-description">
+            <h2>Haus verkaufen</h2>
+            <p>Verkaufen Sie Ihre Immobilie schnell und sicher.</p>
+          </div>
         </div>
-        <button class="prev" aria-label="Vorherige Kategorie">&#10094;</button>
-        <button class="next" aria-label="Nächste Kategorie">&#10095;</button>
-        <div class="slider-dots">
-          <span class="dot active" data-index="0"></span>
-          <span class="dot" data-index="1"></span>
-          <span class="dot" data-index="2"></span>
+        <div class="slide">
+          <img src="images/slider2.jpg" alt="Haus kaufen" loading="lazy" />
+          <div class="slide-description">
+            <h2>Haus kaufen</h2>
+            <p>Finden Sie Ihr Traumhaus an der Côte d’Azur.</p>
+          </div>
         </div>
+        <div class="slide">
+          <img src="images/slider3.jpg" alt="Dienstleistungen" loading="lazy" />
+          <div class="slide-description">
+            <h2>Dienstleistungen</h2>
+            <p>Rundum-sorglos-Service für Ihre Immobilie.</p>
+          </div>
+        </div>
+      </div>
+      <button class="prev" aria-label="Vorherige Folie">&#10094;</button>
+      <button class="next" aria-label="Nächste Folie">&#10095;</button>
+      <div class="slider-dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </section>
+
+    <!-- Welcome Section -->
+    <section id="welcome">
+      <div class="content-container">
+        <h2>Ihr deutschsprachiger Partner an der Côte d’Azur</h2>
+        <p>Als erfahrene Makler an der französischen Riviera unterstützen wir deutsche und schweizer Immobilienkäufer sowie Verkäufer. Wir begleiten Sie persönlich – von der Erstbesichtigung bis zum Notartermin; viele Schritte können Sie bequem aus der Schweiz erledigen.</p>
       </div>
     </section>
 
     <!-- Featured Properties -->
     <section id="featured-properties">
       <div class="content-container">
-        <h2>Exklusive Angebote</h2>
-        <div class="property-list">
+        <h2>Unsere Featured-Immobilien</h2>
+        <div class="properties">
           <div class="property">
-            <img src="images/house1.jpg" alt="Luxusvilla in Saint Tropez" />
+            <img src="images/house1.jpg" alt="Luxusvilla in Saint Tropez" loading="lazy" />
             <h3>Luxusvilla in Saint Tropez</h3>
-            <p>€2.500.000</p>
-            <button onclick="showContactPopup('Luxusvilla in Saint Tropez')">Mehr erfahren</button>
+            <p>Preis auf Anfrage</p>
+            <button data-property="Luxusvilla in Saint Tropez" class="property-button">Mehr erfahren</button>
           </div>
           <div class="property">
-            <img src="images/house2.jpg" alt="Charmantes Haus in Nizza" />
+            <img src="images/house2.jpg" alt="Charmantes Haus in Nizza" loading="lazy" />
             <h3>Charmantes Haus in Nizza</h3>
             <p>€1.200.000</p>
-            <button onclick="showContactPopup('Charmantes Haus in Nizza')">Mehr erfahren</button>
+            <button data-property="Charmantes Haus in Nizza" class="property-button">Mehr erfahren</button>
           </div>
           <div class="property">
-            <img src="images/house3.jpg" alt="Moderne Wohnung in Cannes" />
+            <img src="images/house3.jpg" alt="Moderne Wohnung in Cannes" loading="lazy" />
             <h3>Moderne Wohnung in Cannes</h3>
             <p>€850.000</p>
-            <button onclick="showContactPopup('Moderne Wohnung in Cannes')">Mehr erfahren</button>
+            <button data-property="Moderne Wohnung in Cannes" class="property-button">Mehr erfahren</button>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- WhatsApp Button -->
-  <a href="https://wa.me/0033781717466" class="whatsapp-btn" target="_blank">
+  <a href="https://wa.me/0033781717466" class="whatsapp-btn" target="_blank" rel="noopener">
     <img src="images/whatsapp-icon.png" alt="WhatsApp" />
   </a>
 
-  <!-- Footer -->
   <footer>
     <div class="footer-container">
       <p>&copy; 2025 Côte d’Azur Immobilien – Alle Rechte vorbehalten</p>
@@ -141,6 +119,6 @@
     </div>
   </footer>
 
-  <script defer src="js/script.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>

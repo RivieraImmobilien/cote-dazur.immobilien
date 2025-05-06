@@ -1,58 +1,56 @@
-// Redirect helper for "Mehr erfahren" buttons
-function showContactPopup(property) {
-  window.location.href = 'contact.html?property=' + encodeURIComponent(property);
-}
-
 document.addEventListener("DOMContentLoaded", () => {
-  // Hamburger toggle
+  // Hamburger Toggle
   const hamburger = document.getElementById("hamburger");
-  const nav       = document.querySelector("nav");
-  hamburger.addEventListener("click", () => {
-    const isOpen = hamburger.getAttribute("aria-expanded") === "true";
-    hamburger.setAttribute("aria-expanded", String(!isOpen));
-    hamburger.setAttribute("aria-label", isOpen ? "Menü öffnen" : "Menü schließen");
-    nav.classList.toggle("show");
-  });
-
-  // Close mobile nav on link click
-  document.querySelectorAll("nav ul li a").forEach(link => {
-    link.addEventListener("click", () => {
-      if (nav.classList.contains("show")) hamburger.click();
+  const navLinks  = document.getElementById("nav-links");
+  if (hamburger && navLinks) {
+    hamburger.addEventListener("click", () => {
+      const expanded = hamburger.getAttribute("aria-expanded") === "true";
+      hamburger.setAttribute("aria-expanded", String(!expanded));
+      hamburger.setAttribute("aria-label", expanded ? "Menü öffnen" : "Menü schließen");
+      navLinks.classList.toggle("show");
     });
-  });
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        if (navLinks.classList.contains("show")) hamburger.click();
+      });
+    });
+  }
 
-  // Slider initialization
-  const slider = document.querySelector(".slider");
-  if (slider) {
-    const slidesContainer = slider.querySelector(".slides");
-    const slides          = slider.querySelectorAll(".slide");
-    const dots            = slider.querySelectorAll(".dot");
-    const prevBtn         = slider.querySelector(".prev");
-    const nextBtn         = slider.querySelector(".next");
-    let index = 0, timeout;
-    const durations = [2500, 2500, 1000];
+  // Hero Slider
+  const slidesContainer = document.querySelector(".slides");
+  const slides          = document.querySelectorAll(".slide");
+  const prevBtn         = document.querySelector(".prev");
+  const nextBtn         = document.querySelector(".next");
+  const dots            = document.querySelectorAll(".slider-dots .dot");
+  let index = 0, interval, startX = 0;
 
-    function show(i) {
-      index = (i + slides.length) % slides.length;
-      slidesContainer.style.transform = `translateX(-${index * 100}vw)`;
-      dots.forEach((d, idx) => d.classList.toggle("active", idx === index));
-      clearTimeout(timeout);
-      timeout = setTimeout(() => show(index + 1), durations[index]);
-    }
+  function show(i) {
+    index = (i + slides.length) % slides.length;
+    slidesContainer.style.transform = `translateX(-${index * 100}vw)`;
+    dots.forEach((d, idx) => d.classList.toggle("active", idx === index));
+  }
+  function start() { interval = setInterval(() => show(index + 1), 3000); }
+  function stop() { clearInterval(interval); }
 
-    prevBtn && prevBtn.addEventListener("click", () => show(index - 1));
-    nextBtn && nextBtn.addEventListener("click", () => show(index + 1));
-    dots.forEach((d, idx) => d.addEventListener("click", () => show(idx)));
-
-    // Swipe support
-    let startX = 0;
-    slider.addEventListener("touchstart", e => startX = e.changedTouches[0].screenX);
-    slider.addEventListener("touchend", e => {
+  if (slides.length) {
+    dots.forEach((d, idx) => d.addEventListener("click", () => { show(idx); stop(); start(); }));
+    prevBtn && prevBtn.addEventListener("click", () => { show(index - 1); stop(); start(); });
+    nextBtn && nextBtn.addEventListener("click", () => { show(index + 1); stop(); start(); });
+    slidesContainer.addEventListener("touchstart", e => { stop(); startX = e.changedTouches[0].screenX; });
+    slidesContainer.addEventListener("touchend", e => {
       const endX = e.changedTouches[0].screenX;
       if (endX < startX - 50) show(index + 1);
       if (endX > startX + 50) show(index - 1);
+      start();
     });
-
-    show(0);
+    show(0); start();
   }
+
+  // "Mehr erfahren" Buttons
+  document.querySelectorAll(".property-button, .property button").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const prop = btn.getAttribute("data-property") || btn.textContent;
+      window.location.href = `contact.html?property=${encodeURIComponent(prop)}`;
+    });
+  });
 });
