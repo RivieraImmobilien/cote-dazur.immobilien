@@ -37,77 +37,112 @@ a { text-decoration: none; color: inherit; }
 @keyframes shimmer { 0% { background-position:-300% 0; } 100% { background-position:300% 0; } }
 
 /* Navigation */
-.nav-list { list-style:none; display:flex; gap:1.5rem; }
-.nav-list li a { color:#fff; font-weight:bold; }
+.nav-list { list-style: none; display: flex; gap: 1.5rem; }
+.nav-list li a {
+  color: #fff; font-weight: bold;
+}
 .nav-list li a:hover,
-.nav-list li a.active { color:#18bc9c; }
-.cta-button { background:#009688; color:#fff; padding:8px 16px; border-radius:4px; }
-.cta-button:hover { background:#00796b; }
+.nav-list li a.active {
+  color: #18bc9c;
+}
+.cta-button {
+  background: #009688; color: #fff;
+  padding: 8px 16px; border-radius: 4px;
+}
+.cta-button:hover { background: #00796b; }
 
 /* Hamburger */
 .hamburger {
-  display:none; flex-direction:column; justify-content:space-between;
-  width:32px; height:28px; background:none; border:none; cursor:pointer;
+  display: none; flex-direction: column;
+  justify-content: space-between; width: 32px; height: 28px;
+  background: none; border: none; cursor: pointer;
 }
-.hamburger .bar { flex:1; background:#fff; border-radius:2px; transition:transform .3s; }
-.hamburger[aria-expanded="true"] .bar:nth-child(1) { transform: translateY(10px) rotate(45deg); }
-.hamburger[aria-expanded="true"] .bar:nth-child(2) { opacity:0; }
-.hamburger[aria-expanded="true"] .bar:nth-child(3) { transform: translateY(-10px) rotate(-45deg); }
+.hamburger .bar {
+  flex: 1; background: #fff; border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+.hamburger[aria-expanded="true"] .bar:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+}
+.hamburger[aria-expanded="true"] .bar:nth-child(2) { opacity: 0; }
+.hamburger[aria-expanded="true"] .bar:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
+}
 
 /* === Hero Slider === */
-#hero { position:relative; overflow:hidden; }
-.slides { display:flex; transition:transform .5s ease-in-out; width:300vw; }
-.slide { width:100vw; position:relative; }
-.slide img { width:100%; height:auto; }
+#hero { position: relative; overflow: hidden; }
+.slides {
+  display: flex; transition: transform 0.5s ease-in-out;
+  width: 300vw; /* exactly 3 slides */
+}
+.slide { width: 100vw; position: relative; }
+.slide img { width: 100%; height: auto; }
 .slide-description {
-  position:absolute; bottom:20px; left:20px;
-  background:rgba(0,0,0,0.6); color:#fff; padding:10px; border-radius:5px;
+  position: absolute; bottom: 20px; left: 20px;
+  background: rgba(0,0,0,0.6); color: #fff;
+  padding: 10px; border-radius: 5px;
 }
 .prev, .next {
-  position:absolute; top:50%; transform:translateY(-50%);
-  background:rgba(0,0,0,0.5); color:#fff; border:none;
-  font-size:2rem; padding:10px; cursor:pointer; z-index:10;
+  position: absolute; top: 50%; transform: translateY(-50%);
+  background: rgba(0,0,0,0.5); color: #fff;
+  border: none; font-size: 2rem; padding: 10px; cursor: pointer;
+  z-index: 10;
 }
-.prev { left:20px; } .next { right:20px; }
-.prev:hover, .next:hover { background:rgba(0,0,0,0.8); }
+.prev { left: 20px; } .next { right: 20px; }
+.prev:hover, .next:hover { background: rgba(0,0,0,0.8); }
 .slider-dots {
-  position:absolute; bottom:15px; left:50%; transform:translateX(-50%);
+  position: absolute; bottom: 15px; left: 50%;
+  transform: translateX(-50%);
 }
 .slider-dots .dot {
-  display:inline-block; width:12px; height:12px; margin:0 5px;
-  background:#bbb; border-radius:50%; cursor:pointer;
+  display: inline-block; width: 12px; height: 12px;
+  margin: 0 5px; background: #bbb; border-radius: 50%;
+  cursor: pointer; transition: background-color 0.3s;
 }
-.slider-dots .dot.active { background:#717171; }
+.slider-dots .dot.active { background: #717171; }
 
 /* === Content Sections === */
-.content-container { max-width:1200px; margin:auto; padding:40px 20px; }
-.properties { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
-.property {
-  background:#fff; border-radius:5px; overflow:hidden;
-  flex:1 1 300px; box-shadow:0 2px 5px rgba(0,0,0,0.1); text-align:center;
+.content-container {
+  max-width: 1200px; margin: auto; padding: 40px 20px;
 }
-.property img { width:100%; height:auto; }
-.property h3 { margin:15px 0 5px; } .property p { margin-bottom:10px; }
+.properties {
+  display: flex; flex-wrap: wrap; gap: 20px;
+  justify-content: center;
+}
+.property {
+  background: #fff; border-radius: 5px; overflow: hidden;
+  flex: 1 1 300px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  text-align: center;
+}
+.property img { width: 100%; height: auto; }
+.property h3, .property p { margin: 10px; }
 
 /* === Buttons & Forms === */
 .property-button,
 form button {
-  background:#18bc9c; color:#fff; padding:10px 20px;
-  border:none; border-radius:5px; cursor:pointer; transition:background .3s;
+  background: #18bc9c; color: #fff;
+  padding: 10px 20px; border: none; border-radius: 5px;
+  cursor: pointer; transition: background 0.3s;
 }
 .property-button:hover,
-form button:hover { background:#e74c3c; }
+form button:hover { background: #e74c3c; }
 
 /* === Footer & WhatsApp === */
-footer { background:#2c3e50; color:#fff; text-align:center; padding:20px 0; }
-.social-share img { width:24px; margin:0 5px; }
-.whatsapp-btn { position:fixed; bottom:20px; right:20px; width:50px; height:50px; }
+footer {
+  background: #2c3e50; color: #fff; text-align: center;
+  padding: 20px 0; margin-top: 40px;
+}
+.social-share img { width: 24px; margin: 0 5px; }
+.whatsapp-btn {
+  position: fixed; bottom: 20px; right: 20px;
+  width: 50px; height: 50px; z-index: 1000;
+}
 
 /* === Responsive === */
-@media (max-width:768px) {
-  .hamburger { display:flex; }
-  .nav-list { display:none; flex-direction:column; width:100%; text-align:center; }
-  .nav-list.show { display:flex; }
-  .properties { flex-direction:column; }
-  .slides { width:300vw; }
+@media (max-width: 768px) {
+  .hamburger { display: flex; }
+  .nav-list { display: none; flex-direction: column; width: 100%; text-align: center; }
+  .nav-list.show { display: flex; }
+  .properties { flex-direction: column; }
+  .slides { width: 300vw; }
 }
