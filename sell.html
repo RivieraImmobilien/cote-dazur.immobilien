@@ -4,76 +4,61 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Côte d’Azur Immobilien – Haus verkaufen</title>
-  <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
-  <link rel="alternate icon" href="images/favicon.ico" type="image/x-icon" />
-  <link rel="icon" href="images/favicon.png" type="image/png" />
+  <meta name="description" content="Verkaufen Sie Ihre Immobilie an der Côte d’Azur mit unserem deutschsprachigen Service für Deutschland und die Schweiz." />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <header>
+  <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
+  <header class="site-header">
     <div class="header-container">
-      <div class="logo"><a href="index.html">Côte d’Azur Immobilien</a></div>
-      <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
+      <div class="brand">
+        <a href="index.html">
+          <img src="images/favicon.svg" alt="Logo" class="logo-img" />
+        </a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false">
         <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </button>
-      <nav id="navMenu">
-        <ul id="nav-links">
-          <li><a href="sell.html" class="active">Haus verkaufen</a></li>
+      <nav class="navigation" aria-label="Hauptnavigation">
+        <ul id="nav-links" class="nav-list">
           <li><a href="buy.html">Haus kaufen</a></li>
-          <li><a href="valuation.html">Kostenlose Bewertung</a></li>
+          <li><a href="sell.html" class="active">Haus verkaufen</a></li>
           <li><a href="services.html">Dienstleistungen</a></li>
+          <li><a href="valuation.html">Wertermittlung</a></li>
+          <li><a href="contact.html">Kontakt</a></li>
           <li><a href="about.html">Über uns</a></li>
         </ul>
       </nav>
     </div>
   </header>
-
-  <main>
-    <h1>Haus verkaufen</h1>
-    <section id="content">
-      <div class="content-container">
-        <p>Beispiele verkaufter Immobilien an der Côte d’Azur.</p>
-        <div class="small-slider">
-          <div class="small-slides">
-            <img src="images/house1.jpg" alt="Verkauft 1" loading="lazy" onclick="window.location.href='contact.html?property=verkauft1'" />
-            <img src="images/house2.jpg" alt="Verkauft 2" loading="lazy" onclick="window.location.href='contact.html?property=verkauft2'" />
-            <img src="images/house3.jpg" alt="Verkauft 3" loading="lazy" onclick="window.location.href='contact.html?property=verkauft3'" />
-          </div>
+  <main id="main-content">
+    <section class="content-container">
+      <h1>Haus verkaufen</h1>
+      <p>Unser deutschsprachiges Team begleitet Sie sicher durch den Verkaufsprozess – von der Wertermittlung bis zur Schlüsselübergabe. Vertrauen Sie unserer Expertise an der Côte d’Azur.</p>
+      <div class="properties">
+        <div class="property">
+          <img src="images/house1.jpg" alt="Verkaufte Villa Saint Tropez" loading="lazy" />
+          <h3>Verkaufte Villa in Saint Tropez</h3>
         </div>
-      </div>
-    </section>
-
-    <section id="properties">
-      <div class="content-container">
-        <h2>Weitere Angebote</h2>
-        <div class="property-grid">
-          <div class="property">
-            <img src="images/house1.jpg" alt="Haus Beispiel 1" />
-            <h3>Beispielhaus 1</h3>
-            <p>Kurze Beschreibung der Immobilie.</p>
-            <a href="contact.html?property=beispiel1" class="btn">Mehr erfahren</a>
-          </div>
-          <div class="property">
-            <img src="images/house2.jpg" alt="Haus Beispiel 2" />
-            <h3>Beispielhaus 2</h3>
-            <p>Kurze Beschreibung der Immobilie.</p>
-            <a href="contact.html?property=beispiel2" class="btn">Mehr erfahren</a>
-          </div>
-          <div class="property">
-            <img src="images/house3.jpg" alt="Haus Beispiel 3" />
-            <h3>Beispielhaus 3</h3>
-            <p>Kurze Beschreibung der Immobilie.</p>
-            <a href="contact.html?property=beispiel3" class="btn">Mehr erfahren</a>
-          </div>
+        <div class="property">
+          <img src="images/house2.jpg" alt="Verkauftes Haus in Nizza" loading="lazy" />
+          <h3>Verkauftes Haus in Nizza</h3>
+        </div>
+        <div class="property">
+          <img src="images/house3.jpg" alt="Verkaufte Wohnung in Cannes" loading="lazy" />
+          <h3>Verkaufte Wohnung in Cannes</h3>
         </div>
       </div>
     </section>
   </main>
-
+  <a href="https://wa.me/0033781717466" class="whatsapp-btn" target="_blank" rel="noopener">
+    <img src="images/whatsapp-icon.png" alt="WhatsApp" />
+  </a>
   <footer>
     <div class="footer-container">
-      <p>&copy; 2025 Côte d’Azur Immobilien – Alle Rechte vorbehalten.</p>
+      <p>&copy; 2025 Côte d’Azur Immobilien – Alle Rechte vorbehalten</p>
     </div>
   </footer>
+  <script src="js/script.js"></script>
 </body>
 </html>
